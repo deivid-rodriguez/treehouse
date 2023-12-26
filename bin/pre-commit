@@ -158,7 +158,7 @@ fi
 
 # lint_run 'Hadolint' 'in_path hadolint' 'brew install hadolint' hadolint Dockerfile
 # lint_run 'JSON Schema' 'in_path v8r' 'npm install -g v8r' bash -c 'v8r 2> /dev/null'
-# lint_run 'Rubocop' 'bundle check > /dev/null' 'bundle install' env BUNDLE_GEMFILE="${ROOT}/Gemfile" bundle exec rubocop --format quiet
+lint_run 'Rubocop' 'bundle check > /dev/null' 'bundle install' env BUNDLE_GEMFILE="${ROOT}/Gemfile" bundle exec rubocop --format quiet
 # lint_run 'ShellCheck' 'in_path shellcheck' 'brew install shellcheck' bash -c "\
 #   { \
 #     find . \
