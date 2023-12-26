@@ -1,0 +1,90 @@
+---
+name: Test
+"on": push
+
+permissions:
+  contents: read
+
+env:
+  APP_EMAIL_FROM: test@example.com
+  DATABASE_URL: postgresql://postgres:postgres@localhost:5432
+  SELENIUM_DRIVER_URL: http://localhost:4444/wd/hub
+  TEST_PORT: 4000
+
+jobs:
+  bundler:
+    name: Bundler
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+  # rspec:
+  #   name: RSpec
+  #   needs: bundler
+  #   runs-on: ubuntu-latest
+  #   services:
+  #     db:
+  #       image: postgres:16-alpine
+  #       env:
+  #         POSTGRES_PASSWORD: postgres
+  #       ports:
+  #         - 5432:5432/tcp
+  #       options: >-
+  #         --health-cmd pg_isready
+  #         --health-interval 10s
+  #         --health-timeout 5s
+  #         --health-retries 5
+  #     selenium:
+  #       image: selenium/standalone-chrome:4
+  #       ports:
+  #         - 4444:4444/tcp
+  #       options: >-
+  #         --shm-size 2gb
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Determine TEST_HOST
+  #       run: |
+  #         echo "TEST_HOST=$(docker network inspect bridge \
+  #           --format='{{( index .IPAM.Config 0).Gateway}}')" \
+  #           | tee -a "${GITHUB_ENV}"
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version-file: .node-version
+  #         cache: yarn
+  #         cache-dependency-path: yarn.lock
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         bundler-cache: true
+  #     - run: bin/rails assets:precompile
+  #     - run: bin/rails db:reset RAILS_ENV=test
+  #     - run: bin/rspec
+
+  rubocop:
+    name: Rubocop
+    needs: bundler
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Set up rubocop
+        run: |
+          echo "::add-matcher::.github/matchers/rubocop.json"
+      - run: bundle exec rubocop
+
+  # sorbet:
+  #   name: Sorbet
+  #   needs: bundler
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         bundler-cache: true
+  #     - run: bin/srb typecheck
