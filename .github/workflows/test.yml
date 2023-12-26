@@ -78,13 +78,13 @@ jobs:
           echo "::add-matcher::.github/matchers/rubocop.json"
       - run: bundle exec rubocop
 
-  # sorbet:
-  #   name: Sorbet
-  #   needs: bundler
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ruby/setup-ruby@v1
-  #       with:
-  #         bundler-cache: true
-  #     - run: bin/srb typecheck
+#   sorbet:
+#     name: Sorbet
+#     needs: bundler
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: ruby/setup-ruby@v1
+#         with:
+#           bundler-cache: true
+#       - run: bin/srb typecheck

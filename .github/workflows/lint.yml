@@ -55,14 +55,14 @@ jobs:
   #     - uses: actions/checkout@v4
   #     - uses: hadolint/hadolint-action@v3.1.0
 
-  # json-schema:
-  #   name: JSON Schema
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 1
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - run: npm install -g v8r
-  #     - run: v8r
+  json-schema:
+    name: JSON Schema
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install -g v8r
+      - run: v8r
 
   # stylelint:
   #   name: Stylelint
@@ -77,13 +77,13 @@ jobs:
   #         echo "::add-matcher::.github/matchers/stylelint.json"
   #     - run: stylelint "**/*.css" "**/*.scss"
 
-  # shellcheck:
-  #   name: ShellCheck
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 1
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ludeeus/action-shellcheck@2.0.0
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ludeeus/action-shellcheck@2.0.0
 
   # tapioca-annotations:
   #   name: Tapioca annotations
@@ -147,10 +147,10 @@ jobs:
   #           ':!/sorbet/rbi/gems/reline@*.rbi' \
   #           ':!sorbet/rbi/gems/rubocop@*.rbi'
 
-  # yamllint:
-  #   name: YAMLlint
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 1
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ibiqlik/action-yamllint@v3
+  yamllint:
+    name: YAMLlint
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ibiqlik/action-yamllint@v3

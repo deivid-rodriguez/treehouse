@@ -157,53 +157,53 @@ else
 fi
 
 # lint_run 'Hadolint' 'in_path hadolint' 'brew install hadolint' hadolint Dockerfile
-# lint_run 'JSON Schema' 'in_path v8r' 'npm install -g v8r' bash -c 'v8r 2> /dev/null'
+lint_run 'JSON Schema' 'in_path v8r' 'npm install -g v8r' bash -c 'v8r 2> /dev/null'
 lint_run 'Rubocop' 'bundle check > /dev/null' 'bundle install' env BUNDLE_GEMFILE="${ROOT}/Gemfile" bundle exec rubocop --format quiet
-# lint_run 'ShellCheck' 'in_path shellcheck' 'brew install shellcheck' bash -c "\
-#   { \
-#     find . \
-#       -type f \
-#       '(' \
-#         -name '*.bash' \
-#         -o -name '.bashrc' \
-#         -o -name 'bashrc' \
-#         -o -name '.bash_aliases' \
-#         -o -name '.bash_completion' \
-#         -o -name '.bash_login' \
-#         -o -name '.bash_logout' \
-#         -o -name '.bash_profile' \
-#         -o -name 'bash_profile' \
-#         -o -name '*.ksh' \
-#         -o -name 'suid_profile' \
-#         -o -name '*.zsh' \
-#         -o -name '.zlogin' \
-#         -o -name 'zlogin' \
-#         -o -name '.zlogout' \
-#         -o -name 'zlogout' \
-#         -o -name '.zprofile' \
-#         -o -name 'zprofile' \
-#         -o -name '.zsenv' \
-#         -o -name 'zsenv' \
-#         -o -name '.zshrc' \
-#         -o -name 'zshrc' \
-#         -o -name '*.sh' \
-#         -o -path '*/.profile' \
-#         -o -path '*/profile' \
-#         -o -name '*.shlib' \
-#       ')' \
-#       ; \
-#     grep \
-#       --extended-regexp \
-#       --files-with-matches \
-#       --recursive \
-#       '#!/bin/(ba)?sh' \
-#       bin \
-#   ; } \
-#   | xargs shellcheck"
+lint_run 'ShellCheck' 'in_path shellcheck' 'brew install shellcheck' bash -c "\
+  { \
+    find . \
+      -type f \
+      '(' \
+        -name '*.bash' \
+        -o -name '.bashrc' \
+        -o -name 'bashrc' \
+        -o -name '.bash_aliases' \
+        -o -name '.bash_completion' \
+        -o -name '.bash_login' \
+        -o -name '.bash_logout' \
+        -o -name '.bash_profile' \
+        -o -name 'bash_profile' \
+        -o -name '*.ksh' \
+        -o -name 'suid_profile' \
+        -o -name '*.zsh' \
+        -o -name '.zlogin' \
+        -o -name 'zlogin' \
+        -o -name '.zlogout' \
+        -o -name 'zlogout' \
+        -o -name '.zprofile' \
+        -o -name 'zprofile' \
+        -o -name '.zsenv' \
+        -o -name 'zsenv' \
+        -o -name '.zshrc' \
+        -o -name 'zshrc' \
+        -o -name '*.sh' \
+        -o -path '*/.profile' \
+        -o -path '*/profile' \
+        -o -name '*.shlib' \
+      ')' \
+      ; \
+    grep \
+      --extended-regexp \
+      --files-with-matches \
+      --recursive \
+      '#!/bin/(ba)?sh' \
+      bin \
+  ; } \
+  | xargs shellcheck"
 # lint_run 'Sorbet' 'bundle check > /dev/null' 'bundle install' env BUNDLE_GEMFILE="${ROOT}/Gemfile" bin/srb typecheck
 # lint_run 'Stylelint' 'in_path stylelint' 'npm install -g stylelint stylelint-config-standard-scss' \
 #   stylelint '**/*.css' '**/*.scss'
-# lint_run 'YAMLlint' 'in_path yamllint' 'brew install yamllint' yamllint --config-file "${WORKING_DIRECTORY}/.yamllint.yml" .
+lint_run 'YAMLlint' 'in_path yamllint' 'brew install yamllint' yamllint --config-file "${WORKING_DIRECTORY}/.yamllint.yml" .
 
 if [[ "${#FAILURES[@]}" -ne 0 ]]; then
   if [[ ${#FAILURES[@]} -eq 1 ]]; then
