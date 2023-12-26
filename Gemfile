@@ -7,3 +7,4 @@ ruby "~> #{File.read(File.expand_path('.ruby-version', __dir__)).strip}"
 
 gem 'rake', '~> 13.1'
 gem 'rubocop', '~> 1.59', require: false
+gem 'rubocop-rake', require: false
