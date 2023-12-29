@@ -14,3 +14,7 @@ require: rubocop-rake
 AllCops:
   # Opt-in to new cops by default
   NewCops: enable
+
+Metrics/BlockLength:
+  AllowedMethods:
+    - namespace
