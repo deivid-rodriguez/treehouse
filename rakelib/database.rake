@@ -41,6 +41,7 @@ db_namespace = namespace :db do
 
     ActiveRecord::Migrator.migrations_paths = ActiveRecord::Tasks::DatabaseTasks.migrations_paths
     ActiveRecord::Base.establish_connection
+    Que.connection = ActiveRecord
   end
 
   namespace :create do
