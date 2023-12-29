@@ -14,7 +14,14 @@ require: rubocop-rake
 AllCops:
   # Opt-in to new cops by default
   NewCops: enable
+  Exclude:
+    - "db/schema.rb"
+    - "vendor/**/*"
 
 Metrics/BlockLength:
   AllowedMethods:
     - namespace
+
+Rake/Desc:
+  Exclude:
+    - rakelib/database.rake
