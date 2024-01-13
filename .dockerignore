@@ -3,8 +3,8 @@
 # Ignore git directory.
 /.git/
 
-# Ignore bundler config.
-/.bundle
+# Ignore local bundle.
+/vendor/bundle
 
 # Ignore all environment files (except templates).
 /.env*
