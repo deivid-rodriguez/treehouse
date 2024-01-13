@@ -9,7 +9,10 @@ services:
     ports:
       - "127.0.0.1:5432:5432/tcp"
   app:
+    command: ["/usr/local/bundle/bin/foreman", "start", "-f", "Procfile.dev"]
     environment:
       - EDITOR
+    ports:
+      - "127.0.0.1:3036:3036/tcp"
     volumes:
       - .:/app:cached
