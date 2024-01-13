@@ -4,9 +4,6 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-# Ignore bundler config.
-/.bundle
-
 # Ignore all environment files (except templates).
 /.env*
 !/.env*.erb
@@ -33,3 +30,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Allow local overrides to Docker Compose configuration.
+/docker-compose.override.yml
+
+# Keep local for the IDE to find source code of dependencies.
+/vendor/bundle/
