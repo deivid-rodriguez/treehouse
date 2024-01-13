@@ -10,14 +10,14 @@ gem 'que', '~> 2.0'
 gem 'rake', '~> 13.1'
 
 # Only some parts of Rails are loaded
-gem 'activesupport', '~> 7.1'
 gem 'actionpack', '~> 7.1'
 gem 'actionview', '~> 7.1'
 gem 'activemodel', '~> 7.1'
 gem 'activerecord', '~> 7.1'
+gem 'activesupport', '~> 7.1'
 # gem 'actionmailer', '~> 7.1'
-gem 'activejob', '~> 7.1'
 gem 'actioncable', '~> 7.1'
+gem 'activejob', '~> 7.1'
 gem 'activestorage', '~> 7.1'
 # gem 'actionmailbox', '~> 7.1'
 # gem 'actiontext', '~> 7.1'
@@ -52,7 +52,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[ mri windows ]
+  gem 'debug', platforms: %i[mri windows]
 
   gem 'rubocop', '~> 1.59', require: false
   gem 'rubocop-rake', require: false
