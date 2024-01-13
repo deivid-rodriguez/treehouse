@@ -121,10 +121,8 @@ RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/
     yarn='1.*' \
   && gem update --system \
   && if [[ -d '/usr/local/bundle/cache' ]]; then find '/usr/local/bundle/cache' -name '*.gem' -delete; fi \
-  && rm -rf /root/.local/share/gem/specs \
-  && apt-get remove --autoremove --purge --assume-yes --quiet \
-    perl \
   && rm -rf \
+    /root/.local/share/gem/specs \
     /var/log/*.log \
     /var/log/apt/*.log
 
@@ -156,7 +154,9 @@ COPY --chown=ruby:ruby vendor/cache/*.gem ./vendor/cache/
 
 RUN bundle install --local --verbose \
   && if [[ -d '/usr/local/bundle/cache' ]]; then find '/usr/local/bundle/cache' -name '*.gem' -delete; fi \
-  && rm /usr/local/bundle/gems/*/libexec/sorbet
+  && if compgen -G "/usr/local/bundle/gems/*/libexec/sorbet" > /dev/null; then \
+    rm /usr/local/bundle/gems/*/libexec/sorbet; \
+  fi
 
 
 ########################################
@@ -189,6 +189,7 @@ SHELL ["/bin/bash", "-euo", "pipefail", "-c"]
 COPY --from=rubygems "${GEM_HOME}" "${GEM_HOME}"
 COPY --from=app --chown=ruby:ruby /app /app
 
+RUN yarn install --frozen-lockfile --production --verbose && yarn cache clean
 RUN bundle exec bootsnap precompile --gemfile
 
 RUN env \

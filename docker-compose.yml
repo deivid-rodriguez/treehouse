@@ -2,19 +2,21 @@
 version: "3.9"
 services:
   app:
-    platform: "linux/amd64"
     build:
       context: .
       target: development
-    command: ["/bin/bash"]
+    command: ["/app/bin/rails", "server", "--binding", "0.0.0.0"]
     depends_on:
       - db
-    stop_grace_period: "3s"
     tty: true
+    stop_grace_period: "3s"
     environment:
-      - BUNDLE_PATH="/usr/local/bundle"
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/treehouse
       - TZ=Australia/Melbourne
+    ports:
+      - "127.0.0.1:3000:3000/tcp"
+    tmpfs:
+      - /app/tmp:mode=755,uid=1000,gid=1000
   db:
     image: postgres:16-alpine
     stop_grace_period: "3s"
