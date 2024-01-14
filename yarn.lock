@@ -675,7 +675,7 @@
   dependencies:
     "@unocss/core" "0.58.3"
 
-"@unocss/preset-typography@0.58.3":
+"@unocss/preset-typography@0.58.3", "@unocss/preset-typography@^0.58.3":
   version "0.58.3"
   resolved "https://registry.yarnpkg.com/@unocss/preset-typography/-/preset-typography-0.58.3.tgz#a9d2f4de6b246dc2e28f4d32ff535d7bcd2988c9"
   integrity sha512-hOQa2Sjkxo5v+jMwPXYv1MpHSrirf73FKPqwwHlvEUSCq9iweGDOU/MVOc5fI9qCg0SrfWhIvrZb4ASlgAuzWQ==
