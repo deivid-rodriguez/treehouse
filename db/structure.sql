@@ -333,6 +333,37 @@ ALTER SEQUENCE public.geocodes_id_seq OWNED BY public.geocodes.id;
 
 
 --
+-- Name: overpass_queries; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.overpass_queries (
+    id bigint NOT NULL,
+    facility_type character varying NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: overpass_queries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.overpass_queries_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: overpass_queries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.overpass_queries_id_seq OWNED BY public.overpass_queries.id;
+
+
+--
 -- Name: que_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -387,7 +418,8 @@ WITH (fillfactor='90');
 
 CREATE TABLE public.queries (
     id bigint NOT NULL,
-    type character varying NOT NULL,
+    queryable_type character varying NOT NULL,
+    queryable_id character varying NOT NULL,
     name text NOT NULL,
     description text,
     body text NOT NULL,
@@ -446,6 +478,13 @@ ALTER TABLE ONLY public.geocodes ALTER COLUMN id SET DEFAULT nextval('public.geo
 
 
 --
+-- Name: overpass_queries id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.overpass_queries ALTER COLUMN id SET DEFAULT nextval('public.overpass_queries_id_seq'::regclass);
+
+
+--
 -- Name: que_jobs id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -489,6 +528,14 @@ ALTER TABLE ONLY public.facility_geocodes
 
 ALTER TABLE ONLY public.geocodes
     ADD CONSTRAINT geocodes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: overpass_queries overpass_queries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.overpass_queries
+    ADD CONSTRAINT overpass_queries_pkey PRIMARY KEY (id);
 
 
 --
@@ -553,10 +600,10 @@ CREATE INDEX index_facility_geocodes_on_geocode_id ON public.facility_geocodes U
 
 
 --
--- Name: index_queries_on_type; Type: INDEX; Schema: public; Owner: -
+-- Name: index_queries_on_queryable_type_and_queryable_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_queries_on_type ON public.queries USING btree (type);
+CREATE UNIQUE INDEX index_queries_on_queryable_type_and_queryable_id ON public.queries USING btree (queryable_type, queryable_id);
 
 
 --
@@ -624,6 +671,7 @@ ALTER TABLE ONLY public.facility_geocodes
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240114152030'),
 ('20240114145319'),
 ('20240114144353'),
 ('20240114144122'),

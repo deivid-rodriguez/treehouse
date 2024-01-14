@@ -3,13 +3,15 @@
 class CreateQueries < ActiveRecord::Migration[7.1]
   def change
     create_table :queries do |t|
-      t.string :type, null: false
+      t.string :queryable_type, null: false
+      t.string :queryable_id, null: false
+
       t.text :name, null: false
       t.text :description
       t.text :body, null: false
 
       t.timestamps
     end
-    add_index :queries, :type
+    add_index :queries, %i[queryable_type queryable_id], unique: true
   end
 end

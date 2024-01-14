@@ -2,11 +2,8 @@
 
 # Represents a query of some external API
 class Query < ApplicationRecord
-  validates :type, :name, :body, presence: true
+  delegated_type :queryable, types: %w[Queries::Overpass]
+  accepts_nested_attributes_for :queryable
 
-  def self.types
-    [
-      ::Queries::Overpass,
-    ].freeze
-  end
+  validates :queryable, :name, :body, presence: true
 end
