@@ -33,3 +33,6 @@ Rake/Desc:
 Style/Documentation:
   Exclude:
     - "db/migrate/*.rb"
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
