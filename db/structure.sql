@@ -267,6 +267,40 @@ ALTER SEQUENCE public.facilities_id_seq OWNED BY public.facilities.id;
 
 
 --
+-- Name: geocodes; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.geocodes (
+    id bigint NOT NULL,
+    latitude double precision NOT NULL,
+    longitude double precision NOT NULL,
+    certainty integer,
+    address text NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: geocodes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.geocodes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: geocodes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.geocodes_id_seq OWNED BY public.geocodes.id;
+
+
+--
 -- Name: que_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -332,6 +366,13 @@ ALTER TABLE ONLY public.facilities ALTER COLUMN id SET DEFAULT nextval('public.f
 
 
 --
+-- Name: geocodes id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.geocodes ALTER COLUMN id SET DEFAULT nextval('public.geocodes_id_seq'::regclass);
+
+
+--
 -- Name: que_jobs id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -352,6 +393,14 @@ ALTER TABLE ONLY public.ar_internal_metadata
 
 ALTER TABLE ONLY public.facilities
     ADD CONSTRAINT facilities_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: geocodes geocodes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.geocodes
+    ADD CONSTRAINT geocodes_pkey PRIMARY KEY (id);
 
 
 --
@@ -442,6 +491,7 @@ CREATE TRIGGER que_state_notify AFTER INSERT OR DELETE OR UPDATE ON public.que_j
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240114144122'),
 ('20240114143824'),
 ('20231230035800'),
 ('0');
