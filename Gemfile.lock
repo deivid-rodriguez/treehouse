@@ -65,6 +65,10 @@ GEM
       ruby2_keywords
     dry-cli (1.0.0)
     erubi (1.12.0)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-net_http (3.1.0)
+      net-http
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -85,6 +89,8 @@ GEM
     minitest (5.21.1)
     msgpack (1.7.2)
     mutex_m (0.2.0)
+    net-http (0.4.1)
+      uri
     nio4r (2.7.0)
     nokogiri (1.16.0-aarch64-linux)
       racc (~> 1.4)
@@ -159,6 +165,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    uri (0.13.0)
     vite_rails (3.0.17)
       railties (>= 5.1, < 8)
       vite_ruby (~> 3.0, >= 3.2.2)
@@ -193,6 +200,7 @@ DEPENDENCIES
   activesupport (~> 7.1)
   bootsnap
   debug
+  faraday (~> 2.9)
   jbuilder
   pg (~> 1.1)
   puma (>= 5.0)

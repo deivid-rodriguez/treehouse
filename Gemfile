@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 # Use ruby version from ruby-version file
 ruby "~> #{File.read(File.expand_path('.ruby-version', __dir__)).strip}"
 
+gem 'faraday', '~> 2.9'
 gem 'que', '~> 2.0'
 gem 'rake', '~> 13.1'
 gem 'vite_rails', '~> 3.0'
