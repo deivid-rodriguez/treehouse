@@ -29,3 +29,7 @@ Metrics/BlockLength:
 Rake/Desc:
   Exclude:
     - rakelib/database.rake
+
+Style/Documentation:
+  Exclude:
+    - "db/migrate/*.rb"
