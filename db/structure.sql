@@ -382,6 +382,40 @@ WITH (fillfactor='90');
 
 
 --
+-- Name: queries; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.queries (
+    id bigint NOT NULL,
+    type character varying NOT NULL,
+    name text NOT NULL,
+    description text,
+    body text NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: queries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.queries_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: queries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.queries_id_seq OWNED BY public.queries.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -416,6 +450,13 @@ ALTER TABLE ONLY public.geocodes ALTER COLUMN id SET DEFAULT nextval('public.geo
 --
 
 ALTER TABLE ONLY public.que_jobs ALTER COLUMN id SET DEFAULT nextval('public.que_jobs_id_seq'::regclass);
+
+
+--
+-- Name: queries id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.queries ALTER COLUMN id SET DEFAULT nextval('public.queries_id_seq'::regclass);
 
 
 --
@@ -475,6 +516,14 @@ ALTER TABLE ONLY public.que_values
 
 
 --
+-- Name: queries queries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.queries
+    ADD CONSTRAINT queries_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -501,6 +550,13 @@ CREATE INDEX index_facility_geocodes_on_facility_id ON public.facility_geocodes 
 --
 
 CREATE INDEX index_facility_geocodes_on_geocode_id ON public.facility_geocodes USING btree (geocode_id);
+
+
+--
+-- Name: index_queries_on_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_queries_on_type ON public.queries USING btree (type);
 
 
 --
@@ -568,6 +624,7 @@ ALTER TABLE ONLY public.facility_geocodes
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240114145319'),
 ('20240114144353'),
 ('20240114144122'),
 ('20240114143824'),
