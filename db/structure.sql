@@ -448,6 +448,40 @@ ALTER SEQUENCE public.queries_id_seq OWNED BY public.queries.id;
 
 
 --
+-- Name: responses; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.responses (
+    id bigint NOT NULL,
+    query_id bigint NOT NULL,
+    request_body text NOT NULL,
+    body text NOT NULL,
+    retrieved_at timestamp(6) without time zone NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: responses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.responses_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: responses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.responses_id_seq OWNED BY public.responses.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -496,6 +530,13 @@ ALTER TABLE ONLY public.que_jobs ALTER COLUMN id SET DEFAULT nextval('public.que
 --
 
 ALTER TABLE ONLY public.queries ALTER COLUMN id SET DEFAULT nextval('public.queries_id_seq'::regclass);
+
+
+--
+-- Name: responses id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.responses ALTER COLUMN id SET DEFAULT nextval('public.responses_id_seq'::regclass);
 
 
 --
@@ -571,6 +612,14 @@ ALTER TABLE ONLY public.queries
 
 
 --
+-- Name: responses responses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.responses
+    ADD CONSTRAINT responses_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -604,6 +653,13 @@ CREATE INDEX index_facility_geocodes_on_geocode_id ON public.facility_geocodes U
 --
 
 CREATE UNIQUE INDEX index_queries_on_queryable_type_and_queryable_id ON public.queries USING btree (queryable_type, queryable_id);
+
+
+--
+-- Name: index_responses_on_query_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_responses_on_query_id ON public.responses USING btree (query_id);
 
 
 --
@@ -649,6 +705,14 @@ CREATE TRIGGER que_state_notify AFTER INSERT OR DELETE OR UPDATE ON public.que_j
 
 
 --
+-- Name: responses fk_rails_1723310968; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.responses
+    ADD CONSTRAINT fk_rails_1723310968 FOREIGN KEY (query_id) REFERENCES public.queries(id);
+
+
+--
 -- Name: facility_geocodes fk_rails_de97ecff28; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -671,6 +735,7 @@ ALTER TABLE ONLY public.facility_geocodes
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240114152544'),
 ('20240114152030'),
 ('20240114145319'),
 ('20240114144353'),
