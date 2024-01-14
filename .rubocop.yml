@@ -15,6 +15,7 @@ AllCops:
   # Opt-in to new cops by default
   NewCops: enable
   Exclude:
+    - "bin/bundle"
     - "db/schema.rb"
     - "vendor/**/*"
 
