@@ -6,5 +6,7 @@ class Query < ApplicationRecord
   accepts_nested_attributes_for :queryable
   delegate :fetch, to: :queryable
 
+  has_many :responses, dependent: :destroy, inverse_of: :query
+
   validates :queryable, :name, :body, presence: true
 end
