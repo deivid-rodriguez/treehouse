@@ -69,5 +69,5 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   # Allow Web Console functionality from Docker host
-  config.web_console.whitelisted_ips = ENV['DOCKER_HOST_IP'] if ENV['DOCKER_HOST_IP'].present?
+  config.web_console.allowed_ips = ENV['DOCKER_HOST_IP'] if ENV['DOCKER_HOST_IP'].present?
 end
