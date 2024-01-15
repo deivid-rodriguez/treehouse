@@ -38,8 +38,14 @@ module Treehouse
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
+    config.active_job.queue_adapter = :good_job
     config.active_record.schema_format = :sql
+
+    # GoodJob `execution_mode` specifies how and where jobs should be executed.
+    # `:external` causes the adapter to enqueue jobs, but not execute them.
+    # When using this option (the default for production environments),
+    # you’ll need to use the command-line tool to actually execute your jobs.
+    config.good_job.execution_mode = :external
 
     # Don't generate system test files.
     config.generators.system_tests = nil

@@ -8,12 +8,15 @@ services:
   db:
     ports:
       - "127.0.0.1:5432:5432/tcp"
-  app:
+  web:
     command: ["/usr/local/bundle/bin/foreman", "start", "-f", "Procfile.dev"]
     environment:
       - EDITOR
       - DOCKER_HOST_IP=10.69.194.1
     ports:
       - "127.0.0.1:3036:3036/tcp"
+    volumes:
+      - .:/app:cached
+  worker:
     volumes:
       - .:/app:cached
