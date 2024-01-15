@@ -19,12 +19,27 @@ AllCops:
     - "db/schema.rb"
     - "vendor/**/*"
 
+Layout/HashAlignment:
+  EnforcedLastArgumentHashStyle: always_ignore
+
+Layout/LineLength:
+  Exclude:
+    - "db/migrate/*.rb"
+
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
+
+Metrics/AbcSize:
+  Exclude:
+    - "db/migrate/*.rb"
 
 Metrics/BlockLength:
   AllowedMethods:
     - namespace
+
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/*.rb"
 
 Rake/Desc:
   Exclude:
