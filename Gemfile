@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 ruby "~> #{File.read(File.expand_path('.ruby-version', __dir__)).strip}"
 
 gem 'faraday', '~> 2.9'
+gem 'good_job', '~> 3.22'
 gem 'rake', '~> 13.1'
 gem 'vite_rails', '~> 3.0'
 
