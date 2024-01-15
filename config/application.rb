@@ -47,6 +47,12 @@ module Treehouse
     # you’ll need to use the command-line tool to actually execute your jobs.
     config.good_job.execution_mode = :external
 
+    if ENV['RAILS_LOG_TO_STDOUT'].present?
+      logger           = ActiveSupport::Logger.new($stdout)
+      logger.formatter = config.log_formatter
+      config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    end
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end

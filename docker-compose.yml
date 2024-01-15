@@ -5,7 +5,7 @@ services:
     build:
       context: .
       target: development
-    command: ["/app/bin/rails", "server", "--binding", "0.0.0.0"]
+    command: ["/usr/bin/env", "RAILS_LOG_TO_STDOUT=true", "/app/bin/rails", "server", "--binding", "0.0.0.0"]
     depends_on:
       - db
     tty: true
@@ -21,7 +21,7 @@ services:
     build:
       context: .
       target: development
-    command: ["/app/bin/bundle", "exec", "good_job", "start"]
+    command: ["/usr/bin/env", "RAILS_LOG_TO_STDOUT=true", "/app/bin/bundle", "exec", "good_job", "start"]
     depends_on:
       - db
     tty: true
