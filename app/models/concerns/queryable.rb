@@ -7,6 +7,7 @@ module Queryable
   included do
     has_one :query, as: :queryable, dependent: :destroy, touch: true
     accepts_nested_attributes_for :query
+    delegate :name, :description, :body, :responses, to: :query
     validates :query, presence: true
   end
 end
