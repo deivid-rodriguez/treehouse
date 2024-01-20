@@ -22,6 +22,11 @@ list_forbidden_files() {
       -false \
       -o '(' -name '*.yaml' ')' \
       -o -name '.*[A-Z].*' \
+    ')' \
+    -not '(' \
+      -path "${ROOT}/vendor/*" \
+      -o -path "${ROOT}/node_modules/*" \
+      -o -path "${ROOT}/pnpm-lock.yaml" \
     ')'
 }
 

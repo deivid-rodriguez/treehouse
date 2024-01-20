@@ -67,7 +67,6 @@ ARG BUNDLE_JOBS
 ARG DEBIAN_RELEASE
 ARG NODESOURCE_KEYRING='/usr/share/keyrings/nodesource.gpg'
 ARG POSTGRESQL_KEYRING='/usr/share/keyrings/postgresql.gpg'
-ARG YARN_KEYRING='/usr/share/keyrings/yarn.gpg'
 
 ENV \
   BUNDLE_JOBS="${BUNDLE_JOBS:-32}" \
@@ -101,11 +100,6 @@ RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/
     "deb [signed-by=${NODESOURCE_KEYRING}] https://deb.nodesource.com/node_${NODE_VERSION%%.*}.x ${DEBIAN_RELEASE} main" \
     "deb-src [signed-by=${NODESOURCE_KEYRING}] https://deb.nodesource.com/node_${NODE_VERSION%%.*}.x ${DEBIAN_RELEASE} main" \
     > /etc/apt/sources.list.d/nodesource.list \
-  && gpg --dearmor --output "${YARN_KEYRING}" < /usr/share/keys/yarn.gpg.asc \
-  && gpg --no-default-keyring --keyring "${YARN_KEYRING}" --list-keys \
-  && printf '%s\n' \
-    "deb [signed-by=${YARN_KEYRING}] http://dl.yarnpkg.com/debian/ stable main" \
-    > /etc/apt/sources.list.d/yarn.list \
   && apt-get remove --autoremove --purge --assume-yes --quiet \
     gnupg \
   && rm -rf \
@@ -118,7 +112,8 @@ RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/
     libpq-dev='16.*' \
     nodejs="${NODE_VERSION}*" \
     postgresql-client-16='16.*' \
-    yarn='1.*' \
+  && corepack enable \
+  && corepack prepare 'pnpm@8.14.1' \
   && gem update --system \
   && if [[ -d '/usr/local/bundle/cache' ]]; then find '/usr/local/bundle/cache' -name '*.gem' -delete; fi \
   && rm -rf \
@@ -189,8 +184,8 @@ SHELL ["/bin/bash", "-euo", "pipefail", "-c"]
 COPY --from=rubygems "${GEM_HOME}" "${GEM_HOME}"
 COPY --from=app --chown=ruby:ruby /app /app
 
-RUN yarn install --frozen-lockfile --production --verbose && yarn cache clean
-RUN bundle exec bootsnap precompile --gemfile
+RUN pnpm install --frozen-lockfile --dev \
+  && bundle exec bootsnap precompile --gemfile
 
 RUN env \
   SECRET_KEY_BASE="$(bin/rails secret)" \
