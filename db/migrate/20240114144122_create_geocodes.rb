@@ -2,6 +2,9 @@
 # frozen_string_literal: true
 
 class CreateGeocodes < ActiveRecord::Migration[7.1]
+  extend T::Sig
+
+  sig { void }
   def change
     create_table :geocodes do |t|
       t.float :latitude, null: false

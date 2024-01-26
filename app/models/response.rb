@@ -6,7 +6,7 @@ class Response < ApplicationRecord
   attribute :retrieved_at, default: -> { Time.zone.now }
 
   # Default value for request_body should be the query.body at the time of the query
-  before_validation { self.request_body ||= query&.body }
+  before_validation { self.request_body = query.try(:body) if request_body.blank? }
 
   belongs_to :query, inverse_of: :responses
 

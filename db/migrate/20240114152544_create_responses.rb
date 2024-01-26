@@ -2,6 +2,9 @@
 # frozen_string_literal: true
 
 class CreateResponses < ActiveRecord::Migration[7.1]
+  extend T::Sig
+
+  sig { void }
   def change
     create_table :responses do |t|
       t.references :query, null: false, foreign_key: true

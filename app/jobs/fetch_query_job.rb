@@ -3,8 +3,11 @@
 
 # Fetches a specific query from the corresponding API
 class FetchQueryJob < ApplicationJob
+  extend T::Sig
+
   queue_as :default
 
+  sig { params(query: Query).void }
   def perform(query:)
     Rails.logger.info { "Fetching query: #{query.inspect}" }
     Rails.logger.info { "Queryable: #{query.try(:queryable)&.inspect}" }
