@@ -5,6 +5,10 @@ source 'https://rubygems.org'
 # Use ruby version from ruby-version file
 ruby "~> #{File.read(File.expand_path('.ruby-version', __dir__)).strip}"
 
+source 'https://gem.fury.io/sorbet-multiarch/' do
+  gem 'sorbet-static', group: :development
+end
+
 gem 'sorbet', group: :development
 gem 'sorbet-runtime'
 gem 'tapioca', require: false, group: %i[development test]
