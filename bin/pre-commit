@@ -201,8 +201,8 @@ lint_run 'ShellCheck' 'in_path shellcheck' 'brew install shellcheck' bash -c "\
   ; } \
   | xargs shellcheck"
 # lint_run 'Sorbet' 'bundle check > /dev/null' 'bundle install' env BUNDLE_GEMFILE="${ROOT}/Gemfile" bin/srb typecheck
-# lint_run 'Stylelint' 'in_path stylelint' 'npm install -g stylelint stylelint-config-standard-scss' \
-#   stylelint '**/*.css' '**/*.scss'
+lint_run 'Stylelint' 'in_path stylelint' 'npm install -g stylelint stylelint-config-standard-scss' \
+  stylelint '**/*.css' '**/*.scss'
 lint_run 'YAMLlint' 'in_path yamllint' 'brew install yamllint' yamllint --config-file "${WORKING_DIRECTORY}/.yamllint.yml" .
 
 if [[ "${#FAILURES[@]}" -ne 0 ]]; then

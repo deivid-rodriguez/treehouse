@@ -64,18 +64,18 @@ jobs:
       - run: npm install -g v8r
       - run: v8r
 
-  # stylelint:
-  #   name: Stylelint
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 1
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ruby/setup-ruby@v1
-  #     - name: Set up scss-lint
-  #       run: |
-  #         npm install --global stylelint stylelint-config-standard-scss
-  #         echo "::add-matcher::.github/matchers/stylelint.json"
-  #     - run: stylelint "**/*.css" "**/*.scss"
+  stylelint:
+    name: Stylelint
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+      - name: Set up scss-lint
+        run: |
+          npm install --global stylelint stylelint-config-standard-scss
+          echo "::add-matcher::.github/matchers/stylelint.json"
+      - run: stylelint "**/*.css" "**/*.scss"
 
   shellcheck:
     name: ShellCheck
