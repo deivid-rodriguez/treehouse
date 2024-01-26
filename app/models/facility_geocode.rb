@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 
 # Represents the geocoding of a specific facility

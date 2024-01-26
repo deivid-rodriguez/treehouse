@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 
 # Delegated types of Query include this concern

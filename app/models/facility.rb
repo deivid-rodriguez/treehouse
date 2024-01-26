@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 
 # Represents a point-of-interest, such as a shop, railway station, or pharmacy

@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 
 # Represents the response fetched for a query at some point in time

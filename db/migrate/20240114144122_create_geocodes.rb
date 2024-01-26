@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 
 class CreateGeocodes < ActiveRecord::Migration[7.1]

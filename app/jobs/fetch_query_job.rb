@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 
 # Fetches a specific query from the corresponding API

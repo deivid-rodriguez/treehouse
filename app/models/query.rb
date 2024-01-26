@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 
 # Represents a query of some external API
