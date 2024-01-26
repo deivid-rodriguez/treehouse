@@ -2,5 +2,4 @@
 self-hosted-runner:
   # Labels of self-hosted runner in array of string
   labels: []
-config-variables:
-  - FLY_API_TOKEN
+config-variables: []
