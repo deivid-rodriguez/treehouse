@@ -1,0 +1,85 @@
+---
+name: Lint
+"on": push
+
+permissions:
+  contents: read
+
+env:
+  APP_EMAIL_FROM: test@example.com
+  DATABASE_URL: postgresql://postgres:postgres@localhost:5432
+  SELENIUM_DRIVER_URL: http://localhost:4444/wd/hub
+  TEST_PORT: 4000
+
+jobs:
+  bundler:
+    name: Bundler
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+  tapioca-annotations:
+    name: Tapioca annotations
+    needs: bundler
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: bin/tapioca annotations
+      - run: git diff --exit-code -- sorbet/rbi
+
+  tapioca-dsl:
+    name: Tapioca DSL
+    needs: bundler
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432
+    services:
+      db:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432/tcp
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: bin/rails db:reset
+      - run: bin/tapioca dsl
+      - run: git diff --exit-code -- sorbet/rbi
+
+  tapioca-gem:
+    name: Tapioca RubyGems
+    needs: bundler
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: bin/tapioca gem --all
+      - run: sorbet/rbi/patches/apply.sh
+      - run: |
+          git diff --exit-code -- sorbet/rbi \
+            ':!/sorbet/rbi/gems/activesupport@*.rbi' \
+            ':!/sorbet/rbi/gems/bigdecimal@*.rbi' \
+            ':!/sorbet/rbi/gems/ice_cube@*.rbi' \
+            ':!/sorbet/rbi/gems/psych@*.rbi' \
+            ':!/sorbet/rbi/gems/reline@*.rbi' \
+            ':!sorbet/rbi/gems/rubocop@*.rbi'

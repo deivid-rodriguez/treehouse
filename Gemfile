@@ -5,6 +5,10 @@ source 'https://rubygems.org'
 # Use ruby version from ruby-version file
 ruby "~> #{File.read(File.expand_path('.ruby-version', __dir__)).strip}"
 
+gem 'sorbet', group: :development
+gem 'sorbet-runtime'
+gem 'tapioca', require: false, group: %i[development test]
+
 gem 'faraday', '~> 2.9'
 gem 'good_job', '~> 3.22'
 gem 'rake', '~> 13.1'
