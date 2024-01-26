@@ -23,7 +23,7 @@ jobs:
           bundler-cache: true
 
   tapioca-annotations:
-    name: Tapioca annotations
+    name: Annotations
     needs: bundler
     runs-on: ubuntu-latest
     timeout-minutes: 3
@@ -36,7 +36,7 @@ jobs:
       - run: git diff --exit-code -- sorbet/rbi
 
   tapioca-dsl:
-    name: Tapioca DSL
+    name: DSL
     needs: bundler
     runs-on: ubuntu-latest
     timeout-minutes: 3
@@ -64,7 +64,7 @@ jobs:
       - run: git diff --exit-code -- sorbet/rbi
 
   tapioca-gem:
-    name: Tapioca RubyGems
+    name: RubyGems
     needs: bundler
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -76,10 +76,4 @@ jobs:
       - run: bin/tapioca gem --all
       - run: sorbet/rbi/patches/apply.sh
       - run: |
-          git diff --exit-code -- sorbet/rbi \
-            ':!/sorbet/rbi/gems/activesupport@*.rbi' \
-            ':!/sorbet/rbi/gems/bigdecimal@*.rbi' \
-            ':!/sorbet/rbi/gems/ice_cube@*.rbi' \
-            ':!/sorbet/rbi/gems/psych@*.rbi' \
-            ':!/sorbet/rbi/gems/reline@*.rbi' \
-            ':!sorbet/rbi/gems/rubocop@*.rbi'
+          git diff --exit-code -- sorbet/rbi
