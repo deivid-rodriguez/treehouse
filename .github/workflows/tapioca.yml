@@ -75,4 +75,5 @@ jobs:
           bundler-cache: true
       - run: bin/tapioca gem --all
       - run: |
-          git diff --exit-code -- sorbet/rbi
+          git diff --exit-code -- sorbet/rbi \
+            ':!/sorbet/rbi/gems/racc@*.rbi'
