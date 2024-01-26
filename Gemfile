@@ -64,8 +64,12 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
 
   gem 'pry', require: false
+  gem 'pry-byebug', require: false
+  gem 'pry-rails', require: false
   gem 'rubocop', '~> 1.59', require: false
+  gem 'rubocop-rails', require: false
   gem 'rubocop-rake', require: false
+  gem 'rubocop-sorbet', require: false
 end
 
 group :development do

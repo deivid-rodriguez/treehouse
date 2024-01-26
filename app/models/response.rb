@@ -9,5 +9,5 @@ class Response < ApplicationRecord
 
   belongs_to :query, inverse_of: :responses
 
-  validates :body, :query, :request_body, :retrieved_at, presence: true
+  validates :body, :request_body, :retrieved_at, presence: true
 end

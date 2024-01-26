@@ -9,7 +9,10 @@
 #
 # See https://docs.rubocop.org/rubocop/configuration
 ---
-require: rubocop-rake
+require:
+  - rubocop-rake
+  - rubocop-rails
+  - rubocop-sorbet
 
 AllCops:
   # Opt-in to new cops by default
@@ -37,17 +40,47 @@ Metrics/BlockLength:
   AllowedMethods:
     - namespace
 
+Metrics/ClassLength:
+  Exclude:
+    - sorbet/rbi/**/*.rbi
+
 Metrics/MethodLength:
   Exclude:
     - "db/migrate/*.rb"
+
+Naming/BlockForwarding:
+  Exclude:
+    - sorbet/rbi/shims/**/*.rbi
 
 Rake/Desc:
   Exclude:
     - rakelib/database.rake
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Sorbet/FalseSigil:
+  Enabled: false
+
+Sorbet/TrueSigil:
+  Enabled: false
+
+Sorbet/ValidSigil:
+  MinimumStrictness: strict
+  Exclude:
+    - app/mailers/rodauth_mailer.rb
+    - app/misc/rodauth_main.rb
+    - app/models/concerns/admin/**/*.rb
+    - config.ru
+    - config/breadcrumbs.rb
+
 Style/Documentation:
   Exclude:
-    - "db/migrate/*.rb"
+    - app/models/concerns/admin/**/*.rb
+    - app/policies/**/*_policy.rb
+    - config/application.rb
+    - db/migrate/*.rb
+    - sorbet/rbi/**/*.rbi
 
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: consistent_comma
