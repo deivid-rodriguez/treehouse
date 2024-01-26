@@ -50,7 +50,7 @@ Metrics/MethodLength:
 
 Naming/BlockForwarding:
   Exclude:
-    - sorbet/rbi/shims/**/*.rbi
+    - sorbet/rbi/**/*.rbi
 
 Rake/Desc:
   Exclude:
@@ -75,6 +75,7 @@ Sorbet/ValidSigil:
     - app/models/concerns/admin/**/*.rb
     - config.ru
     - config/breadcrumbs.rb
+    - sorbet/rbi/gems/**/*.rb
 
 Style/Documentation:
   Exclude:
