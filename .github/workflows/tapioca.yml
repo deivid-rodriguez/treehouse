@@ -1,5 +1,5 @@
 ---
-name: Lint
+name: Tapioca
 "on": push
 
 permissions:
@@ -74,6 +74,5 @@ jobs:
         with:
           bundler-cache: true
       - run: bin/tapioca gem --all
-      - run: sorbet/rbi/patches/apply.sh
       - run: |
           git diff --exit-code -- sorbet/rbi

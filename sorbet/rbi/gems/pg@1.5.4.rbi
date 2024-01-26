@@ -2217,7 +2217,7 @@ class PG::OperatorIntervention < ::PG::ServerError; end
 class PG::OutOfMemory < ::PG::InsufficientResources; end
 
 # source://pg//lib/pg/postgresql_lib_path.rb#2
-PG::POSTGRESQL_LIB_PATH = T.let(T.unsafe(nil), T.untyped)
+PG::POSTGRESQL_LIB_PATH = T.let(T.unsafe(nil), String)
 
 class PG::PlpgsqlError < ::PG::ServerError; end
 class PG::ProgramLimitExceeded < ::PG::ServerError; end

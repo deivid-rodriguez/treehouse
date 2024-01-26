@@ -890,10 +890,10 @@ class Pry
     # Run a Pry command from outside a session. The commands available are
     # those referenced by `Pry.config.commands` (the default command set).
     #
-    # @example Run under Pry class, returning only public methods.
-    #   Pry.run_command "ls -m", :target => Pry
     # @example Run at top-level with no output.
     #   Pry.run_command "ls"
+    # @example Run under Pry class, returning only public methods.
+    #   Pry.run_command "ls -m", :target => Pry
     # @example Display command output.
     #   Pry.run_command "ls -av", :show_output => true
     # @option options
@@ -8499,8 +8499,14 @@ class Pry::REPL
     # @option options
     # @param options [Hash] a customizable set of options
     #
+    # source://pry-byebug/3.10.1/lib/pry-byebug/pry_ext.rb#8
+    def start(options = T.unsafe(nil)); end
+
+    # source://pry-byebug/3.10.1/lib/pry-byebug/pry_ext.rb#8
+    def start_with_pry_byebug(options = T.unsafe(nil)); end
+
     # source://pry//lib/pry/repl.rb#14
-    def start(options); end
+    def start_without_pry_byebug(options); end
   end
 end
 
