@@ -3,6 +3,8 @@
 
 # Represents a query of some external API
 class Query < ApplicationRecord
+  extend T::Sig
+
   delegated_type :queryable, types: %w[Queries::OverpassQuery]
   accepts_nested_attributes_for :queryable
   delegate :fetch!, to: :queryable

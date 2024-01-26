@@ -8,12 +8,13 @@ module Queries
     include Queryable
 
     CLIENT_TYPE = APIClient::Overpass
+    RESPONSE_TYPE = Responses::OverpassResponse
 
     validates :facility_type, presence: true
 
-    sig { returns(Query) }
+    sig { returns(RESPONSE_TYPE) }
     def fetch!
-      client.query(body:)
+      responses.build(body: client.query(body:), type: RESPONSE_TYPE.name)
     end
 
     private

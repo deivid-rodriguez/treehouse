@@ -17,7 +17,7 @@ module APIClient
       @connection = T.let(connection, Faraday::Connection)
     end
 
-    sig { params(body: String).returns(Query) }
+    sig { params(body: String).returns(String) }
     def query(body:)
       # TODO: parse the response -- currently it returns the XML response as a string
       fetch_response(body:).body

@@ -13,8 +13,8 @@ class FetchQueryJob < ApplicationJob
     Rails.logger.info { "Queryable: #{query.try(:queryable)&.inspect}" }
 
     response = query.fetch!
-    Rails.logger.info { "Got response: #{response.slice(0, 200)}" }
+    Rails.logger.info { "Got response: #{response.inspect}" }
 
-    query.responses.create!(body: response)
+    response.save!
   end
 end

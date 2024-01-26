@@ -297,7 +297,8 @@ CREATE TABLE public.responses (
     body text NOT NULL,
     retrieved_at timestamp(6) without time zone NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    type character varying DEFAULT 'Response'::character varying NOT NULL
 );
 
 
@@ -632,6 +633,7 @@ ALTER TABLE ONLY public.facility_geocodes
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240126165139'),
 ('20240115140037'),
 ('20240114152544'),
 ('20240114152030'),
