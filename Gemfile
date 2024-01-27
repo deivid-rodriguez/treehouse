@@ -15,6 +15,7 @@ gem 'tapioca', require: false, group: %i[development test]
 
 gem 'faraday', '~> 2.9'
 gem 'good_job', '~> 3.22'
+gem 'paper_trail'
 gem 'prosopite'
 gem 'rails_admin',
   git: 'https://github.com/railsadminteam/rails_admin.git',
