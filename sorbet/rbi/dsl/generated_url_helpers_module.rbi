@@ -9,6 +9,9 @@ module GeneratedUrlHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
+  def rails_admin_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def rails_blob_representation_proxy_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
@@ -49,6 +52,15 @@ module GeneratedUrlHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def rails_storage_redirect_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def turbo_recede_historical_location_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def turbo_refresh_historical_location_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def turbo_resume_historical_location_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def update_rails_disk_service_url(*args); end
