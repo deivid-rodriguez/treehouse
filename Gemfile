@@ -15,6 +15,7 @@ gem 'tapioca', require: false, group: %i[development test]
 
 gem 'faraday', '~> 2.9'
 gem 'good_job', '~> 3.22'
+gem 'prosopite'
 gem 'rails_admin', '~> 3.0'
 gem 'rake', '~> 13.1'
 gem 'vite_rails', '~> 3.0'
@@ -35,6 +36,7 @@ gem 'railties', '~> 7.1'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
+gem 'pg_query'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'

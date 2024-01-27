@@ -69,6 +69,10 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
 
+  config.after_initialize do
+    Prosopite.raise = true
+  end
+
   # Allow Web Console functionality from Docker host
   config.web_console.allowed_ips = ENV['DOCKER_HOST_IP'] if ENV['DOCKER_HOST_IP'].present?
 end

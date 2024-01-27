@@ -38,6 +38,7 @@ Metrics/AbcSize:
 
 Metrics/BlockLength:
   AllowedMethods:
+    - configure
     - namespace
 
 Metrics/ClassLength:
