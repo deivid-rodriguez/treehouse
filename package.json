@@ -5,5 +5,8 @@
     "vite": "^5.0.11",
     "vite-plugin-rails": "^0.5.0",
     "vite-plugin-ruby": "^5.0.0"
+  },
+  "dependencies": {
+    "rails_admin": "3.1.2"
   }
 }

@@ -145,7 +145,7 @@ RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/
 USER ruby
 COPY --chown=ruby:ruby .ruby-version ./
 COPY --chown=ruby:ruby Gemfile* ./
-COPY --chown=ruby:ruby vendor/cache/*.gem ./vendor/cache/
+COPY --chown=ruby:ruby vendor/cache ./vendor/cache
 
 RUN bundle install --local --verbose \
   && if [[ -d '/usr/local/bundle/cache' ]]; then find '/usr/local/bundle/cache' -name '*.gem' -delete; fi \
