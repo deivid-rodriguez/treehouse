@@ -6,8 +6,6 @@ class Response < ApplicationRecord
   extend T::Generic
   extend T::Sig
 
-  abstract!
-
   attribute :retrieved_at, default: -> { Time.zone.now }
 
   # Default value for request_body should be the query.body at the time of the query
@@ -17,6 +15,8 @@ class Response < ApplicationRecord
 
   validates :body, :request_body, :retrieved_at, presence: true
 
-  sig { abstract.returns(T::Array[T.untyped]) }
-  def parse!; end
+  sig { returns(T::Array[T.untyped]) }
+  def parse!
+    raise NotImplementedError, 'Response base class does not implement #parse!'
+  end
 end
