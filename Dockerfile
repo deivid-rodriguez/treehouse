@@ -55,7 +55,7 @@ RUN ./bazel build //main:sorbet \
 ########################################
 ## ruby: The upstream ruby base image
 ########################################
-FROM ruby:3.3-slim-bookworm@sha256:763422273a15e307b044fcb3ad6b1ef6c290d2043ac73596842aba5659dc7318 as ruby
+FROM ruby:3.3-slim-bookworm@sha256:7e2843d936fd2ea084b36f99ff252822bedb6b656ae868f5b08e68cc9b63e8b6 as ruby
 
 ########################################
 ## base: Our base with Ruby, Node, etc.
