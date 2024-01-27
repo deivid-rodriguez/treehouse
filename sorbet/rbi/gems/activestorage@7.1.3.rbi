@@ -259,6 +259,8 @@ class ActiveRecord::Base
   # source://activerecord/7.1.3/lib/active_record/model_schema.rb#158
   def primary_key_prefix_type?; end
 
+  def rails_admin_default_object_label_method; end
+
   # source://activerecord/7.1.3/lib/active_record/timestamp.rb#47
   def record_timestamps; end
 
@@ -267,6 +269,8 @@ class ActiveRecord::Base
 
   # source://activerecord/7.1.3/lib/active_record/timestamp.rb#47
   def record_timestamps?; end
+
+  def safe_send(value); end
 
   # source://activerecord/7.1.3/lib/active_record/signed_id.rb#13
   def signed_id_verifier_secret; end
@@ -867,6 +871,8 @@ class ActiveRecord::Base
 
     # source://activerecord/7.1.3/lib/active_record/model_schema.rb#158
     def primary_key_prefix_type?; end
+
+    def rails_admin(&block); end
 
     # source://activerecord/7.1.3/lib/active_record/timestamp.rb#47
     def record_timestamps; end
@@ -2050,6 +2056,8 @@ class ActiveStorage::BaseController < ::ActionController::Base
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
+
   class << self
     # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
     def __callbacks; end
@@ -2325,6 +2333,8 @@ class ActiveStorage::Blobs::ProxyController < ::ActiveStorage::BaseController
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
+
   class << self
     # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
     def __callbacks; end
@@ -2343,6 +2353,8 @@ class ActiveStorage::Blobs::RedirectController < ::ActiveStorage::BaseController
 
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
+
+  def _layout_from_proc; end
 
   class << self
     # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
@@ -2371,6 +2383,7 @@ class ActiveStorage::DirectUploadsController < ::ActiveStorage::BaseController
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
   def blob_args; end
   def direct_upload_json(blob); end
 
@@ -2395,6 +2408,7 @@ class ActiveStorage::DiskController < ::ActiveStorage::BaseController
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
   def acceptable_content?(token); end
   def decode_verified_key; end
   def decode_verified_token; end
@@ -2844,6 +2858,9 @@ end
 class ActiveStorage::Record < ::ActiveRecord::Base
   include ::ActiveStorage::Record::GeneratedAttributeMethods
   include ::ActiveStorage::Record::GeneratedAssociationMethods
+  include ::Kaminari::ActiveRecordModelExtension
+  include ::Kaminari::ConfigurationMethods
+  extend ::Kaminari::ConfigurationMethods::ClassMethods
 
   class << self
     # source://activemodel/7.1.3/lib/active_model/validations.rb#71
@@ -2851,6 +2868,9 @@ class ActiveStorage::Record < ::ActiveRecord::Base
 
     # source://activerecord/7.1.3/lib/active_record/enum.rb#167
     def defined_enums; end
+
+    # source://kaminari-activerecord/1.2.2/lib/kaminari/activerecord/active_record_model_extension.rb#15
+    def page(num = T.unsafe(nil)); end
   end
 end
 
@@ -2945,6 +2965,7 @@ class ActiveStorage::Representations::BaseController < ::ActiveStorage::BaseCont
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
   def blob_scope; end
   def set_representation; end
 
@@ -2970,6 +2991,8 @@ class ActiveStorage::Representations::ProxyController < ::ActiveStorage::Represe
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
+
   class << self
     # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
     def __callbacks; end
@@ -2986,6 +3009,8 @@ class ActiveStorage::Representations::RedirectController < ::ActiveStorage::Repr
 
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
+
+  def _layout_from_proc; end
 
   class << self
     # source://actionpack/7.1.3/lib/action_controller/metal.rb#262

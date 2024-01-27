@@ -726,6 +726,9 @@ module AbstractController::Collector
   def ttf(*args, **_arg1, &block); end
 
   # source://actionpack//lib/abstract_controller/collector.rb#10
+  def turbo_stream(*args, **_arg1, &block); end
+
+  # source://actionpack//lib/abstract_controller/collector.rb#10
   def url_encoded_form(*args, **_arg1, &block); end
 
   # source://actionpack//lib/abstract_controller/collector.rb#10
@@ -1699,6 +1702,9 @@ class ActionController::Base < ::ActionController::Metal
   include ::ActionController::Rescue
   include ::ActionController::Instrumentation
   include ::ActionController::ParamsWrapper
+  include ::Turbo::Native::Navigation
+  include ::Turbo::Frames::FrameRequest
+  include ::Turbo::Streams::TurboStreamsTagBuilder
   extend ::ActionView::ViewPaths::ClassMethods
   extend ::AbstractController::Helpers::Resolution
   extend ::AbstractController::Helpers::ClassMethods
@@ -1974,6 +1980,8 @@ class ActionController::Base < ::ActionController::Metal
 
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
+
+  def _layout_from_proc; end
 
   # source://actionpack//lib/action_controller/base.rb#252
   def _protected_ivars; end
@@ -2275,6 +2283,14 @@ end
 
 # source://actionpack//lib/action_controller/base.rb#0
 module ActionController::Base::HelperMethods
+  include ::Turbo::DriveHelper
+  include ::Turbo::FramesHelper
+  include ::Turbo::IncludesHelper
+  include ::Turbo::StreamsHelper
+  include ::ActionView::Helpers::CaptureHelper
+  include ::ActionView::Helpers::OutputSafetyHelper
+  include ::ActionView::Helpers::TagHelper
+  include ::Turbo::Streams::ActionHelper
   include ::ViteRails::TagHelpers
 
   # source://actionpack//lib/action_controller/metal/flash.rb#39
@@ -2300,6 +2316,9 @@ module ActionController::Base::HelperMethods
 
   # source://actionpack//lib/action_controller/metal/request_forgery_protection.rb#102
   def protect_against_forgery?(*args, **_arg1, &block); end
+
+  def turbo_frame_request_id(*args, **_arg1, &block); end
+  def turbo_native_app?(*args, **_arg1, &block); end
 
   # source://actionpack//lib/abstract_controller/caching.rb#43
   def view_cache_dependencies(*args, **_arg1, &block); end
@@ -6596,6 +6615,9 @@ module ActionController::Renderers
 
   # source://actionpack//lib/action_controller/metal/renderers.rb#155
   def _render_with_renderer_json(json, options); end
+
+  # source://turbo-rails/1.5.0/lib/turbo/engine.rb#61
+  def _render_with_renderer_turbo_stream(turbo_streams_html, options); end
 
   # source://actionpack//lib/action_controller/metal/renderers.rb#175
   def _render_with_renderer_xml(xml, options); end
@@ -12061,6 +12083,7 @@ class ActionDispatch::IntegrationTest < ::ActiveSupport::TestCase
   include ::ActionDispatch::Routing::PolymorphicRoutes
   include ::ActionDispatch::Routing::UrlFor
   include ::ActionDispatch::IntegrationTest::UrlOptions
+  include ::Turbo::TestAssertions::IntegrationTestAssertions
   extend ::ActionDispatch::IntegrationTest::Behavior::ClassMethods
 end
 
@@ -12077,6 +12100,7 @@ module ActionDispatch::IntegrationTest::Behavior
   extend ::ActiveSupport::Concern
   include ::ActionDispatch::Routing::UrlFor
   include ::ActionDispatch::IntegrationTest::UrlOptions
+  include ::Turbo::TestAssertions::IntegrationTestAssertions
 
   mixes_in_class_methods ::ActionDispatch::IntegrationTest::Behavior::ClassMethods
 
@@ -15197,6 +15221,12 @@ class ActionDispatch::RequestEncoder::IdentityEncoder
 
   # source://actionpack//lib/action_dispatch/testing/request_encoder.rb#11
   def response_parser; end
+end
+
+# source://actionpack//lib/action_dispatch/testing/integration.rb#0
+class ActionDispatch::RequestEncoder::TurboStreamEncoder < ::ActionDispatch::RequestEncoder::IdentityEncoder
+  # source://turbo-rails/1.5.0/lib/turbo/engine.rb#96
+  def accept_header; end
 end
 
 # = Action Dispatch \RequestId

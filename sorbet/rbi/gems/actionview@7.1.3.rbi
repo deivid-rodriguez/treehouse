@@ -260,6 +260,8 @@ class ActionController::Base < ::ActionController::Metal
   # source://actionview//lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
+
   # source://actionpack/7.1.3/lib/action_controller/base.rb#252
   def _protected_ivars; end
 
@@ -902,7 +904,10 @@ class ActionView::Base
   include ::ActionView::Helpers::NumberHelper
   include ::ActionView::Helpers::RenderingHelper
   include ::ActionView::Helpers
+  include ::Kaminari::Helpers::UrlHelper
+  include ::Kaminari::Helpers::HelperMethods
   include ::ActionCable::Helpers::ActionCableHelper
+  include ::NestedForm::ViewHelper
   include ::ViteRails::TagHelpers
   extend ::ActionView::Helpers::UrlHelper::ClassMethods
   extend ::ActionView::Helpers::SanitizeHelper::ClassMethods
@@ -12002,8 +12007,8 @@ class ActionView::LogSubscriber < ::ActiveSupport::LogSubscriber
   # source://actionview//lib/action_view/log_subscriber.rb#37
   def render_layout(event); end
 
-  # source://actionview//lib/action_view/log_subscriber.rb#26
-  def render_partial(event); end
+  # source://kaminari-actionview/1.2.2/lib/kaminari/actionview/action_view_extension.rb#13
+  def render_partial(*_arg0); end
 
   # source://actionview//lib/action_view/log_subscriber.rb#17
   def render_template(event); end
@@ -15753,6 +15758,8 @@ class ActionView::TestCase::TestController < ::ActionController::Base
 
   # source://actionview//lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
+
+  def _layout_from_proc; end
 
   class << self
     # source://actionview//lib/action_view/test_case.rb#30

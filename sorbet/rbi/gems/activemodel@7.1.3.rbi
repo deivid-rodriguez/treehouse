@@ -14,7 +14,7 @@ module ActiveModel
     # source://activemodel//lib/active_model/deprecator.rb#4
     def deprecator; end
 
-    # source://activemodel//lib/active_model.rb#76
+    # source://activemodel-serializers-xml/1.0.2/lib/active_model/serializers.rb#19
     def eager_load!; end
 
     # Returns the currently loaded version of \Active \Model as a +Gem::Version+.
@@ -3717,9 +3717,7 @@ module ActiveModel::Serialization
 end
 
 # source://activemodel//lib/active_model.rb#68
-module ActiveModel::Serializers
-  extend ::ActiveSupport::Autoload
-end
+module ActiveModel::Serializers; end
 
 # = Active \Model \JSON \Serializer
 #

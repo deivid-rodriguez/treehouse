@@ -15,6 +15,7 @@ gem 'tapioca', require: false, group: %i[development test]
 
 gem 'faraday', '~> 2.9'
 gem 'good_job', '~> 3.22'
+gem 'rails_admin', '~> 3.0'
 gem 'rake', '~> 13.1'
 gem 'vite_rails', '~> 3.0'
 

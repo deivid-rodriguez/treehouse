@@ -8231,8 +8231,10 @@ class ActiveRecord::Base
   include ::ActiveRecord::Suppressor
   include ::ActiveRecord::Normalization
   include ::ActiveRecord::Marshalling::Methods
+  include ::Kaminari::ActiveRecordExtension
   include ::ActiveStorage::Attached::Model
   include ::ActiveStorage::Reflection::ActiveRecordExtensions
+  include ::Turbo::Broadcastable
   extend ::ActiveModel::Naming
   extend ::ActiveSupport::Benchmarkable
   extend ::ActiveSupport::DescendantsTracker
@@ -8291,8 +8293,10 @@ class ActiveRecord::Base
   extend ::ActiveRecord::SignedId::ClassMethods
   extend ::ActiveRecord::Suppressor::ClassMethods
   extend ::ActiveRecord::Normalization::ClassMethods
+  extend ::Kaminari::ActiveRecordExtension::ClassMethods
   extend ::ActiveStorage::Attached::Model::ClassMethods
   extend ::ActiveStorage::Reflection::ActiveRecordExtensions::ClassMethods
+  extend ::Turbo::Broadcastable::ClassMethods
 
   # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
   def __callbacks; end
@@ -8543,6 +8547,8 @@ class ActiveRecord::Base
   # source://activerecord//lib/active_record/model_schema.rb#158
   def primary_key_prefix_type?; end
 
+  def rails_admin_default_object_label_method; end
+
   # source://activerecord//lib/active_record/timestamp.rb#47
   def record_timestamps; end
 
@@ -8551,6 +8557,8 @@ class ActiveRecord::Base
 
   # source://activerecord//lib/active_record/timestamp.rb#47
   def record_timestamps?; end
+
+  def safe_send(value); end
 
   # source://activerecord//lib/active_record/signed_id.rb#13
   def signed_id_verifier_secret; end
@@ -9151,6 +9159,8 @@ class ActiveRecord::Base
 
     # source://activerecord//lib/active_record/model_schema.rb#158
     def primary_key_prefix_type?; end
+
+    def rails_admin(&block); end
 
     # source://activerecord//lib/active_record/timestamp.rb#47
     def record_timestamps; end
@@ -34334,12 +34344,16 @@ module ActiveRecord::Serialization
   extend ::ActiveSupport::Concern
   include GeneratedInstanceMethods
   include ::ActiveModel::Serializers::JSON
+  include ::ActiveModel::Serializers::Xml
 
   mixes_in_class_methods GeneratedClassMethods
   mixes_in_class_methods ::ActiveModel::Naming
 
   # source://activerecord//lib/active_record/serialization.rb#13
   def serializable_hash(options = T.unsafe(nil)); end
+
+  # source://activemodel-serializers-xml/1.0.2/lib/active_record/serializers/xml_serializer.rb#175
+  def to_xml(options = T.unsafe(nil), &block); end
 
   private
 

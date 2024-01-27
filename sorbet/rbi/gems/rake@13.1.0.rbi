@@ -1539,6 +1539,9 @@ class Rake::FileList
   def to_ary; end
 
   # source://rake//lib/rake/file_list.rb#77
+  def to_csv(*args, &block); end
+
+  # source://rake//lib/rake/file_list.rb#77
   def to_default_s(*args, &block); end
 
   # source://rake//lib/rake/file_list.rb#77

@@ -12111,6 +12111,7 @@ class ActiveSupport::TestCase < ::Minitest::Test
   include ::ActiveSupport::Testing::ConstantStubbing
   include ::ActiveSupport::Testing::TimeHelpers
   include ::ActiveSupport::Testing::FileFixtures
+  include ::Turbo::TestAssertions
   extend ::ActiveSupport::Callbacks::ClassMethods
   extend ::ActiveSupport::DescendantsTracker
   extend ::ActiveSupport::Testing::SetupAndTeardown::ClassMethods
@@ -12172,6 +12173,12 @@ class ActiveSupport::TestCase < ::Minitest::Test
 
   # source://minitest/5.21.2/lib/minitest/assertions.rb#822
   def assert_not_same(exp, act, msg = T.unsafe(nil)); end
+
+  # source://turbo-rails/1.5.0/lib/turbo/test_assertions.rb#7
+  def dom_class(*_arg0, **_arg1, &_arg2); end
+
+  # source://turbo-rails/1.5.0/lib/turbo/test_assertions.rb#7
+  def dom_id(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
   def file_fixture_path; end

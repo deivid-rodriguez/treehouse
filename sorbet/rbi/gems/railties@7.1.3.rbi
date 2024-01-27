@@ -1527,6 +1527,8 @@ class Rails::ApplicationController < ::ActionController::Base
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
+
   # source://railties//lib/rails/application_controller.rb#25
   def disable_content_security_policy_nonce!; end
 
@@ -2590,6 +2592,8 @@ class Rails::HealthController < ::ActionController::Base
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
+
   # source://railties//lib/rails/health_controller.rb#51
   def html_status(color:); end
 
@@ -2815,6 +2819,14 @@ end
 
 # source://railties//lib/rails/mailers_controller.rb#0
 module Rails::MailersController::HelperMethods
+  include ::Turbo::DriveHelper
+  include ::Turbo::FramesHelper
+  include ::Turbo::IncludesHelper
+  include ::Turbo::StreamsHelper
+  include ::ActionView::Helpers::CaptureHelper
+  include ::ActionView::Helpers::OutputSafetyHelper
+  include ::ActionView::Helpers::TagHelper
+  include ::Turbo::Streams::ActionHelper
   include ::ViteRails::TagHelpers
   include ::ActionController::Base::HelperMethods
 

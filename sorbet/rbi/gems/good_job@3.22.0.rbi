@@ -708,6 +708,7 @@ class GoodJob::ApplicationController < ::ActionController::Base
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
   def current_locale; end
   def default_url_options(options = T.unsafe(nil)); end
   def use_good_job_locale(&action); end
@@ -723,6 +724,14 @@ class GoodJob::ApplicationController < ::ActionController::Base
 end
 
 module GoodJob::ApplicationController::HelperMethods
+  include ::Turbo::DriveHelper
+  include ::Turbo::FramesHelper
+  include ::Turbo::IncludesHelper
+  include ::Turbo::StreamsHelper
+  include ::ActionView::Helpers::CaptureHelper
+  include ::ActionView::Helpers::OutputSafetyHelper
+  include ::ActionView::Helpers::TagHelper
+  include ::Turbo::Streams::ActionHelper
   include ::ViteRails::TagHelpers
   include ::ActionController::Base::HelperMethods
   include ::GoodJob::ApplicationHelper
@@ -879,6 +888,9 @@ GoodJob::BaseFilter::EMPTY = T.let(T.unsafe(nil), String)
 class GoodJob::BaseRecord < ::ActiveRecord::Base
   include ::GoodJob::BaseRecord::GeneratedAttributeMethods
   include ::GoodJob::BaseRecord::GeneratedAssociationMethods
+  include ::Kaminari::ActiveRecordModelExtension
+  include ::Kaminari::ConfigurationMethods
+  extend ::Kaminari::ConfigurationMethods::ClassMethods
 
   class << self
     # source://activemodel/7.1.3/lib/active_model/validations.rb#71
@@ -889,6 +901,10 @@ class GoodJob::BaseRecord < ::ActiveRecord::Base
 
     def migrated?; end
     def migration_pending_warning!; end
+
+    # source://kaminari-activerecord/1.2.2/lib/kaminari/activerecord/active_record_model_extension.rb#15
+    def page(num = T.unsafe(nil)); end
+
     def with_logger_silenced(silent: T.unsafe(nil), &block); end
   end
 end
@@ -1131,6 +1147,8 @@ class GoodJob::BatchesController < ::GoodJob::ApplicationController
 
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
+
+  def _layout_from_proc; end
 
   class << self
     # source://actionpack/7.1.3/lib/action_controller/metal.rb#262
@@ -1778,6 +1796,7 @@ class GoodJob::CronEntriesController < ::GoodJob::ApplicationController
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
   def check_settings_migration!; end
 
   class << self
@@ -2631,6 +2650,8 @@ class GoodJob::FrontendsController < ::ActionController::Base
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
+
   class << self
     # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
     def __callbacks; end
@@ -3034,6 +3055,7 @@ class GoodJob::JobsController < ::GoodJob::ApplicationController
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
+  def _layout_from_proc; end
   def redirect_on_error(exception); end
 
   class << self
@@ -3821,6 +3843,8 @@ class GoodJob::ProcessesController < ::GoodJob::ApplicationController
 
   # source://actionview/7.1.3/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
+
+  def _layout_from_proc; end
 
   class << self
     # source://actionpack/7.1.3/lib/action_controller/metal.rb#262
