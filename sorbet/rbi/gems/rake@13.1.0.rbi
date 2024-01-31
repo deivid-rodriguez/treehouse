@@ -1158,6 +1158,9 @@ class Rake::FileList
   def ext(newext = T.unsafe(nil)); end
 
   # source://rake//lib/rake/file_list.rb#77
+  def extract!(*args, &block); end
+
+  # source://rake//lib/rake/file_list.rb#77
   def extract_options!(*args, &block); end
 
   # source://rake//lib/rake/file_list.rb#77
@@ -1236,6 +1239,12 @@ class Rake::FileList
   def import(array); end
 
   # source://rake//lib/rake/file_list.rb#77
+  def in_groups(*args, &block); end
+
+  # source://rake//lib/rake/file_list.rb#77
+  def in_groups_of(*args, &block); end
+
+  # source://rake//lib/rake/file_list.rb#77
   def in_order_of(*args, &block); end
 
   # Add file names defined by glob patterns to the file list.  If an array
@@ -1265,6 +1274,9 @@ class Rake::FileList
 
   # source://rake//lib/rake/file_list.rb#77
   def inject(*args, &block); end
+
+  # source://rake//lib/rake/file_list.rb#77
+  def inquiry(*args, &block); end
 
   # source://rake//lib/rake/file_list.rb#77
   def insert(*args, &block); end
@@ -1492,6 +1504,9 @@ class Rake::FileList
 
   # source://rake//lib/rake/file_list.rb#77
   def sort_by!(*args, &block); end
+
+  # source://rake//lib/rake/file_list.rb#77
+  def split(*args, &block); end
 
   # Return a new FileList with the results of running +sub+ against each
   # element of the original list.
