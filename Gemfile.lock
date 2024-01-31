@@ -299,6 +299,7 @@ GEM
       rubocop (>= 0.90.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
+    saxerator (0.9.9)
     sorbet (0.5.11218)
       sorbet-static (= 0.5.11218)
     sorbet-runtime (0.5.11218)
@@ -388,6 +389,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rake
   rubocop-sorbet
+  saxerator
   sorbet
   sorbet-runtime
   sorbet-static!

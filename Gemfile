@@ -21,6 +21,7 @@ gem 'rails_admin',
   git: 'https://github.com/railsadminteam/rails_admin.git',
   ref: 'af7414a98aa87cfe90d79cb0ed64962fb34c58f4'
 gem 'rake', '~> 13.1'
+gem 'saxerator'
 gem 'vite_rails', '~> 3.0'
 
 # Only some parts of Rails are loaded
