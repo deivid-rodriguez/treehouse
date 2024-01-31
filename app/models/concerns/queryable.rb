@@ -6,6 +6,8 @@ module Queryable
   extend ActiveSupport::Concern
   extend T::Helpers
 
+  requires_ancestor { ApplicationRecord }
+
   included do
     T.bind(self, T.class_of(ApplicationRecord))
     has_one :query, as: :queryable, dependent: :destroy, touch: true
