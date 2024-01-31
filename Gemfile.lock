@@ -196,6 +196,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.0-x86_64-linux)
       racc (~> 1.4)
+    ox (2.14.17)
     paper_trail (15.1.0)
       activerecord (>= 6.1)
       request_store (~> 1.4)
@@ -374,6 +375,7 @@ DEPENDENCIES
   faraday (~> 2.9)
   good_job (~> 3.22)
   jbuilder
+  ox (~> 2.14)
   paper_trail
   pg (~> 1.1)
   pg_query
