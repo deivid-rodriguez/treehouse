@@ -16,13 +16,13 @@ class Response
   def to_ary; end
 
   module CommonRelationMethods
-    sig { params(block: T.nilable(T.proc.params(record: ::Response).returns(T.untyped))).returns(T::Boolean) }
+    sig { params(block: T.nilable(T.proc.params(record: Response[T.untyped, T.untyped]).returns(T.untyped))).returns(T::Boolean) }
     def any?(&block); end
 
     sig { params(column_name: T.any(String, Symbol)).returns(T.untyped) }
     def average(column_name); end
 
-    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: ::Response).void)).returns(::Response) }
+    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: Response[T.untyped, T.untyped]).void)).returns(Response[T.untyped, T.untyped]) }
     def build(attributes = nil, &block); end
 
     sig { params(operation: Symbol, column_name: T.any(String, Symbol)).returns(T.untyped) }
@@ -31,37 +31,37 @@ class Response
     sig { params(column_name: T.untyped).returns(T.untyped) }
     def count(column_name = nil); end
 
-    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: ::Response).void)).returns(::Response) }
+    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: Response[T.untyped, T.untyped]).void)).returns(Response[T.untyped, T.untyped]) }
     def create(attributes = nil, &block); end
 
-    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: ::Response).void)).returns(::Response) }
+    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: Response[T.untyped, T.untyped]).void)).returns(Response[T.untyped, T.untyped]) }
     def create!(attributes = nil, &block); end
 
-    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: ::Response).void)).returns(::Response) }
+    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: Response[T.untyped, T.untyped]).void)).returns(Response[T.untyped, T.untyped]) }
     def create_or_find_by(attributes, &block); end
 
-    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: ::Response).void)).returns(::Response) }
+    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: Response[T.untyped, T.untyped]).void)).returns(Response[T.untyped, T.untyped]) }
     def create_or_find_by!(attributes, &block); end
 
-    sig { returns(T::Array[::Response]) }
+    sig { returns(T::Array[Response[T.untyped, T.untyped]]) }
     def destroy_all; end
 
     sig { params(conditions: T.untyped).returns(T::Boolean) }
     def exists?(conditions = :none); end
 
-    sig { returns(T.nilable(::Response)) }
+    sig { returns(T.nilable(Response[T.untyped, T.untyped])) }
     def fifth; end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def fifth!; end
 
     sig { params(args: T.untyped).returns(T.untyped) }
     def find(*args); end
 
-    sig { params(args: T.untyped).returns(T.nilable(::Response)) }
+    sig { params(args: T.untyped).returns(T.nilable(Response[T.untyped, T.untyped])) }
     def find_by(*args); end
 
-    sig { params(args: T.untyped).returns(::Response) }
+    sig { params(args: T.untyped).returns(Response[T.untyped, T.untyped]) }
     def find_by!(*args); end
 
     sig do
@@ -71,8 +71,8 @@ class Response
         batch_size: Integer,
         error_on_ignore: T.untyped,
         order: Symbol,
-        block: T.nilable(T.proc.params(object: ::Response).void)
-      ).returns(T.nilable(T::Enumerator[::Response]))
+        block: T.nilable(T.proc.params(object: Response[T.untyped, T.untyped]).void)
+      ).returns(T.nilable(T::Enumerator[Response[T.untyped, T.untyped]]))
     end
     def find_each(start: nil, finish: nil, batch_size: 1000, error_on_ignore: nil, order: :asc, &block); end
 
@@ -83,45 +83,45 @@ class Response
         batch_size: Integer,
         error_on_ignore: T.untyped,
         order: Symbol,
-        block: T.nilable(T.proc.params(object: T::Array[::Response]).void)
-      ).returns(T.nilable(T::Enumerator[T::Enumerator[::Response]]))
+        block: T.nilable(T.proc.params(object: T::Array[Response[T.untyped, T.untyped]]).void)
+      ).returns(T.nilable(T::Enumerator[T::Enumerator[Response[T.untyped, T.untyped]]]))
     end
     def find_in_batches(start: nil, finish: nil, batch_size: 1000, error_on_ignore: nil, order: :asc, &block); end
 
-    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: ::Response).void)).returns(::Response) }
+    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: Response[T.untyped, T.untyped]).void)).returns(Response[T.untyped, T.untyped]) }
     def find_or_create_by(attributes, &block); end
 
-    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: ::Response).void)).returns(::Response) }
+    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: Response[T.untyped, T.untyped]).void)).returns(Response[T.untyped, T.untyped]) }
     def find_or_create_by!(attributes, &block); end
 
-    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: ::Response).void)).returns(::Response) }
+    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: Response[T.untyped, T.untyped]).void)).returns(Response[T.untyped, T.untyped]) }
     def find_or_initialize_by(attributes, &block); end
 
-    sig { params(signed_id: T.untyped, purpose: T.untyped).returns(T.nilable(::Response)) }
+    sig { params(signed_id: T.untyped, purpose: T.untyped).returns(T.nilable(Response[T.untyped, T.untyped])) }
     def find_signed(signed_id, purpose: nil); end
 
-    sig { params(signed_id: T.untyped, purpose: T.untyped).returns(::Response) }
+    sig { params(signed_id: T.untyped, purpose: T.untyped).returns(Response[T.untyped, T.untyped]) }
     def find_signed!(signed_id, purpose: nil); end
 
-    sig { params(arg: T.untyped, args: T.untyped).returns(::Response) }
+    sig { params(arg: T.untyped, args: T.untyped).returns(Response[T.untyped, T.untyped]) }
     def find_sole_by(arg, *args); end
 
     sig { params(limit: T.untyped).returns(T.untyped) }
     def first(limit = nil); end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def first!; end
 
-    sig { returns(T.nilable(::Response)) }
+    sig { returns(T.nilable(Response[T.untyped, T.untyped])) }
     def forty_two; end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def forty_two!; end
 
-    sig { returns(T.nilable(::Response)) }
+    sig { returns(T.nilable(Response[T.untyped, T.untyped])) }
     def fourth; end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def fourth!; end
 
     sig { returns(Array) }
@@ -147,10 +147,10 @@ class Response
     sig { params(limit: T.untyped).returns(T.untyped) }
     def last(limit = nil); end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def last!; end
 
-    sig { params(block: T.nilable(T.proc.params(record: ::Response).returns(T.untyped))).returns(T::Boolean) }
+    sig { params(block: T.nilable(T.proc.params(record: Response[T.untyped, T.untyped]).returns(T.untyped))).returns(T::Boolean) }
     def many?(&block); end
 
     sig { params(column_name: T.any(String, Symbol)).returns(T.untyped) }
@@ -162,13 +162,13 @@ class Response
     sig { params(column_name: T.any(String, Symbol)).returns(T.untyped) }
     def minimum(column_name); end
 
-    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: ::Response).void)).returns(::Response) }
+    sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: Response[T.untyped, T.untyped]).void)).returns(Response[T.untyped, T.untyped]) }
     def new(attributes = nil, &block); end
 
-    sig { params(block: T.nilable(T.proc.params(record: ::Response).returns(T.untyped))).returns(T::Boolean) }
+    sig { params(block: T.nilable(T.proc.params(record: Response[T.untyped, T.untyped]).returns(T.untyped))).returns(T::Boolean) }
     def none?(&block); end
 
-    sig { params(block: T.nilable(T.proc.params(record: ::Response).returns(T.untyped))).returns(T::Boolean) }
+    sig { params(block: T.nilable(T.proc.params(record: Response[T.untyped, T.untyped]).returns(T.untyped))).returns(T::Boolean) }
     def one?(&block); end
 
     sig { params(column_names: T.untyped).returns(T.untyped) }
@@ -177,19 +177,19 @@ class Response
     sig { params(column_names: T.untyped).returns(T.untyped) }
     def pluck(*column_names); end
 
-    sig { returns(T.nilable(::Response)) }
+    sig { returns(T.nilable(Response[T.untyped, T.untyped])) }
     def second; end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def second!; end
 
-    sig { returns(T.nilable(::Response)) }
+    sig { returns(T.nilable(Response[T.untyped, T.untyped])) }
     def second_to_last; end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def second_to_last!; end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def sole; end
 
     sig do
@@ -203,19 +203,19 @@ class Response
     sig { params(limit: T.untyped).returns(T.untyped) }
     def take(limit = nil); end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def take!; end
 
-    sig { returns(T.nilable(::Response)) }
+    sig { returns(T.nilable(Response[T.untyped, T.untyped])) }
     def third; end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def third!; end
 
-    sig { returns(T.nilable(::Response)) }
+    sig { returns(T.nilable(Response[T.untyped, T.untyped])) }
     def third_to_last; end
 
-    sig { returns(::Response) }
+    sig { returns(Response[T.untyped, T.untyped]) }
     def third_to_last!; end
   end
 
@@ -1084,17 +1084,17 @@ class Response
     include CommonRelationMethods
     include GeneratedAssociationRelationMethods
 
-    Elem = type_member { { fixed: ::Response } }
+    Elem = type_member { { fixed: Response[T.untyped, T.untyped] } }
 
-    sig { returns(T::Array[::Response]) }
+    sig { returns(T::Array[Response[T.untyped, T.untyped]]) }
     def to_a; end
 
-    sig { returns(T::Array[::Response]) }
+    sig { returns(T::Array[Response[T.untyped, T.untyped]]) }
     def to_ary; end
   end
 
   class PrivateAssociationRelationWhereChain < PrivateAssociationRelation
-    Elem = type_member { { fixed: ::Response } }
+    Elem = type_member { { fixed: Response[T.untyped, T.untyped] } }
 
     sig { params(args: T.untyped).returns(PrivateAssociationRelation) }
     def associated(*args); end
@@ -1110,18 +1110,18 @@ class Response
     include CommonRelationMethods
     include GeneratedAssociationRelationMethods
 
-    Elem = type_member { { fixed: ::Response } }
+    Elem = type_member { { fixed: Response[T.untyped, T.untyped] } }
 
     sig do
       params(
-        records: T.any(::Response, T::Enumerable[T.any(::Response, T::Enumerable[::Response])])
+        records: T.any(Response[T.untyped, T.untyped], T::Enumerable[T.any(Response[T.untyped, T.untyped], T::Enumerable[Response[T.untyped, T.untyped]])])
       ).returns(PrivateCollectionProxy)
     end
     def <<(*records); end
 
     sig do
       params(
-        records: T.any(::Response, T::Enumerable[T.any(::Response, T::Enumerable[::Response])])
+        records: T.any(Response[T.untyped, T.untyped], T::Enumerable[T.any(Response[T.untyped, T.untyped], T::Enumerable[Response[T.untyped, T.untyped]])])
       ).returns(PrivateCollectionProxy)
     end
     def append(*records); end
@@ -1131,59 +1131,59 @@ class Response
 
     sig do
       params(
-        records: T.any(::Response, T::Enumerable[T.any(::Response, T::Enumerable[::Response])])
+        records: T.any(Response[T.untyped, T.untyped], T::Enumerable[T.any(Response[T.untyped, T.untyped], T::Enumerable[Response[T.untyped, T.untyped]])])
       ).returns(PrivateCollectionProxy)
     end
     def concat(*records); end
 
     sig do
       params(
-        records: T.any(::Response, Integer, String, T::Enumerable[T.any(::Response, Integer, String, T::Enumerable[::Response])])
-      ).returns(T::Array[::Response])
+        records: T.any(Response[T.untyped, T.untyped], Integer, String, T::Enumerable[T.any(Response[T.untyped, T.untyped], Integer, String, T::Enumerable[Response[T.untyped, T.untyped]])])
+      ).returns(T::Array[Response[T.untyped, T.untyped]])
     end
     def delete(*records); end
 
     sig do
       params(
-        records: T.any(::Response, Integer, String, T::Enumerable[T.any(::Response, Integer, String, T::Enumerable[::Response])])
-      ).returns(T::Array[::Response])
+        records: T.any(Response[T.untyped, T.untyped], Integer, String, T::Enumerable[T.any(Response[T.untyped, T.untyped], Integer, String, T::Enumerable[Response[T.untyped, T.untyped]])])
+      ).returns(T::Array[Response[T.untyped, T.untyped]])
     end
     def destroy(*records); end
 
-    sig { returns(T::Array[::Response]) }
+    sig { returns(T::Array[Response[T.untyped, T.untyped]]) }
     def load_target; end
 
     sig do
       params(
-        records: T.any(::Response, T::Enumerable[T.any(::Response, T::Enumerable[::Response])])
+        records: T.any(Response[T.untyped, T.untyped], T::Enumerable[T.any(Response[T.untyped, T.untyped], T::Enumerable[Response[T.untyped, T.untyped]])])
       ).returns(PrivateCollectionProxy)
     end
     def prepend(*records); end
 
     sig do
       params(
-        records: T.any(::Response, T::Enumerable[T.any(::Response, T::Enumerable[::Response])])
+        records: T.any(Response[T.untyped, T.untyped], T::Enumerable[T.any(Response[T.untyped, T.untyped], T::Enumerable[Response[T.untyped, T.untyped]])])
       ).returns(PrivateCollectionProxy)
     end
     def push(*records); end
 
     sig do
       params(
-        other_array: T.any(::Response, T::Enumerable[T.any(::Response, T::Enumerable[::Response])])
-      ).returns(T::Array[::Response])
+        other_array: T.any(Response[T.untyped, T.untyped], T::Enumerable[T.any(Response[T.untyped, T.untyped], T::Enumerable[Response[T.untyped, T.untyped]])])
+      ).returns(T::Array[Response[T.untyped, T.untyped]])
     end
     def replace(other_array); end
 
     sig { returns(PrivateAssociationRelation) }
     def scope; end
 
-    sig { returns(T::Array[::Response]) }
+    sig { returns(T::Array[Response[T.untyped, T.untyped]]) }
     def target; end
 
-    sig { returns(T::Array[::Response]) }
+    sig { returns(T::Array[Response[T.untyped, T.untyped]]) }
     def to_a; end
 
-    sig { returns(T::Array[::Response]) }
+    sig { returns(T::Array[Response[T.untyped, T.untyped]]) }
     def to_ary; end
   end
 
@@ -1191,17 +1191,17 @@ class Response
     include CommonRelationMethods
     include GeneratedRelationMethods
 
-    Elem = type_member { { fixed: ::Response } }
+    Elem = type_member { { fixed: Response[T.untyped, T.untyped] } }
 
-    sig { returns(T::Array[::Response]) }
+    sig { returns(T::Array[Response[T.untyped, T.untyped]]) }
     def to_a; end
 
-    sig { returns(T::Array[::Response]) }
+    sig { returns(T::Array[Response[T.untyped, T.untyped]]) }
     def to_ary; end
   end
 
   class PrivateRelationWhereChain < PrivateRelation
-    Elem = type_member { { fixed: ::Response } }
+    Elem = type_member { { fixed: Response[T.untyped, T.untyped] } }
 
     sig { params(args: T.untyped).returns(PrivateRelation) }
     def associated(*args); end

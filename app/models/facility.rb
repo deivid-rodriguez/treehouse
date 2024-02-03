@@ -5,4 +5,6 @@
 class Facility < ApplicationRecord
   has_many :facility_geocodes, dependent: :destroy, inverse_of: :facility
   has_many :geocodes, through: :facility_geocodes, inverse_of: :facilities
+
+  accepts_nested_attributes_for :geocodes
 end

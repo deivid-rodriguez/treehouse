@@ -8,13 +8,13 @@ class ParseResponseJob
   class << self
     sig do
       params(
-        response: Response,
+        response: Response[T.untyped, T.untyped],
         block: T.nilable(T.proc.params(job: ParseResponseJob).void)
       ).returns(T.any(ParseResponseJob, FalseClass))
     end
     def perform_later(response:, &block); end
 
-    sig { params(response: Response).void }
+    sig { params(response: Response[T.untyped, T.untyped]).void }
     def perform_now(response:); end
   end
 end

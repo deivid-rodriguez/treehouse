@@ -89,5 +89,8 @@ Style/Documentation:
     - db/migrate/*.rb
     - sorbet/rbi/**/*.rbi
 
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: consistent_comma

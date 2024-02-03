@@ -244,7 +244,7 @@ class Query
     sig { returns(::Response::PrivateCollectionProxy) }
     def responses; end
 
-    sig { params(value: T::Enumerable[::Response]).void }
+    sig { params(value: T::Enumerable[Response[T.untyped, T.untyped]]).void }
     def responses=(value); end
   end
 

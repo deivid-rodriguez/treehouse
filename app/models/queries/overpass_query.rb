@@ -14,6 +14,7 @@ module Queries
 
     sig { returns(RESPONSE_TYPE) }
     def fetch!
+      # TODO: handle pagination
       responses.build(body: client.query(body:), type: RESPONSE_TYPE.name)
     end
 
