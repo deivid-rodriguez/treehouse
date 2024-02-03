@@ -33,6 +33,7 @@ jobs:
         with:
           bundler-cache: true
       - run: bin/tapioca annotations
+      - run: bin/srb typecheck --autocorrect || true
       - run: git diff --exit-code -- sorbet/rbi
 
   tapioca-dsl:
@@ -61,6 +62,7 @@ jobs:
           bundler-cache: true
       - run: bin/rails db:reset
       - run: bin/tapioca dsl
+      - run: bin/srb typecheck --autocorrect || true
       - run: git diff --exit-code -- sorbet/rbi
 
   tapioca-gem:
@@ -74,6 +76,7 @@ jobs:
         with:
           bundler-cache: true
       - run: bin/tapioca gem --all
+      - run: bin/srb typecheck --autocorrect || true
       - run: |
           git diff --exit-code -- sorbet/rbi \
             ':!/sorbet/rbi/gems/racc@*.rbi'
