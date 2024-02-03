@@ -247,6 +247,9 @@ class Facility
 
     sig { params(value: T::Enumerable[::Geocode]).void }
     def geocodes=(value); end
+
+    sig { params(attributes: T.untyped).returns(T.untyped) }
+    def geocodes_attributes=(attributes); end
   end
 
   module GeneratedAssociationRelationMethods
