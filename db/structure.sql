@@ -60,38 +60,6 @@ ALTER SEQUENCE public.facilities_id_seq OWNED BY public.facilities.id;
 
 
 --
--- Name: facility_geocodes; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.facility_geocodes (
-    id bigint NOT NULL,
-    facility_id bigint NOT NULL,
-    geocode_id bigint NOT NULL,
-    created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
-);
-
-
---
--- Name: facility_geocodes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.facility_geocodes_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: facility_geocodes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.facility_geocodes_id_seq OWNED BY public.facility_geocodes.id;
-
-
---
 -- Name: geocodes; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -373,13 +341,6 @@ ALTER TABLE ONLY public.facilities ALTER COLUMN id SET DEFAULT nextval('public.f
 
 
 --
--- Name: facility_geocodes id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.facility_geocodes ALTER COLUMN id SET DEFAULT nextval('public.facility_geocodes_id_seq'::regclass);
-
-
---
 -- Name: geocodes id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -428,14 +389,6 @@ ALTER TABLE ONLY public.ar_internal_metadata
 
 ALTER TABLE ONLY public.facilities
     ADD CONSTRAINT facilities_pkey PRIMARY KEY (id);
-
-
---
--- Name: facility_geocodes facility_geocodes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.facility_geocodes
-    ADD CONSTRAINT facility_geocodes_pkey PRIMARY KEY (id);
 
 
 --
@@ -531,20 +484,6 @@ ALTER TABLE ONLY public.versions
 --
 
 CREATE UNIQUE INDEX index_facilities_on_external_id ON public.facilities USING btree (external_id);
-
-
---
--- Name: index_facility_geocodes_on_facility_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_facility_geocodes_on_facility_id ON public.facility_geocodes USING btree (facility_id);
-
-
---
--- Name: index_facility_geocodes_on_geocode_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_facility_geocodes_on_geocode_id ON public.facility_geocodes USING btree (geocode_id);
 
 
 --
@@ -668,22 +607,6 @@ ALTER TABLE ONLY public.responses
 
 
 --
--- Name: facility_geocodes fk_rails_de97ecff28; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.facility_geocodes
-    ADD CONSTRAINT fk_rails_de97ecff28 FOREIGN KEY (geocode_id) REFERENCES public.geocodes(id);
-
-
---
--- Name: facility_geocodes fk_rails_e8f0c6e594; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.facility_geocodes
-    ADD CONSTRAINT fk_rails_e8f0c6e594 FOREIGN KEY (facility_id) REFERENCES public.facilities(id);
-
-
---
 -- PostgreSQL database dump complete
 --
 
@@ -697,7 +620,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20240114152544'),
 ('20240114152030'),
 ('20240114145319'),
-('20240114144353'),
 ('20240114144122'),
 ('20240114143824'),
 ('0');
