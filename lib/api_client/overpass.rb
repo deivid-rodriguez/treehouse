@@ -19,7 +19,6 @@ module APIClient
 
     sig { params(body: String).returns(String) }
     def query(body:)
-      # TODO: parse the response -- currently it returns the XML response as a string
       fetch_response(body:).body
     end
 
@@ -28,26 +27,6 @@ module APIClient
     sig { params(body: String).returns(Faraday::Response) }
     def fetch_response(body:)
       @connection.post('interpreter', body)
-    rescue Faraday::Error => e
-      handle_error(e)
-      raise
-    end
-
-    sig { params(error: Faraday::Error).void }
-    def handle_error(error)
-      Rails.logger.error <<~MESSAGE.chomp
-        Overpass API request failed with error: #{error.class}:
-
-        Response Headers:
-        ---
-        #{error.response_headers}
-        ---
-
-        Response body:
-        ---
-        #{error.response_body}
-        ---
-      MESSAGE
     end
   end
 end
