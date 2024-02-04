@@ -2,19 +2,17 @@
 # frozen_string_literal: true
 
 module Queries
-  # Represents a query of the Overpass API
-  class OverpassQuery < ApplicationRecord
+  # Represents a query of the Domain API
+  class DomainQuery < ApplicationRecord
     extend T::Sig
     include Queryable
 
-    CLIENT_TYPE = APIClient::Overpass
-    RESPONSE_TYPE = Responses::OverpassResponse
-
-    validates :facility_type, presence: true
+    CLIENT_TYPE = APIClient::Domain
+    RESPONSE_TYPE = Responses::DomainResponse
 
     sig { returns(RESPONSE_TYPE) }
     def fetch!
-      responses.build(body: client.query(body:), type: RESPONSE_TYPE.name)
+      responses.build(body: client.query(body: JSON.parse(body)).to_json, type: RESPONSE_TYPE.name)
     end
 
     private

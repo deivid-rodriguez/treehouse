@@ -1,8 +1,6 @@
 # typed: strict
 # frozen_string_literal: true
 
-require 'delegate'
-
 module Responses
   # Represents a response from querying the Overpass API
   class OverpassResponse < Response

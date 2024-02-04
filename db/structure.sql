@@ -26,6 +26,36 @@ CREATE TABLE public.ar_internal_metadata (
 
 
 --
+-- Name: domain_queries; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.domain_queries (
+    id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: domain_queries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.domain_queries_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: domain_queries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.domain_queries_id_seq OWNED BY public.domain_queries.id;
+
+
+--
 -- Name: facilities; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -70,7 +100,9 @@ CREATE TABLE public.geocodes (
     certainty integer,
     address text NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    target_type character varying NOT NULL,
+    target_id bigint NOT NULL
 );
 
 
@@ -186,6 +218,85 @@ CREATE TABLE public.good_jobs (
     error_event smallint,
     labels text[]
 );
+
+
+--
+-- Name: images; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.images (
+    id bigint NOT NULL,
+    listing_id bigint NOT NULL,
+    url text NOT NULL,
+    index integer NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: images_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.images_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: images_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.images_id_seq OWNED BY public.images.id;
+
+
+--
+-- Name: listings; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.listings (
+    id bigint NOT NULL,
+    external_id character varying NOT NULL,
+    address text,
+    description text,
+    bathroom_count double precision,
+    bedroom_count double precision,
+    carpark_count integer,
+    building_area double precision,
+    land_area double precision,
+    property_type text,
+    monthly_rent integer,
+    is_rural boolean DEFAULT false NOT NULL,
+    is_new boolean DEFAULT false NOT NULL,
+    slug text,
+    listed_at timestamp(6) without time zone,
+    available_at timestamp(6) without time zone,
+    last_seen_at timestamp(6) without time zone NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: listings_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.listings_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: listings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.listings_id_seq OWNED BY public.listings.id;
 
 
 --
@@ -334,6 +445,13 @@ ALTER SEQUENCE public.versions_id_seq OWNED BY public.versions.id;
 
 
 --
+-- Name: domain_queries id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.domain_queries ALTER COLUMN id SET DEFAULT nextval('public.domain_queries_id_seq'::regclass);
+
+
+--
 -- Name: facilities id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -345,6 +463,20 @@ ALTER TABLE ONLY public.facilities ALTER COLUMN id SET DEFAULT nextval('public.f
 --
 
 ALTER TABLE ONLY public.geocodes ALTER COLUMN id SET DEFAULT nextval('public.geocodes_id_seq'::regclass);
+
+
+--
+-- Name: images id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.images ALTER COLUMN id SET DEFAULT nextval('public.images_id_seq'::regclass);
+
+
+--
+-- Name: listings id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.listings ALTER COLUMN id SET DEFAULT nextval('public.listings_id_seq'::regclass);
 
 
 --
@@ -381,6 +513,14 @@ ALTER TABLE ONLY public.versions ALTER COLUMN id SET DEFAULT nextval('public.ver
 
 ALTER TABLE ONLY public.ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: domain_queries domain_queries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.domain_queries
+    ADD CONSTRAINT domain_queries_pkey PRIMARY KEY (id);
 
 
 --
@@ -440,6 +580,22 @@ ALTER TABLE ONLY public.good_jobs
 
 
 --
+-- Name: images images_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.images
+    ADD CONSTRAINT images_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: listings listings_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.listings
+    ADD CONSTRAINT listings_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: overpass_queries overpass_queries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -484,6 +640,13 @@ ALTER TABLE ONLY public.versions
 --
 
 CREATE UNIQUE INDEX index_facilities_on_external_id ON public.facilities USING btree (external_id);
+
+
+--
+-- Name: index_geocodes_on_target; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_geocodes_on_target ON public.geocodes USING btree (target_type, target_id);
 
 
 --
@@ -578,6 +741,13 @@ CREATE INDEX index_good_jobs_on_scheduled_at ON public.good_jobs USING btree (sc
 
 
 --
+-- Name: index_images_on_listing_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_images_on_listing_id ON public.images USING btree (listing_id);
+
+
+--
 -- Name: index_queries_on_queryable_type_and_queryable_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -607,12 +777,24 @@ ALTER TABLE ONLY public.responses
 
 
 --
+-- Name: images fk_rails_2a2257c8bb; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.images
+    ADD CONSTRAINT fk_rails_2a2257c8bb FOREIGN KEY (listing_id) REFERENCES public.listings(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240204100632'),
+('20240204093146'),
+('20240204093103'),
+('20240204093020'),
 ('20240127150925'),
 ('20240127150924'),
 ('20240126165139'),

@@ -45,6 +45,7 @@ Metrics/BlockLength:
     - namespace
 
 Metrics/ClassLength:
+  Max: 130
   Exclude:
     - sorbet/rbi/**/*.rbi
 
@@ -93,4 +94,7 @@ Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: consistent_comma
 
 Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma

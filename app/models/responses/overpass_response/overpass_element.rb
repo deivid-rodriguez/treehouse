@@ -23,7 +23,7 @@ module Responses
       # associate each Parseable with the Response it was parsed from
       sig { returns(Facility) }
       def to_facility
-        facility = Facility.lock.create_with(name:, address:).find_or_initialize_by(external_id: id)
+        facility = Facility.lock.find_or_initialize_by(external_id: id).assign_attributes(name:, address:)
         facility.geocodes.find_or_initialize_by(address:, latitude:, longitude:)
         facility
       end
