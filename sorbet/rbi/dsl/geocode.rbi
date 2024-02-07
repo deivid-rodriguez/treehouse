@@ -220,33 +220,14 @@ class Geocode
   end
 
   module GeneratedAssociationMethods
-    # This method is created by ActiveRecord on the `Geocode` class because it declared `has_many :facilities, through: :facility_geocodes`.
-    # 🔗 [Rails guide for `has_many_through` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-through-association)
-    sig { returns(::Facility::PrivateCollectionProxy) }
-    def facilities; end
+    sig { returns(T.untyped) }
+    def reload_target; end
 
-    sig { params(value: T::Enumerable[::Facility]).void }
-    def facilities=(value); end
+    sig { returns(T.untyped) }
+    def target; end
 
-    sig { returns(T::Array[T.untyped]) }
-    def facility_geocode_ids; end
-
-    sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
-    def facility_geocode_ids=(ids); end
-
-    # This method is created by ActiveRecord on the `Geocode` class because it declared `has_many :facility_geocodes`.
-    # 🔗 [Rails guide for `has_many` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-association)
-    sig { returns(::FacilityGeocode::PrivateCollectionProxy) }
-    def facility_geocodes; end
-
-    sig { params(value: T::Enumerable[::FacilityGeocode]).void }
-    def facility_geocodes=(value); end
-
-    sig { returns(T::Array[T.untyped]) }
-    def facility_ids; end
-
-    sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
-    def facility_ids=(ids); end
+    sig { params(value: T.untyped).void }
+    def target=(value); end
   end
 
   module GeneratedAssociationRelationMethods
@@ -776,6 +757,12 @@ class Geocode
     def restore_longitude!; end
 
     sig { void }
+    def restore_target_id!; end
+
+    sig { void }
+    def restore_target_type!; end
+
+    sig { void }
     def restore_updated_at!; end
 
     sig { returns(T.nilable([::String, ::String])) }
@@ -820,11 +807,113 @@ class Geocode
     sig { returns(T::Boolean) }
     def saved_change_to_longitude?; end
 
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def saved_change_to_target_id; end
+
+    sig { returns(T::Boolean) }
+    def saved_change_to_target_id?; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def saved_change_to_target_type; end
+
+    sig { returns(T::Boolean) }
+    def saved_change_to_target_type?; end
+
     sig { returns(T.nilable([T.nilable(::ActiveSupport::TimeWithZone), T.nilable(::ActiveSupport::TimeWithZone)])) }
     def saved_change_to_updated_at; end
 
     sig { returns(T::Boolean) }
     def saved_change_to_updated_at?; end
+
+    sig { returns(::Integer) }
+    def target_id; end
+
+    sig { params(value: ::Integer).returns(::Integer) }
+    def target_id=(value); end
+
+    sig { returns(T::Boolean) }
+    def target_id?; end
+
+    sig { returns(T.nilable(::Integer)) }
+    def target_id_before_last_save; end
+
+    sig { returns(T.untyped) }
+    def target_id_before_type_cast; end
+
+    sig { returns(T::Boolean) }
+    def target_id_came_from_user?; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def target_id_change; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def target_id_change_to_be_saved; end
+
+    sig { params(from: ::Integer, to: ::Integer).returns(T::Boolean) }
+    def target_id_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::Integer)) }
+    def target_id_in_database; end
+
+    sig { returns(T.nilable([::Integer, ::Integer])) }
+    def target_id_previous_change; end
+
+    sig { params(from: ::Integer, to: ::Integer).returns(T::Boolean) }
+    def target_id_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::Integer)) }
+    def target_id_previously_was; end
+
+    sig { returns(T.nilable(::Integer)) }
+    def target_id_was; end
+
+    sig { void }
+    def target_id_will_change!; end
+
+    sig { returns(::String) }
+    def target_type; end
+
+    sig { params(value: ::String).returns(::String) }
+    def target_type=(value); end
+
+    sig { returns(T::Boolean) }
+    def target_type?; end
+
+    sig { returns(T.nilable(::String)) }
+    def target_type_before_last_save; end
+
+    sig { returns(T.untyped) }
+    def target_type_before_type_cast; end
+
+    sig { returns(T::Boolean) }
+    def target_type_came_from_user?; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def target_type_change; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def target_type_change_to_be_saved; end
+
+    sig { params(from: ::String, to: ::String).returns(T::Boolean) }
+    def target_type_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::String)) }
+    def target_type_in_database; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def target_type_previous_change; end
+
+    sig { params(from: ::String, to: ::String).returns(T::Boolean) }
+    def target_type_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::String)) }
+    def target_type_previously_was; end
+
+    sig { returns(T.nilable(::String)) }
+    def target_type_was; end
+
+    sig { void }
+    def target_type_will_change!; end
 
     sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
     def updated_at; end
@@ -891,6 +980,12 @@ class Geocode
 
     sig { returns(T::Boolean) }
     def will_save_change_to_longitude?; end
+
+    sig { returns(T::Boolean) }
+    def will_save_change_to_target_id?; end
+
+    sig { returns(T::Boolean) }
+    def will_save_change_to_target_type?; end
 
     sig { returns(T::Boolean) }
     def will_save_change_to_updated_at?; end
