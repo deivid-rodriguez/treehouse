@@ -15,7 +15,7 @@ module ProsopiteConcern
 
       extend T::Sig
 
-      around_action :n_plus_one_detection
+      around_action :n_plus_one_query_detection
 
       sig { params(block: T.proc.void).void }
       def n_plus_one_query_detection(&block)
