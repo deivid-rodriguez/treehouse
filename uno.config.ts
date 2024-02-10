@@ -2,9 +2,8 @@
 import {
   defineConfig,
   presetTypography,
-  presetUno
+  presetWind,
 } from 'unocss'
-
 
 export default defineConfig({
   content: {
@@ -18,7 +17,7 @@ export default defineConfig({
     ],
   },
   presets: [
-    presetUno(),
+    presetWind(),
     presetTypography(),
-  ]
+  ],
 })

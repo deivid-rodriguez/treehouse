@@ -8,6 +8,13 @@ module ListingDecorator
 
   requires_ancestor { ActionView::Base }
 
+  sig { returns(T.nilable(String)) }
+  def description
+    super
+      &.gsub(%r{<br\s*/?>}, "\n")
+      &.gsub(%r{</?b>}, '')
+  end
+
   sig { returns(T::Boolean) }
   def image?
     images.any?
