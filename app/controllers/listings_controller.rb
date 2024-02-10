@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
   # GET /listings or /listings.json
   sig { void }
   def index
-    @listings = T.let(Listing.all, T.nilable(ActiveRecord::Relation))
+    @listings = T.let(Listing.includes(:images), T.nilable(ActiveRecord::Relation))
   end
 
   # GET /listings/1 or /listings/1.json
@@ -32,6 +32,6 @@ class ListingsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   sig { void }
   def set_listing
-    @listing = T.let(Listing.find(params[:id]), T.nilable(Listing))
+    @listing = T.let(Listing.includes(:images).find(params[:id]), T.nilable(Listing))
   end
 end
