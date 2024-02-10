@@ -1,7 +1,2 @@
 /* Application styles */
-body {
-  background: red
-}
-
-
-/* Hello, World */
+@import "@fortawesome/fontawesome-free/css/all.css";
