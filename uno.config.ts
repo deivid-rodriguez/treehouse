@@ -7,7 +7,16 @@ import {
 
 
 export default defineConfig({
-  // ...UnoCSS options
+  content: {
+    pipeline: {
+      include: [
+        /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html|html\.erb)($|\?)/,
+      ]
+    },
+    filesystem: [
+      '../../app/views/**/*.html.erb',
+    ],
+  },
   presets: [
     presetUno(),
     presetTypography(),
