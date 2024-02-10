@@ -7,6 +7,16 @@ export default defineConfig({
   plugins: [
     Inspect(),
     UnoCSS(),
-    ViteRails(),
+    ViteRails({
+      fullReload: {
+        additionalPaths: [
+          'app/channels/**/*_channel.rb',
+          'app/controllers/**/*_controller.rb',
+          'app/decorators/**/*_decorator.rb',
+          'app/helpers/**/*_helper.rb',
+          'lib/**/*.rb',
+        ],
+      },
+    }),
   ],
 })
