@@ -13,6 +13,7 @@ gem 'sorbet', group: :development
 gem 'sorbet-runtime'
 gem 'tapioca', require: false, group: %i[development test]
 
+gem 'active_decorator'
 gem 'faraday', '~> 2.9'
 gem 'good_job', '~> 3.22'
 gem 'ox', '~> 2.14'
