@@ -14,6 +14,44 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- Name: addresses; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.addresses (
+    id bigint NOT NULL,
+    addressable_type character varying NOT NULL,
+    addressable_id bigint NOT NULL,
+    unit character varying,
+    house character varying,
+    street character varying,
+    city character varying,
+    state character varying,
+    postcode character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: addresses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.addresses_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: addresses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.addresses_id_seq OWNED BY public.addresses.id;
+
+
+--
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -63,7 +101,6 @@ CREATE TABLE public.facilities (
     id bigint NOT NULL,
     type character varying,
     name text,
-    address text,
     external_id text NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
@@ -98,7 +135,6 @@ CREATE TABLE public.geocodes (
     latitude double precision NOT NULL,
     longitude double precision NOT NULL,
     certainty integer,
-    address text NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
     target_type character varying NOT NULL,
@@ -260,7 +296,6 @@ ALTER SEQUENCE public.images_id_seq OWNED BY public.images.id;
 CREATE TABLE public.listings (
     id bigint NOT NULL,
     external_id character varying NOT NULL,
-    address text,
     description text,
     bathroom_count double precision,
     bedroom_count double precision,
@@ -445,6 +480,13 @@ ALTER SEQUENCE public.versions_id_seq OWNED BY public.versions.id;
 
 
 --
+-- Name: addresses id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.addresses ALTER COLUMN id SET DEFAULT nextval('public.addresses_id_seq'::regclass);
+
+
+--
 -- Name: domain_queries id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -505,6 +547,14 @@ ALTER TABLE ONLY public.responses ALTER COLUMN id SET DEFAULT nextval('public.re
 --
 
 ALTER TABLE ONLY public.versions ALTER COLUMN id SET DEFAULT nextval('public.versions_id_seq'::regclass);
+
+
+--
+-- Name: addresses addresses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.addresses
+    ADD CONSTRAINT addresses_pkey PRIMARY KEY (id);
 
 
 --
@@ -633,6 +683,13 @@ ALTER TABLE ONLY public.schema_migrations
 
 ALTER TABLE ONLY public.versions
     ADD CONSTRAINT versions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_addresses_on_addressable; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_addresses_on_addressable ON public.addresses USING btree (addressable_type, addressable_id);
 
 
 --
@@ -791,6 +848,10 @@ ALTER TABLE ONLY public.images
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240211115156'),
+('20240211110122'),
+('20240211110118'),
+('20240211104347'),
 ('20240204100632'),
 ('20240204093146'),
 ('20240204093103'),

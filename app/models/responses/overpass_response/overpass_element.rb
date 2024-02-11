@@ -11,8 +11,6 @@ module Responses
       extend T::Generic
       extend T::Sig
 
-      include CalculatesAddress
-
       delegate :inspect, to: :@node
       alias to_s inspect
 
@@ -29,8 +27,9 @@ module Responses
       sig { returns(Facility) }
       def to_facility
         facility = Facility.lock.find_or_initialize_by(external_id: id)
-        facility.assign_attributes(name:, address: calculated_address)
-        facility.geocodes.find_or_initialize_by(address: calculated_address, latitude:, longitude:)
+        facility.assign_attributes(name:, address_attributes:)
+        address = Address.build(address_attributes)
+        facility.geocodes.joins(:address).find_or_initialize_by(address:, latitude:, longitude:)
         facility
       end
 
@@ -39,39 +38,21 @@ module Responses
         @id ||= T.let(@node.fetch(:id), T.nilable(String))
       end
 
+      sig { returns(T::Hash[Symbol, T.untyped]) }
+      def address_attributes
+        {
+          unit: find_tag('addr:unit'),
+          house: find_tag('addr:housenumber'),
+          street: find_tag('addr:street'),
+          city: find_tag('addr:city'),
+          state: find_tag('addr:state'),
+          postcode: find_tag('addr:postcode'),
+        }.transform_values(&:presence)
+      end
+
       sig { returns(T.nilable(String)) }
       def name
         @name ||= T.let(find_tag('name'), T.nilable(String))
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_unit
-        @address_unit ||= T.let(find_tag('addr:unit'), T.nilable(String))
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_house
-        @address_house ||= T.let(find_tag('addr:housenumber'), T.nilable(String))
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_street
-        find_tag('addr:street').presence
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_city
-        @address_city ||= T.let(find_tag('addr:city'), T.nilable(String))
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_state
-        @address_state ||= T.let(find_tag('addr:state'), T.nilable(String))
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_postcode
-        @address_postcode ||= T.let(find_tag('addr:postcode'), T.nilable(String))
       end
 
       sig { returns(T.nilable(Float)) }

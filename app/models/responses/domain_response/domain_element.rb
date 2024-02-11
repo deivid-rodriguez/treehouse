@@ -11,8 +11,6 @@ module Responses
       extend T::Generic
       extend T::Sig
 
-      include CalculatesAddress
-
       delegate :inspect, to: :@node
       alias to_s inspect
 
@@ -44,50 +42,27 @@ module Responses
       sig { returns(T::Hash[Symbol, T.untyped]) }
       def attributes
         {
-          address:, description:, bathroom_count:, bedroom_count:, carpark_count:, building_area:, land_area:,
-          property_type:, monthly_rent:, is_rural: rural?, is_new: new?, slug:, listed_at:, available_at:,
+          address_attributes:, description:, bathroom_count:, bedroom_count:, carpark_count:, building_area:,
+          land_area:, property_type:, monthly_rent:, is_rural: rural?, is_new: new?, slug:, listed_at:, available_at:,
           images_attributes:, last_seen_at: DateTime.now, # TODO: actual fetch time
+        }
+      end
+
+      sig { returns(T::Hash[Symbol, T.untyped]) }
+      def address_attributes
+        {
+          unit: listing&.dig('propertyDetails', 'unitNumber'),
+          house: listing&.dig('propertyDetails', 'streetNumber'),
+          street: listing&.dig('propertyDetails', 'street'),
+          city: listing&.dig('propertyDetails', 'suburb'),
+          state: listing&.dig('propertyDetails', 'state'),
+          postcode: listing&.dig('propertyDetails', 'postcode'),
         }
       end
 
       sig { returns(T.nilable(String)) }
       def external_id
         listing&.fetch('id')&.to_s
-      end
-
-      sig { returns(String) }
-      def address
-        listing&.dig('propertyDetails', 'displayableAddress').presence || calculated_address
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_unit
-        @address_unit ||= T.let(listing&.dig('propertyDetails', 'unitNumber'), T.nilable(String))
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_house
-        @address_house ||= T.let(listing&.dig('propertyDetails', 'streetNumber'), T.nilable(String))
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_street
-        @address_street ||= T.let(listing&.dig('propertyDetails', 'street'), T.nilable(String))
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_city
-        @address_city ||= T.let(listing&.dig('propertyDetails', 'suburb'), T.nilable(String))
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_state
-        @address_state ||= T.let(listing&.dig('propertyDetails', 'state'), T.nilable(String))
-      end
-
-      sig { override.returns(T.nilable(String)) }
-      def address_postcode
-        @address_postcode ||= T.let(listing&.dig('propertyDetails', 'postcode'), T.nilable(String))
       end
 
       sig { returns(T.nilable(String)) }

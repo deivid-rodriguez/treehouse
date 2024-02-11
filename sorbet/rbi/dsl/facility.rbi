@@ -220,6 +220,24 @@ class Facility
   end
 
   module GeneratedAssociationMethods
+    sig { returns(T.nilable(::Address)) }
+    def address; end
+
+    sig { params(value: T.nilable(::Address)).void }
+    def address=(value); end
+
+    sig { params(attributes: T.untyped).returns(T.untyped) }
+    def address_attributes=(attributes); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(::Address) }
+    def build_address(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(::Address) }
+    def create_address(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(::Address) }
+    def create_address!(*args, &blk); end
+
     sig { returns(T::Array[T.untyped]) }
     def geocode_ids; end
 
@@ -236,6 +254,9 @@ class Facility
 
     sig { params(attributes: T.untyped).returns(T.untyped) }
     def geocodes_attributes=(attributes); end
+
+    sig { returns(T.nilable(::Address)) }
+    def reload_address; end
   end
 
   module GeneratedAssociationRelationMethods
@@ -428,51 +449,6 @@ class Facility
   end
 
   module GeneratedAttributeMethods
-    sig { returns(T.nilable(::String)) }
-    def address; end
-
-    sig { params(value: T.nilable(::String)).returns(T.nilable(::String)) }
-    def address=(value); end
-
-    sig { returns(T::Boolean) }
-    def address?; end
-
-    sig { returns(T.nilable(::String)) }
-    def address_before_last_save; end
-
-    sig { returns(T.untyped) }
-    def address_before_type_cast; end
-
-    sig { returns(T::Boolean) }
-    def address_came_from_user?; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def address_change; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def address_change_to_be_saved; end
-
-    sig { params(from: T.nilable(::String), to: T.nilable(::String)).returns(T::Boolean) }
-    def address_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::String)) }
-    def address_in_database; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def address_previous_change; end
-
-    sig { params(from: T.nilable(::String), to: T.nilable(::String)).returns(T::Boolean) }
-    def address_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::String)) }
-    def address_previously_was; end
-
-    sig { returns(T.nilable(::String)) }
-    def address_was; end
-
-    sig { void }
-    def address_will_change!; end
-
     sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
     def created_at; end
 
@@ -699,9 +675,6 @@ class Facility
     def name_will_change!; end
 
     sig { void }
-    def restore_address!; end
-
-    sig { void }
     def restore_created_at!; end
 
     sig { void }
@@ -721,12 +694,6 @@ class Facility
 
     sig { void }
     def restore_updated_at!; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def saved_change_to_address; end
-
-    sig { returns(T::Boolean) }
-    def saved_change_to_address?; end
 
     sig { returns(T.nilable([T.nilable(::ActiveSupport::TimeWithZone), T.nilable(::ActiveSupport::TimeWithZone)])) }
     def saved_change_to_created_at; end
@@ -859,9 +826,6 @@ class Facility
 
     sig { void }
     def updated_at_will_change!; end
-
-    sig { returns(T::Boolean) }
-    def will_save_change_to_address?; end
 
     sig { returns(T::Boolean) }
     def will_save_change_to_created_at?; end

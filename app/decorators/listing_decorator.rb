@@ -6,7 +6,8 @@ module ListingDecorator
   extend T::Helpers
   extend T::Sig
 
-  requires_ancestor { ActionView::Base }
+  requires_ancestor { ActionView::Helpers }
+  requires_ancestor { Listing }
 
   sig { returns(T.nilable(String)) }
   def description
