@@ -5,6 +5,8 @@ import {
   presetWind,
 } from 'unocss'
 
+import transformerDirectives from '@unocss/transformer-directives'
+
 export default defineConfig({
   content: {
     pipeline: {
@@ -19,5 +21,8 @@ export default defineConfig({
   presets: [
     presetWind(),
     presetTypography(),
+  ],
+  transformers: [
+    transformerDirectives(),
   ],
 })
