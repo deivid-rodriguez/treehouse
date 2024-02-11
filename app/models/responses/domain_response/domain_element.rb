@@ -40,6 +40,7 @@ module Responses
 
       private
 
+      # TODO: add headline
       sig { returns(T::Hash[Symbol, T.untyped]) }
       def attributes
         {
