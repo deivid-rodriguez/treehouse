@@ -8,7 +8,10 @@ module Responses
     # Represents a single node in the Overpass API response
     class DomainElement < SimpleDelegator
       include Kernel
+      extend T::Generic
       extend T::Sig
+
+      include CalculatesAddress
 
       delegate :inspect, to: :@node
       alias to_s inspect
@@ -53,7 +56,37 @@ module Responses
 
       sig { returns(String) }
       def address
-        '' # TODO: parse address from separate fields
+        listing&.dig('propertyDetails', 'displayableAddress').presence || calculated_address
+      end
+
+      sig { override.returns(T.nilable(String)) }
+      def address_unit
+        @address_unit ||= T.let(listing&.dig('propertyDetails', 'unitNumber'), T.nilable(String))
+      end
+
+      sig { override.returns(T.nilable(String)) }
+      def address_house
+        @address_house ||= T.let(listing&.dig('propertyDetails', 'streetNumber'), T.nilable(String))
+      end
+
+      sig { override.returns(T.nilable(String)) }
+      def address_street
+        @address_street ||= T.let(listing&.dig('propertyDetails', 'street'), T.nilable(String))
+      end
+
+      sig { override.returns(T.nilable(String)) }
+      def address_city
+        @address_city ||= T.let(listing&.dig('propertyDetails', 'suburb'), T.nilable(String))
+      end
+
+      sig { override.returns(T.nilable(String)) }
+      def address_state
+        @address_state ||= T.let(listing&.dig('propertyDetails', 'state'), T.nilable(String))
+      end
+
+      sig { override.returns(T.nilable(String)) }
+      def address_postcode
+        @address_postcode ||= T.let(listing&.dig('propertyDetails', 'postcode'), T.nilable(String))
       end
 
       sig { returns(T.nilable(String)) }
@@ -63,48 +96,48 @@ module Responses
 
       sig { returns(T.nilable(Float)) }
       def bathroom_count
-        property_details&.fetch('bathrooms')
+        listing&.dig('propertyDetails', 'bathrooms')
       end
 
       sig { returns(T.nilable(Float)) }
       def bedroom_count
-        property_details&.fetch('bedrooms')
+        listing&.dig('propertyDetails', 'bedrooms')
       end
 
       sig { returns(T.nilable(Integer)) }
       def carpark_count
-        property_details&.fetch('carspaces')
+        listing&.dig('propertyDetails', 'carspaces')
       end
 
       sig { returns(T.nilable(Float)) }
       def building_area
-        property_details&.fetch('buildingArea', nil)
+        listing&.dig('propertyDetails', 'buildingArea')
       end
 
       sig { returns(T.nilable(Float)) }
       def land_area
-        property_details&.fetch('landArea', nil)
+        listing&.dig('propertyDetails', 'landArea')
       end
 
       sig { returns(T.nilable(String)) }
       def property_type
-        property_details&.fetch('propertyType')
+        listing&.dig('propertyDetails', 'propertyType')
       end
 
       sig { returns(T.nilable(Integer)) }
       def monthly_rent
         # TODO: handle cases when price is missing but minPrice/maxPrice or displayPrice is present
-        price_details&.fetch('price', nil).presence
+        listing&.dig('priceDetails', 'price').presence
       end
 
       sig { returns(T.nilable(T::Boolean)) }
       def rural?
-        property_details&.fetch('isRural')
+        listing&.dig('propertyDetails', 'isRural')
       end
 
       sig { returns(T.nilable(T::Boolean)) }
       def new?
-        property_details&.fetch('isNew')
+        listing&.dig('propertyDetails', 'isNew')
       end
 
       sig { returns(String) }
@@ -136,16 +169,6 @@ module Responses
       sig { returns(T.nilable(T::Hash[String, T.untyped])) }
       def listing
         @listing ||= T.let(@node.fetch('listing'), T.nilable(T::Hash[String, T.untyped]))
-      end
-
-      sig { returns(T.nilable(T::Hash[String, T.untyped])) }
-      def price_details
-        @price_details ||= T.let(listing&.fetch('priceDetails'), T.nilable(T::Hash[String, T.untyped]))
-      end
-
-      sig { returns(T.nilable(T::Hash[String, T.untyped])) }
-      def property_details
-        @property_details ||= T.let(listing&.fetch('propertyDetails'), T.nilable(T::Hash[String, T.untyped]))
       end
     end
   end
