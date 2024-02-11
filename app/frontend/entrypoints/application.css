@@ -1,3 +1,11 @@
 /* Application styles */
 @import "@fortawesome/fontawesome-free/css/all.css";
 @import "@unocss/reset/tailwind-compat.css";
+
+body {
+  --at-apply: m-6;
+}
+
+h1 {
+  --at-apply: font-bold text-3xl mb-4;
+}

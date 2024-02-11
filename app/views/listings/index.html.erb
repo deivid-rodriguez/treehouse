@@ -1,19 +1,21 @@
-<p class="text-green-500"><%= notice %></p>
-<h1 class="text-3xl font-bold mb-4">Listings</h1>
+<p class="text-emerald-500"><%= notice %></p>
+<h1>Listings</h1>
 
-<div id="listings" class="grid grid-cols-3 gap-4">
+<section id="listings" class="grid grid-cols-3 gap-6">
   <% @listings.each do |listing| %>
-    <%= link_to listing_url(listing), class: "block max-w-md mx-auto rounded-xl shadow-md overflow-hidden" do %>
+    <%= link_to listing_url(listing), class: 'rounded-xl shadow-md overflow-hidden' do %>
       <article>
         <%= image_tag listing.image_url, class: 'aspect-1.5 w-full' if listing.image? %>
         <h5 class="inline text-lg"><%= listing.address %></h5>
         <span class="items-center">
-          <i class="fas fa-bed"></i> <span class="ml-2"><%= listing.bedroom_count %></span>
-          <i class="fas fa-bath ml-4"></i> <span class="ml-2"><%= listing.bathroom_count %></span>
-          <i class="fas fa-car ml-4"></i> <span class="ml-2"><%= listing.carpark_count %></span>
+          <i class="fas fa-bed"></i><%= listing.bedroom_count %>
+          <i class="fas fa-bath"></i><%= listing.bathroom_count %>
+          <i class="fas fa-car"></i><%= listing.carpark_count %>
         </span>
-        <span class="inline float-right text-right text-2xl font-bold"><%= number_to_currency listing.monthly_rent, precision: 0 %></span>
+        <span class="inline float-right text-2xl font-bold text-justify">
+          <%= number_to_currency listing.monthly_rent, precision: 0 %>
+        </span>
       </article>
     <% end %>
   <% end %>
-</div>
+</section>
