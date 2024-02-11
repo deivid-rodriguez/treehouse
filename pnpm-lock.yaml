@@ -19,6 +19,9 @@ devDependencies:
   '@unocss/preset-typography':
     specifier: ^0.58.3
     version: 0.58.5
+  '@unocss/reset':
+    specifier: ^0.58.5
+    version: 0.58.5
   unocss:
     specifier: ^0.58.3
     version: 0.58.5(postcss@8.4.35)(rollup@4.9.6)(vite@5.1.1)
