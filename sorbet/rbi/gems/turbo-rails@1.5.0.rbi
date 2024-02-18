@@ -635,51 +635,8 @@ module Turbo
   end
 end
 
-module Turbo::Broadcastable
-  extend ::ActiveSupport::Concern
-
-  mixes_in_class_methods ::Turbo::Broadcastable::ClassMethods
-
-  def broadcast_action(action, target: T.unsafe(nil), **rendering); end
-  def broadcast_action_later(action:, target: T.unsafe(nil), **rendering); end
-  def broadcast_action_later_to(*streamables, action:, target: T.unsafe(nil), **rendering); end
-  def broadcast_action_to(*streamables, action:, target: T.unsafe(nil), **rendering); end
-  def broadcast_after_to(*streamables, target:, **rendering); end
-  def broadcast_append(target: T.unsafe(nil), **rendering); end
-  def broadcast_append_later(target: T.unsafe(nil), **rendering); end
-  def broadcast_append_later_to(*streamables, target: T.unsafe(nil), **rendering); end
-  def broadcast_append_to(*streamables, target: T.unsafe(nil), **rendering); end
-  def broadcast_before_to(*streamables, target:, **rendering); end
-  def broadcast_prepend(target: T.unsafe(nil), **rendering); end
-  def broadcast_prepend_later(target: T.unsafe(nil), **rendering); end
-  def broadcast_prepend_later_to(*streamables, target: T.unsafe(nil), **rendering); end
-  def broadcast_prepend_to(*streamables, target: T.unsafe(nil), **rendering); end
-  def broadcast_remove; end
-  def broadcast_remove_to(*streamables, target: T.unsafe(nil)); end
-  def broadcast_render(**rendering); end
-  def broadcast_render_later(**rendering); end
-  def broadcast_render_later_to(*streamables, **rendering); end
-  def broadcast_render_to(*streamables, **rendering); end
-  def broadcast_replace(**rendering); end
-  def broadcast_replace_later(**rendering); end
-  def broadcast_replace_later_to(*streamables, **rendering); end
-  def broadcast_replace_to(*streamables, **rendering); end
-  def broadcast_update(**rendering); end
-  def broadcast_update_later(**rendering); end
-  def broadcast_update_later_to(*streamables, **rendering); end
-  def broadcast_update_to(*streamables, **rendering); end
-
-  private
-
-  def broadcast_rendering_with_defaults(options); end
-  def broadcast_target_default; end
-end
-
-module Turbo::Broadcastable::ClassMethods
-  def broadcast_target_default; end
-  def broadcasts(stream = T.unsafe(nil), inserts_by: T.unsafe(nil), target: T.unsafe(nil), **rendering); end
-  def broadcasts_to(stream, inserts_by: T.unsafe(nil), target: T.unsafe(nil), **rendering); end
-end
+# source://turbo-rails//lib/turbo/broadcastable/test_helper.rb#2
+module Turbo::Broadcastable; end
 
 # source://turbo-rails//lib/turbo/broadcastable/test_helper.rb#3
 module Turbo::Broadcastable::TestHelper

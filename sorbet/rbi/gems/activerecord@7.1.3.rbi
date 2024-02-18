@@ -8296,7 +8296,6 @@ class ActiveRecord::Base
   extend ::Kaminari::ActiveRecordExtension::ClassMethods
   extend ::ActiveStorage::Attached::Model::ClassMethods
   extend ::ActiveStorage::Reflection::ActiveRecordExtensions::ClassMethods
-  extend ::Turbo::Broadcastable::ClassMethods
 
   # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
   def __callbacks; end

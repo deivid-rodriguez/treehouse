@@ -81,6 +81,7 @@ Sorbet/ValidSigil:
     - config.ru
     - config/breadcrumbs.rb
     - sorbet/rbi/gems/**/*.rb
+    - test/factories/**/*.rb
 
 Style/Documentation:
   Exclude:
@@ -89,6 +90,7 @@ Style/Documentation:
     - config/application.rb
     - db/migrate/*.rb
     - sorbet/rbi/**/*.rbi
+    - test/**/*_test.rb
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: consistent_comma

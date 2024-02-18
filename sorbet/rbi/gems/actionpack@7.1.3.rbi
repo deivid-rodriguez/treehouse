@@ -19579,6 +19579,420 @@ class ActionDispatch::Static
   def call(env); end
 end
 
+# = System Testing
+#
+# System tests let you test applications in the browser. Because system
+# tests use a real browser experience, you can test all of your JavaScript
+# easily from your test suite.
+#
+# To create a system test in your application, extend your test class
+# from <tt>ApplicationSystemTestCase</tt>. System tests use Capybara as a
+# base and allow you to configure the settings through your
+# <tt>application_system_test_case.rb</tt> file that is generated with a new
+# application or scaffold.
+#
+# Here is an example system test:
+#
+#   require "application_system_test_case"
+#
+#   class Users::CreateTest < ApplicationSystemTestCase
+#     test "adding a new user" do
+#       visit users_path
+#       click_on 'New User'
+#
+#       fill_in 'Name', with: 'Arya'
+#       click_on 'Create User'
+#
+#       assert_text 'Arya'
+#     end
+#   end
+#
+# When generating an application or scaffold, an +application_system_test_case.rb+
+# file will also be generated containing the base class for system testing.
+# This is where you can change the driver, add Capybara settings, and other
+# configuration for your system tests.
+#
+#   require "test_helper"
+#
+#   class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+#     driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+#   end
+#
+# By default, +ActionDispatch::SystemTestCase+ is driven by the
+# Selenium driver, with the Chrome browser, and a browser size of 1400x1400.
+#
+# Changing the driver configuration options is easy. Let's say you want to use
+# the Firefox browser instead of Chrome. In your +application_system_test_case.rb+
+# file add the following:
+#
+#   require "test_helper"
+#
+#   class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+#     driven_by :selenium, using: :firefox
+#   end
+#
+# +driven_by+ has a required argument for the driver name. The keyword
+# arguments are +:using+ for the browser and +:screen_size+ to change the
+# size of the browser screen. These two options are not applicable for
+# headless drivers and will be silently ignored if passed.
+#
+# Headless browsers such as headless Chrome and headless Firefox are also supported.
+# You can use these browsers by setting the +:using+ argument to +:headless_chrome+ or +:headless_firefox+.
+#
+# To use a headless driver, like Cuprite, update your Gemfile to use
+# Cuprite instead of Selenium and then declare the driver name in the
+# +application_system_test_case.rb+ file. In this case, you would leave out
+# the +:using+ option because the driver is headless, but you can still use
+# +:screen_size+ to change the size of the browser screen, also you can use
+# +:options+ to pass options supported by the driver. Please refer to your
+# driver documentation to learn about supported options.
+#
+#   require "test_helper"
+#   require "capybara/cuprite"
+#
+#   class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+#     driven_by :cuprite, screen_size: [1400, 1400], options:
+#       { js_errors: true }
+#   end
+#
+# Some drivers require browser capabilities to be passed as a block instead
+# of through the +options+ hash.
+#
+# As an example, if you want to add mobile emulation on chrome, you'll have to
+# create an instance of selenium's +Chrome::Options+ object and add
+# capabilities with a block.
+#
+# The block will be passed an instance of <tt><Driver>::Options</tt> where you can
+# define the capabilities you want. Please refer to your driver documentation
+# to learn about supported options.
+#
+#   class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+#     driven_by :selenium, using: :chrome, screen_size: [1024, 768] do |driver_option|
+#       driver_option.add_emulation(device_name: 'iPhone 6')
+#       driver_option.add_extension('path/to/chrome_extension.crx')
+#     end
+#   end
+#
+# Because +ActionDispatch::SystemTestCase+ is a shim between Capybara
+# and \Rails, any driver that is supported by Capybara is supported by system
+# tests as long as you include the required gems and files.
+#
+# source://actionpack//lib/action_dispatch/system_test_case.rb#112
+class ActionDispatch::SystemTestCase < ::ActiveSupport::TestCase
+  include ::Capybara::DSL
+  include ::Capybara::Minitest::Assertions
+  include ::ActionDispatch::SystemTesting::TestHelpers::SetupAndTeardown
+  include ::ActionDispatch::SystemTesting::TestHelpers::ScreenshotHelper
+
+  # @return [SystemTestCase] a new instance of SystemTestCase
+  #
+  # source://actionpack//lib/action_dispatch/system_test_case.rb#120
+  def initialize(*_arg0); end
+
+  private
+
+  # source://actionpack//lib/action_dispatch/system_test_case.rb#181
+  def method_missing(name, *args, &block); end
+
+  # @return [Boolean]
+  #
+  # source://actionpack//lib/action_dispatch/system_test_case.rb#189
+  def respond_to_missing?(name, include_private = T.unsafe(nil)); end
+
+  # source://actionpack//lib/action_dispatch/system_test_case.rb#163
+  def url_helpers; end
+
+  class << self
+    # System Test configuration options
+    #
+    # The default settings are Selenium, using Chrome, with a screen size
+    # of 1400x1400.
+    #
+    # Examples:
+    #
+    #   driven_by :cuprite
+    #
+    #   driven_by :selenium, screen_size: [800, 800]
+    #
+    #   driven_by :selenium, using: :chrome
+    #
+    #   driven_by :selenium, using: :headless_chrome
+    #
+    #   driven_by :selenium, using: :firefox
+    #
+    #   driven_by :selenium, using: :headless_firefox
+    #
+    # source://actionpack//lib/action_dispatch/system_test_case.rb#156
+    def driven_by(driver, using: T.unsafe(nil), screen_size: T.unsafe(nil), options: T.unsafe(nil), &capabilities); end
+
+    # source://actionpack//lib/action_dispatch/system_test_case.rb#136
+    def driver; end
+
+    # source://actionpack//lib/action_dispatch/system_test_case.rb#136
+    def driver=(value); end
+
+    # source://actionpack//lib/action_dispatch/system_test_case.rb#136
+    def driver?; end
+
+    # source://actionpack//lib/action_dispatch/system_test_case.rb#126
+    def start_application; end
+  end
+end
+
+# source://actionpack//lib/action_dispatch/system_test_case.rb#118
+ActionDispatch::SystemTestCase::DEFAULT_HOST = T.let(T.unsafe(nil), String)
+
+# source://actionpack//lib/action_dispatch/system_testing/driver.rb#4
+module ActionDispatch::SystemTesting; end
+
+# source://actionpack//lib/action_dispatch/system_testing/browser.rb#5
+class ActionDispatch::SystemTesting::Browser
+  # @return [Browser] a new instance of Browser
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/browser.rb#8
+  def initialize(name); end
+
+  # @yield [options]
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/browser.rb#34
+  def configure; end
+
+  # Returns the value of attribute name.
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/browser.rb#6
+  def name; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/browser.rb#24
+  def options; end
+
+  # driver_path is lazily initialized by default. Eagerly set it to
+  # avoid race conditions when using parallel tests.
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/browser.rb#40
+  def preload; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/browser.rb#13
+  def type; end
+
+  private
+
+  # source://actionpack//lib/action_dispatch/system_testing/browser.rb#72
+  def resolve_driver_path(namespace); end
+
+  # source://actionpack//lib/action_dispatch/system_testing/browser.rb#50
+  def set_default_options; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/browser.rb#59
+  def set_headless_chrome_browser_options; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/browser.rb#66
+  def set_headless_firefox_browser_options; end
+end
+
+# source://actionpack//lib/action_dispatch/system_testing/driver.rb#5
+class ActionDispatch::SystemTesting::Driver
+  # @return [Driver] a new instance of Driver
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#8
+  def initialize(driver_type, **options, &capabilities); end
+
+  # Returns the value of attribute name.
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#6
+  def name; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#25
+  def use; end
+
+  private
+
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#49
+  def browser_options; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#36
+  def register; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#59
+  def register_cuprite(app); end
+
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#67
+  def register_playwright(app); end
+
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#63
+  def register_rack_test(app); end
+
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#53
+  def register_selenium(app); end
+
+  # @return [Boolean]
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#32
+  def registerable?; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/driver.rb#78
+  def setup; end
+end
+
+# source://actionpack//lib/action_dispatch/system_testing/server.rb#5
+class ActionDispatch::SystemTesting::Server
+  # source://actionpack//lib/action_dispatch/system_testing/server.rb#12
+  def run; end
+
+  private
+
+  # source://actionpack//lib/action_dispatch/system_testing/server.rb#26
+  def set_port; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/server.rb#22
+  def set_server; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/server.rb#17
+  def setup; end
+
+  class << self
+    # Returns the value of attribute silence_puma.
+    #
+    # source://actionpack//lib/action_dispatch/system_testing/server.rb#7
+    def silence_puma; end
+
+    # Sets the attribute silence_puma
+    #
+    # @param value the value to set the attribute silence_puma to.
+    #
+    # source://actionpack//lib/action_dispatch/system_testing/server.rb#7
+    def silence_puma=(_arg0); end
+  end
+end
+
+# source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#5
+module ActionDispatch::SystemTesting::TestHelpers; end
+
+# Screenshot helper for system testing.
+#
+# source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#7
+module ActionDispatch::SystemTesting::TestHelpers::ScreenshotHelper
+  # Takes a screenshot of the current page in the browser if the test
+  # failed.
+  #
+  # +take_failed_screenshot+ is called during system test teardown.
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#44
+  def take_failed_screenshot; end
+
+  # Takes a screenshot of the current page in the browser.
+  #
+  # +take_screenshot+ can be used at any point in your system tests to take
+  # a screenshot of the current state. This can be useful for debugging or
+  # automating visual testing. You can take multiple screenshots per test
+  # to investigate changes at different points during your test. These will be
+  # named with a sequential prefix (or 'failed' for failing tests)
+  #
+  # The default screenshots directory is +tmp/screenshots+ but you can set a different
+  # one with +Capybara.save_path+
+  #
+  # You can use the +html+ argument or set the +RAILS_SYSTEM_TESTING_SCREENSHOT_HTML+
+  # environment variable to save the HTML from the page that is being screenshotted
+  # so you can investigate the elements on the page at the time of the screenshot
+  #
+  # You can use the +screenshot+ argument or set the +RAILS_SYSTEM_TESTING_SCREENSHOT+
+  # environment variable to control the output. Possible values are:
+  # * [+simple+ (default)]    Only displays the screenshot path.
+  #                           This is the default value.
+  # * [+inline+]              Display the screenshot in the terminal using the
+  #                           iTerm image protocol (https://iterm2.com/documentation-images.html).
+  # * [+artifact+]            Display the screenshot in the terminal, using the terminal
+  #                           artifact format (https://buildkite.github.io/terminal-to-html/inline-images/).
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#31
+  def take_screenshot(html: T.unsafe(nil), screenshot: T.unsafe(nil)); end
+
+  private
+
+  # Returns the value of attribute _screenshot_counter.
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#52
+  def _screenshot_counter; end
+
+  # Sets the attribute _screenshot_counter
+  #
+  # @param value the value to set the attribute _screenshot_counter to.
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#52
+  def _screenshot_counter=(_arg0); end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#97
+  def absolute_html_path; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#89
+  def absolute_image_path; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#81
+  def absolute_path; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#123
+  def display_image(html:, screenshot_output:); end
+
+  # @return [Boolean]
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#143
+  def failed?; end
+
+  # @return [Boolean]
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#54
+  def html_from_env?; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#77
+  def html_path; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#67
+  def image_name; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#73
+  def image_path; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#58
+  def increment_unique; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#139
+  def inline_base64(path); end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#109
+  def output_type; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#93
+  def relative_image_path; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#101
+  def save_html; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#105
+  def save_image; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#85
+  def screenshots_dir; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#119
+  def show(img); end
+
+  # @return [Boolean]
+  #
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#147
+  def supports_screenshot?; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#63
+  def unique; end
+end
+
+# source://actionpack//lib/action_dispatch/system_testing/test_helpers/setup_and_teardown.rb#6
+module ActionDispatch::SystemTesting::TestHelpers::SetupAndTeardown
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/setup_and_teardown.rb#13
+  def after_teardown; end
+
+  # source://actionpack//lib/action_dispatch/system_testing/test_helpers/setup_and_teardown.rb#7
+  def before_teardown; end
+end
+
 # source://actionpack//lib/action_dispatch/testing/test_process.rb#7
 module ActionDispatch::TestProcess
   include ::ActionDispatch::TestProcess::FixtureFile
