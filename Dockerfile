@@ -5,7 +5,7 @@ ARG DEBIAN_RELEASE=bookworm
 ########################################
 ## ruby: The upstream ruby base image
 ########################################
-FROM ruby:3.3-slim-bookworm@sha256:7e2843d936fd2ea084b36f99ff252822bedb6b656ae868f5b08e68cc9b63e8b6 as ruby
+FROM ruby:3.3-slim-bookworm@sha256:b8185ef6c7bed9ca3dbf4c7f38afee6c9f93de51c1c0feeb54e753796a8e4416 as ruby
 
 ########################################
 ## base: Our base with Ruby, Node, etc.
