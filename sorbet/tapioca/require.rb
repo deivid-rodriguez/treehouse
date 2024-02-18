@@ -3,6 +3,8 @@
 
 require 'action_cable/engine'
 require 'action_controller/railtie'
+require 'action_dispatch/railtie'
+require 'action_dispatch/system_test_case'
 require 'action_view/railtie'
 require 'active_job/railtie'
 require 'active_model/railtie'
