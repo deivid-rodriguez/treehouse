@@ -50209,7 +50209,7 @@ class RuboCop::Cop::Style::TrailingCommaInArguments < ::RuboCop::Cop::Base
   def on_send(node); end
 
   class << self
-    # source://rubocop//lib/rubocop/cop/style/trailing_comma_in_arguments.rb#91
+    # source://rubocop-capybara/2.20.0/lib/rubocop-capybara.rb#21
     def autocorrect_incompatible_with; end
   end
 end

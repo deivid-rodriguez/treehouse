@@ -5264,6 +5264,12 @@ RuboCop::AST::NodePattern::Sets::SET_ATTR_READER_ATTR_WRITER_ATTR_ACCESSOR_ATTR 
 RuboCop::AST::NodePattern::Sets::SET_BELONGS_TO_HAS_ONE_HAS_MANY_HAS_AND_BELONGS_TO_MANY = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
+RuboCop::AST::NodePattern::Sets::SET_BE_EQ_EQL_EQUAL = T.let(T.unsafe(nil), Set)
+
+# source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
+RuboCop::AST::NodePattern::Sets::SET_BE_TRUTHY_BE_FALSEY_BE_FALSY_ETC = T.let(T.unsafe(nil), Set)
+
+# source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
 RuboCop::AST::NodePattern::Sets::SET_BINWRITE_SYSWRITE_WRITE_WRITE_NONBLOCK = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
@@ -5312,6 +5318,9 @@ RuboCop::AST::NodePattern::Sets::SET_DEFINE_METHOD = T.let(T.unsafe(nil), Set)
 RuboCop::AST::NodePattern::Sets::SET_DEFINE_METHOD_DEFINE_SINGLETON_METHOD = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
+RuboCop::AST::NodePattern::Sets::SET_DESCRIBE_CONTEXT_FEATURE_ETC = T.let(T.unsafe(nil), Set)
+
+# source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
 RuboCop::AST::NodePattern::Sets::SET_EACH_WITH_INDEX_WITH_INDEX = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
@@ -5325,6 +5334,12 @@ RuboCop::AST::NodePattern::Sets::SET_ESCAPE_ENCODE_UNESCAPE_DECODE = T.let(T.uns
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
 RuboCop::AST::NodePattern::Sets::SET_EXIST_EXISTS = T.let(T.unsafe(nil), Set)
+
+# source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
+RuboCop::AST::NodePattern::Sets::SET_FACTORYGIRL_FACTORYBOT = T.let(T.unsafe(nil), Set)
+
+# source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
+RuboCop::AST::NodePattern::Sets::SET_FACTORY_TRAIT = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
 RuboCop::AST::NodePattern::Sets::SET_FILETEST_FILE_DIR_SHELL = T.let(T.unsafe(nil), Set)
@@ -5525,6 +5540,9 @@ RuboCop::AST::NodePattern::Sets::SET_SUCC_PRED_NEXT = T.let(T.unsafe(nil), Set)
 RuboCop::AST::NodePattern::Sets::SET_TASK_NAMESPACE = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
+RuboCop::AST::NodePattern::Sets::SET_TEXT_EXACT_TEXT = T.let(T.unsafe(nil), Set)
+
+# source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
 RuboCop::AST::NodePattern::Sets::SET_TIME_DATETIME = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
@@ -5535,6 +5553,9 @@ RuboCop::AST::NodePattern::Sets::SET_TO_H_TO_HASH = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
 RuboCop::AST::NodePattern::Sets::SET_TO_I_TO_F_TO_C_TO_R = T.let(T.unsafe(nil), Set)
+
+# source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
+RuboCop::AST::NodePattern::Sets::SET_TO_TO_NOT_NOT_TO = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
 RuboCop::AST::NodePattern::Sets::SET_TRANSLATE_LOCALIZE = T.let(T.unsafe(nil), Set)
