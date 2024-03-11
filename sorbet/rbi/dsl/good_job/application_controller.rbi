@@ -19,6 +19,7 @@ class GoodJob::ApplicationController
     include ::Turbo::Streams::ActionHelper
     include ::ViteRails::TagHelpers
     include ::ActionController::Base::HelperMethods
+    include ::GoodJob::IconsHelper
     include ::GoodJob::ApplicationHelper
   end
 
