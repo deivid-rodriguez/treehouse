@@ -78,6 +78,8 @@ group :development, :test do
   gem 'pry-byebug', require: false
   gem 'pry-rails', require: false
   gem 'rubocop', '~> 1.59', require: false
+  gem 'rubocop-capybara', require: false
+  gem 'rubocop-factory_bot', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rake', require: false
   gem 'rubocop-sorbet', require: false

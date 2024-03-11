@@ -311,6 +311,10 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.30.0)
       parser (>= 3.2.1.0)
+    rubocop-capybara (2.20.0)
+      rubocop (~> 1.41)
+    rubocop-factory_bot (2.25.1)
+      rubocop (~> 1.41)
     rubocop-rails (2.23.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -416,6 +420,8 @@ DEPENDENCIES
   railties (~> 7.1)
   rake (~> 13.1)
   rubocop (~> 1.59)
+  rubocop-capybara
+  rubocop-factory_bot
   rubocop-rails
   rubocop-rake
   rubocop-sorbet

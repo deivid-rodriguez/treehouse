@@ -290,6 +290,51 @@ class Responses::OverpassResponse
     sig { params(args: T.untyped, blk: T.untyped).returns(::Query) }
     def create_query!(*args, &blk); end
 
+    sig { returns(T::Array[T.untyped]) }
+    def element_ids; end
+
+    sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
+    def element_ids=(ids); end
+
+    # This method is created by ActiveRecord on the `Response` class because it declared `has_many :elements, through: :pages`.
+    # 🔗 [Rails guide for `has_many_through` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-through-association)
+    sig { returns(::ResponsePageElement::PrivateCollectionProxy) }
+    def elements; end
+
+    sig { params(value: T::Enumerable[::ResponsePageElement]).void }
+    def elements=(value); end
+
+    sig { returns(T::Array[T.untyped]) }
+    def page_ids; end
+
+    sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
+    def page_ids=(ids); end
+
+    # This method is created by ActiveRecord on the `Response` class because it declared `has_many :pages`.
+    # 🔗 [Rails guide for `has_many` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-association)
+    sig { returns(::ResponsePage::PrivateCollectionProxy) }
+    def pages; end
+
+    sig { params(value: T::Enumerable[::ResponsePage]).void }
+    def pages=(value); end
+
+    sig { params(attributes: T.untyped).returns(T.untyped) }
+    def pages_attributes=(attributes); end
+
+    sig { returns(T::Array[T.untyped]) }
+    def parse_ids; end
+
+    sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
+    def parse_ids=(ids); end
+
+    # This method is created by ActiveRecord on the `Response` class because it declared `has_many :parses, through: :elements`.
+    # 🔗 [Rails guide for `has_many_through` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-through-association)
+    sig { returns(::Parse::PrivateCollectionProxy) }
+    def parses; end
+
+    sig { params(value: T::Enumerable[::Parse]).void }
+    def parses=(value); end
+
     sig { returns(T.nilable(::Query)) }
     def query; end
 
@@ -490,51 +535,6 @@ class Responses::OverpassResponse
   end
 
   module GeneratedAttributeMethods
-    sig { returns(::String) }
-    def body; end
-
-    sig { params(value: ::String).returns(::String) }
-    def body=(value); end
-
-    sig { returns(T::Boolean) }
-    def body?; end
-
-    sig { returns(T.nilable(::String)) }
-    def body_before_last_save; end
-
-    sig { returns(T.untyped) }
-    def body_before_type_cast; end
-
-    sig { returns(T::Boolean) }
-    def body_came_from_user?; end
-
-    sig { returns(T.nilable([::String, ::String])) }
-    def body_change; end
-
-    sig { returns(T.nilable([::String, ::String])) }
-    def body_change_to_be_saved; end
-
-    sig { params(from: ::String, to: ::String).returns(T::Boolean) }
-    def body_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::String)) }
-    def body_in_database; end
-
-    sig { returns(T.nilable([::String, ::String])) }
-    def body_previous_change; end
-
-    sig { params(from: ::String, to: ::String).returns(T::Boolean) }
-    def body_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::String)) }
-    def body_previously_was; end
-
-    sig { returns(T.nilable(::String)) }
-    def body_was; end
-
-    sig { void }
-    def body_will_change!; end
-
     sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
     def created_at; end
 
@@ -715,54 +715,6 @@ class Responses::OverpassResponse
     sig { void }
     def query_id_will_change!; end
 
-    sig { returns(::String) }
-    def request_body; end
-
-    sig { params(value: ::String).returns(::String) }
-    def request_body=(value); end
-
-    sig { returns(T::Boolean) }
-    def request_body?; end
-
-    sig { returns(T.nilable(::String)) }
-    def request_body_before_last_save; end
-
-    sig { returns(T.untyped) }
-    def request_body_before_type_cast; end
-
-    sig { returns(T::Boolean) }
-    def request_body_came_from_user?; end
-
-    sig { returns(T.nilable([::String, ::String])) }
-    def request_body_change; end
-
-    sig { returns(T.nilable([::String, ::String])) }
-    def request_body_change_to_be_saved; end
-
-    sig { params(from: ::String, to: ::String).returns(T::Boolean) }
-    def request_body_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::String)) }
-    def request_body_in_database; end
-
-    sig { returns(T.nilable([::String, ::String])) }
-    def request_body_previous_change; end
-
-    sig { params(from: ::String, to: ::String).returns(T::Boolean) }
-    def request_body_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::String)) }
-    def request_body_previously_was; end
-
-    sig { returns(T.nilable(::String)) }
-    def request_body_was; end
-
-    sig { void }
-    def request_body_will_change!; end
-
-    sig { void }
-    def restore_body!; end
-
     sig { void }
     def restore_created_at!; end
 
@@ -776,67 +728,10 @@ class Responses::OverpassResponse
     def restore_query_id!; end
 
     sig { void }
-    def restore_request_body!; end
-
-    sig { void }
-    def restore_retrieved_at!; end
-
-    sig { void }
     def restore_type!; end
 
     sig { void }
     def restore_updated_at!; end
-
-    sig { returns(::ActiveSupport::TimeWithZone) }
-    def retrieved_at; end
-
-    sig { params(value: ::ActiveSupport::TimeWithZone).returns(::ActiveSupport::TimeWithZone) }
-    def retrieved_at=(value); end
-
-    sig { returns(T::Boolean) }
-    def retrieved_at?; end
-
-    sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
-    def retrieved_at_before_last_save; end
-
-    sig { returns(T.untyped) }
-    def retrieved_at_before_type_cast; end
-
-    sig { returns(T::Boolean) }
-    def retrieved_at_came_from_user?; end
-
-    sig { returns(T.nilable([::ActiveSupport::TimeWithZone, ::ActiveSupport::TimeWithZone])) }
-    def retrieved_at_change; end
-
-    sig { returns(T.nilable([::ActiveSupport::TimeWithZone, ::ActiveSupport::TimeWithZone])) }
-    def retrieved_at_change_to_be_saved; end
-
-    sig { params(from: ::ActiveSupport::TimeWithZone, to: ::ActiveSupport::TimeWithZone).returns(T::Boolean) }
-    def retrieved_at_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
-    def retrieved_at_in_database; end
-
-    sig { returns(T.nilable([::ActiveSupport::TimeWithZone, ::ActiveSupport::TimeWithZone])) }
-    def retrieved_at_previous_change; end
-
-    sig { params(from: ::ActiveSupport::TimeWithZone, to: ::ActiveSupport::TimeWithZone).returns(T::Boolean) }
-    def retrieved_at_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
-    def retrieved_at_previously_was; end
-
-    sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
-    def retrieved_at_was; end
-
-    sig { void }
-    def retrieved_at_will_change!; end
-
-    sig { returns(T.nilable([::String, ::String])) }
-    def saved_change_to_body; end
-
-    sig { returns(T::Boolean) }
-    def saved_change_to_body?; end
 
     sig { returns(T.nilable([T.nilable(::ActiveSupport::TimeWithZone), T.nilable(::ActiveSupport::TimeWithZone)])) }
     def saved_change_to_created_at; end
@@ -861,18 +756,6 @@ class Responses::OverpassResponse
 
     sig { returns(T::Boolean) }
     def saved_change_to_query_id?; end
-
-    sig { returns(T.nilable([::String, ::String])) }
-    def saved_change_to_request_body; end
-
-    sig { returns(T::Boolean) }
-    def saved_change_to_request_body?; end
-
-    sig { returns(T.nilable([::ActiveSupport::TimeWithZone, ::ActiveSupport::TimeWithZone])) }
-    def saved_change_to_retrieved_at; end
-
-    sig { returns(T::Boolean) }
-    def saved_change_to_retrieved_at?; end
 
     sig { returns(T.nilable([::String, ::String])) }
     def saved_change_to_type; end
@@ -977,9 +860,6 @@ class Responses::OverpassResponse
     def updated_at_will_change!; end
 
     sig { returns(T::Boolean) }
-    def will_save_change_to_body?; end
-
-    sig { returns(T::Boolean) }
     def will_save_change_to_created_at?; end
 
     sig { returns(T::Boolean) }
@@ -990,12 +870,6 @@ class Responses::OverpassResponse
 
     sig { returns(T::Boolean) }
     def will_save_change_to_query_id?; end
-
-    sig { returns(T::Boolean) }
-    def will_save_change_to_request_body?; end
-
-    sig { returns(T::Boolean) }
-    def will_save_change_to_retrieved_at?; end
 
     sig { returns(T::Boolean) }
     def will_save_change_to_type?; end

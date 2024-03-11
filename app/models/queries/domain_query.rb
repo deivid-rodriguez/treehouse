@@ -10,9 +10,15 @@ module Queries
     CLIENT_TYPE = APIClient::Domain
     RESPONSE_TYPE = Responses::DomainResponse
 
-    sig { returns(RESPONSE_TYPE) }
-    def fetch!
-      responses.build(body: client.query(body: JSON.parse(body)).to_json, type: RESPONSE_TYPE.name)
+    sig { override.params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(String) }
+    def fetch!(page_after: nil, page_size: ResponsePage::DEFAULT_PER_PAGE)
+      page_number = (page_after&.page_number.presence || 0) + 1
+      client.query(body: JSON.parse(body), page_number:, page_size:).to_json
+    end
+
+    sig { override.returns(T.untyped) }
+    def response_type
+      RESPONSE_TYPE
     end
 
     private

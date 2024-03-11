@@ -25,15 +25,16 @@ module Responses
         !!(@node['type'] == 'PropertyListing' && @node.key?('listing'))
       end
 
-      # TODO: associate created listings with this response, i.e. listings.build(...)
-      # a join table with response_id, parseable_type, parseable_id
-      # extract some "Parseable" concern -- a model that can be parsed from a Response model
-      # associate each Parseable with the Response it was parsed from
       sig { returns(T.nilable(Listing)) }
       def to_listing
         return unless listing?
 
         Listing.lock.find_or_initialize_by(external_id:).tap { |listing| listing.assign_attributes(attributes) }
+      end
+
+      sig { returns(T.nilable(String)) }
+      def external_id
+        listing&.fetch('id')&.to_s
       end
 
       private
@@ -58,11 +59,6 @@ module Responses
           state: listing&.dig('propertyDetails', 'state'),
           postcode: listing&.dig('propertyDetails', 'postcode'),
         }
-      end
-
-      sig { returns(T.nilable(String)) }
-      def external_id
-        listing&.fetch('id')&.to_s
       end
 
       sig { returns(T.nilable(String)) }
