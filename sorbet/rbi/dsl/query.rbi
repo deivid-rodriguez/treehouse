@@ -239,6 +239,20 @@ class Query
     sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
     def response_ids=(ids); end
 
+    sig { returns(T::Array[T.untyped]) }
+    def response_page_ids; end
+
+    sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
+    def response_page_ids=(ids); end
+
+    # This method is created by ActiveRecord on the `Query` class because it declared `has_many :response_pages, through: :responses`.
+    # 🔗 [Rails guide for `has_many_through` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-through-association)
+    sig { returns(::ResponsePage::PrivateCollectionProxy) }
+    def response_pages; end
+
+    sig { params(value: T::Enumerable[::ResponsePage]).void }
+    def response_pages=(value); end
+
     # This method is created by ActiveRecord on the `Query` class because it declared `has_many :responses`.
     # 🔗 [Rails guide for `has_many` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-association)
     sig { returns(::Response::PrivateCollectionProxy) }

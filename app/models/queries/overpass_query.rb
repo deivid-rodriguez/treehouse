@@ -12,9 +12,16 @@ module Queries
 
     validates :facility_type, presence: true
 
-    sig { returns(RESPONSE_TYPE) }
-    def fetch!
-      responses.build(body: client.query(body:), type: RESPONSE_TYPE.name)
+    sig { override.params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(String) }
+    def fetch!(page_after: nil, page_size: ResponsePage::DEFAULT_PER_PAGE) # rubocop:disable Lint/UnusedMethodArgument
+      raise "Overpass queries are single page, can't fetch page after '#{page_after.inspect}'" unless page_after.nil?
+
+      client.query(body:)
+    end
+
+    sig { override.returns(T.untyped) }
+    def response_type
+      RESPONSE_TYPE
     end
 
     private

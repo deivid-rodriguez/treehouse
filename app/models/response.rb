@@ -9,17 +9,24 @@ class Response < ApplicationRecord
   Element = type_member
   Model = type_member { { upper: ApplicationRecord } }
 
-  attribute :retrieved_at, default: -> { Time.zone.now }
-
-  # Default value for request_body should be the query.body at the time of the query
-  before_validation { self.request_body = query.try(:body) if request_body.blank? }
-
   belongs_to :query, inverse_of: :responses
+  has_many :pages, class_name: 'ResponsePage', inverse_of: :response, dependent: :destroy
+  has_many :elements, class_name: 'ResponsePageElement', through: :pages, inverse_of: :response
+  has_many :parses, through: :elements, inverse_of: :response
 
-  validates :body, :request_body, :retrieved_at, presence: true
+  accepts_nested_attributes_for :pages
 
-  sig { returns(T::Enumerable[Model]) }
-  def parse!
+  sig { params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(T.nilable(ResponsePage)) }
+  def fetch!(page_after: nil, page_size: ResponsePage::DEFAULT_PER_PAGE)
+    current_query = query
+    return if current_query.nil?
+
+    page_number = page_after&.page_number.presence || 1
+    pages.build(page_number:, request_body: current_query.body, body: current_query.fetch!(page_after:, page_size:))
+  end
+
+  sig { params(page: ResponsePage).returns(T::Enumerable[Parse]) }
+  def parse!(page)
     raise NotImplementedError, 'Response base class does not implement #parse!'
   end
 end

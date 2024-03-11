@@ -366,6 +366,39 @@ ALTER SEQUENCE public.overpass_queries_id_seq OWNED BY public.overpass_queries.i
 
 
 --
+-- Name: parses; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.parses (
+    id bigint NOT NULL,
+    parseable_type character varying NOT NULL,
+    parseable_id bigint NOT NULL,
+    response_page_element_id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: parses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.parses_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: parses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.parses_id_seq OWNED BY public.parses.id;
+
+
+--
 -- Name: queries; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -401,15 +434,82 @@ ALTER SEQUENCE public.queries_id_seq OWNED BY public.queries.id;
 
 
 --
+-- Name: response_page_elements; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.response_page_elements (
+    id bigint NOT NULL,
+    response_page_id bigint NOT NULL,
+    index integer NOT NULL,
+    external_id character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: response_page_elements_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.response_page_elements_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: response_page_elements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.response_page_elements_id_seq OWNED BY public.response_page_elements.id;
+
+
+--
+-- Name: response_pages; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.response_pages (
+    id bigint NOT NULL,
+    response_id bigint NOT NULL,
+    page_number integer NOT NULL,
+    external_page_id character varying NOT NULL,
+    request_body text NOT NULL,
+    body text NOT NULL,
+    retrieved_at timestamp(6) without time zone NOT NULL,
+    next_page boolean DEFAULT false NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: response_pages_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.response_pages_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: response_pages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.response_pages_id_seq OWNED BY public.response_pages.id;
+
+
+--
 -- Name: responses; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.responses (
     id bigint NOT NULL,
     query_id bigint NOT NULL,
-    request_body text NOT NULL,
-    body text NOT NULL,
-    retrieved_at timestamp(6) without time zone NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
     type character varying DEFAULT 'Response'::character varying NOT NULL
@@ -529,10 +629,31 @@ ALTER TABLE ONLY public.overpass_queries ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
+-- Name: parses id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.parses ALTER COLUMN id SET DEFAULT nextval('public.parses_id_seq'::regclass);
+
+
+--
 -- Name: queries id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.queries ALTER COLUMN id SET DEFAULT nextval('public.queries_id_seq'::regclass);
+
+
+--
+-- Name: response_page_elements id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.response_page_elements ALTER COLUMN id SET DEFAULT nextval('public.response_page_elements_id_seq'::regclass);
+
+
+--
+-- Name: response_pages id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.response_pages ALTER COLUMN id SET DEFAULT nextval('public.response_pages_id_seq'::regclass);
 
 
 --
@@ -654,11 +775,35 @@ ALTER TABLE ONLY public.overpass_queries
 
 
 --
+-- Name: parses parses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.parses
+    ADD CONSTRAINT parses_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: queries queries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.queries
     ADD CONSTRAINT queries_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: response_page_elements response_page_elements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.response_page_elements
+    ADD CONSTRAINT response_page_elements_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: response_pages response_pages_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.response_pages
+    ADD CONSTRAINT response_pages_pkey PRIMARY KEY (id);
 
 
 --
@@ -805,10 +950,59 @@ CREATE INDEX index_images_on_listing_id ON public.images USING btree (listing_id
 
 
 --
+-- Name: index_parses_on_parseable; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_parses_on_parseable ON public.parses USING btree (parseable_type, parseable_id);
+
+
+--
+-- Name: index_parses_on_response_page_element_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_parses_on_response_page_element_id ON public.parses USING btree (response_page_element_id);
+
+
+--
 -- Name: index_queries_on_queryable_type_and_queryable_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX index_queries_on_queryable_type_and_queryable_id ON public.queries USING btree (queryable_type, queryable_id);
+
+
+--
+-- Name: index_response_page_elements_on_response_page_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_response_page_elements_on_response_page_id ON public.response_page_elements USING btree (response_page_id);
+
+
+--
+-- Name: index_response_page_elements_on_response_page_id_and_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_response_page_elements_on_response_page_id_and_index ON public.response_page_elements USING btree (response_page_id, index);
+
+
+--
+-- Name: index_response_pages_on_response_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_response_pages_on_response_id ON public.response_pages USING btree (response_id);
+
+
+--
+-- Name: index_response_pages_on_response_id_and_external_page_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_response_pages_on_response_id_and_external_page_id ON public.response_pages USING btree (response_id, external_page_id);
+
+
+--
+-- Name: index_response_pages_on_response_id_and_page_number; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_response_pages_on_response_id_and_page_number ON public.response_pages USING btree (response_id, page_number);
 
 
 --
@@ -842,12 +1036,40 @@ ALTER TABLE ONLY public.images
 
 
 --
+-- Name: response_page_elements fk_rails_516106529a; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.response_page_elements
+    ADD CONSTRAINT fk_rails_516106529a FOREIGN KEY (response_page_id) REFERENCES public.response_pages(id);
+
+
+--
+-- Name: parses fk_rails_6a9b1580eb; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.parses
+    ADD CONSTRAINT fk_rails_6a9b1580eb FOREIGN KEY (response_page_element_id) REFERENCES public.response_page_elements(id);
+
+
+--
+-- Name: response_pages fk_rails_791db3cb25; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.response_pages
+    ADD CONSTRAINT fk_rails_791db3cb25 FOREIGN KEY (response_id) REFERENCES public.responses(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240302132353'),
+('20240224143425'),
+('20240224141957'),
+('20240224141107'),
 ('20240211115156'),
 ('20240211110122'),
 ('20240211110118'),

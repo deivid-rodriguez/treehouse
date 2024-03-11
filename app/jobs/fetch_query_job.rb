@@ -9,12 +9,26 @@ class FetchQueryJob < ApplicationJob
 
   sig { params(query: Query).void }
   def perform(query:)
+    log(query)
+
+    response = query.build_response
+    return if response.nil?
+
+    first_page = response.fetch!
+    Rails.logger.info { "Got response: #{first_page.inspect}" }
+
+    first_page&.save!
+    return unless first_page&.next_page?
+
+    Rails.logger.info { 'Enqueueing another job to fetch the page after' }
+    FetchNextPageJob.perform_later(page: first_page)
+  end
+
+  private
+
+  sig { params(query: Query).void }
+  def log(query)
     Rails.logger.info { "Fetching query: #{query.inspect}" }
     Rails.logger.info { "Queryable: #{query.try(:queryable)&.inspect}" }
-
-    response = query.fetch!
-    Rails.logger.info { "Got response: #{response.inspect}" }
-
-    response.save!
   end
 end

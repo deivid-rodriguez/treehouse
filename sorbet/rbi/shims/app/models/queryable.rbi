@@ -5,7 +5,7 @@ module Queryable
   sig { returns(String) }
   def body; end
 
-  sig { returns(String) }
+  sig { returns(T.nilable(String)) }
   def description; end
 
   sig { returns(String) }

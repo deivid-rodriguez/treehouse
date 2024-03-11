@@ -20,13 +20,9 @@ module Responses
         super(node)
       end
 
-      # TODO: associate created facilities with this response, i.e. facilities.build(...)
-      # a join table with response_id, parseable_type, parseable_id
-      # extract some "Parseable" concern -- a model that can be parsed from a Response model
-      # associate each Parseable with the Response it was parsed from
       sig { returns(Facility) }
       def to_facility
-        facility = Facility.lock.find_or_initialize_by(external_id: id)
+        facility = Facility.lock.find_or_initialize_by(external_id:)
         facility.assign_attributes(name:, address_attributes:)
         address = Address.build(address_attributes)
         facility.geocodes.joins(:address).find_or_initialize_by(address:, latitude:, longitude:)
@@ -34,8 +30,8 @@ module Responses
       end
 
       sig { returns(String) }
-      def id
-        @id ||= T.let(@node.fetch(:id), T.nilable(String))
+      def external_id
+        @external_id ||= T.let(@node.fetch(:external_id), T.nilable(String))
       end
 
       sig { returns(T::Hash[Symbol, T.untyped]) }

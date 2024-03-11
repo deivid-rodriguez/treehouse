@@ -23,35 +23,23 @@ module APIClient
       @connection = T.let(connection, Faraday::Connection)
     end
 
-    sig { params(body: Query).returns(T::Enumerable[T.untyped]) }
-    def query(body:)
-      post(body:, page_number: 1)
+    sig do
+      params(body: Query, page_number: T.nilable(Integer), page_size: T.nilable(Integer))
+        .returns(T::Enumerable[T.untyped])
     end
-
-    private
-
-    sig { params(body: Query, page_number: Integer, page_size: Integer).returns(T::Enumerable[T.untyped]) }
-    def post(body:, page_number:, page_size: 100)
+    def query(body:, page_number: nil, page_size: nil)
       request = body.dup
       body['pageSize'] = page_size if page_size.present?
       body['pageNumber'] = page_number
 
       debug_log { "Sending query: #{body}" }
-      response = @connection.post('listings/residential/_search', body)
+      response = @connection.post('listings/residential/_search', request)
       debug_log { "Received response: #{response.body}" }
 
-      sleep 1 # Most basic rate limiting
-      handle_response(ResponsePresenter.new(response), request:)
+      response.body
     end
 
-    sig { params(response: ResponsePresenter, request: Query).returns(T::Enumerable[T.untyped]) }
-    def handle_response(response, request:)
-      return response.results if response.page_number * response.page_size >= 1000
-      return response.results unless response.next_page?
-
-      remaining_results = post(body: request, page_number: response.page_number + 1, page_size: response.page_size)
-      response.results.chain(remaining_results)
-    end
+    private
 
     sig { params(block: T.proc.returns(T.untyped)).void }
     def debug_log(&block)

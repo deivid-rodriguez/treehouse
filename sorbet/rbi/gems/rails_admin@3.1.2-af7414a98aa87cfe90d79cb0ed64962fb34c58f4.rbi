@@ -34,13 +34,13 @@ module RailsAdmin
     # source://rails_admin//lib/rails_admin.rb#31
     def config(entity = T.unsafe(nil), &block); end
 
-    # source://railties/7.1.3/lib/rails/engine.rb#412
+    # source://railties/7.1.3.2/lib/rails/engine.rb#412
     def railtie_helpers_paths; end
 
-    # source://railties/7.1.3/lib/rails/engine.rb#395
+    # source://railties/7.1.3.2/lib/rails/engine.rb#395
     def railtie_namespace; end
 
-    # source://railties/7.1.3/lib/rails/engine.rb#416
+    # source://railties/7.1.3.2/lib/rails/engine.rb#416
     def railtie_routes_url_helpers(include_path_helpers = T.unsafe(nil)); end
 
     # Setup all extensions for testing
@@ -48,10 +48,10 @@ module RailsAdmin
     # source://rails_admin//lib/rails_admin/extension.rb#28
     def setup_all_extensions; end
 
-    # source://railties/7.1.3/lib/rails/engine.rb#401
+    # source://railties/7.1.3.2/lib/rails/engine.rb#401
     def table_name_prefix; end
 
-    # source://railties/7.1.3/lib/rails/engine.rb#408
+    # source://railties/7.1.3.2/lib/rails/engine.rb#408
     def use_relative_model_naming?; end
 
     # source://rails_admin//lib/rails_admin.rb#59
@@ -245,23 +245,23 @@ class RailsAdmin::ApplicationController < ::ActionController::Base
   def _authorize!; end
   def _get_plugin_name; end
 
-  # source://actionview/7.1.3/lib/action_view/layouts.rb#330
+  # source://actionview/7.1.3.2/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
   def _layout_from_proc; end
   def rails_admin_controller?; end
 
   class << self
-    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://actionpack/7.1.3/lib/abstract_controller/helpers.rb#12
+    # source://actionpack/7.1.3.2/lib/abstract_controller/helpers.rb#12
     def _helper_methods; end
 
-    # source://actionpack/7.1.3/lib/action_controller/metal.rb#262
+    # source://actionpack/7.1.3.2/lib/action_controller/metal.rb#262
     def middleware_stack; end
 
-    # source://activesupport/7.1.3/lib/active_support/rescuable.rb#15
+    # source://activesupport/7.1.3.2/lib/active_support/rescuable.rb#15
     def rescue_handlers; end
   end
 end
@@ -3236,7 +3236,7 @@ class RailsAdmin::Engine < ::Rails::Engine
   def importmap=(_arg0); end
 
   class << self
-    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#70
     def __callbacks; end
   end
 end
@@ -3539,7 +3539,7 @@ class RailsAdmin::MainController < ::RailsAdmin::ApplicationController
 
   private
 
-  # source://actionview/7.1.3/lib/action_view/layouts.rb#330
+  # source://actionview/7.1.3.2/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
   def _layout_from_proc; end
@@ -3558,10 +3558,10 @@ class RailsAdmin::MainController < ::RailsAdmin::ApplicationController
   def visible_fields(action, model_config = T.unsafe(nil)); end
 
   class << self
-    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://actionpack/7.1.3/lib/action_controller/metal.rb#262
+    # source://actionpack/7.1.3.2/lib/action_controller/metal.rb#262
     def middleware_stack; end
   end
 end
