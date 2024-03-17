@@ -45,6 +45,8 @@ Metrics/BlockLength:
   AllowedMethods:
     - configure
     - namespace
+  Exclude:
+    - "test/factories/**/*.rb"
 
 Metrics/ClassLength:
   Max: 130
