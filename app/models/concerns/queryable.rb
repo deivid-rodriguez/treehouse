@@ -17,7 +17,6 @@ module Queryable
     has_one :query, as: :queryable, dependent: :destroy, touch: true
     accepts_nested_attributes_for :query
     delegate :name, :description, :body, :responses, to: :query
-    validates :query, presence: true
   end
 
   sig { abstract.params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(String) }
