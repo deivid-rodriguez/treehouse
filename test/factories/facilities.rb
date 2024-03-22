@@ -10,11 +10,11 @@ FactoryBot.define do
     sequence(:external_id) { |n| "external_id_#{n.hash}" }
 
     trait :with_address do
-      address factory: :address
+      address { association(:address, addressable: instance) }
     end
 
     trait :with_geocodes do
-      geocodes factory: :geocode
+      geocodes { [association(:geocode, target: instance)] }
     end
   end
 end
