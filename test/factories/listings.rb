@@ -25,21 +25,15 @@ FactoryBot.define do
     end
 
     trait :with_address do
-      address
+      address { association(:address, addressable: instance) }
     end
 
     trait :with_geocodes do
-      geocodes
+      geocodes { [association(:geocode, target: instance)] }
     end
 
     trait :with_images do
-      images
-    end
-
-    trait :with_all_associations do
-      address
-      geocodes
-      images
+      images { [association(:image, listing: instance)] }
     end
   end
 end
