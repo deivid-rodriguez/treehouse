@@ -11,5 +11,13 @@ FactoryBot.define do
     city { Faker::Address.city }
     state { %w[NSW QLD WA NT SA ACT VIC TAS].sample }
     postcode { Faker::Address.zip_code[0, 4] }
+
+    trait :with_facility do
+      addressable factory: :facility
+    end
+
+    trait :with_listing do
+      addressable factory: :listing
+    end
   end
 end
