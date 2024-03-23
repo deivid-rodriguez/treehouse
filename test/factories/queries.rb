@@ -14,7 +14,7 @@ FactoryBot.define do
 
   factory :query do
     sequence(:name) { |n| "Query #{n}" }
-    description { "#{query_type} Query: #{Faker::Lorem.sentence}" }
+    description { "#{defined? query_type ? "#{query_type} " : ''} Query: #{Faker::Lorem.sentence}" }
 
     trait :domain do
       queryable factory: :domain_query
