@@ -258,6 +258,11 @@ module Minitest::Assertions
   # source://minitest//lib/minitest/assertions.rb#293
   def assert_match(matcher, obj, msg = T.unsafe(nil)); end
 
+  # Assert that the mock verifies correctly.
+  #
+  # source://minitest//lib/minitest/mock.rb#250
+  def assert_mock(mock); end
+
   # Fails unless +obj+ is nil
   #
   # source://minitest//lib/minitest/assertions.rb#305
@@ -768,6 +773,106 @@ module Minitest::Guard
   #
   # source://minitest//lib/minitest.rb#1098
   def windows?(platform = T.unsafe(nil)); end
+end
+
+# A simple and clean mock object framework.
+#
+# All mock objects are an instance of Mock
+#
+# source://minitest//lib/minitest/mock.rb#10
+class Minitest::Mock
+  # @return [Mock] a new instance of Mock
+  #
+  # source://minitest//lib/minitest/mock.rb#50
+  def initialize(delegator = T.unsafe(nil)); end
+
+  # source://minitest//lib/minitest/mock.rb#33
+  def ===(*args, **kwargs, &b); end
+
+  # source://minitest//lib/minitest/mock.rb#122
+  def __call(name, data); end
+
+  def __respond_to?(*_arg0); end
+
+  # source://minitest//lib/minitest/mock.rb#33
+  def class(*args, **kwargs, &b); end
+
+  # Expect that method +name+ is called, optionally with +args+ (and
+  # +kwargs+ or a +blk+), and returns +retval+.
+  #
+  #   @mock.expect(:meaning_of_life, 42)
+  #   @mock.meaning_of_life # => 42
+  #
+  #   @mock.expect(:do_something_with, true, [some_obj, true])
+  #   @mock.do_something_with(some_obj, true) # => true
+  #
+  #   @mock.expect(:do_something_else, true) do |a1, a2|
+  #     a1 == "buggs" && a2 == :bunny
+  #   end
+  #
+  # +args+ is compared to the expected args using case equality (ie, the
+  # '===' operator), allowing for less specific expectations.
+  #
+  #   @mock.expect(:uses_any_string, true, [String])
+  #   @mock.uses_any_string("foo") # => true
+  #   @mock.verify  # => true
+  #
+  #   @mock.expect(:uses_one_string, true, ["foo"])
+  #   @mock.uses_one_string("bar") # => raises MockExpectationError
+  #
+  # If a method will be called multiple times, specify a new expect for each one.
+  # They will be used in the order you define them.
+  #
+  #   @mock.expect(:ordinal_increment, 'first')
+  #   @mock.expect(:ordinal_increment, 'second')
+  #
+  #   @mock.ordinal_increment # => 'first'
+  #   @mock.ordinal_increment # => 'second'
+  #   @mock.ordinal_increment # => raises MockExpectationError "No more expects available for :ordinal_increment"
+  #
+  # source://minitest//lib/minitest/mock.rb#93
+  def expect(name, retval, args = T.unsafe(nil), **kwargs, &blk); end
+
+  # source://minitest//lib/minitest/mock.rb#33
+  def inspect(*args, **kwargs, &b); end
+
+  # source://minitest//lib/minitest/mock.rb#33
+  def instance_eval(*args, **kwargs, &b); end
+
+  # source://minitest//lib/minitest/mock.rb#33
+  def instance_variables(*args, **kwargs, &b); end
+
+  # source://minitest//lib/minitest/mock.rb#152
+  def method_missing(sym, *args, **kwargs, &block); end
+
+  # source://minitest//lib/minitest/mock.rb#33
+  def object_id(*args, **kwargs, &b); end
+
+  # source://minitest//lib/minitest/mock.rb#33
+  def public_send(*args, **kwargs, &b); end
+
+  # @return [Boolean]
+  #
+  # source://minitest//lib/minitest/mock.rb#238
+  def respond_to?(sym, include_private = T.unsafe(nil)); end
+
+  # source://minitest//lib/minitest/mock.rb#33
+  def send(*args, **kwargs, &b); end
+
+  # source://minitest//lib/minitest/mock.rb#33
+  def to_s(*args, **kwargs, &b); end
+
+  # Verify that all methods were called as expected. Raises
+  # +MockExpectationError+ if the mock object was not called as
+  # expected.
+  #
+  # source://minitest//lib/minitest/mock.rb#142
+  def verify; end
+
+  private
+
+  # source://minitest//lib/minitest/mock.rb#33
+  def respond_to_missing?(*args, **kwargs, &b); end
 end
 
 # source://minitest//lib/minitest/parallel.rb#2
@@ -1533,3 +1638,34 @@ Minitest::UnexpectedError::BASE_RE = T.let(T.unsafe(nil), Regexp)
 
 # source://minitest//lib/minitest.rb#12
 Minitest::VERSION = T.let(T.unsafe(nil), String)
+
+# source://minitest//lib/minitest/mock.rb#1
+class MockExpectationError < ::StandardError; end
+
+# source://minitest//lib/minitest/mock.rb#258
+class Object < ::BasicObject
+  include ::Kernel
+  include ::PP::ObjectMixin
+
+  # Add a temporary stubbed method replacing +name+ for the duration
+  # of the +block+. If +val_or_callable+ responds to #call, then it
+  # returns the result of calling it, otherwise returns the value
+  # as-is. If stubbed method yields a block, +block_args+ will be
+  # passed along. Cleans up the stub at the end of the +block+. The
+  # method +name+ must exist before stubbing.
+  #
+  #     def test_stale_eh
+  #       obj_under_test = Something.new
+  #       refute obj_under_test.stale?
+  #
+  #       Time.stub :now, Time.at(0) do
+  #         assert obj_under_test.stale?
+  #       end
+  #     end
+  # --
+  # NOTE: keyword args in callables are NOT checked for correctness
+  # against the existing method. Too many edge cases to be worth it.
+  #
+  # source://minitest//lib/minitest/mock.rb#280
+  def stub(name, val_or_callable, *block_args, **block_kwargs, &block); end
+end
