@@ -12,7 +12,7 @@ module Responses
 
     sig { override.params(page: ResponsePage).returns(T::Enumerable[Parse]) }
     def parse!(page)
-      parsed_at = Time.zone.now
+      parsed_at = Time.current
 
       decode(page.body).each_with_index.map do |element, index|
         Parse.new(

@@ -14,7 +14,7 @@ FactoryBot.define do
     carpark_count { 1 }
     monthly_rent { 400 }
 
-    last_seen_at { Time.zone.now }
+    last_seen_at { Time.current }
 
     trait :house do
       property_type { 'House' }

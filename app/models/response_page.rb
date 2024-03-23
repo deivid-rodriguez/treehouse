@@ -7,7 +7,7 @@ class ResponsePage < ApplicationRecord
 
   DEFAULT_PER_PAGE = 100
 
-  attribute :retrieved_at, default: -> { Time.zone.now }
+  attribute :retrieved_at, default: -> { Time.current }
 
   belongs_to :response, inverse_of: :pages
   has_many :elements, class_name: 'ResponsePageElement', inverse_of: :response_page, dependent: :destroy
