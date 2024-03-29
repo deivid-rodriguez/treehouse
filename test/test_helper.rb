@@ -7,6 +7,15 @@ require 'rails/test_help'
 require 'factory_bot'
 FactoryBot.find_definitions
 
+require 'vcr'
+VCR.configure do |config|
+  config.hook_into :faraday
+  config.cassette_library_dir = 'test/fixtures/vcr_cassettes'
+  config.default_cassette_options = {
+    match_requests_on: %i[method host path],
+  }
+end
+
 module ActiveSupport
   # Add more helper methods to be used by all tests here...
   class TestCase

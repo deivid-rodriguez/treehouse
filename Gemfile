@@ -83,6 +83,7 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rake', require: false
   gem 'rubocop-sorbet', require: false
+  gem 'vcr', '~> 6.2', require: false
 end
 
 group :development do

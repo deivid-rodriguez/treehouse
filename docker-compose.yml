@@ -11,7 +11,7 @@ services:
     tty: true
     stop_grace_period: "3s"
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/treehouse
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432
       - TZ=Australia/Melbourne
     ports:
       - "127.0.0.1:3000:3000/tcp"
@@ -27,7 +27,7 @@ services:
     tty: true
     stop_grace_period: "3s"
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/treehouse
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432
       - TZ=Australia/Melbourne
     tmpfs:
       - /app/tmp:mode=755,uid=1000,gid=1000
