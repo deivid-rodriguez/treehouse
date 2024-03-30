@@ -29,10 +29,10 @@ module APIClient
     end
     def query(body:, page_number: nil, page_size: nil)
       request = body.dup
-      body['pageSize'] = page_size if page_size.present?
-      body['pageNumber'] = page_number
+      request['pageSize'] = page_size if page_size.present?
+      request['pageNumber'] = page_number
 
-      debug_log { "Sending query: #{body}" }
+      debug_log { "Sending query: #{request}" }
       response = @connection.post('listings/residential/_search', request)
       debug_log { "Received response: #{response.body}" }
 
