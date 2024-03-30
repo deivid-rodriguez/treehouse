@@ -33,5 +33,11 @@ FactoryBot.define do
 
       body { body_fixture.read }
     end
+
+    trait :complete do
+      transient do
+        body_fixture_type { 'complete' }
+      end
+    end
   end
 end
