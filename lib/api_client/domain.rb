@@ -33,13 +33,20 @@ module APIClient
       request['pageNumber'] = page_number
 
       debug_log { "Sending query: #{request}" }
-      response = @connection.post('listings/residential/_search', request)
+      response = search(request)
       debug_log { "Received response: #{response.body}" }
 
       response.body
     end
 
     private
+
+    sig { params(request: Query).returns(Faraday::Response) }
+    def search(request)
+      @connection.post('listings/residential/_search', request)
+    rescue Faraday::Error => e
+      raise e, "Failed to search: #{e.message}\n#{e.response.try(:fetch, :body, '<no response>')}"
+    end
 
     sig { params(block: T.proc.returns(T.untyped)).void }
     def debug_log(&block)

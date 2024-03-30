@@ -22,7 +22,7 @@ FactoryBot.define do
         query_type { 'Domain' }
 
         listing_type { 'Rent' }
-        property_types { %w[House Apartment] }
+        property_types { %w[House ApartmentUnitFlat] }
         property_established_type { 'Any' }
         max_bedrooms { nil }
         min_bedrooms { 2 }
@@ -57,7 +57,7 @@ FactoryBot.define do
           'maxPrice' => max_price,
           'locations' => locations,
           'excludeDepositTaken' => exclude_deposit_taken,
-        }.compact
+        }.compact.to_json
       end
     end
 
