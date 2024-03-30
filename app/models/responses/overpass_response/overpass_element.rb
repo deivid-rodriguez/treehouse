@@ -31,7 +31,7 @@ module Responses
 
       sig { returns(String) }
       def external_id
-        @external_id ||= T.let(@node.fetch(:external_id), T.nilable(String))
+        @external_id ||= T.let(@node.fetch(:id), T.nilable(String))
       end
 
       sig { returns(T::Hash[Symbol, T.untyped]) }

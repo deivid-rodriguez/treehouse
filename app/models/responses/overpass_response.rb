@@ -17,7 +17,8 @@ module Responses
       decode(page.body).each_with_index.map do |element, index|
         Parse.new(
           parseable: element.to_facility,
-          response_page_element: page.elements.build(external_id: element.external_id, index:, parsed_at:),
+          response_page_element: page.elements.build(external_id: element.external_id, index:),
+          created_at: parsed_at,
         )
       end
     end

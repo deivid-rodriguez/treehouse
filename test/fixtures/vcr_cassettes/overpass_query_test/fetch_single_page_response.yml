@@ -6,9 +6,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |-
-        area["place"="city"]["name"="melbourne"]["wikidata"="Q3141"] -> .melbourne;
-        node["shop"="supermarket"]["brand"="Coles"](area.melbourne); out body qt;
-        way["shop"="supermarket"]["brand"="Coles"](area.melbourne); out center tags qt;
+        area["place"="city"]["name"="Melbourne"]["wikidata"="Q3141"] -> .Melbourne;
+        node["shop"="supermarket"]["brand"="Coles"](area.Melbourne); out body qt;
+        way["shop"="supermarket"]["brand"="Coles"](area.Melbourne); out center tags qt;
     headers:
       User-Agent:
       - Faraday v2.9.0
@@ -18,7 +18,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 29 Mar 2024 07:41:54 GMT
+      - Sat, 30 Mar 2024 16:49:13 GMT
       server:
       - Apache/2.4.56 (Debian)
       vary:
@@ -26,7 +26,7 @@ http_interactions:
       content-encoding:
       - gzip
       content-length:
-      - '243'
+      - '8684'
       content-type:
       - application/osm3s+xml
     body:
@@ -35,9 +35,2099 @@ http_interactions:
         <?xml version="1.0" encoding="UTF-8"?>
         <osm version="0.6" generator="Overpass API 0.7.62.1 084b4234">
         <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
-        <meta osm_base="2024-03-29T07:40:35Z" areas="2024-03-29T05:30:15Z"/>
+        <meta osm_base="2024-03-30T16:47:20Z" areas="2024-03-30T15:42:01Z"/>
 
+          <node id="278111955" lat="-38.3614651" lon="144.8921554">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1266906766" lat="-38.3515418" lon="144.9227978">
+            <tag k="addr:housenumber" v="739"/>
+            <tag k="addr:street" v="Point Nepean Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="5905400958" lat="-38.2330593" lon="145.0515325">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="367127064" lat="-38.2193814" lon="145.0401252">
+            <tag k="addr:housenumber" v="78"/>
+            <tag k="addr:street" v="Barkly Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="368387447" lat="-38.2240036" lon="145.1703702">
+            <tag k="addr:housenumber" v="49"/>
+            <tag k="addr:street" v="Eramosa Road West"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="8508535994" lat="-38.1518662" lon="145.1670108">
+            <tag k="addr:housenumber" v="330"/>
+            <tag k="addr:street" v="Cranbourne Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="construction" v="supermarket"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="8940011710" lat="-37.9028636" lon="144.6590679">
+            <tag k="addr:housenumber" v="143-163"/>
+            <tag k="addr:street" v="Watton Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au"/>
+          </node>
+          <node id="1271728963" lat="-37.8757512" lon="144.6145175">
+            <tag k="addr:housenumber" v="8"/>
+            <tag k="addr:street" v="Manor Lakes Boulevard"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="832563928" lat="-37.8815939" lon="144.7032684">
+            <tag k="addr:housenumber" v="50"/>
+            <tag k="addr:street" v="Old Geelong Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="290313333" lat="-37.8747789" lon="144.6794291">
+            <tag k="addr:housenumber" v="250"/>
+            <tag k="addr:street" v="Heaths Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="5009375193" lat="-37.8596976" lon="144.6665023">
+            <tag k="addr:city" v="Melbourne"/>
+            <tag k="addr:postcode" v="3029"/>
+            <tag k="addr:street" v="Tarneit Road &amp; Hogans Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-00:00"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="5512743307" lat="-37.8372830" lon="144.6912622">
+            <tag k="addr:housenumber" v="540"/>
+            <tag k="addr:street" v="Derrimut Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="7357800722" lat="-37.8339607" lon="144.6510554">
+            <tag k="addr:housenumber" v="200"/>
+            <tag k="addr:street" v="Hummingbird Boulevard"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="317697330" lat="-37.9494350" lon="145.0033564">
+            <tag k="addr:housenumber" v="10-20"/>
+            <tag k="addr:street" v="Waltham Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="365211575" lat="-37.9589132" lon="145.0512356">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="level" v="0"/>
+            <tag k="level:ref" v="1"/>
+            <tag k="name" v="Coles"/>
+            <tag k="phone" v="+61 3 9239 6100"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="461534089" lat="-37.8951123" lon="144.7529168">
+            <tag k="addr:housenumber" v="300"/>
+            <tag k="addr:street" v="Point Cook Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-24:00"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="2163569101" lat="-37.8825051" lon="144.7346373">
+            <tag k="addr:housenumber" v="1"/>
+            <tag k="addr:street" v="Main Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="3338903502" lat="-37.8490120" lon="144.7037194">
+            <tag k="addr:housenumber" v="380"/>
+            <tag k="addr:street" v="Sayers Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="full_name" v="Coles Wyndham Village"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1918505758" lat="-37.8732777" lon="144.7759322">
+            <tag k="addr:housenumber" v="1-23"/>
+            <tag k="addr:street" v="Central Avenue"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="full_name" v="Coles Altona Meadows"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="836083881" lat="-37.8576259" lon="144.8974163">
+            <tag k="addr:housenumber" v="29"/>
+            <tag k="addr:street" v="Douglas Parade"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="2943276352" lat="-37.7976134" lon="144.8061424">
+            <tag k="addr:housenumber" v="136"/>
+            <tag k="addr:street" v="The Avenue"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="1793129351" lat="-37.7592178" lon="144.7534185">
+            <tag k="addr:housenumber" v="15-25"/>
+            <tag k="addr:street" v="Westwood Drive"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="full_name" v="Coles Burnside"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1278129196" lat="-37.7323759" lon="144.7425236">
+            <tag k="addr:housenumber" v="29-35"/>
+            <tag k="addr:postcode" v="3023"/>
+            <tag k="addr:state" v="Victoria"/>
+            <tag k="addr:street" v="Lake Street"/>
+            <tag k="addr:suburb" v="Caroline Springs"/>
+            <tag k="addr:unit" v="M1"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="contact:facebook" v="https://www.facebook.com/coles/"/>
+            <tag k="contact:instagram" v="colessupermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-00:00; Dec 25 off; Apr 25 07:00-13:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 8361 8955"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au"/>
+          </node>
+          <node id="2254087485" lat="-37.7837126" lon="144.7711213">
+            <tag k="addr:postcode" v="3030"/>
+            <tag k="addr:street" v="Mount Derrimut Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="1969747367" lat="-37.7587406" lon="144.7901048">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1278126817" lat="-37.7518375" lon="144.7756103">
+            <tag k="addr:housenumber" v="28-72"/>
+            <tag k="addr:street" v="Neale Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="508030779" lat="-37.7936568" lon="144.8603614">
+            <tag k="addr:housenumber" v="67"/>
+            <tag k="addr:street" v="Ashley Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="3942998909" lat="-37.8013978" lon="144.8975290">
+            <tag k="addr:housenumber" v="16A"/>
+            <tag k="addr:street" v="Albert Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-22:00"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au"/>
+          </node>
+          <node id="5905408641" lat="-37.7781318" lon="144.8514648">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="747047587" lat="-37.9133260" lon="144.9927645">
+            <tag k="addr:city" v="Brighton"/>
+            <tag k="addr:housenumber" v="26"/>
+            <tag k="addr:street" v="Church Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="full_name" v="Coles Brighton"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="3270433150" lat="-37.9060865" lon="145.0051856">
+            <tag k="addr:housenumber" v="380"/>
+            <tag k="addr:street" v="Bay Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:15-22:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="570758511" lat="-37.8685845" lon="144.9806027">
+            <tag k="addr:housenumber" v="181-189"/>
+            <tag k="addr:street" v="Barkly Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="6917971490" lat="-37.8848116" lon="145.0068377">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="note" v="Reopens 27/10/2019"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-24:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="932432768" lat="-37.8679128" lon="144.9919849">
+            <tag k="addr:housenumber" v="54"/>
+            <tag k="addr:street" v="Camden Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="3418300526" lat="-37.8479845" lon="144.9937651">
+            <tag k="addr:housenumber" v="303"/>
+            <tag k="addr:street" v="Chapel Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="1583422492" lat="-37.9259993" lon="145.1185924">
+            <tag k="addr:housenumber" v="2-4"/>
+            <tag k="addr:postcode" v="3168"/>
+            <tag k="addr:street" v="Cooke Street"/>
+            <tag k="alt_name" v="Coles Clayton; Clayton Coles; Cooke Street Coles; Coles Cooke Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="note" v="yes, two coles supermarkets, this is the original and still open"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1583422493" lat="-37.9280896" lon="145.1181472">
+            <tag k="addr:housenumber" v="1389-1391"/>
+            <tag k="addr:postcode" v="3168"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Centre Road"/>
+            <tag k="addr:suburb" v="Clayton"/>
+            <tag k="alt_name" v="Coles Centre Road; Centre Road Coles; Coles Clayton; Coles Clayton Centre Road; Clayton Coles Centre Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="note" v="yes, there are two here, this is the former bilo"/>
+            <tag k="official_name" v="Coles Supermarkets Pty Ltd"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:ref:abn" v="45004189708"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9544 9530"/>
+            <tag k="ref" v="536"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1281493538" lat="-37.9012330" lon="145.0903717">
+            <tag k="addr:housename" v="Centro Oakleigh"/>
+            <tag k="addr:housenumber" v="39"/>
+            <tag k="addr:street" v="Hanover Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au"/>
+          </node>
+          <node id="10223008755" lat="-37.8760273" lon="145.0376175">
+            <tag k="alt_name" v="Caulfield Village Coles;Coles Caulfield Village"/>
+            <tag k="branch" v="Caulfield Village"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="image" v="https://web.archive.org/web/20221219000703/https://i.imgur.com/TwJn5sC_d.webp?maxwidth=2560&amp;shape=thumb&amp;fidelity=high"/>
+            <tag k="name" v="Coles"/>
+            <tag k="note" v="Estimated location from survey"/>
+            <tag k="official_name" v="Coles Supermarkets Australia Pty Ltd"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-23:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:ref:abn" v="45004189708"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9056 0000"/>
+            <tag k="ref" v="7724"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="964641320" lat="-37.8458418" lon="145.0452563">
+            <tag k="addr:housenumber" v="766"/>
+            <tag k="addr:street" v="Toorak Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-23:00"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="280897051" lat="-37.8855399" lon="145.0845484">
+            <tag k="branch" v="Chadstone"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="11413306247" lat="-37.8784912" lon="145.0923339">
+            <tag k="addr:housenumber" v="695"/>
+            <tag k="addr:street" v="Warrigal Road"/>
+            <tag k="addr:suburb" v="Ashwood"/>
+            <tag k="branch" v="Chadstone Village"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="check_date" v="2023-12-12"/>
+            <tag k="name" v="Coles"/>
+            <tag k="note" v="Approximate location"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-24:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 7005 6900"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="source" v="survey"/>
+            <tag k="start_date" v="2023-12-13"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="4935336424" lat="-37.8319294" lon="144.9609368">
+            <tag k="addr:housenumber" v="229"/>
+            <tag k="addr:postcode" v="3205"/>
+            <tag k="addr:street" v="Coventry Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-00:00"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au"/>
+          </node>
+          <node id="667225621" lat="-37.8147983" lon="144.9518038">
+            <tag k="addr:city" v="Melbourne"/>
+            <tag k="addr:housenumber" v="201"/>
+            <tag k="addr:postcode" v="3000"/>
+            <tag k="addr:street" v="Spencer Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="layer" v="0"/>
+            <tag k="level" v="0"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9600 2899"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="591382457" lat="-37.8175611" lon="144.9649673">
+            <tag k="addr:housenumber" v="276"/>
+            <tag k="addr:street" v="Flinders Street"/>
+            <tag k="branch" v="Central"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Fr 06:00-24:00; Sa,Su 07:00-24:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="6634574085" lat="-37.8099061" lon="144.9637190">
+            <tag k="addr:housenumber" v="211"/>
+            <tag k="addr:street" v="La Trobe Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles Express"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-00:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="441991395" lat="-37.8254909" lon="144.9947938">
+            <tag k="addr:housenumber" v="150"/>
+            <tag k="addr:street" v="Swan Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-00:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9420 3000"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="9805211549" lat="-37.8173906" lon="144.9988683">
+            <tag k="addr:housenumber" v="240"/>
+            <tag k="addr:postcode" v="3171"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Church Street"/>
+            <tag k="addr:suburb" v="Richmond"/>
+            <tag k="branch" v="Richmond Traders"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="3800095557" lat="-37.8038030" lon="144.9836190">
+            <tag k="addr:housenumber" v="172"/>
+            <tag k="addr:postcode" v="3066"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Smith Street"/>
+            <tag k="addr:suburb" v="Collingwood"/>
+            <tag k="air_conditioning" v="yes"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="check_date" v="2023-12-09"/>
+            <tag k="currency:AUD" v="yes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-23:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="payment:american_express" v="yes"/>
+            <tag k="payment:apple_pay" v="yes"/>
+            <tag k="payment:cards" v="yes"/>
+            <tag k="payment:cash" v="yes"/>
+            <tag k="payment:contactless" v="yes"/>
+            <tag k="payment:credit_cards" v="yes"/>
+            <tag k="payment:debit_cards" v="yes"/>
+            <tag k="payment:google_pay" v="yes"/>
+            <tag k="payment:maestro" v="yes"/>
+            <tag k="payment:mastercard" v="yes"/>
+            <tag k="payment:visa" v="yes"/>
+            <tag k="payment:visa_debit" v="yes"/>
+            <tag k="phone" v="+61 3 9230 1600"/>
+            <tag k="second_hand" v="no"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="stroller" v="yes"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="1937616038" lat="-37.7824892" lon="144.9148871">
+            <tag k="addr:housenumber" v="320-380"/>
+            <tag k="addr:street" v="Epsom Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-23:00"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1080087948" lat="-37.7645234" lon="144.9219203">
+            <tag k="addr:housenumber" v="20"/>
+            <tag k="addr:street" v="Homer Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="666846439" lat="-37.7758523" lon="144.9626265">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="full_name" v="Coles Brunswick"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 7:00-0:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9387 6122"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="7342542045" lat="-37.7721229" lon="144.9784681">
+            <tag k="addr:housenumber" v="127-137"/>
+            <tag k="addr:postcode" v="3057"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Nicholson Street"/>
+            <tag k="addr:suburb" v="Brunswick East"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="669188509" lat="-37.7691345" lon="145.0013383">
+            <tag k="addr:housenumber" v="25"/>
+            <tag k="addr:street" v="Separation Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="939020309" lat="-37.7673811" lon="145.0017674">
+            <tag k="addr:housenumber" v="25"/>
+            <tag k="addr:street" v="Separation Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="toilets:wheelchair" v="no"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="2502841974" lat="-37.7424437" lon="144.9658474">
+            <tag k="addr:housenumber" v="451-459"/>
+            <tag k="addr:street" v="Sydney Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="1428952005" lat="-37.8291542" lon="145.0563202">
+            <tag k="addr:housenumber" v="4-14"/>
+            <tag k="addr:street" v="Burke Avenue"/>
+            <tag k="branch" v="Camberwell"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="7690432997" lat="-37.8196048" lon="145.1203412">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="level" v="0"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="3676221315" lat="-37.8038542" lon="145.1021788">
+            <tag k="addr:housenumber" v="342-344"/>
+            <tag k="addr:street" v="Belmore Road"/>
+            <tag k="branch" v="Balwyn East"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="full_name" v="Coles East Balwyn"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-23:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="payment:cash" v="yes"/>
+            <tag k="payment:coins" v="yes"/>
+            <tag k="payment:credit_cards" v="yes"/>
+            <tag k="payment:debit_cards" v="yes"/>
+            <tag k="payment:mastercard" v="yes"/>
+            <tag k="payment:notes" v="yes"/>
+            <tag k="payment:visa" v="yes"/>
+            <tag k="phone" v="+61 3 7032 0300"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/stores/storeDetail/7797?brandId=2"/>
+          </node>
+          <node id="846426635" lat="-37.7652693" lon="145.0918512">
+            <tag k="addr:housenumber" v="101"/>
+            <tag k="addr:street" v="Manningham Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="325276531" lat="-37.6856825" lon="144.5657612">
+            <tag k="addr:housenumber" v="533-555"/>
+            <tag k="addr:street" v="High Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="4875093169" lat="-37.7017311" lon="144.5742550">
+            <tag k="addr:housenumber" v="11-17"/>
+            <tag k="addr:street" v="Station Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-23:00"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="8892284913" lat="-37.7140271" lon="144.6022542">
+            <tag k="addr:housenumber" v="211"/>
+            <tag k="addr:street" v="Ferris Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="8573203227" lat="-37.7227961" lon="144.6701494">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="4793241132" lat="-37.7116030" lon="144.7415653">
+            <tag k="addr:housenumber" v="127"/>
+            <tag k="addr:postcode" v="3037"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Gourlay Road"/>
+            <tag k="addr:suburb" v="Taylors Hill"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="contact:facebook" v="coles"/>
+            <tag k="contact:instagram" v="colessupermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-00:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 8348 3100"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au"/>
+          </node>
+          <node id="1505820163" lat="-37.7273876" lon="144.8065418">
+            <tag k="addr:housenumber" v="80"/>
+            <tag k="addr:street" v="Taylors Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1237251095" lat="-37.7149789" lon="144.8846800">
+            <tag k="addr:housenumber" v="29-35"/>
+            <tag k="addr:street" v="Louis Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="toilets:wheelchair" v="yes"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="636217129" lat="-37.7272917" lon="144.8953580">
+            <tag k="addr:housenumber" v="30"/>
+            <tag k="addr:postcode" v="3041"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="English Street"/>
+            <tag k="addr:suburb" v="Essendon Fields"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="3624193295" lat="-37.6393430" lon="144.8825125">
+            <tag k="addr:housenumber" v="1"/>
+            <tag k="addr:postcode" v="3059"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Greenvale Drive"/>
+            <tag k="addr:suburb" v="Greenvale"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1347450503" lat="-37.5781965" lon="144.7293169">
+            <tag k="addr:housenumber" v="2-28"/>
+            <tag k="addr:street" v="Evans Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="3613961947" lat="-37.7315658" lon="144.9503452">
+            <tag k="addr:housenumber" v="180"/>
+            <tag k="addr:street" v="Gaffney Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="2391873439" lat="-37.6889515" lon="144.9599995">
+            <tag k="addr:housenumber" v="1434-1468"/>
+            <tag k="addr:street" v="Sydney Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="phone" v="+61 3 9359 6111"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="2172299040" lat="-37.6796860" lon="144.9186507">
+            <tag k="addr:housenumber" v="1099-1169"/>
+            <tag k="addr:street" v="Pascoe Vale Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="2268930955" lat="-37.6383870" lon="144.9323564">
+            <tag k="addr:housenumber" v="250"/>
+            <tag k="addr:street" v="Somerton Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="5222791629" lat="-37.6730186" lon="145.0169622">
+            <tag k="addr:housenumber" v="47-71"/>
+            <tag k="addr:street" v="May Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="3398088890" lat="-37.7254998" lon="145.0281053">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="2918617899" lat="-37.6972847" lon="145.0579698">
+            <tag k="addr:housenumber" v="5"/>
+            <tag k="addr:street" v="Nickson Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="full_name" v="Coles Bundoora"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="566528267" lat="-37.6829070" lon="145.0704091">
+            <tag k="addr:housenumber" v="5"/>
+            <tag k="addr:street" v="Janefield Drive"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="538206163" lat="-37.7025681" lon="145.1029553">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="level" v="1"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1282664873" lat="-37.6749254" lon="145.0357476">
+            <tag k="addr:housenumber" v="22"/>
+            <tag k="addr:street" v="McKimmies Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="915085888" lat="-37.6543378" lon="145.0188275">
+            <tag k="addr:housenumber" v="571-583"/>
+            <tag k="addr:street" v="High Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="492900388" lat="-37.6508313" lon="145.0687423">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="3624177341" lat="-37.5923694" lon="144.9150075">
+            <tag k="addr:housenumber" v="340"/>
+            <tag k="addr:street" v="Craigieburn Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="4709207011" lat="-37.6216014" lon="145.0064337">
+            <tag k="addr:housenumber" v="315A"/>
+            <tag k="addr:street" v="Harvest Home Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="8310223092" lat="-37.5365138" lon="144.9212675">
+            <tag k="addr:housenumber" v="270"/>
+            <tag k="addr:street" v="Donnybrook Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="6924390121" lat="-37.6000034" lon="145.0952382">
+            <tag k="addr:housenumber" v="1435"/>
+            <tag k="addr:street" v="Plenty Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="layer" v="1"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="365210773" lat="-38.1421829" lon="145.1234117">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="365210758" lat="-38.1154320" lon="145.1930495">
+            <tag k="addr:housenumber" v="335"/>
+            <tag k="addr:street" v="Ballarto Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1500755604" lat="-38.0686223" lon="145.1448830">
+            <tag k="addr:housenumber" v="116-118"/>
+            <tag k="addr:street" v="Gladesville Boulevard"/>
+            <tag k="branch" v="Patterson Lakes"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1301802142" lat="-38.1030621" lon="145.2652502">
+            <tag k="addr:housenumber" v="95"/>
+            <tag k="addr:street" v="Monahans Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="10212909074" lat="-38.1497807" lon="145.2897666">
+            <tag k="addr:housenumber" v="2-30S"/>
+            <tag k="addr:street" v="Hummingbird Drive"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="1027335272" lat="-38.1071313" lon="145.2818531">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="4446892792" lat="-38.1191101" lon="145.3205054">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="full_name" v="Coles Clyde"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-23:00"/>
+            <tag k="phone" v="+61 3 5991 6300"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1760404273" lat="-38.0522568" lon="145.2568486">
+            <tag k="addr:housenumber" v="75"/>
+            <tag k="addr:street" v="Lynbrook Boulevard"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="480460754" lat="-38.0686164" lon="145.3007558">
+            <tag k="addr:housenumber" v="400"/>
+            <tag k="addr:street" v="Cranbourne Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="427864933" lat="-37.9922837" lon="145.1719538">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1530420284" lat="-37.9654121" lon="145.1730576">
+            <tag k="addr:housenumber" v="1-5"/>
+            <tag k="addr:street" v="Douglas Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="369690027" lat="-37.9828511" lon="145.2136939">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-24:00"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="616513028" lat="-37.9865785" lon="145.2183528">
+            <tag k="addr:housenumber" v="23-55"/>
+            <tag k="addr:street" v="McCrae Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1766341028" lat="-38.0185007" lon="145.3067090">
+            <tag k="addr:housenumber" v="22-55"/>
+            <tag k="addr:street" v="Overland Drive"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-22:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="768257901" lat="-38.0140108" lon="145.3222251">
+            <tag k="addr:housenumber" v="215-225"/>
+            <tag k="addr:street" v="Parkhill Drive"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="1557920937" lat="-37.9775146" lon="145.2582292">
+            <tag k="addr:housenumber" v="78"/>
+            <tag k="addr:street" v="Heatherton Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="11586763975" lat="-38.0949019" lon="145.3623668">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="981973114" lat="-38.0614410" lon="145.3397959">
+            <tag k="addr:housenumber" v="95"/>
+            <tag k="addr:street" v="O'Shea Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="364658541" lat="-38.0857063" lon="145.4709464">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="360214093" lat="-38.0778107" lon="145.4790259">
+            <tag k="addr:housenumber" v="67-69"/>
+            <tag k="addr:street" v="Main Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="4200853794" lat="-38.0321022" lon="145.3450266">
+            <tag k="addr:city" v="Berwick"/>
+            <tag k="addr:housenumber" v="2"/>
+            <tag k="addr:postcode" v="3806"/>
+            <tag k="addr:street" v="Richardson Grove"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-23:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="2020888947" lat="-37.9347488" lon="145.1568383">
+            <tag k="addr:housenumber" v="819-829"/>
+            <tag k="addr:street" v="Princes Highway"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Fr 06:00-24:00; Sa 06:00-23:00; Su off"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="583067216" lat="-37.8915244" lon="145.1438100">
+            <tag k="addr:housenumber" v="30-42"/>
+            <tag k="addr:street" v="Centreway"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+          </node>
+          <node id="1169919216" lat="-37.9048141" lon="145.1622732">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="960805700" lat="-37.9357915" lon="145.1905999">
+            <tag k="addr:housenumber" v="271"/>
+            <tag k="addr:street" v="Police Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="319602021" lat="-37.8768747" lon="145.1645918">
+            <tag k="addr:housenumber" v="227-235"/>
+            <tag k="addr:street" v="Springvale Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="level" v="1"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="314087330" lat="-37.8535375" lon="145.1487011">
+            <tag k="addr:housenumber" v="172-210"/>
+            <tag k="addr:street" v="Burwood Highway"/>
+            <tag k="branch" v="Burwood East"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="check_date" v="2023-10-28"/>
+            <tag k="full_name" v="Coles East Burwood"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="24/7"/>
+            <tag k="operator" v="Coles Supermarkets Australia Pty Ltd"/>
+            <tag k="operator:ref:abn" v="45004189708"/>
+            <tag k="phone" v="+61 3 9847 8300"/>
+            <tag k="ref" v="584"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="source" v="survey"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="258471456" lat="-37.8547864" lon="145.1826504">
+            <tag k="addr:housenumber" v="495-511"/>
+            <tag k="addr:street" v="Burwood Highway"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="full_name" v="Coles Vermont South"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="280708140" lat="-37.9208945" lon="145.2375525">
+            <tag k="addr:housenumber" v="1101"/>
+            <tag k="addr:street" v="Stud Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="260559651" lat="-37.8682575" lon="145.2404040">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="990857152" lat="-37.8425504" lon="145.2667021">
+            <tag k="addr:housenumber" v="7-13"/>
+            <tag k="addr:street" v="High Street"/>
+            <tag k="alt_name" v="Bayswater Coles"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="check_date" v="2025-02-25"/>
+            <tag k="full_name" v="Coles Bayswater"/>
+            <tag k="level" v="1"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-21:00"/>
+            <tag k="operator:ref:abn" v="45004189708"/>
+            <tag k="phone" v="+61 3 8720 7100"/>
+            <tag k="ref" v="7804"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </node>
+          <node id="335617280" lat="-37.8612829" lon="145.2875436">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-23:00"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="260710477" lat="-37.8349600" lon="145.1643348">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="10743106111" lat="-37.8112818" lon="145.1535054">
+            <tag k="addr:housenumber" v="66-104"/>
+            <tag k="addr:street" v="Springfield Road"/>
+            <tag k="air_conditioning" v="yes"/>
+            <tag k="branch" v="Blackburn"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="level" v="1"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-22:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="payment:apple_pay" v="yes"/>
+            <tag k="payment:cash" v="yes"/>
+            <tag k="payment:contactless" v="yes"/>
+            <tag k="payment:debit_cards" v="yes"/>
+            <tag k="payment:google_pay" v="yes"/>
+            <tag k="payment:mastercard" v="yes"/>
+            <tag k="payment:samsung_pay" v="yes"/>
+            <tag k="payment:visa" v="yes"/>
+            <tag k="phone" v="+61 3 8863 8200"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="toilets" v="no"/>
+            <tag k="website" v="https://www.coles.com.au"/>
+          </node>
+          <node id="465186430" lat="-37.7869266" lon="145.1257942">
+            <tag k="addr:housenumber" v="619"/>
+            <tag k="addr:street" v="Doncaster Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="218028470" lat="-37.7914336" lon="145.1718422">
+            <tag k="addr:housenumber" v="55"/>
+            <tag k="addr:street" v="Tunstall Square"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="07:00-24:00"/>
+            <tag k="postal_code" v="3109"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="565827592" lat="-37.8155086" lon="145.2212725">
+            <tag k="addr:housenumber" v="59"/>
+            <tag k="addr:postcode" v="3134"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Maroondah Highway"/>
+            <tag k="addr:suburb" v="Ringwood"/>
+            <tag k="branch" v="Ringwood"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-23:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 7004 3800"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="2045666746" lat="-37.7612778" lon="145.1698916">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="3214773256" lat="-37.8117934" lon="145.2299716">
+            <tag k="addr:postcode" v="3134"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Maroondah Highway"/>
+            <tag k="addr:suburb" v="Ringwood"/>
+            <tag k="branch" v="Eastland"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-22:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9879 6956"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="552752115" lat="-37.7971249" lon="145.2569815">
+            <tag k="addr:housenumber" v="434"/>
+            <tag k="addr:street" v="Maroondah Highway"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="278926518" lat="-37.7941990" lon="145.2791738">
+            <tag k="addr:housenumber" v="5-15"/>
+            <tag k="addr:postcode" v="3136"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Kent Avenue"/>
+            <tag k="addr:suburb" v="Croydon"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 7004 7700"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="9630439544" lat="-37.7710664" lon="145.2940313">
+            <tag k="addr:housenumber" v="401-415"/>
+            <tag k="addr:postcode" v="3136"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Maroondah Highway"/>
+            <tag k="addr:suburb" v="Croydon North"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-22:00"/>
+            <tag k="phone" v="+61 3 9726 8266"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="2177939910" lat="-37.7569568" lon="145.3133008">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="2153947797" lat="-37.7563965" lon="145.3542278">
+            <tag k="addr:postcode" v="3140"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Castella Street"/>
+            <tag k="addr:suburb" v="Lilydale"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9237 1400"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="source" v="local knowledge"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="531399027" lat="-37.7151557" lon="145.1486437">
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="3345300340" lat="-37.6735307" lon="145.1593870">
+            <tag k="addr:housenumber" v="67"/>
+            <tag k="addr:street" v="Main Hurstbridge Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <node id="660942564" lat="-37.6524334" lon="145.5181925">
+            <tag k="addr:housenumber" v="251"/>
+            <tag k="addr:street" v="Maroondah Highway"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="check_date" v="2023-03-27"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </node>
+          <way id="51968747">
+            <center lat="-38.3062990" lon="145.1914173"/>
+            <tag k="addr:housenumber" v="15"/>
+            <tag k="addr:postcode" v="3915"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Church Street"/>
+            <tag k="addr:suburb" v="Hastings"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 6:00-22:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 5979 1700"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="39581680">
+            <center lat="-37.9840734" lon="145.0643704"/>
+            <tag k="addr:housenumber" v="81-93"/>
+            <tag k="addr:street" v="Mentone Parade"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="toilets:wheelchair" v="no"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+            <tag k="wheelchair" v="yes"/>
+          </way>
+          <way id="391365574">
+            <center lat="-37.9453066" lon="145.0217912"/>
+            <tag k="addr:housenumber" v="361"/>
+            <tag k="addr:street" v="Bluff Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="building:levels" v="1"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9598 8744"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="53843626">
+            <center lat="-37.8689200" lon="144.8299879"/>
+            <tag k="addr:city" v="Altona"/>
+            <tag k="addr:postcode" v="3018"/>
+            <tag k="addr:street" v="Pier Street and Queen Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="landuse" v="retail"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 7:00-0:00"/>
+            <tag k="phone" v="+61 3 9398 3754"/>
+            <tag k="shop" v="supermarket"/>
+          </way>
+          <way id="490242047">
+            <center lat="-37.8282395" lon="144.8480047"/>
+            <tag k="area" v="yes"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="level" v="0"/>
+            <tag k="name" v="Coles"/>
+            <tag k="room" v="shop"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="329099952">
+            <center lat="-37.8168699" lon="144.8810707"/>
+            <tag k="addr:housenumber" v="1-3"/>
+            <tag k="addr:street" v="High Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-23:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </way>
+          <way id="262518576">
+            <center lat="-37.7674337" lon="144.8633780"/>
+            <tag k="addr:housenumber" v="53-65"/>
+            <tag k="addr:street" v="Military Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+          </way>
+          <way id="236242345">
+            <center lat="-37.7437412" lon="144.9106915"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="38225804">
+            <center lat="-37.9175523" lon="145.0385071"/>
+            <tag k="addr:housenumber" v="4-6"/>
+            <tag k="addr:street" v="Bent Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="supermarket"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="166249327">
+            <center lat="-37.8604328" lon="145.0291228"/>
+            <tag k="addr:housenumber" v="160-178"/>
+            <tag k="addr:street" v="Glenferrie Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="full_name" v="Coles Malvern"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="112445024">
+            <center lat="-37.8139592" lon="145.0115685"/>
+            <tag k="addr:housenumber" v="620"/>
+            <tag k="addr:street" v="Victoria Street"/>
+            <tag k="branch" v="Victoria Gardens"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="full_name" v="Coles Victoria Gardens"/>
+            <tag k="layer" v="1"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-00:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9429 5811"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="53839901">
+            <center lat="-37.7978511" lon="144.9779798"/>
+            <tag k="addr:city" v="Fitzroy"/>
+            <tag k="addr:housenumber" v="95-103"/>
+            <tag k="addr:postcode" v="3065"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Johnston Street"/>
+            <tag k="addr:suburb" v="Fitzroy"/>
+            <tag k="branch" v="Fitzroy"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-0:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9415 2100"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="33840185">
+            <center lat="-37.7724084" lon="144.9488152"/>
+            <tag k="addr:housenumber" v="190"/>
+            <tag k="addr:street" v="Union Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="full_name" v="Coles West Brunswick"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Fr 07:00-22:00; Sa,Su 08:00-22:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="826855625">
+            <center lat="-37.8200237" lon="145.0354691"/>
+            <tag k="addr:housenumber" v="689-699"/>
+            <tag k="addr:street" v="Glenferrie Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </way>
+          <way id="523105425">
+            <center lat="-37.8038373" lon="145.0376993"/>
+            <tag k="addr:housenumber" v="369"/>
+            <tag k="addr:postcode" v="3101"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="High Street"/>
+            <tag k="addr:suburb" v="Kew"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="06:00-23:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 4243 4700"/>
+            <tag k="shop" v="supermarket"/>
+          </way>
+          <way id="25797855">
+            <center lat="-37.7930208" lon="145.0647489"/>
+            <tag k="addr:housenumber" v="1-9"/>
+            <tag k="addr:postcode" v="3104"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Doncaster Road"/>
+            <tag k="addr:suburb" v="Balwyn North"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="supermarket"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Sa 06:00-00:00; Su 06:00-24:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9859 1221"/>
+            <tag k="shop" v="supermarket"/>
+          </way>
+          <way id="612495369">
+            <center lat="-37.8334247" lon="145.0773388"/>
+            <tag k="addr:housenumber" v="735"/>
+            <tag k="addr:postcode" v="3124"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Riversdale Road"/>
+            <tag k="addr:suburb" v="Camberwell"/>
+            <tag k="branch" v="Middle Camberwell"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="building:levels" v="2"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </way>
+          <way id="112564353">
+            <center lat="-37.7681531" lon="145.0418563"/>
+            <tag k="addr:housenumber" v="4"/>
+            <tag k="addr:street" v="Livingstone Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="check_date" v="2023-04-20"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="111679185">
+            <center lat="-37.7391583" lon="145.0282899"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building:part" v="yes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="112553029">
+            <center lat="-37.7557097" lon="145.0693397"/>
+            <tag k="addr:housenumber" v="56"/>
+            <tag k="addr:street" v="Burgundy Street"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="124007107">
+            <center lat="-37.7052372" lon="144.9167744"/>
+            <tag k="addr:housenumber" v="240"/>
+            <tag k="addr:street" v="Glenroy Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="full_name" v="Coles Glenroy"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="382367751">
+            <center lat="-37.7145141" lon="145.0073125"/>
+            <tag k="addr:housenumber" v="325"/>
+            <tag k="addr:postcode" v="3073"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:street" v="Spring Street"/>
+            <tag k="addr:suburb" v="Reservoir"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-22:00"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="437901776">
+            <center lat="-37.6296479" lon="145.0794343"/>
+            <tag k="addr:housenumber" v="290"/>
+            <tag k="addr:street" v="Gordons Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="897346810">
+            <center lat="-38.1512148" lon="145.1965920"/>
+            <tag k="addr:housenumber" v="230"/>
+            <tag k="addr:street" v="Cranbourne-Frankston Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="indoor" v="room"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 07:00-22:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="phone" v="+61 3 9785 9521"/>
+            <tag k="ref" v="M001"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/store-locator/stores/vic/langwarrin-670"/>
+            <tag k="wheelchair" v="yes"/>
+          </way>
+          <way id="163700279">
+            <center lat="-38.0849951" lon="145.2928351"/>
+            <tag k="addr:housenumber" v="1370"/>
+            <tag k="addr:street" v="Thompsons Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+          </way>
+          <way id="190526844">
+            <center lat="-38.0048270" lon="145.2664991"/>
+            <tag k="addr:housenumber" v="4"/>
+            <tag k="addr:street" v="Princes Domain Drive"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="yes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+          </way>
+          <way id="326037694">
+            <center lat="-38.0633305" lon="145.4555580"/>
+            <tag k="addr:housenumber" v="9-17"/>
+            <tag k="addr:street" v="Lakeside Boulevard"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="supermarket"/>
+            <tag k="name" v="Coles"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="326150517">
+            <center lat="-38.0628628" lon="145.5067669"/>
+            <tag k="addr:housenumber" v="140"/>
+            <tag k="addr:street" v="Windermere Boulevard"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="full_name" v="Coles Cardinia Lakes"/>
+            <tag k="name" v="Coles"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="90625912">
+            <center lat="-37.8836877" lon="145.2753114"/>
+            <tag k="addr:housenumber" v="1880"/>
+            <tag k="addr:street" v="Ferntree Gully Road"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="full_name" v="Coles Mountain Gate"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-22:00"/>
+            <tag k="phone" v="+61 3 9758 5432"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="source" v="nearmap"/>
+            <tag k="website" v="https://www.coles.com.au"/>
+          </way>
+          <way id="145887879">
+            <center lat="-37.8152905" lon="145.1927791"/>
+            <tag k="addr:postcode" v="3132"/>
+            <tag k="addr:state" v="VIC"/>
+            <tag k="addr:suburb" v="Mitcham"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="full_name" v="Coles Mitcham"/>
+            <tag k="name" v="Coles"/>
+            <tag k="phone" v="+61 3 8863 4800"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="website" v="https://www.coles.com.au/"/>
+          </way>
+          <way id="1105684358">
+            <center lat="-37.7849101" lon="145.3153865"/>
+            <tag k="addr:housenumber" v="89"/>
+            <tag k="addr:postcode" v="3138"/>
+            <tag k="addr:state" v="Victoria"/>
+            <tag k="addr:street" v="Brice Avenue"/>
+            <tag k="addr:suburb" v="Mooroolbark"/>
+            <tag k="air_conditioning" v="yes"/>
+            <tag k="branch" v="Mooroolbark"/>
+            <tag k="brand" v="Coles"/>
+            <tag k="brand:wikidata" v="Q1108172"/>
+            <tag k="brand:wikipedia" v="en:Coles Supermarkets"/>
+            <tag k="building" v="retail"/>
+            <tag k="building:levels" v="1"/>
+            <tag k="height" v="4"/>
+            <tag k="name" v="Coles"/>
+            <tag k="opening_hours" v="Mo-Su 06:00-22:00"/>
+            <tag k="operator" v="Coles Group"/>
+            <tag k="operator:wikidata" v="Q1339055"/>
+            <tag k="payment:american_express" v="yes"/>
+            <tag k="payment:cash" v="yes"/>
+            <tag k="payment:coins" v="yes"/>
+            <tag k="payment:contactless" v="yes"/>
+            <tag k="payment:credit_cards" v="yes"/>
+            <tag k="payment:debit_cards" v="yes"/>
+            <tag k="payment:mastercard" v="yes"/>
+            <tag k="payment:notes" v="yes"/>
+            <tag k="payment:visa" v="yes"/>
+            <tag k="phone" v="+61 3 9727 7600"/>
+            <tag k="shop" v="supermarket"/>
+            <tag k="stroller" v="yes"/>
+            <tag k="website" v="https://www.coles.com.au"/>
+            <tag k="wheelchair" v="yes"/>
+          </way>
 
         </osm>
-  recorded_at: Fri, 29 Mar 2024 07:41:54 GMT
+  recorded_at: Sat, 30 Mar 2024 16:49:14 GMT
 recorded_with: VCR 6.2.0

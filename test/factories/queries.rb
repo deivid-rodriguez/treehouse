@@ -87,7 +87,7 @@ FactoryBot.define do
         end
 
         area_place_type { 'city' }
-        area_name { 'melbourne' }
+        area_name { 'Melbourne' }
         area_wikidata_id { 'Q3141' }
 
         node_filters do

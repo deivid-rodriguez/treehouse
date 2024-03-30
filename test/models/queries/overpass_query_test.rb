@@ -13,15 +13,11 @@ module Queries
         query.fetch!
       end
 
-      assert_equal <<~XML, result
+      assert result.start_with?(<<~XML), 'Expected response to start with Overpass API XML declaration'
         <?xml version="1.0" encoding="UTF-8"?>
         <osm version="0.6" generator="Overpass API 0.7.62.1 084b4234">
         <note>The data included in this document is from www.openstreetmap.org. \
         The data is made available under ODbL.</note>
-        <meta osm_base="2024-03-29T07:40:35Z" areas="2024-03-29T05:30:15Z"/>
-
-
-        </osm>
       XML
     end
 
