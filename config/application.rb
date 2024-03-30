@@ -54,6 +54,8 @@ module Treehouse
       config.logger    = ActiveSupport::TaggedLogging.new(logger)
     end
 
+    config.log_level = ENV['DEBUG'].present? ? :debug : :warn
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end

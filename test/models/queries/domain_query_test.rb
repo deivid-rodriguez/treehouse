@@ -15,6 +15,12 @@ module Queries
       end
     end
 
-    # test 'fetching a multiple page response'
+    test 'fetching a second page response' do
+      response_page = build(:response_page, :domain)
+
+      VCR.use_cassette 'domain_query_test/fetch_second_page_response' do
+        response_page.response.query.fetch!(page_after: response_page)
+      end
+    end
   end
 end
