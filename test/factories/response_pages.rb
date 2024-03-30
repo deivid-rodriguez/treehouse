@@ -13,11 +13,25 @@ FactoryBot.define do
     end
 
     trait :domain do
-      response factory: %i[response domain]
+      response factory: :domain_response
+      transient do
+        body_fixture { file_fixture("http/responses/domain_response/#{body_fixture_type}.json") }
+      end
     end
 
     trait :overpass do
-      response factory: %i[response overpass]
+      response factory: :overpass_response
+      transient do
+        body_fixture { file_fixture("http/responses/overpass_response/#{body_fixture_type}.xml") }
+      end
+    end
+
+    trait :fetched do
+      transient do
+        body_fixture_type { 'empty' }
+      end
+
+      body { body_fixture.read }
     end
   end
 end

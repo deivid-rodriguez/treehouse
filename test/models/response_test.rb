@@ -7,11 +7,11 @@ class ResponseTest < ActiveSupport::TestCase
   extend T::Sig
 
   test 'for domain query #query exists' do
-    assert_not_nil create(:response, :domain).query
+    assert_not_nil create(:domain_response).query
   end
 
   test 'for overpass query #query exists' do
-    assert_not_nil create(:response, :overpass).query
+    assert_not_nil create(:overpass_response).query
   end
 
   test '#fetch! calls #fetch! on the query' do

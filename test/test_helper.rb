@@ -7,6 +7,10 @@ require 'rails/test_help'
 require 'factory_bot'
 FactoryBot.find_definitions
 
+# Add support for file fixtures
+FactoryBot::Evaluator.include ActiveSupport::Testing::FileFixtures
+FactoryBot::Evaluator.define_method(:file_fixture_path) { ActiveSupport::TestCase.file_fixture_path }
+
 require 'vcr'
 VCR.configure do |config|
   config.hook_into :faraday
