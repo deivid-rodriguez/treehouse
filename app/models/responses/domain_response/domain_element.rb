@@ -120,13 +120,13 @@ module Responses
       sig { returns(T.nilable(DateTime)) }
       def listed_at
         date = listing&.fetch('dateListed')
-        DateTime.iso8601(date) if date.present?
+        try_date_parse(date)
       end
 
       sig { returns(T.nilable(DateTime)) }
       def available_at
         date = listing&.fetch('dateAvailable')
-        DateTime.iso8601(date) if date.present?
+        try_date_parse(date)
       end
 
       sig { returns(T::Array[T::Hash[String, T.untyped]]) }
@@ -141,6 +141,13 @@ module Responses
       sig { returns(T.nilable(T::Hash[String, T.untyped])) }
       def listing
         @listing ||= T.let(@node.fetch('listing'), T.nilable(T::Hash[String, T.untyped]))
+      end
+
+      sig { params(date: T.nilable(String)).returns(T.nilable(DateTime)) }
+      def try_date_parse(date)
+        DateTime.iso8601(date) if date.present?
+      rescue Date::Error
+        raise ArgumentError, "Invalid date format: #{date}"
       end
     end
   end
