@@ -3,6 +3,7 @@ extends: default
 ignore: |
   /pnpm-lock.yaml
   /node_modules/
+  /test/fixtures/vcr_cassettes/
   /vendor/
 rules:
   line-length:

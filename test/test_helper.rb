@@ -12,6 +12,7 @@ VCR.configure do |config|
   config.hook_into :faraday
   config.cassette_library_dir = 'test/fixtures/vcr_cassettes'
   config.default_cassette_options = {
+    allow_unused_http_interactions: false,
     match_requests_on: %i[method host path],
   }
 end

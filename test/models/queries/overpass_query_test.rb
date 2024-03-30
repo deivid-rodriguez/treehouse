@@ -9,9 +9,20 @@ module Queries
 
     test 'fetching a single page response' do
       query = build(:query, :overpass)
-      puts 'before'
-      query.fetch!
-      puts 'after'
+      result = VCR.use_cassette 'overpass_query_test/fetch_single_page_response' do
+        query.fetch!
+      end
+
+      assert_equal <<~XML, result
+        <?xml version="1.0" encoding="UTF-8"?>
+        <osm version="0.6" generator="Overpass API 0.7.62.1 084b4234">
+        <note>The data included in this document is from www.openstreetmap.org. \
+        The data is made available under ODbL.</note>
+        <meta osm_base="2024-03-29T07:40:35Z" areas="2024-03-29T05:30:15Z"/>
+
+
+        </osm>
+      XML
     end
 
     test 'fetching a multiple page response is not possible' do

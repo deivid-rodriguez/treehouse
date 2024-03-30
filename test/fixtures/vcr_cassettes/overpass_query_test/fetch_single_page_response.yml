@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://overpass-api.de/api/interpreter
+    body:
+      encoding: UTF-8
+      string: |-
+        area["place"="city"]["name"="melbourne"]["wikidata"="Q3141"] -> .melbourne;
+        node["shop"="supermarket"]["brand"="Coles"](area.melbourne); out body qt;
+        way["shop"="supermarket"]["brand"="Coles"](area.melbourne); out center tags qt;
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 29 Mar 2024 07:41:54 GMT
+      server:
+      - Apache/2.4.56 (Debian)
+      vary:
+      - Accept-Encoding
+      content-encoding:
+      - gzip
+      content-length:
+      - '243'
+      content-type:
+      - application/osm3s+xml
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <osm version="0.6" generator="Overpass API 0.7.62.1 084b4234">
+        <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+        <meta osm_base="2024-03-29T07:40:35Z" areas="2024-03-29T05:30:15Z"/>
+
+
+        </osm>
+  recorded_at: Fri, 29 Mar 2024 07:41:54 GMT
+recorded_with: VCR 6.2.0
