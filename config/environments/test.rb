@@ -62,4 +62,6 @@ Rails.application.configure do
     Prosopite.rails_logger = true
     Prosopite.raise = true
   end
+
+  Rails.backtrace_cleaner.remove_silencers! if ENV['DEBUG'].present?
 end
