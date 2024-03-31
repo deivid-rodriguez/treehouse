@@ -16,7 +16,6 @@ module Responses
     EXPECTED_FIRST_LISTING_IMAGE_URLS = T.let(
       %w[
         https://bucket-api.domain.com.au/v1/bucket/image/16946238_1_1_240330_014804-w4032-h3024
-        https://bucket-api.domain.com.au/v1/bucket/image/16946238_1_1_240330_014804-w4032-h3024
         https://bucket-api.domain.com.au/v1/bucket/image/16946238_2_1_240330_014804-w4032-h3024
         https://bucket-api.domain.com.au/v1/bucket/image/16946238_3_1_240330_014804-w4032-h3024
         https://bucket-api.domain.com.au/v1/bucket/image/16946238_4_1_240330_014804-w4032-h3024
