@@ -143,6 +143,9 @@ GEM
       i18n (>= 1.8.11, < 2)
     faraday (2.9.0)
       faraday-net_http (>= 2.0, < 3.2)
+    faraday-gzip (2.0.1)
+      faraday (>= 1.0)
+      zlib (~> 3.0)
     faraday-net_http (3.1.0)
       net-http
     fugit (1.10.1)
@@ -384,6 +387,7 @@ GEM
       sorbet-runtime (>= 0.5)
       yard (>= 0.9)
     zeitwerk (2.6.13)
+    zlib (3.1.0)
 
 PLATFORMS
   aarch64-linux
@@ -406,6 +410,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.4)
   faker (~> 3.2)
   faraday (~> 2.9)
+  faraday-gzip
   good_job (~> 3.22)
   jbuilder
   ox (~> 2.14)

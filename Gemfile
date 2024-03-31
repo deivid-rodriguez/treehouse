@@ -15,6 +15,7 @@ gem 'tapioca', require: false, group: %i[development test]
 
 gem 'active_decorator'
 gem 'faraday', '~> 2.9'
+gem 'faraday-gzip'
 gem 'good_job', '~> 3.22'
 gem 'ox', '~> 2.14'
 gem 'paper_trail'
