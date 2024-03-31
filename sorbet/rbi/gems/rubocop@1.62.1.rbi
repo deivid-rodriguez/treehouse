@@ -5368,24 +5368,24 @@ RuboCop::Cop::EndKeywordAlignment::MSG = T.let(T.unsafe(nil), String)
 module RuboCop::Cop::EnforceSuperclass
   # @api private
   #
-  # source://rubocop-rails/2.24.0/lib/rubocop/cop/mixin/enforce_superclass.rb#19
+  # source://rubocop-rails/2.24.1/lib/rubocop/cop/mixin/enforce_superclass.rb#19
   def on_class(node); end
 
   # @api private
   #
-  # source://rubocop-rails/2.24.0/lib/rubocop/cop/mixin/enforce_superclass.rb#25
+  # source://rubocop-rails/2.24.1/lib/rubocop/cop/mixin/enforce_superclass.rb#25
   def on_send(node); end
 
   private
 
-  # source://rubocop-rails/2.24.0/lib/rubocop/cop/mixin/enforce_superclass.rb#33
+  # source://rubocop-rails/2.24.1/lib/rubocop/cop/mixin/enforce_superclass.rb#33
   def register_offense(offense_node); end
 
   class << self
     # @api private
     # @private
     #
-    # source://rubocop-rails/2.24.0/lib/rubocop/cop/mixin/enforce_superclass.rb#7
+    # source://rubocop-rails/2.24.1/lib/rubocop/cop/mixin/enforce_superclass.rb#7
     def included(base); end
   end
 end
@@ -38955,7 +38955,7 @@ class RuboCop::Cop::Style::InverseMethods < ::RuboCop::Cop::Base
   def remove_end_parenthesis(corrector, node, method, method_call); end
 
   class << self
-    # source://rubocop-rails/2.24.0/lib/rubocop-rails.rb#22
+    # source://rubocop-rails/2.24.1/lib/rubocop-rails.rb#22
     def autocorrect_incompatible_with; end
   end
 end
@@ -39998,7 +39998,7 @@ class RuboCop::Cop::Style::MethodCallWithArgsParentheses < ::RuboCop::Cop::Base
   def args_parenthesized?(node); end
 
   class << self
-    # source://rubocop-rails/2.24.0/lib/rubocop-rails.rb#30
+    # source://rubocop-rails/2.24.1/lib/rubocop-rails.rb#30
     def autocorrect_incompatible_with; end
   end
 end
@@ -41619,7 +41619,7 @@ class RuboCop::Cop::Style::MutableConstant < ::RuboCop::Cop::Base
   include ::RuboCop::Cop::ConfigurableEnforcedStyle
   extend ::RuboCop::Cop::AutoCorrector
 
-  # source://rubocop-sorbet/0.7.8/lib/rubocop/cop/sorbet/mutable_constant_sorbet_aware_behaviour.rb#18
+  # source://rubocop-sorbet/0.8.0/lib/rubocop/cop/sorbet/mutable_constant_sorbet_aware_behaviour.rb#18
   def on_assignment(value); end
 
   # source://rubocop//lib/rubocop/cop/style/mutable_constant.rb#127
@@ -41637,7 +41637,7 @@ class RuboCop::Cop::Style::MutableConstant < ::RuboCop::Cop::Base
   # source://rubocop//lib/rubocop/cop/style/mutable_constant.rb#217
   def splat_value(param0 = T.unsafe(nil)); end
 
-  # source://rubocop-sorbet/0.7.8/lib/rubocop/cop/sorbet/mutable_constant_sorbet_aware_behaviour.rb#12
+  # source://rubocop-sorbet/0.8.0/lib/rubocop/cop/sorbet/mutable_constant_sorbet_aware_behaviour.rb#12
   def t_let(param0 = T.unsafe(nil)); end
 
   private
@@ -46567,7 +46567,7 @@ class RuboCop::Cop::Style::RedundantSelf < ::RuboCop::Cop::Base
   def regular_method_call?(node); end
 
   class << self
-    # source://rubocop-rails/2.24.0/lib/rubocop-rails.rb#38
+    # source://rubocop-rails/2.24.1/lib/rubocop-rails.rb#38
     def autocorrect_incompatible_with; end
   end
 end
@@ -55189,10 +55189,10 @@ RuboCop::Formatter::PacmanFormatter::FALLBACK_TERMINAL_WIDTH = T.let(T.unsafe(ni
 RuboCop::Formatter::PacmanFormatter::GHOST = T.let(T.unsafe(nil), String)
 
 # source://rubocop//lib/rubocop/formatter/pacman_formatter.rb#17
-RuboCop::Formatter::PacmanFormatter::PACDOT = T.let(T.unsafe(nil), Rainbow::NullPresenter)
+RuboCop::Formatter::PacmanFormatter::PACDOT = T.let(T.unsafe(nil), Rainbow::Presenter)
 
 # source://rubocop//lib/rubocop/formatter/pacman_formatter.rb#16
-RuboCop::Formatter::PacmanFormatter::PACMAN = T.let(T.unsafe(nil), Rainbow::NullPresenter)
+RuboCop::Formatter::PacmanFormatter::PACMAN = T.let(T.unsafe(nil), Rainbow::Presenter)
 
 # This formatter display dots for files with no offenses and
 # letters for files with problems in the them. In the end it

@@ -5,7 +5,10 @@
 # Please instead update this file by running `bin/tapioca gem faker`.
 
 # source://faker//lib/helpers/base58.rb#3
-module Faker; end
+module Faker
+  include ::Faker::Deprecator
+  extend ::Faker::Deprecator
+end
 
 # source://faker//lib/faker/default/address.rb#4
 class Faker::Address < ::Faker::Base
@@ -457,41 +460,6 @@ class Faker::Artist < ::Faker::Base
     #
     # source://faker//lib/faker/default/artist.rb#15
     def name; end
-  end
-end
-
-# source://faker//lib/faker/locations/australia.rb#4
-class Faker::Australia < ::Faker::Base
-  class << self
-    # Produces an Australian animal
-    #
-    # @example
-    #   Faker::Australia.animal
-    #   #=> "Dingo"
-    # @return [String]
-    #
-    # source://faker//lib/faker/locations/australia.rb#29
-    def animal; end
-
-    # Produces a location in Australia
-    #
-    # @example
-    #   Faker::Australia.location
-    #   #=> "Sydney"
-    # @return [String]
-    #
-    # source://faker//lib/faker/locations/australia.rb#16
-    def location; end
-
-    # Produces an Australian State or Territory
-    #
-    # @example
-    #   Faker::Australia.state
-    #   #=> "New South Wales"
-    # @return [String]
-    #
-    # source://faker//lib/faker/locations/australia.rb#42
-    def state; end
   end
 end
 
@@ -2364,6 +2332,18 @@ class Faker::Company < ::Faker::Base
     # source://faker//lib/faker/default/company.rb#253
     def french_siret_number; end
 
+    # Get a random Indian Goods and Services Tax (GST) number.
+    # For more on Indian tax number here:
+    # https://simple.wikipedia.org/wiki/GSTIN
+    #
+    # @example
+    #   Faker::Company.indian_gst_number #=> "15VQPNZ2126J2ZU"
+    #   Faker::Company.indian_gst_number(state_code: "22") #=> "22ZVWEY6632K0ZN"
+    # @return [String]
+    #
+    # source://faker//lib/faker/default/company.rb#479
+    def indian_gst_number(state_code: T.unsafe(nil)); end
+
     # Produces a company industry.
     #
     # @example
@@ -2536,13 +2516,16 @@ class Faker::Company < ::Faker::Base
 
     private
 
-    # source://faker//lib/faker/default/company.rb#516
+    # source://faker//lib/faker/default/company.rb#571
     def abn_checksum(abn); end
 
-    # source://faker//lib/faker/default/company.rb#527
+    # source://faker//lib/faker/default/company.rb#664
+    def calculate_gst_checksum(state_code, taxpayer_number, registration_number); end
+
+    # source://faker//lib/faker/default/company.rb#582
     def collect_regon_sum(array); end
 
-    # source://faker//lib/faker/default/company.rb#576
+    # source://faker//lib/faker/default/company.rb#631
     def inn_checksum(factor, number); end
 
     # For more on Russian tax number algorithm here:
@@ -2559,24 +2542,24 @@ class Faker::Company < ::Faker::Base
     # @param type [Symbol] Legeal or not, defaults to :legal
     # @return [String]
     #
-    # source://faker//lib/faker/default/company.rb#559
+    # source://faker//lib/faker/default/company.rb#614
     def inn_number(region, type); end
 
-    # source://faker//lib/faker/default/company.rb#490
+    # source://faker//lib/faker/default/company.rb#545
     def luhn_algorithm(number); end
 
     # Mod11 functionality from https://github.com/badmanski/mod11/blob/master/lib/mod11.rb
     #
-    # source://faker//lib/faker/default/company.rb#470
+    # source://faker//lib/faker/default/company.rb#525
     def mod11(number); end
 
-    # source://faker//lib/faker/default/company.rb#601
+    # source://faker//lib/faker/default/company.rb#656
     def spanish_b_algorithm(value); end
 
-    # source://faker//lib/faker/default/company.rb#584
+    # source://faker//lib/faker/default/company.rb#639
     def spanish_cif_control_digit(organization_type, code); end
 
-    # source://faker//lib/faker/default/company.rb#537
+    # source://faker//lib/faker/default/company.rb#592
     def weight_sum(array, weights); end
   end
 end
@@ -3565,6 +3548,16 @@ class Faker::Demographic < ::Faker::Base
     #
     # source://faker//lib/faker/default/demographic.rb#67
     def sex; end
+  end
+end
+
+# source://faker//lib/helpers/deprecator.rb#8
+module Faker::Deprecator
+  class << self
+    # @private
+    #
+    # source://faker//lib/helpers/deprecator.rb#9
+    def included(base); end
   end
 end
 
@@ -6282,13 +6275,13 @@ class Faker::House < ::Faker::Base
 end
 
 # source://faker//lib/faker/default/id_number.rb#4
-class Faker::IDNumber < ::Faker::Base
+class Faker::IdNumber < ::Faker::Base
   class << self
     # Produces a random Brazilian Citizen Number (CPF).
     #
     # @example
-    #   Faker::IDNumber.brazilian_citizen_number #=> "53540542221"
-    #   Faker::IDNumber.brazilian_citizen_number(formatted: true) #=> "535.405.422-21"
+    #   Faker::IdNumber.brazilian_citizen_number #=> "53540542221"
+    #   Faker::IdNumber.brazilian_citizen_number(formatted: true) #=> "535.405.422-21"
     # @param formatted [Boolean] Specifies if the number is formatted with dividers.
     # @return [String]
     #
@@ -6298,8 +6291,8 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random Brazilian Citizen Number (CPF).
     #
     # @example
-    #   Faker::IDNumber.brazilian_citizen_number #=> "53540542221"
-    #   Faker::IDNumber.brazilian_citizen_number(formatted: true) #=> "535.405.422-21"
+    #   Faker::IdNumber.brazilian_citizen_number #=> "53540542221"
+    #   Faker::IdNumber.brazilian_citizen_number(formatted: true) #=> "535.405.422-21"
     # @param formatted [Boolean] Specifies if the number is formatted with dividers.
     # @return [String]
     #
@@ -6309,8 +6302,8 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random Brazilian ID Number (RG).
     #
     # @example
-    #   Faker::IDNumber.brazilian_id #=> "493054029"
-    #   Faker::IDNumber.brazilian_id(formatted: true) #=> "49.305.402-9"
+    #   Faker::IdNumber.brazilian_id #=> "493054029"
+    #   Faker::IdNumber.brazilian_id(formatted: true) #=> "49.305.402-9"
     # @param formatted [Boolean] Specifies if the number is formatted with dividers.
     # @return [String]
     #
@@ -6320,8 +6313,8 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random Brazilian ID Number (RG).
     #
     # @example
-    #   Faker::IDNumber.brazilian_id #=> "493054029"
-    #   Faker::IDNumber.brazilian_id(formatted: true) #=> "49.305.402-9"
+    #   Faker::IdNumber.brazilian_id #=> "493054029"
+    #   Faker::IdNumber.brazilian_id(formatted: true) #=> "49.305.402-9"
     # @param formatted [Boolean] Specifies if the number is formatted with dividers.
     # @return [String]
     #
@@ -6331,7 +6324,7 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random Chilean ID (Rut with 8 digits).
     #
     # @example
-    #   Faker::IDNumber.chilean_id #=> "15620613-K"
+    #   Faker::IdNumber.chilean_id #=> "15620613-K"
     # @return [String]
     #
     # source://faker//lib/faker/default/id_number.rb#202
@@ -6340,8 +6333,8 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random Croatian ID number (OIB).
     #
     # @example
-    #   Faker::IDNumber.croatian_id #=> "88467617508"
-    #   Faker::IDNumber.croatian_id(international: true) #=> "HR88467617508"
+    #   Faker::IdNumber.croatian_id #=> "88467617508"
+    #   Faker::IdNumber.croatian_id(international: true) #=> "HR88467617508"
     # @param international [Boolean] Specifies whether to add international prefix.
     # @return [String]
     #
@@ -6355,10 +6348,10 @@ class Faker::IDNumber < ::Faker::Base
     # Digit 10 reveals the gender: # even is female, odd is male.
     #
     # @example
-    #   Faker::IDNumber.danish_id_number #=> "0503909980"
-    #   Faker::IDNumber.danish_id_number(formatted: true) #=> "050390-9980"
-    #   Faker::IDNumber.danish_id_number(birthday: Date.new(1990, 3, 5)) #=> "0503909980"
-    #   Faker::IDNumber.danish_id_number(gender: :female) #=> "0503909980"
+    #   Faker::IdNumber.danish_id_number #=> "0503909980"
+    #   Faker::IdNumber.danish_id_number(formatted: true) #=> "050390-9980"
+    #   Faker::IdNumber.danish_id_number(birthday: Date.new(1990, 3, 5)) #=> "0503909980"
+    #   Faker::IdNumber.danish_id_number(gender: :female) #=> "0503909980"
     # @param formatted [Boolean] Specifies if the number is formatted with dividers.
     # @param birthday [Date] Specifies the birthday for the id number.
     # @param gender [Symbol] Specifies the gender for the id number. Must be one :male or :female if present.
@@ -6370,7 +6363,7 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random French social security number (INSEE number).
     #
     # @example
-    #   Faker::IDNumber.french_insee_number #=> "53290236-H"
+    #   Faker::IdNumber.french_insee_number #=> "53290236-H"
     # @return [String]
     #
     # source://faker//lib/faker/default/id_number.rb#281
@@ -6379,7 +6372,7 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random invalid US Social Security number.
     #
     # @example
-    #   Faker::IDNumber.invalid #=> "311-72-0000"
+    #   Faker::IdNumber.invalid #=> "311-72-0000"
     # @return [String]
     #
     # source://faker//lib/faker/default/id_number.rb#44
@@ -6388,7 +6381,7 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random invalid South African ID Number.
     #
     # @example
-    #   Faker::IDNumber.invalid_south_african_id_number #=> "1642972065088"
+    #   Faker::IdNumber.invalid_south_african_id_number #=> "1642972065088"
     # @return [String]
     #
     # source://faker//lib/faker/default/id_number.rb#135
@@ -6397,8 +6390,8 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random valid South African ID Number.
     #
     # @example
-    #   Faker::IDNumber.south_african_id_number #=> "8105128870184"
-    #   Faker::IDNumber.valid_south_african_id_number #=> "8105128870184"
+    #   Faker::IdNumber.south_african_id_number #=> "8105128870184"
+    #   Faker::IdNumber.valid_south_african_id_number #=> "8105128870184"
     # @return [String]
     #
     # source://faker//lib/faker/default/id_number.rb#113
@@ -6407,7 +6400,7 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random Spanish citizen identifier (DNI).
     #
     # @example
-    #   Faker::IDNumber.spanish_citizen_number #=> "53290236-H"
+    #   Faker::IdNumber.spanish_citizen_number #=> "53290236-H"
     # @return [String]
     #
     # source://faker//lib/faker/default/id_number.rb#77
@@ -6416,7 +6409,7 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random Spanish foreign born citizen identifier (NIE).
     #
     # @example
-    #   Faker::IDNumber.spanish_foreign_citizen_number #=> "Z-1600870-Y"
+    #   Faker::IdNumber.spanish_foreign_citizen_number #=> "Z-1600870-Y"
     # @return [String]
     #
     # source://faker//lib/faker/default/id_number.rb#93
@@ -6428,7 +6421,7 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random valid US Social Security number.
     #
     # @example
-    #   Faker::IDNumber.valid #=> "552-56-3593"
+    #   Faker::IdNumber.valid #=> "552-56-3593"
     # @return [String]
     #
     # source://faker//lib/faker/default/id_number.rb#31
@@ -6437,8 +6430,8 @@ class Faker::IDNumber < ::Faker::Base
     # Produces a random valid South African ID Number.
     #
     # @example
-    #   Faker::IDNumber.south_african_id_number #=> "8105128870184"
-    #   Faker::IDNumber.valid_south_african_id_number #=> "8105128870184"
+    #   Faker::IdNumber.south_african_id_number #=> "8105128870184"
+    #   Faker::IdNumber.valid_south_african_id_number #=> "8105128870184"
     # @return [String]
     #
     # source://faker//lib/faker/default/id_number.rb#113
@@ -6482,28 +6475,28 @@ class Faker::IDNumber < ::Faker::Base
 end
 
 # source://faker//lib/faker/default/id_number.rb#15
-Faker::IDNumber::BRAZILIAN_ID_FORMAT = T.let(T.unsafe(nil), Regexp)
+Faker::IdNumber::BRAZILIAN_ID_FORMAT = T.let(T.unsafe(nil), Regexp)
 
 # source://faker//lib/faker/default/id_number.rb#16
-Faker::IDNumber::BRAZILIAN_ID_FROM = T.let(T.unsafe(nil), Integer)
+Faker::IdNumber::BRAZILIAN_ID_FROM = T.let(T.unsafe(nil), Integer)
 
 # source://faker//lib/faker/default/id_number.rb#17
-Faker::IDNumber::BRAZILIAN_ID_TO = T.let(T.unsafe(nil), Integer)
+Faker::IdNumber::BRAZILIAN_ID_TO = T.let(T.unsafe(nil), Integer)
 
 # source://faker//lib/faker/default/id_number.rb#5
-Faker::IDNumber::CHECKS = T.let(T.unsafe(nil), String)
+Faker::IdNumber::CHECKS = T.let(T.unsafe(nil), String)
 
 # source://faker//lib/faker/default/id_number.rb#19
-Faker::IDNumber::CHILEAN_MODULO = T.let(T.unsafe(nil), Integer)
+Faker::IdNumber::CHILEAN_MODULO = T.let(T.unsafe(nil), Integer)
 
 # source://faker//lib/faker/default/id_number.rb#6
-Faker::IDNumber::INVALID_SSN = T.let(T.unsafe(nil), Array)
+Faker::IdNumber::INVALID_SSN = T.let(T.unsafe(nil), Array)
 
 # source://faker//lib/faker/default/id_number.rb#14
-Faker::IDNumber::ZA_CITIZENSHIP_DIGITS = T.let(T.unsafe(nil), Array)
+Faker::IdNumber::ZA_CITIZENSHIP_DIGITS = T.let(T.unsafe(nil), Array)
 
 # source://faker//lib/faker/default/id_number.rb#13
-Faker::IDNumber::ZA_RACE_DIGIT = T.let(T.unsafe(nil), String)
+Faker::IdNumber::ZA_RACE_DIGIT = T.let(T.unsafe(nil), String)
 
 # source://faker//lib/faker/default/industry_segments.rb#4
 class Faker::IndustrySegments < ::Faker::Base
@@ -6549,12 +6542,6 @@ end
 # source://faker//lib/faker/default/internet.rb#4
 class Faker::Internet < ::Faker::Base
   class << self
-    # source://faker//lib/faker/default/internet.rb#63
-    def _deprecated_free_email(name: T.unsafe(nil)); end
-
-    # source://faker//lib/faker/default/internet.rb#81
-    def _deprecated_safe_email(name: T.unsafe(nil)); end
-
     # Produces a random string of alphabetic characters, (no digits)
     #
     # @example
@@ -6568,7 +6555,7 @@ class Faker::Internet < ::Faker::Base
     # @param urlsafe [Boolean] Toggles charset to '-' and '_' instead of '+' and '/'.
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#561
+    # source://faker//lib/faker/default/internet.rb#523
     def base64(length: T.unsafe(nil), padding: T.unsafe(nil), urlsafe: T.unsafe(nil)); end
 
     # Generate Web Crawler's user agents
@@ -6580,7 +6567,7 @@ class Faker::Internet < ::Faker::Base
     # @param vendor [String] Name of vendor, supported vendors are googlebot, bingbot, duckduckbot, baiduspider, yandexbot
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#523
+    # source://faker//lib/faker/default/internet.rb#485
     def bot_user_agent(vendor: T.unsafe(nil)); end
 
     # Generates random token
@@ -6590,7 +6577,7 @@ class Faker::Internet < ::Faker::Base
     # @example
     #   Faker::Internet.device_token  #=> "749f535671cf6b34d8e794d212d00c703b96274e07161b18b082d0d70ef1052f"
     #
-    # source://faker//lib/faker/default/internet.rb#490
+    # source://faker//lib/faker/default/internet.rb#452
     def device_token; end
 
     # Returns the domain name
@@ -6606,7 +6593,7 @@ class Faker::Internet < ::Faker::Base
     # @param domain [String]
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#226
+    # source://faker//lib/faker/default/internet.rb#188
     def domain_name(subdomain: T.unsafe(nil), domain: T.unsafe(nil)); end
 
     # Returns the domain suffix e.g. com, org, co, biz, info etc.
@@ -6618,7 +6605,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.domain_suffix(safe: true)  #=> "test"
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#285
+    # source://faker//lib/faker/default/internet.rb#247
     def domain_suffix(safe: T.unsafe(nil)); end
 
     # Returns the domain word for internet
@@ -6627,7 +6614,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.domain_word   #=> "senger"
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#272
+    # source://faker//lib/faker/default/internet.rb#234
     def domain_word; end
 
     # Returns the email address
@@ -6643,7 +6630,7 @@ class Faker::Internet < ::Faker::Base
     # @param domain [String]
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#35
+    # source://faker//lib/faker/default/internet.rb#33
     def email(name: T.unsafe(nil), separators: T.unsafe(nil), domain: T.unsafe(nil)); end
 
     # Fixes ä, ö, ü, ß characters in string passed with ae, oe, ue, ss resp.
@@ -6655,17 +6642,8 @@ class Faker::Internet < ::Faker::Base
     # @param string [String]
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#261
+    # source://faker//lib/faker/default/internet.rb#223
     def fix_umlauts(string: T.unsafe(nil)); end
-
-    # Returns the email address with domain either gmail.com, yahoo.com or hotmail.com
-    #
-    # @example
-    #   Faker::Internet.free_email                                                           #=> "samsmith@gmail.com"
-    #   Faker::Internet.free_email(name: 'smith')                                            #=> "smith@yahoo.com"
-    # @param name [String]
-    # @return [String]
-    def free_email(*args, **_arg1, &block); end
 
     # Returns the IPv4 address
     #
@@ -6673,7 +6651,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.ip_v4_address   #=> "97.117.128.93"
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#316
+    # source://faker//lib/faker/default/internet.rb#278
     def ip_v4_address; end
 
     # Returns Ipv4 address with CIDR, range from 1 to 31
@@ -6683,7 +6661,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.ip_v4_cidr  #=> "129.162.99.74/24"
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#419
+    # source://faker//lib/faker/default/internet.rb#381
     def ip_v4_cidr; end
 
     # Returns Ipv6 address
@@ -6692,7 +6670,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.ip_v6_address   #=> "7754:76d4:c7aa:7646:ea68:1abb:4055:4343"
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#430
+    # source://faker//lib/faker/default/internet.rb#392
     def ip_v6_address; end
 
     # Returns Ipv6 address with CIDR, range between 1 to 127
@@ -6701,7 +6679,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.ip_v6_cidr  #=> "beca:9b99:4bb6:9712:af2f:516f:8507:96e1/99"
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#441
+    # source://faker//lib/faker/default/internet.rb#403
     def ip_v6_cidr; end
 
     # Returns the MAC address
@@ -6713,7 +6691,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.mac_address(prefix: 'aa:44')  #=> "aa:44:30:88:6e:95"
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#303
+    # source://faker//lib/faker/default/internet.rb#265
     def mac_address(prefix: T.unsafe(nil)); end
 
     # Produces a randomized string of characters suitable for passwords
@@ -6735,7 +6713,7 @@ class Faker::Internet < ::Faker::Base
     # @raise [ArgumentError]
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#161
+    # source://faker//lib/faker/default/internet.rb#123
     def password(min_length: T.unsafe(nil), max_length: T.unsafe(nil), mix_case: T.unsafe(nil), special_characters: T.unsafe(nil)); end
 
     # Returns the private IPv4 address
@@ -6744,7 +6722,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.private_ip_v4_address   #=> "127.120.80.42"
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#328
+    # source://faker//lib/faker/default/internet.rb#290
     def private_ip_v4_address; end
 
     # Returns lambda to check if address passed is private or not
@@ -6754,7 +6732,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.private_net_checker.call("148.120.80.42")   #=> false
     # @return [Lambda]
     #
-    # source://faker//lib/faker/default/internet.rb#376
+    # source://faker//lib/faker/default/internet.rb#338
     def private_net_checker; end
 
     # Returns the private network regular expressions
@@ -6763,7 +6741,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.private_nets_regex  #=> [/^10\./, /^100\.(6[4-9]|[7-9]\d|1[0-1]\d|12[0-7])\./, /^127\./, /^169\.254\./, /^172\.(1[6-9]|2\d|3[0-1])\./, /^192\.0\.0\./, /^192\.168\./, /^198\.(1[8-9])\./]
     # @return [Array]
     #
-    # source://faker//lib/faker/default/internet.rb#355
+    # source://faker//lib/faker/default/internet.rb#317
     def private_nets_regex; end
 
     # Returns the public IPv4 address
@@ -6772,7 +6750,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.public_ip_v4_address   #=> "127.120.80.42"
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#339
+    # source://faker//lib/faker/default/internet.rb#301
     def public_ip_v4_address; end
 
     # Returns lambda function to check address passed is reserved or not
@@ -6782,7 +6760,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.reserved_net_checker.call('192.88.199.255')  #=> false
     # @return [Lambda]
     #
-    # source://faker//lib/faker/default/internet.rb#407
+    # source://faker//lib/faker/default/internet.rb#369
     def reserved_net_checker; end
 
     # Returns the reserved network regular expressions
@@ -6791,17 +6769,8 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.reserved_nets_regex   #=> [/^0\./, /^192\.0\.2\./, /^192\.88\.99\./, /^198\.51\.100\./, /^203\.0\.113\./, /^(22[4-9]|23\d)\./, /^(24\d|25[0-5])\./]
     # @return [Array]
     #
-    # source://faker//lib/faker/default/internet.rb#387
+    # source://faker//lib/faker/default/internet.rb#349
     def reserved_nets_regex; end
-
-    # Returns the email address with fixed domain name as 'example'
-    #
-    # @example
-    #   Faker::Internet.safe_email                                                           #=> "samsmith@example.com"
-    #   Faker::Internet.safe_email(name: 'smith')                                            #=> "smith@example.net"
-    # @param name [String]
-    # @return [String]
-    def safe_email(*args, **_arg1, &block); end
 
     # Returns unique string in URL
     #
@@ -6814,7 +6783,7 @@ class Faker::Internet < ::Faker::Base
     # @param glue [String] Separator to add between words passed, default used are '-' or '_'
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#476
+    # source://faker//lib/faker/default/internet.rb#438
     def slug(words: T.unsafe(nil), glue: T.unsafe(nil)); end
 
     # Returns URL
@@ -6829,7 +6798,7 @@ class Faker::Internet < ::Faker::Base
     # @param scheme [String]
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#459
+    # source://faker//lib/faker/default/internet.rb#421
     def url(host: T.unsafe(nil), path: T.unsafe(nil), scheme: T.unsafe(nil)); end
 
     # Produces a randomized hash of internet user details
@@ -6840,7 +6809,7 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.user('username', 'email', 'password') #=> { username: 'alexie', email: 'gayle@kohler.test', password: 'DtEf9P8wS31iMyC' }
     # @return [hash]
     #
-    # source://faker//lib/faker/default/internet.rb#584
+    # source://faker//lib/faker/default/internet.rb#546
     def user(*args); end
 
     # Generates the random browser identifier
@@ -6853,7 +6822,7 @@ class Faker::Internet < ::Faker::Base
     # @param vendor [String] Name of vendor, supported vendors are aol, chrome, firefox, internet_explorer, netscape, opera, safari
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#506
+    # source://faker//lib/faker/default/internet.rb#468
     def user_agent(vendor: T.unsafe(nil)); end
 
     # Returns the username
@@ -6862,12 +6831,12 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.username(specifier: 10)                     #=> "lulu.goodwin"
     #   Faker::Internet.username(specifier: 5..10)                  #=> "morris"
     #   Faker::Internet.username(specifier: 5..10)                  #=> "berryberry"
-    #   Faker::Internet.username(specifier: 20, separators: ['-'])  #=> "nikki_sawaynnikki_saway"
+    #   Faker::Internet.username(specifier: 20, separators: ['_'])  #=> "nikki_sawaynnikki_saway"
     # @param specifier [Integer, Range, String] When int value passed it returns the username longer than specifier. Max value can be 10^6
     # @param separators [Array]
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#102
+    # source://faker//lib/faker/default/internet.rb#64
     def user_name(specifier: T.unsafe(nil), separators: T.unsafe(nil)); end
 
     # Returns the username
@@ -6876,12 +6845,12 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.username(specifier: 10)                     #=> "lulu.goodwin"
     #   Faker::Internet.username(specifier: 5..10)                  #=> "morris"
     #   Faker::Internet.username(specifier: 5..10)                  #=> "berryberry"
-    #   Faker::Internet.username(specifier: 20, separators: ['-'])  #=> "nikki_sawaynnikki_saway"
+    #   Faker::Internet.username(specifier: 20, separators: ['_'])  #=> "nikki_sawaynnikki_saway"
     # @param specifier [Integer, Range, String] When int value passed it returns the username longer than specifier. Max value can be 10^6
     # @param separators [Array]
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#102
+    # source://faker//lib/faker/default/internet.rb#64
     def username(specifier: T.unsafe(nil), separators: T.unsafe(nil)); end
 
     # Generated universally unique identifier
@@ -6890,15 +6859,15 @@ class Faker::Internet < ::Faker::Base
     #   Faker::Internet.uuid  #=> "8a6cdd40-6d78-4fdb-912b-190e3057197f"
     # @return [String]
     #
-    # source://faker//lib/faker/default/internet.rb#536
+    # source://faker//lib/faker/default/internet.rb#498
     def uuid; end
 
     private
 
-    # source://faker//lib/faker/default/internet.rb#608
+    # source://faker//lib/faker/default/internet.rb#570
     def construct_email(local_part, domain_name); end
 
-    # source://faker//lib/faker/default/internet.rb#595
+    # source://faker//lib/faker/default/internet.rb#557
     def sanitize_email_local_part(local_part); end
   end
 end
@@ -7019,7 +6988,9 @@ class Faker::Invoice < ::Faker::Base
 end
 
 # source://faker//lib/faker/japanese_media/conan.rb#4
-class Faker::JapaneseMedia; end
+class Faker::JapaneseMedia
+  include ::Faker::Deprecator
+end
 
 # source://faker//lib/faker/japanese_media/conan.rb#5
 class Faker::JapaneseMedia::Conan < ::Faker::Base
@@ -7159,30 +7130,30 @@ class Faker::JapaneseMedia::DragonBall < ::Faker::Base
 end
 
 # source://faker//lib/faker/japanese_media/fullmetal_alchemist_brotherhood.rb#5
-class Faker::JapaneseMedia::FmaBrotherhood < ::Faker::Base
+class Faker::JapaneseMedia::FullmetalAlchemistBrotherhood < ::Faker::Base
   class << self
-    # Produces a character from FmaBrotherhood.
+    # Produces a character from FullmetalAlchemistBrotherhood.
     #
     # @example
-    #   Faker::JapaneseMedia::FmaBrotherhood.character #=> "Edward Elric"
+    #   Faker::JapaneseMedia::FullmetalAlchemistBrotherhood.character #=> "Edward Elric"
     # @return [String]
     #
     # source://faker//lib/faker/japanese_media/fullmetal_alchemist_brotherhood.rb#16
     def character; end
 
-    # Produces a cities from FmaBrotherhood.
+    # Produces a cities from FullmetalAlchemistBrotherhood.
     #
     # @example
-    #   Faker::JapaneseMedia::FmaBrotherhood.city #=> "Central City"
+    #   Faker::JapaneseMedia::FullmetalAlchemistBrotherhood.city #=> "Central City"
     # @return [String]
     #
     # source://faker//lib/faker/japanese_media/fullmetal_alchemist_brotherhood.rb#29
     def city; end
 
-    # Produces a country from FmaBrotherhood.
+    # Produces a country from FullmetalAlchemistBrotherhood.
     #
     # @example
-    #   Faker::JapaneseMedia::FmaBrotherhood.country #=> "Xing"
+    #   Faker::JapaneseMedia::FullmetalAlchemistBrotherhood.country #=> "Xing"
     # @return [String]
     #
     # source://faker//lib/faker/japanese_media/fullmetal_alchemist_brotherhood.rb#42
@@ -7600,6 +7571,44 @@ class Faker::Kpop < ::Faker::Base
     #
     # source://faker//lib/faker/default/kpop.rb#80
     def solo; end
+  end
+end
+
+# source://faker//lib/faker/locations/australia.rb#6
+class Faker::Locations; end
+
+# source://faker//lib/faker/locations/australia.rb#7
+class Faker::Locations::Australia < ::Faker::Base
+  class << self
+    # Produces an Australian animal
+    #
+    # @example
+    #   Faker::Locations::Australia.animal
+    #   #=> "Dingo"
+    # @return [String]
+    #
+    # source://faker//lib/faker/locations/australia.rb#32
+    def animal; end
+
+    # Produces a location in Australia
+    #
+    # @example
+    #   Faker::Locations::Australia.location
+    #   #=> "Sydney"
+    # @return [String]
+    #
+    # source://faker//lib/faker/locations/australia.rb#19
+    def location; end
+
+    # Produces an Australian State or Territory
+    #
+    # @example
+    #   Faker::Locations::Australia.state
+    #   #=> "New South Wales"
+    # @return [String]
+    #
+    # source://faker//lib/faker/locations/australia.rb#45
+    def state; end
   end
 end
 
@@ -8855,7 +8864,7 @@ class Faker::Movies::StarWars < ::Faker::Base
   end
 end
 
-# source://faker//lib/faker/movies/room.rb#5
+# source://faker//lib/faker/movies/the_room.rb#5
 class Faker::Movies::TheRoom < ::Faker::Base
   class << self
     # Produces an actor from The Room (2003).
@@ -8864,7 +8873,7 @@ class Faker::Movies::TheRoom < ::Faker::Base
     #   Faker::Movies::Room.actor #=> "Tommy Wiseau"
     # @return [String]
     #
-    # source://faker//lib/faker/movies/room.rb#16
+    # source://faker//lib/faker/movies/the_room.rb#16
     def actor; end
 
     # Produces a character from The Room (2003).
@@ -8873,7 +8882,7 @@ class Faker::Movies::TheRoom < ::Faker::Base
     #   Faker::Movies::Room.character #=> "Johnny"
     # @return [String]
     #
-    # source://faker//lib/faker/movies/room.rb#29
+    # source://faker//lib/faker/movies/the_room.rb#29
     def character; end
 
     # Produces a location from The Room (2003).
@@ -8882,7 +8891,7 @@ class Faker::Movies::TheRoom < ::Faker::Base
     #   Faker::Movies::Room.location #=> "Johnny's Apartment"
     # @return [String]
     #
-    # source://faker//lib/faker/movies/room.rb#42
+    # source://faker//lib/faker/movies/the_room.rb#42
     def location; end
 
     # Produces a quote from The Room (2003).
@@ -8892,7 +8901,7 @@ class Faker::Movies::TheRoom < ::Faker::Base
     #   #=> "You're lying, I never hit you. You are tearing me apart, Lisa!"
     # @return [String]
     #
-    # source://faker//lib/faker/movies/room.rb#57
+    # source://faker//lib/faker/movies/the_room.rb#57
     def quote; end
   end
 end
@@ -9545,6 +9554,48 @@ class Faker::Music::Rush < ::Faker::Base
   end
 end
 
+# source://faker//lib/faker/music/smashing_pumpkins.rb#7
+class Faker::Music::SmashingPumpkins < ::Faker::Base
+  class << self
+    # Produces the name of an album by the Smashing Pumpkins.
+    #
+    # @example
+    #   Faker::Music::SmashingPumpkins.album #=> "Siamese Dream"
+    # @return [String]
+    #
+    # source://faker//lib/faker/music/smashing_pumpkins.rb#31
+    def album; end
+
+    # Produces a random Smashing Pumpkins song lyric.
+    #
+    # @example
+    #   Faker::Music::SmashingPumpkins.lyric #=> "Despite all my rage, I am still just a rat in a cage"
+    #   Faker::Music::SmashingPumpkins.lyric #=> "Breathin' underwater, and livin' under glass"
+    # @return [String]
+    #
+    # source://faker//lib/faker/music/smashing_pumpkins.rb#45
+    def lyric; end
+
+    # Produces the name of a member of the Smashing Pumpkins (current and former)
+    #
+    # @example
+    #   Faker::Music::SmashingPumpkins.musician #=> "Billy Corgan"
+    # @return [String]
+    #
+    # source://faker//lib/faker/music/smashing_pumpkins.rb#18
+    def musician; end
+
+    # Produces the name of a song by the Smashing Pumpkins.
+    #
+    # @example
+    #   Faker::Music::SmashingPumpkins.song #=> "Stand Inside My Love"
+    # @return [String]
+    #
+    # source://faker//lib/faker/music/smashing_pumpkins.rb#58
+    def song; end
+  end
+end
+
 # source://faker//lib/faker/music/umphreys_mcgee.rb#5
 class Faker::Music::UmphreysMcgee < ::Faker::Base
   class << self
@@ -10086,100 +10137,118 @@ end
 # source://faker//lib/faker/default/phone_number.rb#4
 class Faker::PhoneNumber < ::Faker::Base
   class << self
-    # Produces a random US or Canada-based area code.
+    # Produces a random area code.
     #
     # @example
     #   Faker::PhoneNumber.area_code #=> "201"
+    #   Faker::PhoneNumber.area_code #=> "613"
+    #   Faker::PhoneNumber.area_code #=> "321"
     # @return [String]
     #
-    # source://faker//lib/faker/default/phone_number.rb#93
+    # source://faker//lib/faker/default/phone_number.rb#107
     def area_code; end
 
-    # Produces a random cell phone number in a random format (may or may not have a country code and can have different dividers).
+    # Produces a random cell phone number in a random format without the country code and it can have different dividers.
     #
     # @example
-    #   Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
+    #   Faker::PhoneNumber.cell_phone #=> "(836) 115-8995"
+    #   Faker::PhoneNumber.cell_phone #=> "382-597-5739"
+    #   Faker::PhoneNumber.cell_phone #=> "316.828.1822"
     # @return [String]
     #
-    # source://faker//lib/faker/default/phone_number.rb#28
+    # source://faker//lib/faker/default/phone_number.rb#32
     def cell_phone; end
 
-    # Produces a random phone number in e164 format.
+    # Produces a random phone number in e164 format, i.e., without any dividers.
     #
     # @example
-    #   Faker::PhoneNumber.cell_phone_in_e164 #=> "+944937040625"
+    #   Faker::PhoneNumber.cell_phone_in_e164 #=> "+542024834991"
+    #   Faker::PhoneNumber.cell_phone_in_e164 #=> "+8522846847703"
+    #   Faker::PhoneNumber.cell_phone_in_e164 #=> "+649477546575"
     # @return [String]
     #
-    # source://faker//lib/faker/default/phone_number.rb#80
+    # source://faker//lib/faker/default/phone_number.rb#92
     def cell_phone_in_e164; end
 
     # Produces a random cell phone number with country code.
     #
     # @example
-    #   Faker::PhoneNumber.cell_phone_with_country_code #=> "+974 (190) 987-9034"
+    #   Faker::PhoneNumber.cell_phone_with_country_code #=> "+852 (190) 987-9034"
+    #   Faker::PhoneNumber.cell_phone_with_country_code #=> "+64 (820) 583-6474"
+    #   Faker::PhoneNumber.cell_phone_with_country_code #=> "+1 591.871.7985"
     # @return [String]
     #
-    # source://faker//lib/faker/default/phone_number.rb#67
+    # source://faker//lib/faker/default/phone_number.rb#77
     def cell_phone_with_country_code; end
 
     # Produces a random country code.
     #
     # @example
     #   Faker::PhoneNumber.country_code #=> "+20"
+    #   Faker::PhoneNumber.country_code #=> "+39"
+    #   Faker::PhoneNumber.country_code #=> "+852"
     # @return [String]
     #
-    # source://faker//lib/faker/default/phone_number.rb#41
+    # source://faker//lib/faker/default/phone_number.rb#47
     def country_code; end
 
-    # Produces a random US or Canada-based exchange code.
+    # Produces a random exchange code.
     #
     # @example
     #   Faker::PhoneNumber.exchange_code #=> "208"
+    #   Faker::PhoneNumber.exchange_code #=> "415"
+    #   Faker::PhoneNumber.exchange_code #=> "652"
     # @return [String]
     #
-    # source://faker//lib/faker/default/phone_number.rb#108
+    # source://faker//lib/faker/default/phone_number.rb#122
     def exchange_code; end
 
-    # Produces a random US or Canada-based extension / subscriber number. Can be used for both extensions and last four digits of phone number.
+    # Produces a random extension / subscriber number. Can be used for both extensions and last four digits of phone number.
     #
     # @example
     #   Faker::PhoneNumber.subscriber_number #=> "3873"
     #   Faker::PhoneNumber.subscriber_number(length: 2) #=> "39"
     #   Faker::PhoneNumber.extension #=> "3764"
-    # @param length [Integer] Specifies the length of the return value.
+    #   Faker::PhoneNumber.extension(length: 2) => "37"
+    # @param length [Integer] Specifies the length of the return value. Defaults to 4.
     # @return [String]
     #
-    # source://faker//lib/faker/default/phone_number.rb#126
+    # source://faker//lib/faker/default/phone_number.rb#139
     def extension(length: T.unsafe(nil)); end
 
-    # Produces a random phone number in a random format (may or may not have a country code, extension and can have different dividers).
+    # Produces a phone number in a random format without the country code and it can have different dividers.
     #
     # @example
-    #   Faker::PhoneNumber.phone_number #=> "397.693.1309 x4321"
+    #   Faker::PhoneNumber.phone_number #=> "(504) 113-1705"
+    #   Faker::PhoneNumber.phone_number #=> "662.291.7201"
+    #   Faker::PhoneNumber.phone_number #=> "9415283713"
     # @return [String]
     #
-    # source://faker//lib/faker/default/phone_number.rb#15
+    # source://faker//lib/faker/default/phone_number.rb#17
     def phone_number; end
 
     # Produces a random phone number with country code.
     #
     # @example
-    #   Faker::PhoneNumber.phone_number_with_country_code #=> "+95 1-672-173-8153"
+    #   Faker::PhoneNumber.phone_number_with_country_code #=> "+55 466-746-6882"
+    #   Faker::PhoneNumber.phone_number_with_country_code #=> "+81 3718219558"
+    #   Faker::PhoneNumber.phone_number_with_country_code #=> "+49 140 957 9846"
     # @return [String]
     #
-    # source://faker//lib/faker/default/phone_number.rb#54
+    # source://faker//lib/faker/default/phone_number.rb#62
     def phone_number_with_country_code; end
 
-    # Produces a random US or Canada-based extension / subscriber number. Can be used for both extensions and last four digits of phone number.
+    # Produces a random extension / subscriber number. Can be used for both extensions and last four digits of phone number.
     #
     # @example
     #   Faker::PhoneNumber.subscriber_number #=> "3873"
     #   Faker::PhoneNumber.subscriber_number(length: 2) #=> "39"
     #   Faker::PhoneNumber.extension #=> "3764"
-    # @param length [Integer] Specifies the length of the return value.
+    #   Faker::PhoneNumber.extension(length: 2) => "37"
+    # @param length [Integer] Specifies the length of the return value. Defaults to 4.
     # @return [String]
     #
-    # source://faker//lib/faker/default/phone_number.rb#126
+    # source://faker//lib/faker/default/phone_number.rb#139
     def subscriber_number(length: T.unsafe(nil)); end
   end
 end

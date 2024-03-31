@@ -414,26 +414,26 @@ module GoodJob::ActiveJobExtensions::Concurrency
   # @raise [TypeError]
   # @return [Object] concurrency key
   #
-  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#98
+  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#125
   def _good_job_concurrency_key; end
 
   # Generates the default concurrency key when the configuration doesn't provide one
   #
   # @return [String] concurrency key
   #
-  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#112
+  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#139
   def _good_job_default_concurrency_key; end
 
   # Existing or dynamically generated concurrency key
   #
   # @return [Object] concurrency key
   #
-  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#92
+  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#119
   def good_job_concurrency_key; end
 
   private
 
-  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#118
+  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#145
   def good_job_enqueue_concurrency_check(job, on_abort:, on_enqueue:); end
 
   module GeneratedClassMethods
@@ -447,7 +447,7 @@ end
 
 # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#0
 module GoodJob::ActiveJobExtensions::Concurrency::ClassMethods
-  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#85
+  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#112
   def good_job_control_concurrency_with(config); end
 end
 
@@ -457,11 +457,14 @@ class GoodJob::ActiveJobExtensions::Concurrency::ConcurrencyExceededError < ::St
   def backtrace; end
 end
 
-# source://good_job//lib/good_job/active_job_extensions/concurrency.rb#16
+# source://good_job//lib/good_job/active_job_extensions/concurrency.rb#18
 module GoodJob::ActiveJobExtensions::Concurrency::Prepends
-  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#17
+  # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#19
   def deserialize(job_data); end
 end
+
+# source://good_job//lib/good_job/active_job_extensions/concurrency.rb#16
+class GoodJob::ActiveJobExtensions::Concurrency::ThrottleExceededError < ::GoodJob::ActiveJobExtensions::Concurrency::ConcurrencyExceededError; end
 
 # source://good_job//lib/good_job/active_job_extensions/concurrency.rb#8
 GoodJob::ActiveJobExtensions::Concurrency::VALID_TYPES = T.let(T.unsafe(nil), Array)
@@ -858,6 +861,7 @@ class GoodJob::BaseFilter
   def params=(_arg0); end
   def queues; end
   def records; end
+  def state_names; end
   def states; end
   def to_params(override = T.unsafe(nil)); end
 
@@ -1059,6 +1063,9 @@ class GoodJob::BatchRecord < ::GoodJob::BaseRecord
 
     # source://activerecord/7.1.3.2/lib/active_record/scoping/named.rb#174
     def finished(*args, **_arg1); end
+
+    # source://activerecord/7.1.3.2/lib/active_record/model_schema.rb#164
+    def implicit_order_column; end
 
     # source://activerecord/7.1.3.2/lib/active_record/scoping/named.rb#174
     def includes_advisory_locks(*args, **_arg1); end
@@ -1891,6 +1898,7 @@ class GoodJob::CronEntry
   def cron; end
   def cron_proc?; end
   def display_property(value); end
+  def enabled_by_default?; end
   def fugit; end
   def kwargs_value; end
   def set_value; end
@@ -2352,6 +2360,9 @@ class GoodJob::DiscreteExecution < ::GoodJob::BaseRecord
 
     # source://activerecord/7.1.3.2/lib/active_record/scoping/named.rb#174
     def finished(*args, **_arg1); end
+
+    # source://activerecord/7.1.3.2/lib/active_record/model_schema.rb#164
+    def implicit_order_column; end
   end
 end
 
@@ -2546,6 +2557,9 @@ class GoodJob::Execution < ::GoodJob::BaseExecution
 
     # source://activerecord/7.1.3.2/lib/active_record/scoping/named.rb#174
     def head(*args, **_arg1); end
+
+    # source://activerecord/7.1.3.2/lib/active_record/model_schema.rb#164
+    def implicit_order_column; end
 
     def next_scheduled_at(after: T.unsafe(nil), limit: T.unsafe(nil), now_limit: T.unsafe(nil)); end
 
@@ -2801,6 +2815,9 @@ class GoodJob::Job < ::GoodJob::BaseExecution
 
     # source://activerecord/7.1.3.2/lib/active_record/scoping/named.rb#174
     def finished_before(*args, **_arg1); end
+
+    # source://activerecord/7.1.3.2/lib/active_record/model_schema.rb#164
+    def implicit_order_column; end
 
     # source://activerecord/7.1.3.2/lib/active_record/scoping/named.rb#174
     def queued(*args, **_arg1); end
@@ -3079,6 +3096,7 @@ GoodJob::JobsController::FORCE_DISCARD_MESSAGE = T.let(T.unsafe(nil), String)
 class GoodJob::JobsFilter < ::GoodJob::BaseFilter
   def filtered_count; end
   def filtered_query(filter_params = T.unsafe(nil)); end
+  def state_names; end
   def states; end
 
   private
@@ -3300,6 +3318,25 @@ class GoodJob::LogSubscriber < ::ActiveSupport::LogSubscriber
     #
     # source://good_job//lib/good_job/log_subscriber.rb#226
     def reset_logger; end
+  end
+end
+
+class GoodJob::MetricsController < ::GoodJob::ApplicationController
+  def job_status; end
+  def primary_nav; end
+
+  private
+
+  # source://actionview/7.1.3.2/lib/action_view/layouts.rb#330
+  def _layout(lookup_context, formats); end
+
+  def _layout_from_proc; end
+  def number_to_human(count); end
+  def number_with_delimiter(count); end
+
+  class << self
+    # source://actionpack/7.1.3.2/lib/action_controller/metal.rb#262
+    def middleware_stack; end
   end
 end
 
@@ -3919,6 +3956,9 @@ class GoodJob::Process < ::GoodJob::BaseRecord
     # source://activerecord/7.1.3.2/lib/active_record/enum.rb#167
     def defined_enums; end
 
+    # source://activerecord/7.1.3.2/lib/active_record/model_schema.rb#164
+    def implicit_order_column; end
+
     # source://activerecord/7.1.3.2/lib/active_record/scoping/named.rb#174
     def inactive(*args, **_arg1); end
 
@@ -4287,14 +4327,18 @@ class GoodJob::Setting < ::GoodJob::BaseRecord
 
     def cron_key_disable(key); end
     def cron_key_enable(key); end
-    def cron_key_enabled?(key); end
+    def cron_key_enabled?(key, default: T.unsafe(nil)); end
 
     # source://activerecord/7.1.3.2/lib/active_record/enum.rb#167
     def defined_enums; end
+
+    # source://activerecord/7.1.3.2/lib/active_record/model_schema.rb#164
+    def implicit_order_column; end
   end
 end
 
 GoodJob::Setting::CRON_KEYS_DISABLED = T.let(T.unsafe(nil), String)
+GoodJob::Setting::CRON_KEYS_ENABLED = T.let(T.unsafe(nil), String)
 module GoodJob::Setting::GeneratedAssociationMethods; end
 module GoodJob::Setting::GeneratedAttributeMethods; end
 

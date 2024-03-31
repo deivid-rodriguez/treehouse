@@ -4210,17 +4210,17 @@ ActionController::Live::SSE::PERMITTED_OPTIONS = T.let(T.unsafe(nil), Array)
 class ActionController::LiveTestResponse < ::ActionController::Live::Response
   # Was there a server-side error?
   #
-  # source://rack/3.0.9.1/lib/rack/response.rb#186
+  # source://rack/3.0.10/lib/rack/response.rb#186
   def error?; end
 
   # Was the URL not found?
   #
-  # source://rack/3.0.9.1/lib/rack/response.rb#196
+  # source://rack/3.0.10/lib/rack/response.rb#196
   def missing?; end
 
   # Was the response successful?
   #
-  # source://rack/3.0.9.1/lib/rack/response.rb#183
+  # source://rack/3.0.10/lib/rack/response.rb#183
   def success?; end
 end
 
@@ -14554,7 +14554,7 @@ class ActionDispatch::Request
   # source://actionpack//lib/action_dispatch/http/request.rb#339
   def raw_post; end
 
-  # source://rack/3.0.9.1/lib/rack/request.rb#197
+  # source://rack/3.0.10/lib/rack/request.rb#197
   def raw_request_method; end
 
   # source://actionpack//lib/action_dispatch/http/request.rb#50
@@ -15311,10 +15311,10 @@ class ActionDispatch::Response
 
   # Aliasing these off because AD::Http::Cache::Response defines them.
   #
-  # source://rack/3.0.9.1/lib/rack/response.rb#289
+  # source://rack/3.0.10/lib/rack/response.rb#289
   def _cache_control; end
 
-  # source://rack/3.0.9.1/lib/rack/response.rb#293
+  # source://rack/3.0.10/lib/rack/response.rb#293
   def _cache_control=(value); end
 
   # source://actionpack//lib/action_dispatch/http/response.rb#382
@@ -15481,7 +15481,7 @@ class ActionDispatch::Response
 
   # The location header we'll be responding with.
   #
-  # source://rack/3.0.9.1/lib/rack/response.rb#261
+  # source://rack/3.0.10/lib/rack/response.rb#261
   def redirect_url; end
 
   # The request that the response is responding to.
@@ -20525,10 +20525,10 @@ Mime::Type::MIME_REGEXP = T.let(T.unsafe(nil), Regexp)
 # source://actionpack//lib/action_dispatch.rb#34
 module Rack
   class << self
-    # source://rack/3.0.9.1/lib/rack/version.rb#31
+    # source://rack/3.0.10/lib/rack/version.rb#31
     def release; end
 
-    # source://rack/3.0.9.1/lib/rack/version.rb#23
+    # source://rack/3.0.10/lib/rack/version.rb#23
     def version; end
   end
 end
