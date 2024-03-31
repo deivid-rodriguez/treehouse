@@ -47,6 +47,9 @@ class PgQuery::CreateOpClassStmt
   sig { params(value: T.nilable(PgQuery::TypeName)).void }
   def datatype=(value); end
 
+  sig { returns(Object) }
+  def has_datatype?; end
+
   sig { returns(T::Boolean) }
   def is_default; end
 

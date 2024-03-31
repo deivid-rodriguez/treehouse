@@ -37,6 +37,15 @@ class PgQuery::AlterObjectDependsStmt
   sig { params(value: T.nilable(PgQuery::String)).void }
   def extname=(value); end
 
+  sig { returns(Object) }
+  def has_extname?; end
+
+  sig { returns(Object) }
+  def has_object?; end
+
+  sig { returns(Object) }
+  def has_relation?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def object; end
 

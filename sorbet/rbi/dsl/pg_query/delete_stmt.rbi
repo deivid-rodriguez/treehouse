@@ -31,6 +31,15 @@ class PgQuery::DeleteStmt
   sig { void }
   def clear_with_clause; end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
+  sig { returns(Object) }
+  def has_where_clause?; end
+
+  sig { returns(Object) }
+  def has_with_clause?; end
+
   sig { returns(T.nilable(PgQuery::RangeVar)) }
   def relation; end
 

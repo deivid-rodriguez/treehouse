@@ -35,6 +35,12 @@ class PgQuery::CallStmt
   sig { params(value: T.nilable(PgQuery::FuncExpr)).void }
   def funcexpr=(value); end
 
+  sig { returns(Object) }
+  def has_funccall?; end
+
+  sig { returns(Object) }
+  def has_funcexpr?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def outargs; end
 

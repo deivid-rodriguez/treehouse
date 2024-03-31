@@ -23,6 +23,9 @@ class PgQuery::VacuumRelation
   sig { void }
   def clear_va_cols; end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
   sig { returns(Integer) }
   def oid; end
 

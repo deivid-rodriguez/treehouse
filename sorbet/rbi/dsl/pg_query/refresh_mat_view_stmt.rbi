@@ -29,6 +29,9 @@ class PgQuery::RefreshMatViewStmt
   sig { params(value: T::Boolean).void }
   def concurrent=(value); end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
   sig { returns(T.nilable(PgQuery::RangeVar)) }
   def relation; end
 

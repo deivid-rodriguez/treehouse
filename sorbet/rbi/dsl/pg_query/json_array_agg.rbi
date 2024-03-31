@@ -40,4 +40,10 @@ class PgQuery::JsonArrayAgg
 
   sig { params(value: T.nilable(PgQuery::JsonAggConstructor)).void }
   def constructor=(value); end
+
+  sig { returns(Object) }
+  def has_arg?; end
+
+  sig { returns(Object) }
+  def has_constructor?; end
 end

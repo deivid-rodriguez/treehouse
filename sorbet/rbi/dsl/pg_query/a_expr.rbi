@@ -31,6 +31,12 @@ class PgQuery::A_Expr
   sig { void }
   def clear_rexpr; end
 
+  sig { returns(Object) }
+  def has_lexpr?; end
+
+  sig { returns(Object) }
+  def has_rexpr?; end
+
   sig { returns(T.any(Symbol, Integer)) }
   def kind; end
 

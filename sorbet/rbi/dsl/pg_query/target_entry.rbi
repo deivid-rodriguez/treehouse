@@ -49,6 +49,12 @@ class PgQuery::TargetEntry
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def expr=(value); end
 
+  sig { returns(Object) }
+  def has_expr?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(T::Boolean) }
   def resjunk; end
 

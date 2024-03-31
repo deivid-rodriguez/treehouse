@@ -51,6 +51,12 @@ class PgQuery::CoerceToDomain
   sig { params(value: T.any(Symbol, Integer)).void }
   def coercionformat=(value); end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

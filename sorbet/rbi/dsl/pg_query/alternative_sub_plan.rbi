@@ -19,6 +19,9 @@ class PgQuery::AlternativeSubPlan
   sig { void }
   def clear_xpr; end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def subplans; end
 

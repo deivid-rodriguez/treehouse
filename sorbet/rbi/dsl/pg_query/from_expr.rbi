@@ -25,6 +25,9 @@ class PgQuery::FromExpr
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def fromlist=(value); end
 
+  sig { returns(Object) }
+  def has_quals?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def quals; end
 

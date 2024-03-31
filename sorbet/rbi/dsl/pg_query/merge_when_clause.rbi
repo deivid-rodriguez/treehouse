@@ -47,6 +47,9 @@ class PgQuery::MergeWhenClause
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def condition=(value); end
 
+  sig { returns(Object) }
+  def has_condition?; end
+
   sig { returns(T::Boolean) }
   def matched; end
 

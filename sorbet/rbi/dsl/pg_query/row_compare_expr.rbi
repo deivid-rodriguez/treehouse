@@ -39,6 +39,9 @@ class PgQuery::RowCompareExpr
   sig { void }
   def clear_xpr; end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def inputcollids; end
 

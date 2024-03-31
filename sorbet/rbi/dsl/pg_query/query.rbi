@@ -241,11 +241,26 @@ class PgQuery::Query
   sig { params(value: T::Boolean).void }
   def has_for_update=(value); end
 
+  sig { returns(Object) }
+  def has_having_qual?; end
+
+  sig { returns(Object) }
+  def has_jointree?; end
+
+  sig { returns(Object) }
+  def has_limit_count?; end
+
+  sig { returns(Object) }
+  def has_limit_offset?; end
+
   sig { returns(T::Boolean) }
   def has_modifying_cte; end
 
   sig { params(value: T::Boolean).void }
   def has_modifying_cte=(value); end
+
+  sig { returns(Object) }
+  def has_on_conflict?; end
 
   sig { returns(T::Boolean) }
   def has_recursive; end
@@ -259,6 +274,9 @@ class PgQuery::Query
   sig { params(value: T::Boolean).void }
   def has_row_security=(value); end
 
+  sig { returns(Object) }
+  def has_set_operations?; end
+
   sig { returns(T::Boolean) }
   def has_sub_links; end
 
@@ -270,6 +288,9 @@ class PgQuery::Query
 
   sig { params(value: T::Boolean).void }
   def has_target_srfs=(value); end
+
+  sig { returns(Object) }
+  def has_utility_stmt?; end
 
   sig { returns(T::Boolean) }
   def has_window_funcs; end

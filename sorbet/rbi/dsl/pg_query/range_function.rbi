@@ -53,6 +53,9 @@ class PgQuery::RangeFunction
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def functions=(value); end
 
+  sig { returns(Object) }
+  def has_alias?; end
+
   sig { returns(T::Boolean) }
   def is_rowsfrom; end
 

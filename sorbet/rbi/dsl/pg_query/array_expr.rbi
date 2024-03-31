@@ -63,6 +63,9 @@ class PgQuery::ArrayExpr
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def elements=(value); end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

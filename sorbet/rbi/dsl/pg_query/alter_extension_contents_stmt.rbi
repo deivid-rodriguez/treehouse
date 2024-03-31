@@ -39,6 +39,9 @@ class PgQuery::AlterExtensionContentsStmt
   sig { params(value: String).void }
   def extname=(value); end
 
+  sig { returns(Object) }
+  def has_object?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def object; end
 

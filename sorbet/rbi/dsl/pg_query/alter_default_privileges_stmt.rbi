@@ -25,6 +25,9 @@ class PgQuery::AlterDefaultPrivilegesStmt
   sig { void }
   def clear_options; end
 
+  sig { returns(Object) }
+  def has_action?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def options; end
 

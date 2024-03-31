@@ -109,6 +109,12 @@ class PgQuery::FuncCall
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def funcname=(value); end
 
+  sig { returns(Object) }
+  def has_agg_filter?; end
+
+  sig { returns(Object) }
+  def has_over?; end
+
   sig { returns(Integer) }
   def location; end
 

@@ -29,6 +29,9 @@ class PgQuery::TableSampleClause
   sig { void }
   def clear_tsmhandler; end
 
+  sig { returns(Object) }
+  def has_repeatable?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def repeatable; end
 

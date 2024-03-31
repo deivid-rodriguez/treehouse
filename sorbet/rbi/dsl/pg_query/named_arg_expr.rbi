@@ -43,6 +43,12 @@ class PgQuery::NamedArgExpr
   sig { void }
   def clear_xpr; end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

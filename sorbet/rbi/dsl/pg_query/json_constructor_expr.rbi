@@ -71,6 +71,18 @@ class PgQuery::JsonConstructorExpr
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def func=(value); end
 
+  sig { returns(Object) }
+  def has_coercion?; end
+
+  sig { returns(Object) }
+  def has_func?; end
+
+  sig { returns(Object) }
+  def has_returning?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

@@ -14,6 +14,12 @@ class PgQuery::JsonOutput
   sig { void }
   def clear_type_name; end
 
+  sig { returns(Object) }
+  def has_returning?; end
+
+  sig { returns(Object) }
+  def has_type_name?; end
+
   sig { returns(T.nilable(PgQuery::JsonReturning)) }
   def returning; end
 

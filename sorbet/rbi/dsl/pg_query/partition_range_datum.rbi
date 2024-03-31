@@ -23,6 +23,9 @@ class PgQuery::PartitionRangeDatum
   sig { void }
   def clear_value; end
 
+  sig { returns(Object) }
+  def has_value?; end
+
   sig { returns(T.any(Symbol, Integer)) }
   def kind; end
 

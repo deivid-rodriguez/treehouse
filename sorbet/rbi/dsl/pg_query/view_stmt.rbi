@@ -41,6 +41,12 @@ class PgQuery::ViewStmt
   sig { void }
   def clear_with_check_option; end
 
+  sig { returns(Object) }
+  def has_query?; end
+
+  sig { returns(Object) }
+  def has_view?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def options; end
 

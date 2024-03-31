@@ -129,6 +129,15 @@ class PgQuery::CommonTableExpr
   sig { params(value: T.nilable(PgQuery::CTECycleClause)).void }
   def cycle_clause=(value); end
 
+  sig { returns(Object) }
+  def has_ctequery?; end
+
+  sig { returns(Object) }
+  def has_cycle_clause?; end
+
+  sig { returns(Object) }
+  def has_search_clause?; end
+
   sig { returns(Integer) }
   def location; end
 

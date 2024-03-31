@@ -55,6 +55,12 @@ class PgQuery::WindowDef
   sig { params(value: Integer).void }
   def frame_options=(value); end
 
+  sig { returns(Object) }
+  def has_end_offset?; end
+
+  sig { returns(Object) }
+  def has_start_offset?; end
+
   sig { returns(Integer) }
   def location; end
 

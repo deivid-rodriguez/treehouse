@@ -23,6 +23,9 @@ class PgQuery::MultiAssignRef
   sig { params(value: Integer).void }
   def colno=(value); end
 
+  sig { returns(Object) }
+  def has_source?; end
+
   sig { returns(Integer) }
   def ncolumns; end
 

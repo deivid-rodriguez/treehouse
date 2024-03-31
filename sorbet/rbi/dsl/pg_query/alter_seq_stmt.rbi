@@ -33,6 +33,9 @@ class PgQuery::AlterSeqStmt
   sig { params(value: T::Boolean).void }
   def for_identity=(value); end
 
+  sig { returns(Object) }
+  def has_sequence?; end
+
   sig { returns(T::Boolean) }
   def missing_ok; end
 

@@ -121,6 +121,30 @@ class PgQuery::SelectStmt
   sig { params(value: T::Boolean).void }
   def group_distinct=(value); end
 
+  sig { returns(Object) }
+  def has_having_clause?; end
+
+  sig { returns(Object) }
+  def has_into_clause?; end
+
+  sig { returns(Object) }
+  def has_larg?; end
+
+  sig { returns(Object) }
+  def has_limit_count?; end
+
+  sig { returns(Object) }
+  def has_limit_offset?; end
+
+  sig { returns(Object) }
+  def has_rarg?; end
+
+  sig { returns(Object) }
+  def has_where_clause?; end
+
+  sig { returns(Object) }
+  def has_with_clause?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def having_clause; end
 

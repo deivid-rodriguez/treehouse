@@ -103,6 +103,12 @@ class PgQuery::SubPlan
   sig { params(value: Integer).void }
   def first_col_typmod=(value); end
 
+  sig { returns(Object) }
+  def has_testexpr?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def par_param; end
 

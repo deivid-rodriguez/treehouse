@@ -27,6 +27,9 @@ class PgQuery::PublicationObjSpec
   sig { void }
   def clear_pubtable; end
 
+  sig { returns(Object) }
+  def has_pubtable?; end
+
   sig { returns(Integer) }
   def location; end
 

@@ -29,6 +29,12 @@ class PgQuery::PublicationTable
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def columns=(value); end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
+  sig { returns(Object) }
+  def has_where_clause?; end
+
   sig { returns(T.nilable(PgQuery::RangeVar)) }
   def relation; end
 

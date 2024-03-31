@@ -31,6 +31,15 @@ class PgQuery::AlterPolicyStmt
   sig { void }
   def clear_with_check; end
 
+  sig { returns(Object) }
+  def has_qual?; end
+
+  sig { returns(Object) }
+  def has_table?; end
+
+  sig { returns(Object) }
+  def has_with_check?; end
+
   sig { returns(String) }
   def policy_name; end
 

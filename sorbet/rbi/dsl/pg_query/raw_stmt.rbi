@@ -17,6 +17,9 @@ class PgQuery::RawStmt
   sig { void }
   def clear_stmt_location; end
 
+  sig { returns(Object) }
+  def has_stmt?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def stmt; end
 

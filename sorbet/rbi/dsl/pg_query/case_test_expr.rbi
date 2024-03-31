@@ -33,6 +33,9 @@ class PgQuery::CaseTestExpr
   sig { params(value: Integer).void }
   def collation=(value); end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def type_id; end
 

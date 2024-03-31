@@ -27,6 +27,9 @@ class PgQuery::CreateUserMappingStmt
   sig { void }
   def clear_user; end
 
+  sig { returns(Object) }
+  def has_user?; end
+
   sig { returns(T::Boolean) }
   def if_not_exists; end
 

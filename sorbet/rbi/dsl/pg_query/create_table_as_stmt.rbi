@@ -31,6 +31,12 @@ class PgQuery::CreateTableAsStmt
   sig { void }
   def clear_query; end
 
+  sig { returns(Object) }
+  def has_into?; end
+
+  sig { returns(Object) }
+  def has_query?; end
+
   sig { returns(T::Boolean) }
   def if_not_exists; end
 

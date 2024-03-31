@@ -19,6 +19,9 @@ class PgQuery::AlterOperatorStmt
   sig { void }
   def clear_options; end
 
+  sig { returns(Object) }
+  def has_opername?; end
+
   sig { returns(T.nilable(PgQuery::ObjectWithArgs)) }
   def opername; end
 

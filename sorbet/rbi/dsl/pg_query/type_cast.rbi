@@ -29,6 +29,12 @@ class PgQuery::TypeCast
   sig { void }
   def clear_type_name; end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
+  sig { returns(Object) }
+  def has_type_name?; end
+
   sig { returns(Integer) }
   def location; end
 

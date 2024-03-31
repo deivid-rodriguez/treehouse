@@ -23,6 +23,9 @@ class PgQuery::ClusterStmt
   sig { void }
   def clear_relation; end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
   sig { returns(String) }
   def indexname; end
 

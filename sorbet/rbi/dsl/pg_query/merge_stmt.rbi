@@ -31,6 +31,18 @@ class PgQuery::MergeStmt
   sig { void }
   def clear_with_clause; end
 
+  sig { returns(Object) }
+  def has_join_condition?; end
+
+  sig { returns(Object) }
+  def has_relation?; end
+
+  sig { returns(Object) }
+  def has_source_relation?; end
+
+  sig { returns(Object) }
+  def has_with_clause?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def join_condition; end
 

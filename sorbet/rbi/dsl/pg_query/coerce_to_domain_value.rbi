@@ -37,6 +37,9 @@ class PgQuery::CoerceToDomainValue
   sig { params(value: Integer).void }
   def collation=(value); end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

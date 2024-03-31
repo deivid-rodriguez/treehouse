@@ -47,6 +47,9 @@ class PgQuery::Var
   sig { void }
   def clear_xpr; end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

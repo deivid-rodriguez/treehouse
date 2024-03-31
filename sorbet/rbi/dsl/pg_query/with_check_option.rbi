@@ -37,6 +37,9 @@ class PgQuery::WithCheckOption
   sig { void }
   def clear_relname; end
 
+  sig { returns(Object) }
+  def has_qual?; end
+
   sig { returns(T.any(Symbol, Integer)) }
   def kind; end
 

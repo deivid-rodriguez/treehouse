@@ -29,6 +29,12 @@ class PgQuery::AlterRoleSetStmt
   sig { params(value: String).void }
   def database=(value); end
 
+  sig { returns(Object) }
+  def has_role?; end
+
+  sig { returns(Object) }
+  def has_setstmt?; end
+
   sig { returns(T.nilable(PgQuery::RoleSpec)) }
   def role; end
 

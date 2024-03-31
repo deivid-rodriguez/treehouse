@@ -43,6 +43,15 @@ class PgQuery::CreateCastStmt
   sig { params(value: T.nilable(PgQuery::ObjectWithArgs)).void }
   def func=(value); end
 
+  sig { returns(Object) }
+  def has_func?; end
+
+  sig { returns(Object) }
+  def has_sourcetype?; end
+
+  sig { returns(Object) }
+  def has_targettype?; end
+
   sig { returns(T::Boolean) }
   def inout; end
 

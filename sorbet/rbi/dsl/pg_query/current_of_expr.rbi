@@ -45,6 +45,9 @@ class PgQuery::CurrentOfExpr
   sig { params(value: Integer).void }
   def cvarno=(value); end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def xpr; end
 

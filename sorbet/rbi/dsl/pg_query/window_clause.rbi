@@ -95,6 +95,12 @@ class PgQuery::WindowClause
   sig { params(value: Integer).void }
   def frame_options=(value); end
 
+  sig { returns(Object) }
+  def has_end_offset?; end
+
+  sig { returns(Object) }
+  def has_start_offset?; end
+
   sig { returns(T::Boolean) }
   def in_range_asc; end
 

@@ -39,6 +39,12 @@ class PgQuery::CollateExpr
   sig { params(value: Integer).void }
   def coll_oid=(value); end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

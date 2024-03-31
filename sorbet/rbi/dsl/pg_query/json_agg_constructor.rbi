@@ -43,6 +43,15 @@ class PgQuery::JsonAggConstructor
   sig { void }
   def clear_over; end
 
+  sig { returns(Object) }
+  def has_agg_filter?; end
+
+  sig { returns(Object) }
+  def has_output?; end
+
+  sig { returns(Object) }
+  def has_over?; end
+
   sig { returns(Integer) }
   def location; end
 

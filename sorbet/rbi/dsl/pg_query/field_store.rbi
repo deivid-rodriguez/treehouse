@@ -43,6 +43,12 @@ class PgQuery::FieldStore
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def fieldnums=(value); end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def newvals; end
 

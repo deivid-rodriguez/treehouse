@@ -93,6 +93,9 @@ class PgQuery::FuncExpr
   sig { params(value: T::Boolean).void }
   def funcvariadic=(value); end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def inputcollid; end
 

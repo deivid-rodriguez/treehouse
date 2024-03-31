@@ -45,6 +45,12 @@ class PgQuery::CreateFunctionStmt
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def funcname=(value); end
 
+  sig { returns(Object) }
+  def has_return_type?; end
+
+  sig { returns(Object) }
+  def has_sql_body?; end
+
   sig { returns(T::Boolean) }
   def is_procedure; end
 

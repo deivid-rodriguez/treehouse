@@ -27,6 +27,9 @@ class PgQuery::ResTarget
   sig { void }
   def clear_val; end
 
+  sig { returns(Object) }
+  def has_val?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def indirection; end
 

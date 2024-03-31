@@ -105,6 +105,12 @@ class PgQuery::CTECycleClause
   sig { params(value: String).void }
   def cycle_path_column=(value); end
 
+  sig { returns(Object) }
+  def has_cycle_mark_default?; end
+
+  sig { returns(Object) }
+  def has_cycle_mark_value?; end
+
   sig { returns(Integer) }
   def location; end
 

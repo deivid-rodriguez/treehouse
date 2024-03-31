@@ -23,6 +23,9 @@ class PgQuery::JsonReturning
   sig { params(value: T.nilable(PgQuery::JsonFormat)).void }
   def format=(value); end
 
+  sig { returns(Object) }
+  def has_format?; end
+
   sig { returns(Integer) }
   def typid; end
 

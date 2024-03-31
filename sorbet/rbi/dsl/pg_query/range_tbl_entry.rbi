@@ -205,6 +205,24 @@ class PgQuery::RangeTblEntry
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def functions=(value); end
 
+  sig { returns(Object) }
+  def has_alias?; end
+
+  sig { returns(Object) }
+  def has_eref?; end
+
+  sig { returns(Object) }
+  def has_join_using_alias?; end
+
+  sig { returns(Object) }
+  def has_subquery?; end
+
+  sig { returns(Object) }
+  def has_tablefunc?; end
+
+  sig { returns(Object) }
+  def has_tablesample?; end
+
   sig { returns(T::Boolean) }
   def in_from_cl; end
 

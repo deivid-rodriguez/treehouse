@@ -35,6 +35,15 @@ class PgQuery::JsonValueExpr
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def formatted_expr=(value); end
 
+  sig { returns(Object) }
+  def has_format?; end
+
+  sig { returns(Object) }
+  def has_formatted_expr?; end
+
+  sig { returns(Object) }
+  def has_raw_expr?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def raw_expr; end
 

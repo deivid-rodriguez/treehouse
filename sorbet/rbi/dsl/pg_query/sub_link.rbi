@@ -39,6 +39,15 @@ class PgQuery::SubLink
   sig { void }
   def clear_xpr; end
 
+  sig { returns(Object) }
+  def has_subselect?; end
+
+  sig { returns(Object) }
+  def has_testexpr?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

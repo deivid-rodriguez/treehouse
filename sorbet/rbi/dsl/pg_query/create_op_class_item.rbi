@@ -41,6 +41,12 @@ class PgQuery::CreateOpClassItem
   sig { void }
   def clear_storedtype; end
 
+  sig { returns(Object) }
+  def has_name?; end
+
+  sig { returns(Object) }
+  def has_storedtype?; end
+
   sig { returns(Integer) }
   def itemtype; end
 

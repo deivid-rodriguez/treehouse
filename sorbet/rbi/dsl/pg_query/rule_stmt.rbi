@@ -51,6 +51,12 @@ class PgQuery::RuleStmt
   sig { params(value: T.any(Symbol, Integer)).void }
   def event=(value); end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
+  sig { returns(Object) }
+  def has_where_clause?; end
+
   sig { returns(T::Boolean) }
   def instead; end
 

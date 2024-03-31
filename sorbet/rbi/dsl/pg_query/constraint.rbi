@@ -203,6 +203,15 @@ class PgQuery::Constraint
   sig { params(value: String).void }
   def generated_when=(value); end
 
+  sig { returns(Object) }
+  def has_pktable?; end
+
+  sig { returns(Object) }
+  def has_raw_expr?; end
+
+  sig { returns(Object) }
+  def has_where_clause?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def including; end
 

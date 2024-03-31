@@ -19,6 +19,9 @@ class PgQuery::ReassignOwnedStmt
   sig { void }
   def clear_roles; end
 
+  sig { returns(Object) }
+  def has_newrole?; end
+
   sig { returns(T.nilable(PgQuery::RoleSpec)) }
   def newrole; end
 

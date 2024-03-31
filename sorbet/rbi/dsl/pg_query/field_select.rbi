@@ -47,6 +47,12 @@ class PgQuery::FieldSelect
   sig { params(value: Integer).void }
   def fieldnum=(value); end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def resultcollid; end
 

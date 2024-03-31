@@ -79,6 +79,12 @@ class PgQuery::OnConflictExpr
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def excl_rel_tlist=(value); end
 
+  sig { returns(Object) }
+  def has_arbiter_where?; end
+
+  sig { returns(Object) }
+  def has_on_conflict_where?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def on_conflict_set; end
 

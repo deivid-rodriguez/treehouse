@@ -49,6 +49,12 @@ class PgQuery::RenameStmt
   sig { void }
   def clear_subname; end
 
+  sig { returns(Object) }
+  def has_object?; end
+
+  sig { returns(Object) }
+  def has_relation?; end
+
   sig { returns(T::Boolean) }
   def missing_ok; end
 

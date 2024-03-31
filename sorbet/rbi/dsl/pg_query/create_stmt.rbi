@@ -71,6 +71,18 @@ class PgQuery::CreateStmt
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def constraints=(value); end
 
+  sig { returns(Object) }
+  def has_of_typename?; end
+
+  sig { returns(Object) }
+  def has_partbound?; end
+
+  sig { returns(Object) }
+  def has_partspec?; end
+
+  sig { returns(Object) }
+  def has_relation?; end
+
   sig { returns(T::Boolean) }
   def if_not_exists; end
 

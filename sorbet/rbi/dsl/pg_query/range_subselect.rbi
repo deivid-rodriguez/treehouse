@@ -29,6 +29,12 @@ class PgQuery::RangeSubselect
   sig { void }
   def clear_subquery; end
 
+  sig { returns(Object) }
+  def has_alias?; end
+
+  sig { returns(Object) }
+  def has_subquery?; end
+
   sig { returns(T::Boolean) }
   def lateral; end
 

@@ -35,6 +35,9 @@ class PgQuery::CollateClause
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def collname=(value); end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
   sig { returns(Integer) }
   def location; end
 

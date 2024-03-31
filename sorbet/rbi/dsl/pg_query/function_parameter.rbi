@@ -39,6 +39,12 @@ class PgQuery::FunctionParameter
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def defexpr=(value); end
 
+  sig { returns(Object) }
+  def has_arg_type?; end
+
+  sig { returns(Object) }
+  def has_defexpr?; end
+
   sig { returns(T.any(Symbol, Integer)) }
   def mode; end
 

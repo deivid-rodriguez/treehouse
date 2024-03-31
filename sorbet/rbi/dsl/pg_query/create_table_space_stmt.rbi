@@ -27,6 +27,9 @@ class PgQuery::CreateTableSpaceStmt
   sig { void }
   def clear_tablespacename; end
 
+  sig { returns(Object) }
+  def has_owner?; end
+
   sig { returns(String) }
   def location; end
 

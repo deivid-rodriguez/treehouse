@@ -33,6 +33,9 @@ class PgQuery::AlterTableStmt
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def cmds=(value); end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
   sig { returns(T::Boolean) }
   def missing_ok; end
 

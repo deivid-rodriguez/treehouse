@@ -55,6 +55,9 @@ class PgQuery::DefElem
   sig { params(value: String).void }
   def defnamespace=(value); end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
   sig { returns(Integer) }
   def location; end
 

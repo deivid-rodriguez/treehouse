@@ -73,6 +73,12 @@ class PgQuery::SetOperationStmt
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def group_clauses=(value); end
 
+  sig { returns(Object) }
+  def has_larg?; end
+
+  sig { returns(Object) }
+  def has_rarg?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def larg; end
 

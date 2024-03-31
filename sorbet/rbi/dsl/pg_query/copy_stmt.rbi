@@ -55,6 +55,15 @@ class PgQuery::CopyStmt
   sig { params(value: String).void }
   def filename=(value); end
 
+  sig { returns(Object) }
+  def has_query?; end
+
+  sig { returns(Object) }
+  def has_relation?; end
+
+  sig { returns(Object) }
+  def has_where_clause?; end
+
   sig { returns(T::Boolean) }
   def is_from; end
 

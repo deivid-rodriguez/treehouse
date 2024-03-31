@@ -17,6 +17,12 @@ class PgQuery::A_Indices
   sig { void }
   def clear_uidx; end
 
+  sig { returns(Object) }
+  def has_lidx?; end
+
+  sig { returns(Object) }
+  def has_uidx?; end
+
   sig { returns(T::Boolean) }
   def is_slice; end
 

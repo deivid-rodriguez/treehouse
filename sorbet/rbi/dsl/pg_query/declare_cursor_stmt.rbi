@@ -17,6 +17,9 @@ class PgQuery::DeclareCursorStmt
   sig { void }
   def clear_query; end
 
+  sig { returns(Object) }
+  def has_query?; end
+
   sig { returns(Integer) }
   def options; end
 

@@ -55,6 +55,9 @@ class PgQuery::IndexElem
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def expr=(value); end
 
+  sig { returns(Object) }
+  def has_expr?; end
+
   sig { returns(String) }
   def indexcolname; end
 

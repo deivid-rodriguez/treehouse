@@ -51,6 +51,9 @@ class PgQuery::RangeVar
   sig { void }
   def clear_schemaname; end
 
+  sig { returns(Object) }
+  def has_alias?; end
+
   sig { returns(T::Boolean) }
   def inh; end
 

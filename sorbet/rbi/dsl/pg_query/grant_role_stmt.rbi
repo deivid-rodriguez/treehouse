@@ -59,6 +59,9 @@ class PgQuery::GrantRoleStmt
   sig { params(value: T.nilable(PgQuery::RoleSpec)).void }
   def grantor=(value); end
 
+  sig { returns(Object) }
+  def has_grantor?; end
+
   sig { returns(T::Boolean) }
   def is_grant; end
 

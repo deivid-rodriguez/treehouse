@@ -43,6 +43,9 @@ class PgQuery::JsonObjectConstructor
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def exprs=(value); end
 
+  sig { returns(Object) }
+  def has_output?; end
+
   sig { returns(Integer) }
   def location; end
 

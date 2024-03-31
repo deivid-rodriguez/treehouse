@@ -67,6 +67,9 @@ class PgQuery::XmlExpr
   sig { void }
   def clear_xpr; end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(T::Boolean) }
   def indent; end
 

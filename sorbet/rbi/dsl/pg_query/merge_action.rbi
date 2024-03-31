@@ -41,6 +41,9 @@ class PgQuery::MergeAction
   sig { params(value: T.any(Symbol, Integer)).void }
   def command_type=(value); end
 
+  sig { returns(Object) }
+  def has_qual?; end
+
   sig { returns(T::Boolean) }
   def matched; end
 

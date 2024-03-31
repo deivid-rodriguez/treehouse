@@ -183,6 +183,12 @@ class PgQuery::Aggref
   sig { void }
   def clear_xpr; end
 
+  sig { returns(Object) }
+  def has_aggfilter?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def inputcollid; end
 

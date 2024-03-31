@@ -33,6 +33,9 @@ class PgQuery::InferClause
   sig { params(value: String).void }
   def conname=(value); end
 
+  sig { returns(Object) }
+  def has_where_clause?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def index_elems; end
 

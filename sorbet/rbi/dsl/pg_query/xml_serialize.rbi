@@ -37,6 +37,12 @@ class PgQuery::XmlSerialize
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def expr=(value); end
 
+  sig { returns(Object) }
+  def has_expr?; end
+
+  sig { returns(Object) }
+  def has_type_name?; end
+
   sig { returns(T::Boolean) }
   def indent; end
 

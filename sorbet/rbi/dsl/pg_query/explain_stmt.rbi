@@ -19,6 +19,9 @@ class PgQuery::ExplainStmt
   sig { void }
   def clear_query; end
 
+  sig { returns(Object) }
+  def has_query?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def options; end
 

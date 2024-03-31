@@ -23,6 +23,9 @@ class PgQuery::DropUserMappingStmt
   sig { void }
   def clear_user; end
 
+  sig { returns(Object) }
+  def has_user?; end
+
   sig { returns(T::Boolean) }
   def missing_ok; end
 

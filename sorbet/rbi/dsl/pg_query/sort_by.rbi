@@ -31,6 +31,9 @@ class PgQuery::SortBy
   sig { void }
   def clear_use_op; end
 
+  sig { returns(Object) }
+  def has_node?; end
+
   sig { returns(Integer) }
   def location; end
 

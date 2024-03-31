@@ -29,6 +29,9 @@ class PgQuery::CommentStmt
   sig { params(value: String).void }
   def comment=(value); end
 
+  sig { returns(Object) }
+  def has_object?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def object; end
 

@@ -20,6 +20,9 @@ class PgQuery::AlterDatabaseSetStmt
   sig { params(value: String).void }
   def dbname=(value); end
 
+  sig { returns(Object) }
+  def has_setstmt?; end
+
   sig { returns(T.nilable(PgQuery::VariableSetStmt)) }
   def setstmt; end
 

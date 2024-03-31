@@ -107,6 +107,15 @@ class PgQuery::CreateTrigStmt
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def funcname=(value); end
 
+  sig { returns(Object) }
+  def has_constrrel?; end
+
+  sig { returns(Object) }
+  def has_relation?; end
+
+  sig { returns(Object) }
+  def has_when_clause?; end
+
   sig { returns(T::Boolean) }
   def initdeferred; end
 

@@ -11,6 +11,9 @@ class PgQuery::ReturnStmt
   sig { void }
   def clear_returnval; end
 
+  sig { returns(Object) }
+  def has_returnval?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def returnval; end
 

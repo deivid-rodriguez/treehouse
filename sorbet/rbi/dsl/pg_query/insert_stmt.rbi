@@ -45,6 +45,18 @@ class PgQuery::InsertStmt
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def cols=(value); end
 
+  sig { returns(Object) }
+  def has_on_conflict_clause?; end
+
+  sig { returns(Object) }
+  def has_relation?; end
+
+  sig { returns(Object) }
+  def has_select_stmt?; end
+
+  sig { returns(Object) }
+  def has_with_clause?; end
+
   sig { returns(T.nilable(PgQuery::OnConflictClause)) }
   def on_conflict_clause; end
 

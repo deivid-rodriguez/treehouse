@@ -25,6 +25,9 @@ class PgQuery::CompositeTypeStmt
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def coldeflist=(value); end
 
+  sig { returns(Object) }
+  def has_typevar?; end
+
   sig { returns(T.nilable(PgQuery::RangeVar)) }
   def typevar; end
 

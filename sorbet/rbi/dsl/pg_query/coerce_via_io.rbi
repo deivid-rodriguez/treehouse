@@ -47,6 +47,12 @@ class PgQuery::CoerceViaIO
   sig { params(value: T.any(Symbol, Integer)).void }
   def coerceformat=(value); end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

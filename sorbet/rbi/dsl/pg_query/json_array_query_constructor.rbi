@@ -43,6 +43,15 @@ class PgQuery::JsonArrayQueryConstructor
   sig { params(value: T.nilable(PgQuery::JsonFormat)).void }
   def format=(value); end
 
+  sig { returns(Object) }
+  def has_format?; end
+
+  sig { returns(Object) }
+  def has_output?; end
+
+  sig { returns(Object) }
+  def has_query?; end
+
   sig { returns(Integer) }
   def location; end
 

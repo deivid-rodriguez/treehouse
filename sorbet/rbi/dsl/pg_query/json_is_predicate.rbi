@@ -43,6 +43,12 @@ class PgQuery::JsonIsPredicate
   sig { params(value: T.nilable(PgQuery::JsonFormat)).void }
   def format=(value); end
 
+  sig { returns(Object) }
+  def has_expr?; end
+
+  sig { returns(Object) }
+  def has_format?; end
+
   sig { returns(T.any(Symbol, Integer)) }
   def item_type; end
 

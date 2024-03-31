@@ -20,6 +20,9 @@ class PgQuery::StatsElem
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def expr=(value); end
 
+  sig { returns(Object) }
+  def has_expr?; end
+
   sig { returns(String) }
   def name; end
 

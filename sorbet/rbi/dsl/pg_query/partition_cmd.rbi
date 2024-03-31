@@ -35,6 +35,12 @@ class PgQuery::PartitionCmd
   sig { params(value: T::Boolean).void }
   def concurrent=(value); end
 
+  sig { returns(Object) }
+  def has_bound?; end
+
+  sig { returns(Object) }
+  def has_name?; end
+
   sig { returns(T.nilable(PgQuery::RangeVar)) }
   def name; end
 

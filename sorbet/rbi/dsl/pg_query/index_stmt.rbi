@@ -131,6 +131,12 @@ class PgQuery::IndexStmt
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def exclude_op_names=(value); end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
+  sig { returns(Object) }
+  def has_where_clause?; end
+
   sig { returns(String) }
   def idxcomment; end
 

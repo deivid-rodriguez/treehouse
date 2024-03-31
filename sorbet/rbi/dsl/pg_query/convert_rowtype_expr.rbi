@@ -43,6 +43,12 @@ class PgQuery::ConvertRowtypeExpr
   sig { params(value: T.any(Symbol, Integer)).void }
   def convertformat=(value); end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

@@ -45,6 +45,15 @@ class PgQuery::CreatePolicyStmt
   sig { params(value: String).void }
   def cmd_name=(value); end
 
+  sig { returns(Object) }
+  def has_qual?; end
+
+  sig { returns(Object) }
+  def has_table?; end
+
+  sig { returns(Object) }
+  def has_with_check?; end
+
   sig { returns(T::Boolean) }
   def permissive; end
 

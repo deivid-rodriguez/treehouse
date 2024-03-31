@@ -27,6 +27,15 @@ class PgQuery::AlterOwnerStmt
   sig { void }
   def clear_relation; end
 
+  sig { returns(Object) }
+  def has_newowner?; end
+
+  sig { returns(Object) }
+  def has_object?; end
+
+  sig { returns(Object) }
+  def has_relation?; end
+
   sig { returns(T.nilable(PgQuery::RoleSpec)) }
   def newowner; end
 

@@ -1829,6 +1829,762 @@ class PgQuery::Node
   sig { params(value: T.nilable(PgQuery::GroupingSet)).void }
   def grouping_set=(value); end
 
+  sig { returns(Object) }
+  def has_a_array_expr?; end
+
+  sig { returns(Object) }
+  def has_a_const?; end
+
+  sig { returns(Object) }
+  def has_a_expr?; end
+
+  sig { returns(Object) }
+  def has_a_indices?; end
+
+  sig { returns(Object) }
+  def has_a_indirection?; end
+
+  sig { returns(Object) }
+  def has_a_star?; end
+
+  sig { returns(Object) }
+  def has_access_priv?; end
+
+  sig { returns(Object) }
+  def has_aggref?; end
+
+  sig { returns(Object) }
+  def has_alias?; end
+
+  sig { returns(Object) }
+  def has_alter_collation_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_database_refresh_coll_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_database_set_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_database_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_default_privileges_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_domain_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_enum_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_event_trig_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_extension_contents_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_extension_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_fdw_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_foreign_server_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_function_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_object_depends_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_object_schema_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_op_family_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_operator_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_owner_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_policy_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_publication_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_role_set_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_role_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_seq_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_stats_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_subscription_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_system_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_table_cmd?; end
+
+  sig { returns(Object) }
+  def has_alter_table_move_all_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_table_space_options_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_table_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_tsconfiguration_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_tsdictionary_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_type_stmt?; end
+
+  sig { returns(Object) }
+  def has_alter_user_mapping_stmt?; end
+
+  sig { returns(Object) }
+  def has_alternative_sub_plan?; end
+
+  sig { returns(Object) }
+  def has_array_coerce_expr?; end
+
+  sig { returns(Object) }
+  def has_array_expr?; end
+
+  sig { returns(Object) }
+  def has_bit_string?; end
+
+  sig { returns(Object) }
+  def has_bool_expr?; end
+
+  sig { returns(Object) }
+  def has_boolean?; end
+
+  sig { returns(Object) }
+  def has_boolean_test?; end
+
+  sig { returns(Object) }
+  def has_call_context?; end
+
+  sig { returns(Object) }
+  def has_call_stmt?; end
+
+  sig { returns(Object) }
+  def has_case_expr?; end
+
+  sig { returns(Object) }
+  def has_case_test_expr?; end
+
+  sig { returns(Object) }
+  def has_case_when?; end
+
+  sig { returns(Object) }
+  def has_check_point_stmt?; end
+
+  sig { returns(Object) }
+  def has_close_portal_stmt?; end
+
+  sig { returns(Object) }
+  def has_cluster_stmt?; end
+
+  sig { returns(Object) }
+  def has_coalesce_expr?; end
+
+  sig { returns(Object) }
+  def has_coerce_to_domain?; end
+
+  sig { returns(Object) }
+  def has_coerce_to_domain_value?; end
+
+  sig { returns(Object) }
+  def has_coerce_via_io?; end
+
+  sig { returns(Object) }
+  def has_collate_clause?; end
+
+  sig { returns(Object) }
+  def has_collate_expr?; end
+
+  sig { returns(Object) }
+  def has_column_def?; end
+
+  sig { returns(Object) }
+  def has_column_ref?; end
+
+  sig { returns(Object) }
+  def has_comment_stmt?; end
+
+  sig { returns(Object) }
+  def has_common_table_expr?; end
+
+  sig { returns(Object) }
+  def has_composite_type_stmt?; end
+
+  sig { returns(Object) }
+  def has_constraint?; end
+
+  sig { returns(Object) }
+  def has_constraints_set_stmt?; end
+
+  sig { returns(Object) }
+  def has_convert_rowtype_expr?; end
+
+  sig { returns(Object) }
+  def has_copy_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_am_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_cast_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_conversion_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_domain_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_enum_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_event_trig_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_extension_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_fdw_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_foreign_server_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_foreign_table_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_function_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_op_class_item?; end
+
+  sig { returns(Object) }
+  def has_create_op_class_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_op_family_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_plang_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_policy_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_publication_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_range_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_role_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_schema_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_seq_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_stats_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_subscription_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_table_as_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_table_space_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_transform_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_trig_stmt?; end
+
+  sig { returns(Object) }
+  def has_create_user_mapping_stmt?; end
+
+  sig { returns(Object) }
+  def has_createdb_stmt?; end
+
+  sig { returns(Object) }
+  def has_ctecycle_clause?; end
+
+  sig { returns(Object) }
+  def has_ctesearch_clause?; end
+
+  sig { returns(Object) }
+  def has_current_of_expr?; end
+
+  sig { returns(Object) }
+  def has_deallocate_stmt?; end
+
+  sig { returns(Object) }
+  def has_declare_cursor_stmt?; end
+
+  sig { returns(Object) }
+  def has_def_elem?; end
+
+  sig { returns(Object) }
+  def has_define_stmt?; end
+
+  sig { returns(Object) }
+  def has_delete_stmt?; end
+
+  sig { returns(Object) }
+  def has_discard_stmt?; end
+
+  sig { returns(Object) }
+  def has_distinct_expr?; end
+
+  sig { returns(Object) }
+  def has_do_stmt?; end
+
+  sig { returns(Object) }
+  def has_drop_owned_stmt?; end
+
+  sig { returns(Object) }
+  def has_drop_role_stmt?; end
+
+  sig { returns(Object) }
+  def has_drop_stmt?; end
+
+  sig { returns(Object) }
+  def has_drop_subscription_stmt?; end
+
+  sig { returns(Object) }
+  def has_drop_table_space_stmt?; end
+
+  sig { returns(Object) }
+  def has_drop_user_mapping_stmt?; end
+
+  sig { returns(Object) }
+  def has_dropdb_stmt?; end
+
+  sig { returns(Object) }
+  def has_execute_stmt?; end
+
+  sig { returns(Object) }
+  def has_explain_stmt?; end
+
+  sig { returns(Object) }
+  def has_fetch_stmt?; end
+
+  sig { returns(Object) }
+  def has_field_select?; end
+
+  sig { returns(Object) }
+  def has_field_store?; end
+
+  sig { returns(Object) }
+  def has_float?; end
+
+  sig { returns(Object) }
+  def has_from_expr?; end
+
+  sig { returns(Object) }
+  def has_func_call?; end
+
+  sig { returns(Object) }
+  def has_func_expr?; end
+
+  sig { returns(Object) }
+  def has_function_parameter?; end
+
+  sig { returns(Object) }
+  def has_grant_role_stmt?; end
+
+  sig { returns(Object) }
+  def has_grant_stmt?; end
+
+  sig { returns(Object) }
+  def has_grouping_func?; end
+
+  sig { returns(Object) }
+  def has_grouping_set?; end
+
+  sig { returns(Object) }
+  def has_import_foreign_schema_stmt?; end
+
+  sig { returns(Object) }
+  def has_index_elem?; end
+
+  sig { returns(Object) }
+  def has_index_stmt?; end
+
+  sig { returns(Object) }
+  def has_infer_clause?; end
+
+  sig { returns(Object) }
+  def has_inference_elem?; end
+
+  sig { returns(Object) }
+  def has_inline_code_block?; end
+
+  sig { returns(Object) }
+  def has_insert_stmt?; end
+
+  sig { returns(Object) }
+  def has_int_list?; end
+
+  sig { returns(Object) }
+  def has_integer?; end
+
+  sig { returns(Object) }
+  def has_into_clause?; end
+
+  sig { returns(Object) }
+  def has_join_expr?; end
+
+  sig { returns(Object) }
+  def has_json_agg_constructor?; end
+
+  sig { returns(Object) }
+  def has_json_array_agg?; end
+
+  sig { returns(Object) }
+  def has_json_array_constructor?; end
+
+  sig { returns(Object) }
+  def has_json_array_query_constructor?; end
+
+  sig { returns(Object) }
+  def has_json_constructor_expr?; end
+
+  sig { returns(Object) }
+  def has_json_format?; end
+
+  sig { returns(Object) }
+  def has_json_is_predicate?; end
+
+  sig { returns(Object) }
+  def has_json_key_value?; end
+
+  sig { returns(Object) }
+  def has_json_object_agg?; end
+
+  sig { returns(Object) }
+  def has_json_object_constructor?; end
+
+  sig { returns(Object) }
+  def has_json_output?; end
+
+  sig { returns(Object) }
+  def has_json_returning?; end
+
+  sig { returns(Object) }
+  def has_json_value_expr?; end
+
+  sig { returns(Object) }
+  def has_list?; end
+
+  sig { returns(Object) }
+  def has_listen_stmt?; end
+
+  sig { returns(Object) }
+  def has_load_stmt?; end
+
+  sig { returns(Object) }
+  def has_lock_stmt?; end
+
+  sig { returns(Object) }
+  def has_locking_clause?; end
+
+  sig { returns(Object) }
+  def has_merge_action?; end
+
+  sig { returns(Object) }
+  def has_merge_stmt?; end
+
+  sig { returns(Object) }
+  def has_merge_when_clause?; end
+
+  sig { returns(Object) }
+  def has_min_max_expr?; end
+
+  sig { returns(Object) }
+  def has_multi_assign_ref?; end
+
+  sig { returns(Object) }
+  def has_named_arg_expr?; end
+
+  sig { returns(Object) }
+  def has_next_value_expr?; end
+
+  sig { returns(Object) }
+  def has_notify_stmt?; end
+
+  sig { returns(Object) }
+  def has_null_if_expr?; end
+
+  sig { returns(Object) }
+  def has_null_test?; end
+
+  sig { returns(Object) }
+  def has_object_with_args?; end
+
+  sig { returns(Object) }
+  def has_oid_list?; end
+
+  sig { returns(Object) }
+  def has_on_conflict_clause?; end
+
+  sig { returns(Object) }
+  def has_on_conflict_expr?; end
+
+  sig { returns(Object) }
+  def has_op_expr?; end
+
+  sig { returns(Object) }
+  def has_param?; end
+
+  sig { returns(Object) }
+  def has_param_ref?; end
+
+  sig { returns(Object) }
+  def has_partition_bound_spec?; end
+
+  sig { returns(Object) }
+  def has_partition_cmd?; end
+
+  sig { returns(Object) }
+  def has_partition_elem?; end
+
+  sig { returns(Object) }
+  def has_partition_range_datum?; end
+
+  sig { returns(Object) }
+  def has_partition_spec?; end
+
+  sig { returns(Object) }
+  def has_plassign_stmt?; end
+
+  sig { returns(Object) }
+  def has_prepare_stmt?; end
+
+  sig { returns(Object) }
+  def has_publication_obj_spec?; end
+
+  sig { returns(Object) }
+  def has_publication_table?; end
+
+  sig { returns(Object) }
+  def has_query?; end
+
+  sig { returns(Object) }
+  def has_range_function?; end
+
+  sig { returns(Object) }
+  def has_range_subselect?; end
+
+  sig { returns(Object) }
+  def has_range_table_func?; end
+
+  sig { returns(Object) }
+  def has_range_table_func_col?; end
+
+  sig { returns(Object) }
+  def has_range_table_sample?; end
+
+  sig { returns(Object) }
+  def has_range_tbl_entry?; end
+
+  sig { returns(Object) }
+  def has_range_tbl_function?; end
+
+  sig { returns(Object) }
+  def has_range_tbl_ref?; end
+
+  sig { returns(Object) }
+  def has_range_var?; end
+
+  sig { returns(Object) }
+  def has_raw_stmt?; end
+
+  sig { returns(Object) }
+  def has_reassign_owned_stmt?; end
+
+  sig { returns(Object) }
+  def has_refresh_mat_view_stmt?; end
+
+  sig { returns(Object) }
+  def has_reindex_stmt?; end
+
+  sig { returns(Object) }
+  def has_relabel_type?; end
+
+  sig { returns(Object) }
+  def has_rename_stmt?; end
+
+  sig { returns(Object) }
+  def has_replica_identity_stmt?; end
+
+  sig { returns(Object) }
+  def has_res_target?; end
+
+  sig { returns(Object) }
+  def has_return_stmt?; end
+
+  sig { returns(Object) }
+  def has_role_spec?; end
+
+  sig { returns(Object) }
+  def has_row_compare_expr?; end
+
+  sig { returns(Object) }
+  def has_row_expr?; end
+
+  sig { returns(Object) }
+  def has_row_mark_clause?; end
+
+  sig { returns(Object) }
+  def has_rtepermission_info?; end
+
+  sig { returns(Object) }
+  def has_rule_stmt?; end
+
+  sig { returns(Object) }
+  def has_scalar_array_op_expr?; end
+
+  sig { returns(Object) }
+  def has_sec_label_stmt?; end
+
+  sig { returns(Object) }
+  def has_select_stmt?; end
+
+  sig { returns(Object) }
+  def has_set_operation_stmt?; end
+
+  sig { returns(Object) }
+  def has_set_to_default?; end
+
+  sig { returns(Object) }
+  def has_sort_by?; end
+
+  sig { returns(Object) }
+  def has_sort_group_clause?; end
+
+  sig { returns(Object) }
+  def has_sqlvalue_function?; end
+
+  sig { returns(Object) }
+  def has_stats_elem?; end
+
+  sig { returns(Object) }
+  def has_string?; end
+
+  sig { returns(Object) }
+  def has_sub_link?; end
+
+  sig { returns(Object) }
+  def has_sub_plan?; end
+
+  sig { returns(Object) }
+  def has_subscripting_ref?; end
+
+  sig { returns(Object) }
+  def has_table_func?; end
+
+  sig { returns(Object) }
+  def has_table_like_clause?; end
+
+  sig { returns(Object) }
+  def has_table_sample_clause?; end
+
+  sig { returns(Object) }
+  def has_target_entry?; end
+
+  sig { returns(Object) }
+  def has_transaction_stmt?; end
+
+  sig { returns(Object) }
+  def has_trigger_transition?; end
+
+  sig { returns(Object) }
+  def has_truncate_stmt?; end
+
+  sig { returns(Object) }
+  def has_type_cast?; end
+
+  sig { returns(Object) }
+  def has_type_name?; end
+
+  sig { returns(Object) }
+  def has_unlisten_stmt?; end
+
+  sig { returns(Object) }
+  def has_update_stmt?; end
+
+  sig { returns(Object) }
+  def has_vacuum_relation?; end
+
+  sig { returns(Object) }
+  def has_vacuum_stmt?; end
+
+  sig { returns(Object) }
+  def has_var?; end
+
+  sig { returns(Object) }
+  def has_variable_set_stmt?; end
+
+  sig { returns(Object) }
+  def has_variable_show_stmt?; end
+
+  sig { returns(Object) }
+  def has_view_stmt?; end
+
+  sig { returns(Object) }
+  def has_window_clause?; end
+
+  sig { returns(Object) }
+  def has_window_def?; end
+
+  sig { returns(Object) }
+  def has_window_func?; end
+
+  sig { returns(Object) }
+  def has_with_check_option?; end
+
+  sig { returns(Object) }
+  def has_with_clause?; end
+
+  sig { returns(Object) }
+  def has_xml_expr?; end
+
+  sig { returns(Object) }
+  def has_xml_serialize?; end
+
   sig { returns(T.nilable(PgQuery::ImportForeignSchemaStmt)) }
   def import_foreign_schema_stmt; end
 

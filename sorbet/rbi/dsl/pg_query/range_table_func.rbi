@@ -57,6 +57,15 @@ class PgQuery::RangeTableFunc
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def docexpr=(value); end
 
+  sig { returns(Object) }
+  def has_alias?; end
+
+  sig { returns(Object) }
+  def has_docexpr?; end
+
+  sig { returns(Object) }
+  def has_rowexpr?; end
+
   sig { returns(T::Boolean) }
   def lateral; end
 

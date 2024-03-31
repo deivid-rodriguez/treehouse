@@ -29,6 +29,9 @@ class PgQuery::CreateForeignTableStmt
   sig { void }
   def clear_servername; end
 
+  sig { returns(Object) }
+  def has_base_stmt?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def options; end
 

@@ -35,6 +35,9 @@ class PgQuery::AlterFunctionStmt
   sig { params(value: T.nilable(PgQuery::ObjectWithArgs)).void }
   def func=(value); end
 
+  sig { returns(Object) }
+  def has_func?; end
+
   sig { returns(T.any(Symbol, Integer)) }
   def objtype; end
 

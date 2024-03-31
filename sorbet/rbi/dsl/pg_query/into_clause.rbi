@@ -55,6 +55,12 @@ class PgQuery::IntoClause
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def col_names=(value); end
 
+  sig { returns(Object) }
+  def has_rel?; end
+
+  sig { returns(Object) }
+  def has_view_query?; end
+
   sig { returns(T.any(Symbol, Integer)) }
   def on_commit; end
 

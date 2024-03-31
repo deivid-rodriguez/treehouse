@@ -63,6 +63,15 @@ class PgQuery::RangeTableFuncCol
   sig { params(value: T::Boolean).void }
   def for_ordinality=(value); end
 
+  sig { returns(Object) }
+  def has_coldefexpr?; end
+
+  sig { returns(Object) }
+  def has_colexpr?; end
+
+  sig { returns(Object) }
+  def has_type_name?; end
+
   sig { returns(T::Boolean) }
   def is_not_null; end
 

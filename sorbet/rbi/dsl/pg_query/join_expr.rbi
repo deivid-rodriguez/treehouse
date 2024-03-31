@@ -53,6 +53,21 @@ class PgQuery::JoinExpr
   sig { void }
   def clear_using_clause; end
 
+  sig { returns(Object) }
+  def has_alias?; end
+
+  sig { returns(Object) }
+  def has_join_using_alias?; end
+
+  sig { returns(Object) }
+  def has_larg?; end
+
+  sig { returns(Object) }
+  def has_quals?; end
+
+  sig { returns(Object) }
+  def has_rarg?; end
+
   sig { returns(T::Boolean) }
   def is_natural; end
 

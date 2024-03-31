@@ -57,6 +57,21 @@ class PgQuery::A_Const
   sig { params(value: T.nilable(PgQuery::Float)).void }
   def fval=(value); end
 
+  sig { returns(Object) }
+  def has_boolval?; end
+
+  sig { returns(Object) }
+  def has_bsval?; end
+
+  sig { returns(Object) }
+  def has_fval?; end
+
+  sig { returns(Object) }
+  def has_ival?; end
+
+  sig { returns(Object) }
+  def has_sval?; end
+
   sig { returns(T::Boolean) }
   def isnull; end
 

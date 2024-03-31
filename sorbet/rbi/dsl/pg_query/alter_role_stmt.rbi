@@ -29,6 +29,9 @@ class PgQuery::AlterRoleStmt
   sig { void }
   def clear_role; end
 
+  sig { returns(Object) }
+  def has_role?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def options; end
 

@@ -29,6 +29,9 @@ class PgQuery::PrepareStmt
   sig { void }
   def clear_query; end
 
+  sig { returns(Object) }
+  def has_query?; end
+
   sig { returns(String) }
   def name; end
 

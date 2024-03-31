@@ -37,6 +37,12 @@ class PgQuery::RangeTableSample
   sig { void }
   def clear_repeatable; end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
+  sig { returns(Object) }
+  def has_repeatable?; end
+
   sig { returns(Integer) }
   def location; end
 

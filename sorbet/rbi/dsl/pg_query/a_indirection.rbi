@@ -25,6 +25,9 @@ class PgQuery::A_Indirection
   sig { void }
   def clear_indirection; end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
   sig { returns(Google::Protobuf::RepeatedField[PgQuery::Node]) }
   def indirection; end
 

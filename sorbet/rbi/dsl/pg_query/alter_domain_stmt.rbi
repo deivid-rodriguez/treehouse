@@ -47,6 +47,9 @@ class PgQuery::AlterDomainStmt
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def def=(value); end
 
+  sig { returns(Object) }
+  def has_def?; end
+
   sig { returns(T::Boolean) }
   def missing_ok; end
 

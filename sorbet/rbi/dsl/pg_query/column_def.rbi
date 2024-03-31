@@ -135,6 +135,21 @@ class PgQuery::ColumnDef
   sig { params(value: String).void }
   def generated=(value); end
 
+  sig { returns(Object) }
+  def has_coll_clause?; end
+
+  sig { returns(Object) }
+  def has_cooked_default?; end
+
+  sig { returns(Object) }
+  def has_identity_sequence?; end
+
+  sig { returns(Object) }
+  def has_raw_default?; end
+
+  sig { returns(Object) }
+  def has_type_name?; end
+
   sig { returns(String) }
   def identity; end
 

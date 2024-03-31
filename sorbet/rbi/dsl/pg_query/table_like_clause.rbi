@@ -23,6 +23,9 @@ class PgQuery::TableLikeClause
   sig { void }
   def clear_relation_oid; end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
   sig { returns(Integer) }
   def options; end
 

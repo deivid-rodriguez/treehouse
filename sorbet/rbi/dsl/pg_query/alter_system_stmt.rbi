@@ -11,6 +11,9 @@ class PgQuery::AlterSystemStmt
   sig { void }
   def clear_setstmt; end
 
+  sig { returns(Object) }
+  def has_setstmt?; end
+
   sig { returns(T.nilable(PgQuery::VariableSetStmt)) }
   def setstmt; end
 

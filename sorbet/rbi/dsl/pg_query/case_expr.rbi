@@ -69,6 +69,15 @@ class PgQuery::CaseExpr
   sig { params(value: T.nilable(PgQuery::Node)).void }
   def defresult=(value); end
 
+  sig { returns(Object) }
+  def has_arg?; end
+
+  sig { returns(Object) }
+  def has_defresult?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

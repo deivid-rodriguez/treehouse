@@ -37,6 +37,12 @@ class PgQuery::OnConflictClause
   sig { void }
   def clear_where_clause; end
 
+  sig { returns(Object) }
+  def has_infer?; end
+
+  sig { returns(Object) }
+  def has_where_clause?; end
+
   sig { returns(T.nilable(PgQuery::InferClause)) }
   def infer; end
 

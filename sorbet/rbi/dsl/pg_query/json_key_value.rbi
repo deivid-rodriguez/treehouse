@@ -14,6 +14,12 @@ class PgQuery::JsonKeyValue
   sig { void }
   def clear_value; end
 
+  sig { returns(Object) }
+  def has_key?; end
+
+  sig { returns(Object) }
+  def has_value?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def key; end
 

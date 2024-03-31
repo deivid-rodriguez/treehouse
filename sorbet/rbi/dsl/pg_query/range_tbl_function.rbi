@@ -80,4 +80,7 @@ class PgQuery::RangeTblFunction
 
   sig { params(value: Google::Protobuf::RepeatedField[Integer]).void }
   def funcparams=(value); end
+
+  sig { returns(Object) }
+  def has_funcexpr?; end
 end

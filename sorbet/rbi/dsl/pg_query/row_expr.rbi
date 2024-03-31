@@ -47,6 +47,9 @@ class PgQuery::RowExpr
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def colnames=(value); end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

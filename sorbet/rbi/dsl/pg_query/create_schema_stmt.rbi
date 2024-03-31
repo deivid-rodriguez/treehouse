@@ -33,6 +33,9 @@ class PgQuery::CreateSchemaStmt
   sig { void }
   def clear_schemaname; end
 
+  sig { returns(Object) }
+  def has_authrole?; end
+
   sig { returns(T::Boolean) }
   def if_not_exists; end
 

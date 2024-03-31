@@ -45,6 +45,12 @@ class PgQuery::CreateDomainStmt
   sig { params(value: Google::Protobuf::RepeatedField[PgQuery::Node]).void }
   def domainname=(value); end
 
+  sig { returns(Object) }
+  def has_coll_clause?; end
+
+  sig { returns(Object) }
+  def has_type_name?; end
+
   sig { returns(T.nilable(PgQuery::TypeName)) }
   def type_name; end
 

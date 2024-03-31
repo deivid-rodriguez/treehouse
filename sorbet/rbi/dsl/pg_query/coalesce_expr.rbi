@@ -49,6 +49,9 @@ class PgQuery::CoalesceExpr
   sig { params(value: Integer).void }
   def coalescetype=(value); end
 
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(Integer) }
   def location; end
 

@@ -51,6 +51,15 @@ class PgQuery::SubscriptingRef
   sig { void }
   def clear_xpr; end
 
+  sig { returns(Object) }
+  def has_refassgnexpr?; end
+
+  sig { returns(Object) }
+  def has_refexpr?; end
+
+  sig { returns(Object) }
+  def has_xpr?; end
+
   sig { returns(T.nilable(PgQuery::Node)) }
   def refassgnexpr; end
 

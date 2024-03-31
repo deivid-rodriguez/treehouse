@@ -27,6 +27,9 @@ class PgQuery::SecLabelStmt
   sig { void }
   def clear_provider; end
 
+  sig { returns(Object) }
+  def has_object?; end
+
   sig { returns(String) }
   def label; end
 

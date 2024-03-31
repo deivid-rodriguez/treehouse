@@ -27,6 +27,9 @@ class PgQuery::ReindexStmt
   sig { void }
   def clear_relation; end
 
+  sig { returns(Object) }
+  def has_relation?; end
+
   sig { returns(T.any(Symbol, Integer)) }
   def kind; end
 

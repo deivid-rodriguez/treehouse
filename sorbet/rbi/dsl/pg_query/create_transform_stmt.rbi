@@ -37,6 +37,15 @@ class PgQuery::CreateTransformStmt
   sig { params(value: T.nilable(PgQuery::ObjectWithArgs)).void }
   def fromsql=(value); end
 
+  sig { returns(Object) }
+  def has_fromsql?; end
+
+  sig { returns(Object) }
+  def has_tosql?; end
+
+  sig { returns(Object) }
+  def has_type_name?; end
+
   sig { returns(String) }
   def lang; end
 
