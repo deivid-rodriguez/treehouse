@@ -23,7 +23,7 @@ module ListingDecorator
 
   sig { returns(T.nilable(String)) }
   def image_url
-    images.first.url if image?
+    images.first&.url
   end
 
   sig { returns(T.nilable(String)) }
