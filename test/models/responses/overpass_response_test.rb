@@ -19,8 +19,9 @@ module Responses
       assert_not_nil(results.first, 'Expected results to be parsed from complete page')
       assert_equal(133, results.count)
 
-      assert_equal('Coles', results.first&.parseable&.name)
-      assert_equal('278111955', results.first&.parseable&.external_id)
+      first_facility = T.let(T.must(results.first).parseable, Facility)
+      assert_equal('Coles', first_facility.name)
+      assert_equal('278111955', first_facility.external_id)
 
       # TODO: more assertions
     end
