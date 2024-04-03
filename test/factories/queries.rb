@@ -8,6 +8,10 @@ FactoryBot.define do
     # doesn't have any attributes other than timestamps
   end
 
+  factory :real_estate_query, class: 'Queries::RealEstateQuery' do
+    # doesn't have any attributes other than timestamps
+  end
+
   factory :overpass_query, class: 'Queries::OverpassQuery' do
     facility_type { 'TODO' }
   end
@@ -15,6 +19,17 @@ FactoryBot.define do
   factory :query do
     sequence(:name) { |n| "Query #{n}" }
     description { "#{defined? query_type ? "#{query_type} " : ''} Query: #{Faker::Lorem.sentence}" }
+
+    trait :no_results do
+      transient do
+        min_price { 300 }
+        max_price { 325 }
+        min_bedrooms { 4 }
+        max_bedrooms { 5 }
+        min_carparks { nil }
+        min_bathrooms { nil }
+      end
+    end
 
     trait :domain do
       queryable factory: :domain_query
@@ -57,6 +72,30 @@ FactoryBot.define do
           'maxPrice' => max_price,
           'locations' => locations,
           'excludeDepositTaken' => exclude_deposit_taken,
+        }.compact.to_json
+      end
+    end
+
+    trait :real_estate do
+      queryable factory: :real_estate_query
+
+      transient do
+        listing_type { 'rent' }
+        property_types { [] }
+        location { ['Melbourne City - Greater Region, VIC'] }
+        min_bedrooms { 2 }
+        max_bedrooms { 3 }
+        min_price { 425 }
+        max_price { 650 }
+        min_carparks { 1 }
+        min_bathrooms { 2 }
+      end
+
+      # body { "https://www.realestate.com.au/#{search_slug}" }
+      body do
+        {
+          location:, listing_type:, property_types:,
+          min_bedrooms:, max_bedrooms:, min_price:, max_price:, min_carparks:, min_bathrooms:,
         }.compact.to_json
       end
     end

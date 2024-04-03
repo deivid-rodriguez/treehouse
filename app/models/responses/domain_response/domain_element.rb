@@ -5,7 +5,7 @@ require 'delegate'
 
 module Responses
   class DomainResponse < Response
-    # Represents a single node in the Overpass API response
+    # Represents a single node in the Domain API response
     class DomainElement < SimpleDelegator
       include Kernel
       extend T::Generic
@@ -29,7 +29,9 @@ module Responses
       def to_listing
         return unless listing?
 
-        Listing.lock.find_or_initialize_by(external_id:).tap { |listing| listing.assign_attributes(attributes) }
+        Listing.lock.find_or_initialize_by(external_id: "domain-#{external_id}").tap do |listing|
+          listing.assign_attributes(attributes)
+        end
       end
 
       sig { returns(T.nilable(String)) }

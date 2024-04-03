@@ -13,6 +13,7 @@ services:
     environment:
       - EDITOR
       - DOCKER_HOST_IP=10.69.192.0/18
+      - SCRAPFLY_API_KEY
     ports:
       - "127.0.0.1:3036:3036/tcp"
     volumes:

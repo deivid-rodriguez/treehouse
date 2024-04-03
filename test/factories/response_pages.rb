@@ -19,6 +19,13 @@ FactoryBot.define do
       end
     end
 
+    trait :real_estate do
+      response factory: :real_estate_response
+      transient do
+        body_fixture { file_fixture("http/responses/real_estate_response/#{body_fixture_type}.html") }
+      end
+    end
+
     trait :overpass do
       response factory: :overpass_response
       transient do

@@ -434,6 +434,36 @@ ALTER SEQUENCE public.queries_id_seq OWNED BY public.queries.id;
 
 
 --
+-- Name: real_estate_queries; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.real_estate_queries (
+    id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: real_estate_queries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.real_estate_queries_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: real_estate_queries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.real_estate_queries_id_seq OWNED BY public.real_estate_queries.id;
+
+
+--
 -- Name: response_page_elements; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -643,6 +673,13 @@ ALTER TABLE ONLY public.queries ALTER COLUMN id SET DEFAULT nextval('public.quer
 
 
 --
+-- Name: real_estate_queries id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.real_estate_queries ALTER COLUMN id SET DEFAULT nextval('public.real_estate_queries_id_seq'::regclass);
+
+
+--
 -- Name: response_page_elements id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -788,6 +825,14 @@ ALTER TABLE ONLY public.parses
 
 ALTER TABLE ONLY public.queries
     ADD CONSTRAINT queries_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: real_estate_queries real_estate_queries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.real_estate_queries
+    ADD CONSTRAINT real_estate_queries_pkey PRIMARY KEY (id);
 
 
 --
@@ -1066,6 +1111,7 @@ ALTER TABLE ONLY public.response_pages
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240331131817'),
 ('20240302132353'),
 ('20240224143425'),
 ('20240224141957'),

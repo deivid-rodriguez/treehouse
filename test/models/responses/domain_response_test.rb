@@ -31,7 +31,7 @@ module Responses
       assert_equal(100, results.count)
 
       first_listing = T.let(T.must(results.first).parseable, Listing)
-      assert_equal('16946238', first_listing.external_id)
+      assert_equal('domain-16946238', first_listing.external_id)
       assert_equal(1.0, first_listing.bathroom_count)
       assert_equal(2.0, first_listing.bedroom_count)
       assert_equal(1, first_listing.carpark_count)
