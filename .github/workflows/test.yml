@@ -52,6 +52,9 @@ jobs:
       - run: bin/rails assets:precompile
       - run: bin/rails db:reset RAILS_ENV=test
       - run: bin/rails test
+        env:
+          DOMAIN_API_KEY: key_219ebd48b03175453be6690187de3a85
+          SCRAPFLY_API_KEY: scp-live-69d0c9e32fe74f7cac00b5db33f4c99f
 
   rubocop:
     name: Rubocop

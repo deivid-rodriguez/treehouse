@@ -13,6 +13,8 @@ services:
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432
       - TZ=Australia/Melbourne
+      - DOMAIN_API_KEY=key_219ebd48b03175453be6690187de3a85
+      - SCRAPFLY_API_KEY=scp-live-69d0c9e32fe74f7cac00b5db33f4c99f
     ports:
       - "127.0.0.1:3000:3000/tcp"
     tmpfs:
@@ -29,6 +31,8 @@ services:
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432
       - TZ=Australia/Melbourne
+      - DOMAIN_API_KEY=key_219ebd48b03175453be6690187de3a85
+      - SCRAPFLY_API_KEY=scp-live-69d0c9e32fe74f7cac00b5db33f4c99f
     tmpfs:
       - /app/tmp:mode=755,uid=1000,gid=1000
   db:
