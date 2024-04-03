@@ -40,11 +40,6 @@ jobs:
           --health-retries 5
     steps:
       - uses: actions/checkout@v4
-      - name: Determine TEST_HOST
-        run: |
-          echo "TEST_HOST=$(docker network inspect bridge \
-            --format='{{( index .IPAM.Config 0).Gateway}}')" \
-            | tee -a "${GITHUB_ENV}"
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
