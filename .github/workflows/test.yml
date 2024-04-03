@@ -22,46 +22,40 @@ jobs:
         with:
           bundler-cache: true
 
-  # rspec:
-  #   name: RSpec
-  #   needs: bundler
-  #   runs-on: ubuntu-latest
-  #   services:
-  #     db:
-  #       image: postgres:16-alpine
-  #       env:
-  #         POSTGRES_PASSWORD: postgres
-  #       ports:
-  #         - 5432:5432/tcp
-  #       options: >-
-  #         --health-cmd pg_isready
-  #         --health-interval 10s
-  #         --health-timeout 5s
-  #         --health-retries 5
-  #     selenium:
-  #       image: selenium/standalone-chrome:4
-  #       ports:
-  #         - 4444:4444/tcp
-  #       options: >-
-  #         --shm-size 2gb
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - name: Determine TEST_HOST
-  #       run: |
-  #         echo "TEST_HOST=$(docker network inspect bridge \
-  #           --format='{{( index .IPAM.Config 0).Gateway}}')" \
-  #           | tee -a "${GITHUB_ENV}"
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: .node-version
-  #         cache: yarn
-  #         cache-dependency-path: yarn.lock
-  #     - uses: ruby/setup-ruby@v1
-  #       with:
-  #         bundler-cache: true
-  #     - run: bin/rails assets:precompile
-  #     - run: bin/rails db:reset RAILS_ENV=test
-  #     - run: bin/rspec
+  test:
+    name: Test
+    needs: bundler
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432/tcp
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Determine TEST_HOST
+        run: |
+          echo "TEST_HOST=$(docker network inspect bridge \
+            --format='{{( index .IPAM.Config 0).Gateway}}')" \
+            | tee -a "${GITHUB_ENV}"
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: bin/rails assets:precompile
+      - run: bin/rails db:reset RAILS_ENV=test
+      - run: bin/rails test
 
   rubocop:
     name: Rubocop
