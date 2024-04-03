@@ -926,7 +926,7 @@ class Reline::History < ::Array
 end
 
 # source://reline//lib/reline.rb#597
-Reline::IOGate = Reline::ANSI
+Reline::IOGate = Reline::GeneralIO
 
 # source://reline//lib/reline.rb#20
 class Reline::Key < ::Struct
