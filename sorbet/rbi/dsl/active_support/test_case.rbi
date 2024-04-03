@@ -13,4 +13,10 @@ class ActiveSupport::TestCase
 
   sig { params(fixture_names: T.any(String, Symbol)).returns(T.untyped) }
   def vcr_cassettes_overpass_query_test_fetch_single_page_response(*fixture_names); end
+
+  sig { params(fixture_names: T.any(String, Symbol)).returns(T.untyped) }
+  def vcr_cassettes_real_estate_query_test_fetch_empty_response(*fixture_names); end
+
+  sig { params(fixture_names: T.any(String, Symbol)).returns(T.untyped) }
+  def vcr_cassettes_real_estate_query_test_fetch_single_page_response(*fixture_names); end
 end
