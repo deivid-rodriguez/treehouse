@@ -334,6 +334,12 @@ GEM
       rubocop (>= 0.90.0)
     ruby-progressbar (1.13.0)
     saxerator (0.9.9)
+    sentry-rails (5.17.2)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.17.2)
+    sentry-ruby (5.17.2)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     sorbet (0.5.11319)
       sorbet-static (= 0.5.11319)
     sorbet-runtime (0.5.11319)
@@ -345,6 +351,7 @@ GEM
       prism (>= 0.19.0)
       sorbet-static-and-runtime (>= 0.5.10187)
       thor (>= 0.19.2)
+    stackprof (0.2.26)
     stringio (3.1.0)
     tapioca (0.13.1)
       bundler (>= 2.2.25)
@@ -435,9 +442,12 @@ DEPENDENCIES
   rubocop-rake
   rubocop-sorbet
   saxerator
+  sentry-rails
+  sentry-ruby
   sorbet
   sorbet-runtime
   sorbet-static!
+  stackprof
   tapioca
   tzinfo-data
   vcr (~> 6.2)
