@@ -9,10 +9,22 @@ module GeneratedUrlHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
+  def edit_query_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def listing_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def listings_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def new_query_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def queries_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def query_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def rails_admin_url(*args); end

@@ -6,10 +6,7 @@ class Query < ApplicationRecord
   extend T::Sig
   include Admin::Query
 
-  delegated_type :queryable, inverse_of: :query, types: %w[
-    Queries::DomainQuery
-    Queries::OverpassQuery
-  ]
+  delegated_type :queryable, inverse_of: :query, types: Queryable::TYPES
 
   accepts_nested_attributes_for :queryable
   delegate :fetch!, to: :queryable

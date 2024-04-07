@@ -8,6 +8,14 @@ module Queryable
   extend T::Helpers
   extend T::Generic
 
+  TYPES = T.let(
+    %w[
+      Queries::DomainQuery
+      Queries::OverpassQuery
+    ].freeze,
+    T::Array[String],
+  )
+
   abstract!
 
   requires_ancestor { ApplicationRecord }
