@@ -95,6 +95,9 @@ group :development, :test do
 end
 
 group :development do
+  # Add comments to models with their schema
+  gem 'annotate'
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
