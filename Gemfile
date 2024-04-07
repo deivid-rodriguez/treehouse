@@ -96,7 +96,7 @@ end
 
 group :development do
   # Add comments to models with their schema
-  gem 'annotate'
+  gem 'annotate', github: 'bradfeehan/annotate_models', branch: 'develop'
 
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'

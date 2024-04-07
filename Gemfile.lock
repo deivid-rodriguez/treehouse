@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/bradfeehan/annotate_models.git
+  revision: 09da36dbf7e50a6cff1f8598052c16eec375a75f
+  branch: develop
+  specs:
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
+
+GIT
   remote: https://github.com/railsadminteam/rails_admin.git
   revision: af7414a98aa87cfe90d79cb0ed64962fb34c58f4
   ref: af7414a98aa87cfe90d79cb0ed64962fb34c58f4
@@ -103,9 +112,6 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
-    annotate (3.2.0)
-      activerecord (>= 3.2, < 8.0)
-      rake (>= 10.4, < 14.0)
     ast (2.4.2)
     base64 (0.2.0)
     bigdecimal (3.1.7)
@@ -416,7 +422,7 @@ DEPENDENCIES
   activerecord (~> 7.1)
   activestorage (~> 7.1)
   activesupport (~> 7.1)
-  annotate
+  annotate!
   bootsnap
   capybara
   debug
