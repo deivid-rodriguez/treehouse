@@ -9,6 +9,7 @@ source 'https://gem.fury.io/sorbet-multiarch/' do
   gem 'sorbet-static', group: :development
 end
 
+gem 'dockerfile-rails', '>= 1.6', group: :development
 gem 'sorbet', group: :development
 gem 'sorbet-runtime'
 gem 'tapioca', require: false, group: %i[development test]

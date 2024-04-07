@@ -14,5 +14,8 @@
     "rails_admin": "3.1.2",
     "sass": "^1.70.0"
   },
-  "packageManager": "pnpm@8.15.6"
+  "packageManager": "pnpm@8.15.6",
+  "scripts": {
+    "build": "vite build --outDir public"
+  }
 }
