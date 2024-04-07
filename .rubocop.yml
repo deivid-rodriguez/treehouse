@@ -46,6 +46,7 @@ Metrics/BlockLength:
     - configure
     - namespace
   Exclude:
+    - "lib/tasks/**/*.rake"
     - "test/factories/**/*.rb"
 
 Metrics/ClassLength:
