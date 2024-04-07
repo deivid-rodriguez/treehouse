@@ -4,6 +4,7 @@
 /.git/
 
 # Ignore local bundle.
+/.ruby-lsp/
 /vendor/bundle
 
 # Ignore all environment files (except templates).
@@ -31,7 +32,28 @@
 !/tmp/storage/.keep
 
 # Ignore assets.
+/.pnpm-store/
 /node_modules/
 /app/assets/builds/*
 !/app/assets/builds/.keep
 /public/assets
+
+# Random
+.DS_Store
+/.dockerignore
+/Dockerfile
+/docker-compose*.yml
+/*.md
+
+# Version control
+/.gitignore
+/.gitattributes
+
+# CI
+/.github/
+
+# Development
+/.editorconfig
+/.vscode/
+/.v8rrc.yml
+/.yamllint.yml

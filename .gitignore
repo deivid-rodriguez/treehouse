@@ -26,6 +26,7 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+/.pnpm-store/
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
@@ -35,6 +36,7 @@
 /docker-compose.override.yml
 
 # Keep local for the IDE to find source code of dependencies.
+/.ruby-lsp/
 /vendor/bundle/
 
 # Vite Ruby
@@ -43,3 +45,6 @@ node_modules
 # Vite uses dotenv and suggests to ignore local-only env files. See
 # https://vitejs.dev/guide/env-and-mode.html#env-files
 *.local
+
+# Random
+.DS_Store
