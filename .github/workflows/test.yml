@@ -6,6 +6,8 @@ permissions:
   contents: read
 
 env:
+  APP_HOST: localhost
+  APP_PORT: 3000
   APP_EMAIL_FROM: test@example.com
   DATABASE_URL: postgresql://postgres:postgres@localhost:5432
   SELENIUM_DRIVER_URL: http://localhost:4444/wd/hub

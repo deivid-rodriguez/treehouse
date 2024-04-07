@@ -11,6 +11,8 @@ services:
     tty: true
     stop_grace_period: "3s"
     environment:
+      - APP_HOST=localhost
+      - APP_PORT=3000
       - DATABASE_URL=postgresql://postgres:postgres@db:5432
       - TZ=Australia/Melbourne
       - DOMAIN_API_KEY=key_219ebd48b03175453be6690187de3a85
