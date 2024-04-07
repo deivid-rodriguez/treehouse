@@ -4,6 +4,7 @@
 # Represents a query of some external API
 class Query < ApplicationRecord
   extend T::Sig
+  include Admin::Query
 
   delegated_type :queryable, inverse_of: :query, types: %w[
     Queries::DomainQuery
@@ -25,13 +26,5 @@ class Query < ApplicationRecord
   sig { returns(T.nilable(Response[T.untyped, T.untyped])) }
   def build_response
     responses.build(type: queryable.response_type) if queryable.present?
-  end
-
-  rails_admin do
-    configure(:queryable) do
-      pretty_value { value.class.name.demodulize }
-    end
-
-    exclude_fields :responses, :response_pages
   end
 end
