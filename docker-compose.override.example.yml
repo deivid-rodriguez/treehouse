@@ -19,5 +19,7 @@ services:
     volumes:
       - .:/app:cached
   worker:
+    environment:
+      - SCRAPFLY_API_KEY
     volumes:
       - .:/app:cached
