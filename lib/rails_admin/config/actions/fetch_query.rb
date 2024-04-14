@@ -28,6 +28,8 @@ module RailsAdmin
             redirect_to show_path, flash: { success: 'Query fetch enqueued' }
           end
         end
+
+        RailsAdmin::Config::Actions.register(self)
       end
     end
   end

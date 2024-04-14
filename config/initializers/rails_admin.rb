@@ -1,11 +1,7 @@
 # typed: strict
 # frozen_string_literal: true
 
-require Rails.root.join('lib/rails_admin/fetch_query.rb').to_s
-require Rails.root.join('lib/rails_admin/parse_response_page.rb').to_s
-
-RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::FetchQuery)
-RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ParseResponsePage)
+Dir[Rails.root.join('lib/rails_admin/**/*.rb')].each { |file| require file }
 
 RailsAdmin.config do |config|
   T.let(config, T.class_of(RailsAdmin::Config))
