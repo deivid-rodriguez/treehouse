@@ -12,6 +12,12 @@ module GeneratedUrlHelpersModule
   def edit_query_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def fetch_query_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def good_job_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def listing_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }

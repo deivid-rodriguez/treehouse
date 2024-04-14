@@ -12,6 +12,12 @@ module GeneratedPathHelpersModule
   def edit_query_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def fetch_query_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def good_job_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def listing_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
