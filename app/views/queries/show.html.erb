@@ -6,5 +6,6 @@
   <%= link_to "Edit this query", edit_query_path(@query) %> |
   <%= link_to "Back to queries", queries_path %>
 
+  <%= button_to "Fetch this query", fetch_query_path(@query) %>
   <%= button_to "Destroy this query", @query, method: :delete %>
 </div>

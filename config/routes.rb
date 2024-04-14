@@ -3,7 +3,9 @@
 
 Rails.application.routes.draw do
   resources :listings, only: %i[index show destroy]
-  resources :queries
+  resources :queries do
+    post :fetch, on: :member
+  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount GoodJob::Engine => '/good_job', as: 'good_job'

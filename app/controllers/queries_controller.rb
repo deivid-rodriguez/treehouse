@@ -4,7 +4,7 @@
 # Interface for creating and managing Query models
 class QueriesController < ApplicationController
   extend T::Sig
-  before_action :set_query, only: %i[show edit update destroy]
+  before_action :set_query, only: %i[show edit fetch update destroy]
 
   # GET /queries or /queries.json
   sig { void }
@@ -64,6 +64,17 @@ class QueriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to queries_url, notice: 'Query was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # POST /queries/1/fetch
+  sig { void }
+  def fetch
+    FetchQueryJob.perform_later(query: T.must(@query))
+
+    respond_to do |format|
+      format.html { redirect_to query_url(@query), notice: 'Query is being fetched in the background.' }
+      format.json { render :show, status: :ok, location: @query }
     end
   end
 
