@@ -29,4 +29,14 @@
 #       enabled: "ON"
 
 en:
+  admin:
+    actions:
+      fetch_query:
+        menu: "Fetch"
+        title: "Fetching query..."
+        breadcrumb: "Fetch"
+      parse_response_page:
+        menu: "Parse"
+        title: "Parsing response page..."
+        breadcrumb: "Parse"
   hello: "Hello world"

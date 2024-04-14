@@ -1,6 +1,12 @@
 # typed: strict
 # frozen_string_literal: true
 
+require Rails.root.join('lib/rails_admin/fetch_query.rb').to_s
+require Rails.root.join('lib/rails_admin/parse_response_page.rb').to_s
+
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::FetchQuery)
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ParseResponsePage)
+
 RailsAdmin.config do |config|
   T.let(config, T.class_of(RailsAdmin::Config))
 
@@ -45,5 +51,8 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+
+    fetch_query
+    parse_response_page
   end
 end
