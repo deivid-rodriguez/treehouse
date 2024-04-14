@@ -9,6 +9,11 @@ module ListingDecorator
   requires_ancestor { ActionView::Helpers }
   requires_ancestor { Listing }
 
+  sig { returns(T.untyped) }
+  def address
+    super.presence || { plain: '[unknown address]' }
+  end
+
   sig { returns(T.nilable(String)) }
   def description
     super
@@ -28,6 +33,6 @@ module ListingDecorator
 
   sig { returns(T.nilable(String)) }
   def price
-    "#{number_to_currency monthly_rent, precision: 0} per week" if monthly_rent?
+    "#{number_to_currency monthly_rent, precision: 0}/wk" if monthly_rent?
   end
 end
