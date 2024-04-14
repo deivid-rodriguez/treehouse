@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :queries
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount GoodJob::Engine => '/good_job', as: 'good_job'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
