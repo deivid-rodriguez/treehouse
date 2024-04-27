@@ -1,18 +1,18 @@
 {
   "devDependencies": {
-    "@unocss/preset-typography": "^0.58.3",
-    "@unocss/reset": "^0.58.5",
-    "@unocss/transformer-directives": "^0.58.5",
-    "unocss": "^0.58.3",
-    "vite": "^5.1.1",
-    "vite-plugin-inspect": "^0.8.3",
+    "@unocss/preset-typography": "^0.58.9",
+    "@unocss/reset": "^0.58.9",
+    "@unocss/transformer-directives": "^0.58.9",
+    "unocss": "^0.58.9",
+    "vite": "^5.2.10",
+    "vite-plugin-inspect": "^0.8.4",
     "vite-plugin-rails": "^0.5.0",
     "vite-plugin-ruby": "^5.0.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@fortawesome/fontawesome-free": "^6.5.2",
     "rails_admin": "3.1.2",
-    "sass": "^1.70.0"
+    "sass": "^1.75.0"
   },
   "packageManager": "pnpm@8.15.6",
   "scripts": {
