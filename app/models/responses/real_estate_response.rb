@@ -19,7 +19,9 @@ module Responses
       decode(page.body).select(&:listing?).each_with_index.map do |element, index|
         Parse.new(
           parseable: element.to_listing,
-          response_page_element: page.elements.build(external_id: element.external_id, index:),
+          response_page_element: page.elements
+            .create_with(external_id: element.external_id)
+            .find_or_initialize_by(index:),
         )
       end
     end
