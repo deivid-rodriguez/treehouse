@@ -12,7 +12,7 @@ class Query < ApplicationRecord
   delegate :fetch!, to: :queryable
 
   has_many :responses, dependent: :destroy, inverse_of: :query
-  has_many :response_pages, through: :responses, inverse_of: :query, source: :pages
+  has_many :response_pages, -> { distinct }, through: :responses, inverse_of: :query, source: :pages
 
   validates :queryable, :name, :body, presence: true
 

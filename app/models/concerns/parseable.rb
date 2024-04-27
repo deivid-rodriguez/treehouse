@@ -11,8 +11,8 @@ module Parseable
   included do
     T.bind(self, T.class_of(ApplicationRecord))
     has_many :parses, as: :parseable, dependent: :destroy
-    has_many :response_page_elements, through: :parses
-    has_many :response_pages, through: :response_page_elements
-    has_many :responses, through: :response_pages
+    has_many :response_page_elements, -> { distinct }, through: :parses
+    has_many :response_pages, -> { distinct }, through: :response_page_elements
+    has_many :responses, -> { distinct }, through: :response_pages
   end
 end

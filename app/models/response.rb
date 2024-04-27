@@ -11,7 +11,7 @@ class Response < ApplicationRecord
 
   belongs_to :query, inverse_of: :responses
   has_many :pages, class_name: 'ResponsePage', inverse_of: :response, dependent: :destroy
-  has_many :elements, class_name: 'ResponsePageElement', through: :pages, inverse_of: :response
+  has_many :elements, -> { distinct }, class_name: 'ResponsePageElement', through: :pages, inverse_of: :response
   has_many :parses, through: :elements, inverse_of: :response
 
   accepts_nested_attributes_for :pages
