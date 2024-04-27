@@ -2,7 +2,7 @@
   <article>
     <%= image_tag listing.image_url, class: 'aspect-1.5 w-full' if listing.image? %>
     <span class="block px-4 py-2">
-      <h5 class="inline text-lg"><%= render listing.address %></h5>
+      <h5 class="inline text-lg"><%= render(listing.address || {plain: '[unknown address]'}) %></h5>
       <span class="items-center">
         <i class="fas fa-bed"></i><%= listing.bedroom_count %>
         <i class="fas fa-bath"></i><%= listing.bathroom_count %>

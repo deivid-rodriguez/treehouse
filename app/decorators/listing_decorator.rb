@@ -9,11 +9,6 @@ module ListingDecorator
   requires_ancestor { ActionView::Helpers }
   requires_ancestor { Listing }
 
-  sig { returns(T.untyped) }
-  def address
-    super.presence || { plain: '[unknown address]' }
-  end
-
   sig { returns(T.nilable(String)) }
   def description
     super
