@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.metadata = { "bug_tracker_uri" => "https://github.com/ctran/annotate_models/issues/", "source_code_uri" => "https://github.com/ctran/annotate_models.git" } if s.respond_to? :metadata=
   s.require_paths = ["lib".freeze]
   s.authors = ["Alex Chaffee".freeze, "Cuong Tran".freeze, "Marcos Piccinini".freeze, "Turadg Aleahmad".freeze, "Jon Frisby".freeze]
-  s.date = "2024-04-07"
+  s.date = "2024-04-27"
   s.description = "Annotates Rails/ActiveRecord Models, routes, fixtures, and others based on the database schema.".freeze
   s.email = ["alex@stinky.com".freeze, "cuong.tran@gmail.com".freeze, "x@nofxx.com".freeze, "turadg@aleahmad.net".freeze, "jon@cloudability.com".freeze]
   s.executables = ["annotate".freeze]
