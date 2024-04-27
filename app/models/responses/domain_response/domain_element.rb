@@ -47,7 +47,7 @@ module Responses
         {
           address_attributes:, description:, bathroom_count:, bedroom_count:, carpark_count:, building_area:,
           land_area:, property_type:, monthly_rent:, is_rural: rural?, is_new: new?, slug:, listed_at:, available_at:,
-          images_attributes:, last_seen_at: DateTime.now, # TODO: actual fetch time
+          images_attributes:, geocodes_attributes:, last_seen_at: DateTime.now, # TODO: actual fetch time
         }
       end
 
@@ -138,6 +138,14 @@ module Responses
         media.map.with_index do |image, index|
           { url: image.fetch('url'), index: }
         end
+      end
+
+      sig { returns(T::Array[T::Hash[String, T.untyped]]) }
+      def geocodes_attributes
+        [{
+          latitude: listing&.dig('propertyDetails', 'latitude'),
+          longitude: listing&.dig('propertyDetails', 'longitude'),
+        }]
       end
 
       sig { returns(T.nilable(T::Hash[String, T.untyped])) }
