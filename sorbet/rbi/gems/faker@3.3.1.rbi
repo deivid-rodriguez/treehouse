@@ -9820,7 +9820,7 @@ class Faker::Nation < ::Faker::Base
   end
 end
 
-# source://faker//lib/faker/default/nhs.rb#4
+# source://faker//lib/faker/default/national_health_service.rb#4
 class Faker::NationalHealthService < ::Faker::Base
   class << self
     # Produces a random British NHS number.
@@ -9829,7 +9829,7 @@ class Faker::NationalHealthService < ::Faker::Base
     #   Faker::NationalHealthService.british_number #=> "403 958 5577"
     # @return [String]
     #
-    # source://faker//lib/faker/default/nhs.rb#15
+    # source://faker//lib/faker/default/national_health_service.rb#15
     def british_number; end
 
     # Produces a random British NHS number's check digit.
@@ -9839,7 +9839,7 @@ class Faker::NationalHealthService < ::Faker::Base
     # @param number [Integer] Specifies the NHS number the check digit belongs to.
     # @return [Integer]
     #
-    # source://faker//lib/faker/default/nhs.rb#37
+    # source://faker//lib/faker/default/national_health_service.rb#37
     def check_digit(number: T.unsafe(nil)); end
   end
 end
@@ -10767,41 +10767,6 @@ class Faker::Science < ::Faker::Base
   end
 end
 
-# source://faker//lib/faker/music/show.rb#4
-class Faker::Show < ::Faker::Base
-  class << self
-    # Produces the name of a musical for an older audience
-    #
-    # @example
-    #   Faker::Alphanumeric.alpha
-    #   #=> "West Side Story"
-    # @return [String]
-    #
-    # source://faker//lib/faker/music/show.rb#16
-    def adult_musical; end
-
-    # Produces the name of a musical for a younger audience
-    #
-    # @example
-    #   Faker::Alphanumeric.alpha
-    #   #=> "Into the Woods JR."
-    # @return [String]
-    #
-    # source://faker//lib/faker/music/show.rb#30
-    def kids_musical; end
-
-    # Produces the name of a play
-    #
-    # @example
-    #   Faker::Alphanumeric.alpha
-    #   #=> "Death of a Salesman"
-    # @return [String]
-    #
-    # source://faker//lib/faker/music/show.rb#44
-    def play; end
-  end
-end
-
 # source://faker//lib/faker/default/slack_emoji.rb#4
 class Faker::SlackEmoji < ::Faker::Base
   class << self
@@ -11720,6 +11685,41 @@ class Faker::Team < ::Faker::Base
     #
     # source://faker//lib/faker/default/team.rb#43
     def state; end
+  end
+end
+
+# source://faker//lib/faker/default/theater.rb#4
+class Faker::Theater < ::Faker::Base
+  class << self
+    # Produces the name of a musical for an older audience
+    #
+    # @example
+    #   Faker::Theater.adult_musical
+    #   #=> "Mamma Mia!"
+    # @return [String]
+    #
+    # source://faker//lib/faker/default/theater.rb#16
+    def adult_musical; end
+
+    # Produces the name of a musical for a younger audience
+    #
+    # @example
+    #   Faker::Theater.kids_musical
+    #   #=> "Into the Woods JR."
+    # @return [String]
+    #
+    # source://faker//lib/faker/default/theater.rb#30
+    def kids_musical; end
+
+    # Produces the name of a play
+    #
+    # @example
+    #   Faker::Theater.play
+    #   #=> "Death of a Salesman"
+    # @return [String]
+    #
+    # source://faker//lib/faker/default/theater.rb#44
+    def play; end
   end
 end
 
