@@ -12,6 +12,13 @@ class ListingsController < ApplicationController
     @listings = T.let(listing_scope, T.nilable(ActiveRecord::Relation))
   end
 
+  sig { void }
+  def recent
+    @heading = T.let('Recent Listings', T.nilable(String))
+    @listings = T.let(listing_scope.order(created_at: :desc), T.nilable(ActiveRecord::Relation))
+    render :index
+  end
+
   # GET /listings/1 or /listings/1.json
   sig { void }
   def show; end

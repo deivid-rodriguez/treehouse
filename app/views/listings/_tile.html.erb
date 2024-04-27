@@ -1,0 +1,16 @@
+<%= link_to listing_url(listing), class: 'rounded-xl shadow-md overflow-hidden' do %>
+  <article>
+    <%= image_tag listing.image_url, class: 'aspect-1.5 w-full' if listing.image? %>
+    <span class="block px-4 py-2">
+      <h5 class="inline text-lg"><%= render listing.address %></h5>
+      <span class="items-center">
+        <i class="fas fa-bed"></i><%= listing.bedroom_count %>
+        <i class="fas fa-bath"></i><%= listing.bathroom_count %>
+        <i class="fas fa-car"></i><%= listing.carpark_count %>
+      </span>
+      <span class="inline float-right text-2xl font-bold text-justify">
+        <%= listing.price %>
+      </span>
+    </span>
+  </article>
+<% end %>
