@@ -3,4 +3,5 @@
 
 # Base Helper all others inherit from
 module ApplicationHelper
+  include StaticMapHelper
 end

@@ -8,6 +8,8 @@ RailsAdmin.config do |config|
 
   config.asset_source = :vite
 
+  config.parent_controller = '::ApplicationController'
+
   ### Popular gems integration
 
   ## == Devise ==

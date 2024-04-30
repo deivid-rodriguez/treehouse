@@ -43,6 +43,7 @@ Metrics/AbcSize:
 
 Metrics/BlockLength:
   AllowedMethods:
+    - config
     - configure
     - namespace
   Exclude:
