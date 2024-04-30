@@ -24,7 +24,7 @@ module Queryable
     T.bind(self, T.class_of(ApplicationRecord))
     has_one :query, as: :queryable, dependent: :destroy, touch: true
     accepts_nested_attributes_for :query
-    delegate :name, :description, :body, :responses, to: :query
+    delegate :name, :description, :body, :responses, to: :query, allow_nil: true
   end
 
   sig { abstract.params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(String) }
