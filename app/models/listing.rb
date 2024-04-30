@@ -3,6 +3,7 @@
 
 # Represents a property listed for rent or sale
 class Listing < ApplicationRecord
+  include Admin::Listing
   include Parseable
 
   has_one :address, as: :addressable, dependent: :destroy

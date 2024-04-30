@@ -45,7 +45,9 @@ Metrics/BlockLength:
   AllowedMethods:
     - config
     - configure
+    - included
     - namespace
+    - rails_admin
   Exclude:
     - "lib/tasks/**/*.rake"
     - "test/factories/**/*.rb"
