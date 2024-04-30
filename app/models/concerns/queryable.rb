@@ -12,6 +12,7 @@ module Queryable
     %w[
       Queries::DomainQuery
       Queries::OverpassQuery
+      Queries::RealEstateQuery
     ].freeze,
     T::Array[String],
   )

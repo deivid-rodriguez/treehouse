@@ -34,8 +34,19 @@ RailsAdmin.config do |config|
   config.actions do
     T.bind(self, T.class_of(RailsAdmin::Config::Actions))
 
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard
+
+    index do
+      T.unsafe(self).except do
+        [
+          Queryable::TYPES,
+          Response::TYPES,
+          ResponsePage,
+          ResponsePageElement,
+        ].flatten
+      end
+    end
+
     new
     export
     bulk_delete

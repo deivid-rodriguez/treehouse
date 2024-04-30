@@ -6,6 +6,15 @@ class Response < ApplicationRecord
   extend T::Generic
   extend T::Sig
 
+  TYPES = T.let(
+    %w[
+      Responses::DomainResponse
+      Responses::OverpassResponse
+      Responses::RealEstateResponse
+    ].freeze,
+    T::Array[String],
+  )
+
   Element = type_member
   Model = type_member { { upper: ApplicationRecord } }
 
