@@ -22,6 +22,7 @@ class ApplicationController
     include ::Turbo::Streams::ActionHelper
     include ::ViteRails::TagHelpers
     include ::ActionController::Base::HelperMethods
+    include ::StaticMapHelper
     include ::ApplicationHelper
   end
 

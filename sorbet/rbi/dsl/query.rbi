@@ -437,6 +437,9 @@ class Query
     def queries_overpass_queries(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def queries_real_estate_queries(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def readonly(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
@@ -1016,7 +1019,11 @@ class Query
   end
 
   module GeneratedDelegatedTypeMethods
-    sig { params(args: T.untyped).returns(T.any(Queries::DomainQuery, Queries::OverpassQuery)) }
+    sig do
+      params(
+        args: T.untyped
+      ).returns(T.any(Queries::DomainQuery, Queries::OverpassQuery, Queries::RealEstateQuery))
+    end
     def build_queryable(*args); end
 
     sig { returns(T.nilable(Queries::DomainQuery)) }
@@ -1036,6 +1043,15 @@ class Query
 
     sig { returns(T.nilable(::String)) }
     def queries_overpass_query_id; end
+
+    sig { returns(T.nilable(Queries::RealEstateQuery)) }
+    def queries_real_estate_query; end
+
+    sig { returns(T::Boolean) }
+    def queries_real_estate_query?; end
+
+    sig { returns(T.nilable(::String)) }
+    def queries_real_estate_query_id; end
 
     sig { returns(T::Class[T.anything]) }
     def queryable_class; end
@@ -1140,6 +1156,9 @@ class Query
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def queries_overpass_queries(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def queries_real_estate_queries(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def readonly(*args, &blk); end
