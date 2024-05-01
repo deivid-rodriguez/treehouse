@@ -3,6 +3,16 @@
 
 require 'delegate'
 
+# TODO: Extract parts of #to_listing into Listing#attributes=
+#       As it is, the method is too long and complex, and it only solves the problem of
+#       duplicate images and geocodes for this type of response, but not for other types.
+#       Extracting the fix from here to the model would fix both those issues.
+#
+# rubocop:disable Lint/MissingCopEnableDirective
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/ClassLength
+# rubocop:disable Metrics/MethodLength
+
 module Responses
   class DomainResponse < Response
     # Represents a single node in the Domain API response
