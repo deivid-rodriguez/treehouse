@@ -39,11 +39,18 @@ FactoryBot.define do
       end
 
       body { body_fixture.read }
+      request_body { Faker::Lorem.paragraph }
     end
 
     trait :complete do
       transient do
         body_fixture_type { 'complete' }
+      end
+    end
+
+    trait :single do
+      transient do
+        body_fixture_type { 'single' }
       end
     end
   end

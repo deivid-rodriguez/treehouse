@@ -29,14 +29,27 @@ module Responses
       def to_listing
         return unless listing?
 
-        Listing.lock.find_or_initialize_by(external_id: "domain-#{external_id}").tap do |listing|
+        Listing.lock.includes(:address, :geocodes, :images).find_or_initialize_by(external_id:).tap do |listing|
           listing.assign_attributes(attributes)
+
+          images = listing.images.to_a
+          images_attributes.each do |attributes|
+            image = images.find { _1.url == attributes.fetch(:url) }
+            image.present? ? image.update(attributes) : listing.images.build(attributes)
+          end
+
+          coordinates = listing.geocodes.map(&:coordinates)
+          geocodes_attributes.each do |geocode_attributes|
+            next if coordinates.any?(geocode_attributes.values_at(:latitude, :longitude))
+
+            listing.geocodes << Geocode.build(geocode_attributes)
+          end
         end
       end
 
       sig { returns(T.nilable(String)) }
       def external_id
-        listing&.fetch('id')&.to_s
+        "domain-#{listing&.fetch('id')}"
       end
 
       private
@@ -47,7 +60,7 @@ module Responses
         {
           address_attributes:, description:, bathroom_count:, bedroom_count:, carpark_count:, building_area:,
           land_area:, property_type:, monthly_rent:, is_rural: rural?, is_new: new?, slug:, listed_at:, available_at:,
-          images_attributes:, geocodes_attributes:, last_seen_at: DateTime.now, # TODO: actual fetch time
+          last_seen_at: DateTime.now, # TODO: actual fetch time
         }
       end
 
@@ -131,7 +144,7 @@ module Responses
         try_date_parse(date)
       end
 
-      sig { returns(T::Array[T::Hash[String, T.untyped]]) }
+      sig { returns(T::Array[T::Hash[Symbol, T.untyped]]) }
       def images_attributes
         media = listing&.fetch('media', nil).presence || []
         media.select! { |m| m.fetch('category') == 'Image' }
@@ -140,7 +153,7 @@ module Responses
         end
       end
 
-      sig { returns(T::Array[T::Hash[String, T.untyped]]) }
+      sig { returns(T::Array[T::Hash[Symbol, T.untyped]]) }
       def geocodes_attributes
         [{
           latitude: listing&.dig('propertyDetails', 'latitude'),

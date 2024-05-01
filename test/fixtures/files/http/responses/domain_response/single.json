@@ -1,0 +1,103 @@
+[
+  {
+    "type": "PropertyListing",
+    "listing": {
+      "listingType": "Rent",
+      "id": 16946238,
+      "advertiser": {
+        "type": "Agency",
+        "id": 28347,
+        "name": "Buxton Camberwell",
+        "logoUrl": "https://images.domain.com.au/img/Agencys/28347/logo_28347.png",
+        "preferredColourHex": "#000000",
+        "bannerUrl": "https://images.domain.com.au/img/Agencys/28347/banner_28347.png",
+        "contacts": [
+          {
+            "name": "Alexander Vingos",
+            "photoUrl": "https://images.domain.com.au/img/28347/contact_1872265.jpeg?mod=240330-125353"
+          },
+          {
+            "name": "Alex Mayne",
+            "photoUrl": "https://images.domain.com.au/img/28347/contact_1529940.jpeg?mod=240330-125353"
+          }
+        ]
+      },
+      "priceDetails": {
+        "price": 525,
+        "priceFrom": 525,
+        "priceTo": 525,
+        "displayPrice": "$525.00"
+      },
+      "media": [
+        {
+          "category": "Image",
+          "url": "https://bucket-api.domain.com.au/v1/bucket/image/16946238_1_1_240330_014804-w4032-h3024"
+        },
+        {
+          "category": "Image",
+          "url": "https://bucket-api.domain.com.au/v1/bucket/image/16946238_2_1_240330_014804-w4032-h3024"
+        },
+        {
+          "category": "Image",
+          "url": "https://bucket-api.domain.com.au/v1/bucket/image/16946238_3_1_240330_014804-w4032-h3024"
+        },
+        {
+          "category": "Image",
+          "url": "https://bucket-api.domain.com.au/v1/bucket/image/16946238_4_1_240330_014804-w4032-h3024"
+        },
+        {
+          "category": "Image",
+          "url": "https://bucket-api.domain.com.au/v1/bucket/image/16946238_5_1_240330_014804-w4032-h3024"
+        }
+      ],
+      "propertyDetails": {
+        "state": "VIC",
+        "features": [
+          "Furnished",
+          "GroundFloor",
+          "Heating"
+        ],
+        "propertyType": "ApartmentUnitFlat",
+        "allPropertyTypes": [
+          "ApartmentUnitFlat"
+        ],
+        "bathrooms": 1.0,
+        "bedrooms": 2.0,
+        "carspaces": 1,
+        "unitNumber": "3",
+        "streetNumber": "5",
+        "street": "Cleveland Road",
+        "area": "Monash City - Greater Area",
+        "region": "Melbourne Region",
+        "suburb": "ASHWOOD",
+        "postcode": "3147",
+        "displayableAddress": "3/5 Cleveland Road, Ashwood",
+        "latitude": -37.86769,
+        "longitude": 145.105362,
+        "isRural": false,
+        "isNew": false,
+        "tags": []
+      },
+      "headline": "LOVELY TWO BEDROOM APARTMENT - ACCESS VIA ALLEY WAY BEHIND CLEVELAND RD OFF MAVRON ST",
+      "summaryDescription": "<b></b><br />Register now to view this lovely two bedroom ground floor apartment located via alley way access within close proximity to Ashwood Children's Centre, Jordanville Train Station, Ashburton Shopping amenities, Parkhill Primary School, Ashwood...",
+      "hasFloorplan": false,
+      "hasVideo": false,
+      "labels": [
+        "New"
+      ],
+      "dateAvailable": "2024-04-05",
+      "dateListed": "2024-03-30T12:48:06",
+      "inspectionSchedule": {
+        "byAppointment": false,
+        "recurring": false,
+        "times": [
+          {
+            "openingTime": "2024-04-04T16:50:00",
+            "closingTime": "2024-04-04T17:05:00"
+          }
+        ]
+      },
+      "listingSlug": "3-5-cleveland-road-ashwood-vic-3147-16946238"
+    }
+  }
+]

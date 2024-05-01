@@ -10,5 +10,5 @@ class Listing < ApplicationRecord
   has_many :geocodes, as: :target, dependent: :destroy
   has_many :images, dependent: :destroy, inverse_of: :listing
 
-  accepts_nested_attributes_for :address, :geocodes, :images
+  accepts_nested_attributes_for :address, :geocodes, :images, update_only: true
 end
