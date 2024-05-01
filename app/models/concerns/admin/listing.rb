@@ -8,6 +8,25 @@ module Admin
 
     included do
       rails_admin do
+        # includes :address, :geocodes, :images
+        # controller do
+        #   def scoped_collection
+        #     super.includes :address, :geocodes, :images
+        #   end
+        # end
+
+        %i[
+          address
+          geocodes
+          images
+          parses
+          responses
+          response_pages
+          response_page_elements
+        ].each do |field_name|
+          configure(field_name) { eager_load? true }
+        end
+
         list do
           include_fields :id, :external_id, :address, :monthly_rent
 

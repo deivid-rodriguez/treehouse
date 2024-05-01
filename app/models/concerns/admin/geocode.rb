@@ -8,6 +8,13 @@ module Admin
 
     included do
       rails_admin do
+        %i[
+          address
+          target
+        ].each do |field_name|
+          configure(field_name) { eager_load? true }
+        end
+
         show do
           configure :map do
             formatted_value do

@@ -3,6 +3,7 @@
 
 # Represents the address of a Facility or Location
 class Address < ApplicationRecord
+  include Admin::Address
   extend T::Sig
 
   belongs_to :addressable, polymorphic: true, inverse_of: :address
