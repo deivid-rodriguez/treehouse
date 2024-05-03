@@ -3,16 +3,6 @@
 
 require 'delegate'
 
-# TODO: Extract parts of #to_listing into Listing#attributes=
-#       As it is, the method is too long and complex, and it only solves the problem of
-#       duplicate images and geocodes for this type of response, but not for other types.
-#       Extracting the fix from here to the model would fix both those issues.
-#
-# rubocop:disable Lint/MissingCopEnableDirective
-# rubocop:disable Metrics/AbcSize
-# rubocop:disable Metrics/ClassLength
-# rubocop:disable Metrics/MethodLength
-
 module Responses
   class DomainResponse < Response
     # Represents a single node in the Domain API response
@@ -41,19 +31,8 @@ module Responses
 
         Listing.lock.includes(:address, :geocodes, :images).find_or_initialize_by(external_id:).tap do |listing|
           listing.assign_attributes(attributes)
-
-          images = listing.images.to_a
-          images_attributes.each do |attributes|
-            image = images.find { _1.url == attributes.fetch(:url) }
-            image.present? ? image.update(attributes) : listing.images.build(attributes)
-          end
-
-          coordinates = listing.geocodes.map(&:coordinates)
-          geocodes_attributes.each do |geocode_attributes|
-            next if coordinates.any?(geocode_attributes.values_at(:latitude, :longitude))
-
-            listing.geocodes << Geocode.build(geocode_attributes)
-          end
+          listing.image_attributes = images_attributes
+          listing.geocode_attributes = geocodes_attributes
         end
       end
 
