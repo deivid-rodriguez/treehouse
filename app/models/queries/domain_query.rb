@@ -10,10 +10,18 @@ module Queries
     CLIENT_TYPE = APIClient::Domain
     RESPONSE_TYPE = Responses::DomainResponse
 
-    sig { override.params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(String) }
+    sig { override.params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(ResponsePage) }
     def fetch!(page_after: nil, page_size: ResponsePage::DEFAULT_PER_PAGE)
       page_number = (page_after&.page_number.presence || 0) + 1
-      client.query(body: JSON.parse(body), page_number:, page_size:).to_json
+      retrieved_at = Time.current
+      response = client.query(body: JSON.parse(body), page_number:, page_size:)
+      ResponsePage.new(
+        page_number:, retrieved_at:,
+        external_page_id: response.page_number,
+        request_body: body,
+        body: response.listings.to_json,
+        next_page: response.next_page?,
+      )
     end
 
     sig { override.returns(T.untyped) }

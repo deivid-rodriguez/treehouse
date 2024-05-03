@@ -23,7 +23,7 @@ class ResponseTest < ActiveSupport::TestCase
     # The response should delegate fetching to the query model
     query.define_singleton_method(:fetch!) do |*args|
       test.assert_equal [page_after: nil, page_size: ResponsePage::DEFAULT_PER_PAGE], args
-      '{"next page": "this is the body"}'
+      ResponsePage.new(body: '{"next page": "this is the body"}', request_body: query.body)
     end
 
     page = response.fetch!

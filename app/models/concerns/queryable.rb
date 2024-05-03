@@ -28,7 +28,7 @@ module Queryable
     delegate :name, :description, :body, :responses, to: :query, allow_nil: true
   end
 
-  sig { abstract.params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(String) }
+  sig { abstract.params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(ResponsePage) }
   def fetch!(page_after:, page_size:); end
 
   sig { abstract.returns(T.untyped) }

@@ -5,6 +5,7 @@
 class Response < ApplicationRecord
   extend T::Generic
   extend T::Sig
+  include Admin::Response
 
   TYPES = T.let(
     %w[
@@ -27,11 +28,9 @@ class Response < ApplicationRecord
 
   sig { params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(T.nilable(ResponsePage)) }
   def fetch!(page_after: nil, page_size: ResponsePage::DEFAULT_PER_PAGE)
-    current_query = query
-    return if current_query.nil?
-
-    page_number = page_after&.page_number.presence || 1
-    pages.build(page_number:, request_body: current_query.body, body: current_query.fetch!(page_after:, page_size:))
+    query&.fetch!(page_after:, page_size:).tap do |page|
+      pages << page
+    end
   end
 
   sig { params(page: ResponsePage).returns(T::Enumerable[Parse]) }

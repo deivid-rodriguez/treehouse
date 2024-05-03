@@ -10,13 +10,20 @@ module Queries
     CLIENT_TYPE = APIClient::RealEstate
     RESPONSE_TYPE = Responses::RealEstateResponse
 
-    sig { override.params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(String) }
+    sig { override.params(page_after: T.nilable(ResponsePage), page_size: Integer).returns(ResponsePage) }
     def fetch!(page_after: nil, page_size: ResponsePage::DEFAULT_PER_PAGE)
-      # TODO: Implementation
       raise 'Cannot fetch query with no body' if body.blank?
 
       page_number = (page_after&.page_number.presence || 0) + 1
-      client.query(body: JSON.parse(body), page_number:, page_size:)
+      retrieved_at = Time.current
+      response_body = client.query(body: JSON.parse(body), page_number:, page_size:)
+
+      ResponsePage.new(
+        page_number:, retrieved_at:,
+        external_page_id: page_number,
+        request_body: body, body: response_body,
+        next_page: false, # TODO: Implement pagination for real estate queries
+      )
     end
 
     sig { override.returns(T.untyped) }
