@@ -14,15 +14,15 @@ class Listing < ApplicationRecord
   accepts_nested_attributes_for :address, :geocodes, :images, update_only: true
 
   sig { params(value: T.untyped).void }
-  def image_attributes=(value)
+  def images_attributes=(value)
     Array(value).each do |attributes|
       existing_image = images.find { _1.url == attributes.fetch(:url) }
-      existing_image.present? ? existing_image.update(attributes) : images.build(attributes)
+      existing_image.present? ? existing_image.assign_attributes(attributes) : images.build(attributes)
     end
   end
 
   sig { params(value: T.untyped).void }
-  def geocode_attributes=(value)
+  def geocodes_attributes=(value)
     Array(value).each do |attributes|
       existing = geocodes.map(&:coordinates)
       geocodes.build(attributes) unless existing.any?(attributes.values_at(:latitude, :longitude))

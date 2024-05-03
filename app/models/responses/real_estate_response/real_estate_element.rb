@@ -31,14 +31,14 @@ module Responses
       def to_listing
         return unless listing?
 
-        Listing.lock.find_or_initialize_by(external_id: "rea-#{external_id}").tap do |listing|
+        Listing.lock.includes(:address, :images).find_or_initialize_by(external_id:).tap do |listing|
           listing.assign_attributes(attributes)
         end
       end
 
       sig { returns(T.nilable(String)) }
       def external_id
-        @node.fetch('id')
+        "rea-#{@node.fetch('id')}"
       end
 
       private
@@ -69,7 +69,7 @@ module Responses
       def attributes
         {
           address_attributes:, description:, bathroom_count:, bedroom_count:, carpark_count:, building_area:,
-          land_area:, property_type:, monthly_rent:, is_rural: nil, is_new: nil, slug:, available_at:,
+          land_area:, property_type:, monthly_rent:, is_rural: false, is_new: false, slug:, available_at:,
           images_attributes:, last_seen_at: DateTime.now, # TODO: actual fetch time
         }
       end

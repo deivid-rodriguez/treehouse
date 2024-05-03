@@ -31,8 +31,6 @@ module Responses
 
         Listing.lock.includes(:address, :geocodes, :images).find_or_initialize_by(external_id:).tap do |listing|
           listing.assign_attributes(attributes)
-          listing.image_attributes = images_attributes
-          listing.geocode_attributes = geocodes_attributes
         end
       end
 
@@ -49,7 +47,7 @@ module Responses
         {
           address_attributes:, description:, bathroom_count:, bedroom_count:, carpark_count:, building_area:,
           land_area:, property_type:, monthly_rent:, is_rural: rural?, is_new: new?, slug:, listed_at:, available_at:,
-          last_seen_at: DateTime.now, # TODO: actual fetch time
+          images_attributes:, geocodes_attributes:, last_seen_at: DateTime.now, # TODO: actual fetch time
         }
       end
 

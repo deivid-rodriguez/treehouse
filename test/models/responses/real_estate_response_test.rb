@@ -40,8 +40,8 @@ module Responses
       assert_equal(3.0, first_listing.bedroom_count)
       assert_equal(1, first_listing.carpark_count)
       assert_equal(1300, first_listing.monthly_rent)
-      assert_nil(first_listing.is_rural)
-      assert_nil(first_listing.is_new)
+      assert_not(first_listing.is_rural)
+      assert_not(first_listing.is_new)
       assert_equal('property-apartment-vic-docklands-438929808', first_listing.slug)
       assert_nil(first_listing.listed_at)
       assert_equal(DateTime.strptime('2024-04-23', '%Y-%m-%d'), first_listing.available_at)
@@ -55,6 +55,34 @@ module Responses
       assert_equal('3008', first_listing_address.postcode)
 
       EXPECTED_FIRST_LISTING_IMAGE_URLS.each { |url| assert_includes(first_listing.images.map(&:url), url) }
+    end
+
+    test 'parse the same listings twice' do
+      page = build_response_page(:fetched, :complete).tap(&:save!)
+
+      results = assert_changes -> { Listing.count }, from: 0, to: 25 do
+        page.parse!.each(&:save!).each(&:reload)
+      end
+
+      assert_equal(25, results.count)
+
+      first_listing = results.first.parseable
+      first_listing.reload
+      assert_not_nil(first_listing, 'Expected results to be parsed from single element page')
+      assert_equal(first_listing.id, Listing.first&.id, 'Expected the listing to be saved')
+
+      assert_equal('rea-438929808', first_listing.external_id)
+      assert_not_nil(first_listing.address, 'Expected address to be decoded, got nil')
+      assert_empty(first_listing.geocodes, 'Expected geocodes to be decoded')
+      assert_equal(9, first_listing.images.count, 'Expected images to be decoded')
+
+      # Parse the same page again -- it shouldn't recreate the listings
+      assert_no_changes -> { Listing.count } do
+        page.parse!.each(&:save!)
+      end
+
+      first_listing.reload
+      assert_equal(9, first_listing.images.count, 'Expected images would be unchanged')
     end
 
     private
