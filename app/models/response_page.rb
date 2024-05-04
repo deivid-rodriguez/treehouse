@@ -1,6 +1,32 @@
 # typed: strict
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: response_pages
+#
+#  id               :bigint           not null, primary key
+#  body             :text             not null
+#  next_page        :boolean          default(FALSE), not null
+#  page_number      :integer          not null
+#  request_body     :text             not null
+#  retrieved_at     :datetime         not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  external_page_id :string           not null
+#  response_id      :bigint           not null
+#
+# Indexes
+#
+#  index_response_pages_on_response_id                       (response_id)
+#  index_response_pages_on_response_id_and_external_page_id  (response_id,external_page_id)
+#  index_response_pages_on_response_id_and_page_number       (response_id,page_number) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (response_id => responses.id)
+#
+
 # Represents a single page of a response
 class ResponsePage < ApplicationRecord
   extend T::Sig

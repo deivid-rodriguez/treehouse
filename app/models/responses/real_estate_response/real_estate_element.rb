@@ -69,8 +69,8 @@ module Responses
       def attributes
         {
           address_attributes:, description:, bathroom_count:, bedroom_count:, carpark_count:, building_area:,
-          land_area:, property_type:, monthly_rent:, is_rural: false, is_new: false, slug:, available_at:,
-          images_attributes:, last_seen_at: DateTime.now, # TODO: actual fetch time
+          land_area:, property_type:, is_rural: false, is_new: false, slug:, available_at:,
+          images_attributes:, price:, last_seen_at: DateTime.now, # TODO: actual fetch time
         }
       end
 
@@ -132,15 +132,10 @@ module Responses
         @node.fetch('propertyType').fetch('display')
       end
 
-      sig { returns(T.nilable(Integer)) }
-      def monthly_rent
-        display_price = @node.fetch('price').fetch('display')
-
-        begin
-          Integer(display_price.gsub(/\D/, ''))
-        rescue TypeError, ArgumentError
-          raise "Error parsing display price for listing #{external_id}: #{display_price.inspect}"
-        end
+      sig { returns(Price) }
+      def price
+        # TODO: handle when price should not be of type MonthlyRent
+        MonthlyRent.new(display: @node.fetch('price').fetch('display'))
       end
 
       sig { returns(String) }

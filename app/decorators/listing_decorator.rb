@@ -26,8 +26,8 @@ module ListingDecorator
     images.first&.url
   end
 
-  sig { returns(T.nilable(String)) }
+  sig { returns(Price) }
   def price
-    "#{number_to_currency monthly_rent, precision: 0}/wk" if monthly_rent?
+    super || NullPrice.new
   end
 end

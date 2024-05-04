@@ -1,6 +1,25 @@
 # typed: strict
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: responses
+#
+#  id         :bigint           not null, primary key
+#  type       :string           default("Response"), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  query_id   :bigint           not null
+#
+# Indexes
+#
+#  index_responses_on_query_id  (query_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (query_id => queries.id)
+#
+
 # Represents the response fetched for a query at some point in time
 class Response < ApplicationRecord
   extend T::Generic

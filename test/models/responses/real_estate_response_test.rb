@@ -1,6 +1,25 @@
 # typed: strict
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: responses
+#
+#  id         :bigint           not null, primary key
+#  type       :string           default("Response"), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  query_id   :bigint           not null
+#
+# Indexes
+#
+#  index_responses_on_query_id  (query_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (query_id => queries.id)
+#
+
 require 'test_helper'
 
 module Responses
@@ -39,7 +58,7 @@ module Responses
       assert_equal(3.0, first_listing.bathroom_count)
       assert_equal(3.0, first_listing.bedroom_count)
       assert_equal(1, first_listing.carpark_count)
-      assert_equal(1300, first_listing.monthly_rent)
+      assert_equal('$1,300 per week', first_listing.price&.display)
       assert_not(first_listing.is_rural)
       assert_not(first_listing.is_new)
       assert_equal('property-apartment-vic-docklands-438929808', first_listing.slug)

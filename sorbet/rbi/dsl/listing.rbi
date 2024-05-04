@@ -275,11 +275,20 @@ class Listing
     sig { params(args: T.untyped, blk: T.untyped).returns(::Address) }
     def build_address(*args, &blk); end
 
+    sig { params(args: T.untyped, blk: T.untyped).returns(::Price) }
+    def build_price(*args, &blk); end
+
     sig { params(args: T.untyped, blk: T.untyped).returns(::Address) }
     def create_address(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(::Address) }
     def create_address!(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(::Price) }
+    def create_price(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(::Price) }
+    def create_price!(*args, &blk); end
 
     sig { returns(T::Array[T.untyped]) }
     def geocode_ids; end
@@ -329,8 +338,20 @@ class Listing
     sig { params(value: T::Enumerable[::Parse]).void }
     def parses=(value); end
 
+    sig { returns(T.nilable(::Price)) }
+    def price; end
+
+    sig { params(value: T.nilable(::Price)).void }
+    def price=(value); end
+
+    sig { params(attributes: T.untyped).returns(T.untyped) }
+    def price_attributes=(attributes); end
+
     sig { returns(T.nilable(::Address)) }
     def reload_address; end
+
+    sig { returns(T.nilable(::Price)) }
+    def reload_price; end
 
     sig { returns(T::Array[T.untyped]) }
     def response_ids; end
@@ -1260,51 +1281,6 @@ class Listing
     sig { void }
     def listed_at_will_change!; end
 
-    sig { returns(T.nilable(::Integer)) }
-    def monthly_rent; end
-
-    sig { params(value: T.nilable(::Integer)).returns(T.nilable(::Integer)) }
-    def monthly_rent=(value); end
-
-    sig { returns(T::Boolean) }
-    def monthly_rent?; end
-
-    sig { returns(T.nilable(::Integer)) }
-    def monthly_rent_before_last_save; end
-
-    sig { returns(T.untyped) }
-    def monthly_rent_before_type_cast; end
-
-    sig { returns(T::Boolean) }
-    def monthly_rent_came_from_user?; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def monthly_rent_change; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def monthly_rent_change_to_be_saved; end
-
-    sig { params(from: T.nilable(::Integer), to: T.nilable(::Integer)).returns(T::Boolean) }
-    def monthly_rent_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::Integer)) }
-    def monthly_rent_in_database; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def monthly_rent_previous_change; end
-
-    sig { params(from: T.nilable(::Integer), to: T.nilable(::Integer)).returns(T::Boolean) }
-    def monthly_rent_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::Integer)) }
-    def monthly_rent_previously_was; end
-
-    sig { returns(T.nilable(::Integer)) }
-    def monthly_rent_was; end
-
-    sig { void }
-    def monthly_rent_will_change!; end
-
     sig { returns(T.nilable(::String)) }
     def property_type; end
 
@@ -1394,9 +1370,6 @@ class Listing
 
     sig { void }
     def restore_listed_at!; end
-
-    sig { void }
-    def restore_monthly_rent!; end
 
     sig { void }
     def restore_property_type!; end
@@ -1496,12 +1469,6 @@ class Listing
 
     sig { returns(T::Boolean) }
     def saved_change_to_listed_at?; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def saved_change_to_monthly_rent; end
-
-    sig { returns(T::Boolean) }
-    def saved_change_to_monthly_rent?; end
 
     sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
     def saved_change_to_property_type; end
@@ -1655,9 +1622,6 @@ class Listing
 
     sig { returns(T::Boolean) }
     def will_save_change_to_listed_at?; end
-
-    sig { returns(T::Boolean) }
-    def will_save_change_to_monthly_rent?; end
 
     sig { returns(T::Boolean) }
     def will_save_change_to_property_type?; end

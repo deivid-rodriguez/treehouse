@@ -1,6 +1,16 @@
 # typed: strict
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: overpass_queries
+#
+#  id            :bigint           not null, primary key
+#  facility_type :string           not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 module Queries
   # Represents a query of the Overpass API
   class OverpassQuery < ApplicationRecord

@@ -303,7 +303,6 @@ CREATE TABLE public.listings (
     building_area double precision,
     land_area double precision,
     property_type text,
-    monthly_rent integer,
     is_rural boolean DEFAULT false NOT NULL,
     is_new boolean DEFAULT false NOT NULL,
     slug text,
@@ -396,6 +395,42 @@ CREATE SEQUENCE public.parses_id_seq
 --
 
 ALTER SEQUENCE public.parses_id_seq OWNED BY public.parses.id;
+
+
+--
+-- Name: prices; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.prices (
+    id bigint NOT NULL,
+    listing_id bigint NOT NULL,
+    type character varying NOT NULL,
+    value numeric,
+    min numeric,
+    max numeric,
+    display character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: prices_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.prices_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: prices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.prices_id_seq OWNED BY public.prices.id;
 
 
 --
@@ -666,6 +701,13 @@ ALTER TABLE ONLY public.parses ALTER COLUMN id SET DEFAULT nextval('public.parse
 
 
 --
+-- Name: prices id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.prices ALTER COLUMN id SET DEFAULT nextval('public.prices_id_seq'::regclass);
+
+
+--
 -- Name: queries id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -817,6 +859,14 @@ ALTER TABLE ONLY public.overpass_queries
 
 ALTER TABLE ONLY public.parses
     ADD CONSTRAINT parses_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: prices prices_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.prices
+    ADD CONSTRAINT prices_pkey PRIMARY KEY (id);
 
 
 --
@@ -1009,6 +1059,13 @@ CREATE INDEX index_parses_on_response_page_element_id ON public.parses USING btr
 
 
 --
+-- Name: index_prices_on_listing_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_prices_on_listing_id ON public.prices USING btree (listing_id);
+
+
+--
 -- Name: index_queries_on_queryable_type_and_queryable_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1105,12 +1162,22 @@ ALTER TABLE ONLY public.response_pages
 
 
 --
+-- Name: prices fk_rails_c065f97db4; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.prices
+    ADD CONSTRAINT fk_rails_c065f97db4 FOREIGN KEY (listing_id) REFERENCES public.listings(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240504233523'),
+('20240504232854'),
 ('20240331131817'),
 ('20240302132353'),
 ('20240224143425'),

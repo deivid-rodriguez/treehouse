@@ -35,9 +35,7 @@ module Responses
       end
 
       sig { returns(T.nilable(String)) }
-      def external_id
-        "domain-#{listing&.fetch('id')}"
-      end
+      def external_id = "domain-#{listing&.fetch('id')}"
 
       private
 
@@ -46,8 +44,9 @@ module Responses
       def attributes
         {
           address_attributes:, description:, bathroom_count:, bedroom_count:, carpark_count:, building_area:,
-          land_area:, property_type:, monthly_rent:, is_rural: rural?, is_new: new?, slug:, listed_at:, available_at:,
-          images_attributes:, geocodes_attributes:, last_seen_at: DateTime.now, # TODO: actual fetch time
+          land_area:, property_type:, is_rural: rural?, is_new: new?, slug:, listed_at:, available_at:,
+          images_attributes:, geocodes_attributes:, price:,
+          last_seen_at: DateTime.now, # TODO: actual fetch time
         }
       end
 
@@ -64,72 +63,59 @@ module Responses
       end
 
       sig { returns(T.nilable(String)) }
-      def description
-        listing&.fetch('summaryDescription')
-      end
+      def description = listing&.fetch('summaryDescription')
 
       sig { returns(T.nilable(Float)) }
-      def bathroom_count
-        listing&.dig('propertyDetails', 'bathrooms')
-      end
+      def bathroom_count = listing&.dig('propertyDetails', 'bathrooms')
 
       sig { returns(T.nilable(Float)) }
-      def bedroom_count
-        listing&.dig('propertyDetails', 'bedrooms')
-      end
+      def bedroom_count = listing&.dig('propertyDetails', 'bedrooms')
 
       sig { returns(T.nilable(Integer)) }
-      def carpark_count
-        listing&.dig('propertyDetails', 'carspaces')
-      end
+      def carpark_count = listing&.dig('propertyDetails', 'carspaces')
 
       sig { returns(T.nilable(Float)) }
-      def building_area
-        listing&.dig('propertyDetails', 'buildingArea')
-      end
+      def building_area = listing&.dig('propertyDetails', 'buildingArea')
 
       sig { returns(T.nilable(Float)) }
-      def land_area
-        listing&.dig('propertyDetails', 'landArea')
-      end
+      def land_area = listing&.dig('propertyDetails', 'landArea')
 
       sig { returns(T.nilable(String)) }
-      def property_type
-        listing&.dig('propertyDetails', 'propertyType')
+      def property_type = listing&.dig('propertyDetails', 'propertyType')
+
+      sig { returns(T::Hash[Symbol, T.untyped]) }
+      def price_attributes
+        {
+          value: listing&.dig('priceDetails', 'price').presence,
+          min: listing&.dig('priceDetails', 'priceFrom').presence,
+          max: listing&.dig('priceDetails', 'priceTo').presence,
+          display: listing&.dig('priceDetails', 'displayPrice').presence,
+        }
       end
 
-      sig { returns(T.nilable(Integer)) }
-      def monthly_rent
-        # TODO: handle cases when price is missing but minPrice/maxPrice or displayPrice is present
-        listing&.dig('priceDetails', 'price').presence
+      sig { returns(Price) }
+      def price
+        case listing&.fetch('listingType')&.downcase
+        when 'rent' then MonthlyRent.new(price_attributes)
+        when 'buy' then SalePrice.new(price_attributes)
+        else NullPrice.new
+        end
       end
 
       sig { returns(T.nilable(T::Boolean)) }
-      def rural?
-        listing&.dig('propertyDetails', 'isRural')
-      end
+      def rural? = listing&.dig('propertyDetails', 'isRural')
 
       sig { returns(T.nilable(T::Boolean)) }
-      def new?
-        listing&.dig('propertyDetails', 'isNew')
-      end
+      def new? = listing&.dig('propertyDetails', 'isNew')
 
       sig { returns(String) }
-      def slug
-        listing&.fetch('listingSlug')
-      end
+      def slug = listing&.fetch('listingSlug')
 
       sig { returns(T.nilable(DateTime)) }
-      def listed_at
-        date = listing&.fetch('dateListed')
-        try_date_parse(date)
-      end
+      def listed_at = try_date_parse listing&.fetch('dateListed')
 
       sig { returns(T.nilable(DateTime)) }
-      def available_at
-        date = listing&.fetch('dateAvailable')
-        try_date_parse(date)
-      end
+      def available_at = try_date_parse listing&.fetch('dateAvailable')
 
       sig { returns(T::Array[T::Hash[Symbol, T.untyped]]) }
       def images_attributes

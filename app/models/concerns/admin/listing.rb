@@ -8,18 +8,12 @@ module Admin
 
     included do
       rails_admin do
-        # includes :address, :geocodes, :images
-        # controller do
-        #   def scoped_collection
-        #     super.includes :address, :geocodes, :images
-        #   end
-        # end
-
         %i[
           address
           geocodes
           images
           parses
+          price
           responses
           response_pages
           response_page_elements
@@ -28,7 +22,7 @@ module Admin
         end
 
         list do
-          include_fields :id, :external_id, :address, :monthly_rent
+          include_fields :id, :external_id, :address, :price
 
           configure(:bedroom_count) { label 'Beds' }
           configure(:bathroom_count) { label 'Bath' }
@@ -40,7 +34,7 @@ module Admin
         end
 
         show do
-          include_fields :external_id, :address, :monthly_rent, :bedroom_count, :bathroom_count, :carpark_count,
+          include_fields :external_id, :address, :price, :bedroom_count, :bathroom_count, :carpark_count,
             :description, :images
 
           include_all_fields

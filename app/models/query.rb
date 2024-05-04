@@ -1,6 +1,24 @@
 # typed: strict
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: queries
+#
+#  id             :bigint           not null, primary key
+#  body           :text             not null
+#  description    :text
+#  name           :text             not null
+#  queryable_type :string           not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  queryable_id   :string           not null
+#
+# Indexes
+#
+#  index_queries_on_queryable_type_and_queryable_id  (queryable_type,queryable_id) UNIQUE
+#
+
 # Represents a query of some external API
 class Query < ApplicationRecord
   extend T::Sig

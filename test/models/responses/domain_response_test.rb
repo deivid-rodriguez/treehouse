@@ -1,6 +1,25 @@
 # typed: strict
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: responses
+#
+#  id         :bigint           not null, primary key
+#  type       :string           default("Response"), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  query_id   :bigint           not null
+#
+# Indexes
+#
+#  index_responses_on_query_id  (query_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (query_id => queries.id)
+#
+
 require 'test_helper'
 
 module Responses
@@ -34,7 +53,7 @@ module Responses
       assert_equal(1.0, first_listing.bathroom_count)
       assert_equal(2.0, first_listing.bedroom_count)
       assert_equal(1, first_listing.carpark_count)
-      assert_equal(525, first_listing.monthly_rent)
+      assert_equal(525, first_listing.price&.value)
       assert_equal(false, first_listing.is_rural)
       assert_equal(false, first_listing.is_new)
       assert_equal('3-5-cleveland-road-ashwood-vic-3147-16946238', first_listing.slug)

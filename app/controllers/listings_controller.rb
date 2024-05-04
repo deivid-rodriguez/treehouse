@@ -44,6 +44,6 @@ class ListingsController < ApplicationController
 
   sig { returns(ActiveRecord::Relation) }
   def listing_scope
-    Listing.includes(:address, :images)
+    Listing.includes(:address, :images, :price)
   end
 end

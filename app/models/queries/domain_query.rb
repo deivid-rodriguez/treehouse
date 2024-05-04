@@ -1,6 +1,15 @@
 # typed: strict
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: domain_queries
+#
+#  id         :bigint           not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 module Queries
   # Represents a query of the Domain API
   class DomainQuery < ApplicationRecord

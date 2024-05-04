@@ -3,18 +3,21 @@
 
 # == Schema Information
 #
-# Table name: images
+# Table name: prices
 #
 #  id         :bigint           not null, primary key
-#  index      :integer          not null
-#  url        :text             not null
+#  display    :string
+#  max        :decimal(, )
+#  min        :decimal(, )
+#  type       :string           not null
+#  value      :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  listing_id :bigint           not null
 #
 # Indexes
 #
-#  index_images_on_listing_id  (listing_id)
+#  index_prices_on_listing_id  (listing_id) UNIQUE
 #
 # Foreign Keys
 #
@@ -24,9 +27,8 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :image do
-    listing
-    sequence(:index)
-    url { Faker::LoremFlickr.image(size: '400x300') }
+  factory :price do
+    value { 420 }
+    type { MonthlyRent }
   end
 end

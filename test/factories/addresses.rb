@@ -1,6 +1,27 @@
 # typed: strict
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: addresses
+#
+#  id               :bigint           not null, primary key
+#  addressable_type :string           not null
+#  city             :string
+#  house            :string
+#  postcode         :string
+#  state            :string
+#  street           :string
+#  unit             :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  addressable_id   :bigint           not null
+#
+# Indexes
+#
+#  index_addresses_on_addressable  (addressable_type,addressable_id)
+#
+
 require 'faker'
 
 FactoryBot.define do
